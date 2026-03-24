@@ -32,15 +32,49 @@ body {
 .navbar a:hover { color: var(--primary); }
 
 .hero {
-    /* On crée un voile sombre sur l'image pour que le texte blanc reste lisible */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('Big foow.jpg');
-    
-    background-size: cover;      /* L'image remplit tout l'espace sans se déformer */
-    background-position: center; /* L'image est centrée */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('logo big floow.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Le header prend 80% de la hauteur de l'écran */
+    position: relative; /* INDISPENSABLE pour que la signature se place par rapport à lui */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    padding: 100px 20px;
-    text-align: center;
+}
+
+/* Style du bloc en bas à droite */
+.signature {
+    position: absolute;
+    bottom: 30px; /* Distance du bas */
+    right: 30px;  /* Distance de la droite */
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6); /* Petit fond sombre pour lire le texte */
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 400px; /* Pour que le texte ne soit pas trop long */
+    text-align: left;
+}
+
+.mini-logo {
+    width: 80px; /* Plus petit pour la signature */
+    height: auto;
+    margin-right: 15px;
+}
+
+.signature-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.signature-text strong {
+    color: var(--primary); /* Utilise la couleur orange de ton logo */
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .main-logo { width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
