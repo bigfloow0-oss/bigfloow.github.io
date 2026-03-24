@@ -240,13 +240,60 @@ body {
     display: block;
 }
 
-/* Cette règle cible tous les textes en gras du site */
-strong {
-    color: #007FFF;
-    font-weight: 600; /* Optionnel : pour un aspect un peu plus épais et pro */
+* 1. Mise à jour de la couleur principale */
+:root {
+    --accent: #007FFF; /* Ton nouveau bleu électrique */
+    --dark: #1a1a1a;
+    --light: #f4f4f4;
 }
 
-/* Si tu veux aussi que les titres importants utilisent l'orange */
-.highlight, .card-icon {
-    color: ##F4661B !important;
+/* 2. Coloration automatique de tous les textes en gras */
+strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* 3. Style des icônes de réseaux sociaux au survol */
+.social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: var(--dark);
+    border-radius: 12px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+/* Effet au survol : l'icône et la bordure deviennent bleues */
+.social-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(0, 127, 255, 0.1);
+}
+
+.social-card:hover i, 
+.social-card:hover span {
+    color: var(--accent);
+}
+
+/* 4. Ajustement des autres éléments bleus */
+.section-title::after {
+    background: var(--accent); /* La petite barre sous les titres */
+}
+
+.brand span {
+    color: var(--accent); /* Le "FlooW" dans ton logo textuel */
+}
+
+.btn-primary {
+    background: var(--accent);
 }
