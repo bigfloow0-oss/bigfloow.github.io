@@ -32,9 +32,12 @@ body {
 .navbar a:hover { color: var(--primary); }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Gemini_Generated_Image_gyaon2gyaon2gyao-Photoroom.jpg');
-    background-size: cover;
-    background-position: center;
+    /* On crée un voile sombre sur l'image pour que le texte blanc reste lisible */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('Big foow.jpg');
+    
+    background-size: cover;      /* L'image remplit tout l'espace sans se déformer */
+    background-position: center; /* L'image est centrée */
     color: white;
     padding: 100px 20px;
     text-align: center;
