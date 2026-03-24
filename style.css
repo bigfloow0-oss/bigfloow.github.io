@@ -1,35 +1,51 @@
-/* Style du menu de navigation */
+:root {
+    --primary: #f39c12; /* Une couleur orange rappelant ton logo */
+    --dark: #1a1a1a;
+    --light: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
 .navbar {
-    background: #222;
-    padding: 10px 0;
-}
-
-.navbar ul {
-    list-style: none;
-    padding: 0;
+    background: var(--dark);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar li {
-    margin: 0 20px;
-}
+.logo-text { color: var(--light); font-weight: bold; font-size: 1.5rem; }
 
-.navbar a {
+.navbar ul { list-style: none; display: flex; margin: 0; }
+
+.navbar a { color: white; text-decoration: none; margin-left: 20px; transition: 0.3s; }
+
+.navbar a:hover { color: var(--primary); }
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Gemini_Generated_Image_gyaon2gyaon2gyao-Photoroom.jpg');
+    background-size: cover;
+    background-position: center;
     color: white;
-    text-decoration: none;
-    font-weight: bold;
+    padding: 100px 20px;
+    text-align: center;
 }
 
-.navbar a:hover {
-    color: #007bff; /* Change de couleur au survol */
-}
+.main-logo { width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
 
-/* Style de l'image de profil */
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Rend l'image ronde */
-    border: 3px solid white;
-    margin-top: 20px;
-}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 5%; }
+
+.card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid var(--primary); }
+
+.vision-box { background: var(--dark); color: white; padding: 40px; text-align: center; margin: 40px 5%; border-radius: 15px; }
+
+footer { text-align: center; padding: 20px; background: #eee; font-size: 0.9rem; }
