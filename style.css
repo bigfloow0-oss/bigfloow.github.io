@@ -185,6 +185,7 @@ body {
     .story-grid { grid-template-columns: 1fr; }
     .hero-content h1 { font-size: 2.5rem; }
 }
+
 /* Style pour la page Portfolio */
 .portfolio-header {
     background: var(--dark);
@@ -296,4 +297,17 @@ strong {
 
 .btn-primary {
     background: var(--accent);
+}
+
+/* Style pour le logo textuel */
+.brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--dark); /* Le reste du nom est noir/sombre */
+}
+
+/* Style spécifique pour la lettre W à l'intérieur de .brand */
+.brand span {
+    color: #007FFF; /* Ton bleu électrique */
 }
