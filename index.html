@@ -3,55 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiG FlooW | Création Visuelle & Digitale</title>
+    <title>BiG FlooW | Studio Créatif Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo-text">BiG FlooW</div>
-        <ul>
-            <li><a href="#">Accueil</a></li>
+        <div class="brand">BiG<span>FlooW</span></div>
+        <ul class="nav-links">
+            <li><a href="#propos">Expertise</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#vision">Vision</a></li>
+            <li><a href="#contact" class="btn-contact">Parlons de votre projet</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-    <div class="hero-content">
-        <h1>BiG FlooW</h1>
-    </div>
-
-    <div class="signature">
-        <img src="logo big floow.jpg" alt="Logo BiG FlooW" class="mini-logo">
-        <div class="signature-text">
-            <p><strong>Graphisme, 3D et production digitale</strong></p>
-            <p>Pour transformer vos idées en contenus impactants avec un design graphique professionnel.</p>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal">L'innovation par le <span class="highlight">Design</span></h1>
+            <p>Studio de création & plateforme artistique au service de votre identité.</p>
         </div>
-    </div>
-</header>
+
+        <div class="signature">
+            <img src="logo big floow.jpg" class="mini-logo droite">
+            <div class="signature-text">
+                <p class="tagline">Graphisme, 3D & Digital</p>
+                <p>Transformer vos idées en contenus impactants avec un design professionnel.</p>
+            </div>
+        </div>
+    </header>
     
-    <main>
-        <section id="propos">
-            <h2>À propos de BiG FlooW</h2>
-            <p>Nous évoluons à l’intersection du <strong>design</strong>, de la <strong>technologie</strong> et du <strong>storytelling</strong> pour offrir des expériences visuelles uniques.</p>
-        </section>
-
-        <section id="services" class="grid">
-            <div class="card"><h3>Graphisme</h3><p>Professionnel & Impactant</p></div>
-            <div class="card"><h3>Modélisation 3D</h3><p>Innovation visuelle</p></div>
-            <div class="card"><h3>Branding</h3><p>Identité de marque forte</p></div>
-        </section>
-
-        <section id="vision" class="vision-box">
-            <p>🎯 <strong>Vision :</strong> Devenir une référence dans la création visuelle.</p>
-            <p>🚀 <strong>Mission :</strong> Transformer les idées en expériences créatives.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 BiG FlooW - Créativité, Rigueur, Innovation</p>
-    </footer>
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Nos expertises</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">01</div>
+                    <h3>Graphisme</h3>
+                    <p>Création d'identités visuelles fortes et mémorables pour vos marques.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">02</div>
+                    <h3>Modélisation 3D</h3>
+                    <p>Conception d'univers et d'objets en 3 dimensions pour un rendu futuriste.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">03</div>
+                    <h3>Branding</h3>
+                    <p>Stratégie de marque et storytelling pour marquer les esprits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
