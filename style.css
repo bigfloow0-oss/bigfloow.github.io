@@ -239,3 +239,14 @@ body {
     color: inherit;
     display: block;
 }
+
+/* Cette règle cible tous les textes en gras du site */
+strong {
+    color: #007FFF;
+    font-weight: 600; /* Optionnel : pour un aspect un peu plus épais et pro */
+}
+
+/* Si tu veux aussi que les titres importants utilisent l'orange */
+.highlight, .card-icon {
+    color: ##F4661B !important;
+}
