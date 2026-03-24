@@ -1,21 +1,35 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    text-align: center;
-    background-color: #f4f4f4;
+/* Style du menu de navigation */
+.navbar {
+    background: #222;
+    padding: 10px 0;
 }
 
-header {
-    background: #333;
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
     color: white;
-    padding: 2rem 0;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-section {
-    padding: 20px;
-    background: white;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 8px;
+.navbar a:hover {
+    color: #007bff; /* Change de couleur au survol */
+}
+
+/* Style de l'image de profil */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Rend l'image ronde */
+    border: 3px solid white;
+    margin-top: 20px;
 }
