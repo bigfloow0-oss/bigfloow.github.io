@@ -299,15 +299,17 @@ strong {
     background: var(--accent);
 }
 
-/* Style pour le logo textuel */
-.brand {
+/* On s'assure que le texte du logo est bien sombre par défaut */
+.navbar .brand {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--dark); /* Le reste du nom est noir/sombre */
+    color: #1a1a1a; 
+    text-decoration: none;
 }
 
-/* Style spécifique pour la lettre W à l'intérieur de .brand */
-.brand span {
-    color: #007FFF; /* Ton bleu électrique */
+/* On force la couleur bleue sur le span à l'intérieur de brand */
+.navbar .brand span {
+    color: #007FFF !important; /* Le !important force l'application de la couleur */
+    display: inline-block; /* Aide parfois à l'affichage correct */
 }
