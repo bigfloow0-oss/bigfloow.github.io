@@ -334,3 +334,88 @@ strong {
     color: #007FFF !important; /* Le !important force l'application de la couleur */
     display: inline-block; /* Aide parfois à l'affichage correct */
 }
+
+/* Section About */
+.about-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.about-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: #fcfcfc;
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 8px solid #007FFF;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+}
+
+.section-title-alt {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-title-alt span {
+    color: #007FFF;
+}
+
+.name-highlight {
+    color: #007FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0, 127, 255, 0.2));
+}
+
+/* Bloc Mission */
+.mission-grid {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-icon {
+    font-size: 3rem;
+    color: #007FFF;
+    margin-bottom: 20px;
+}
+
+.mission-item h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #007FFF;
+}
+
+.mission-item p {
+    color: #ccc;
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-card { border-left: none; border-top: 8px solid #007FFF; }
+}
