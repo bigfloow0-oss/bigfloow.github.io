@@ -487,3 +487,84 @@ strong { color: var(--accent-orange); font-weight: 600; }
     .footer-col h4::after { left: 50%; transform: translateX(-50%); }
     .footer-socials { justify-content: center; }
 }
+
+/* --- SECTION EXPERTISES --- */
+.expertise-grid {
+    display: flex; /* Aligne les éléments sur une ligne */
+    justify-content: space-between; /* Espace égal entre les cartes */
+    gap: 30px; /* Espace de sécurité entre les carrés */
+    margin-top: 50px;
+}
+
+.expertise-card {
+    flex: 1; /* Force les 3 cartes à avoir la même largeur */
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    border: 1px solid #eee; /* Bordure légère pour le design */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Numéro en arrière-plan (Design Graphique) */
+.card-bg-icon {
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(0, 127, 255, 0.05); /* Bleu très très clair */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+}
+
+.expertise-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Petite ligne décorative sous le titre */
+.card-line {
+    width: 40px;
+    height: 3px;
+    background: #007FFF; /* Ton bleu W */
+    margin-bottom: 20px;
+    transition: width 0.3s ease;
+}
+
+.expertise-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- EFFETS AU SURVOL (HOVER) --- */
+.expertise-card:hover {
+    transform: translateY(-10px); /* Soulèvement de la carte */
+    border-color: #007FFF; /* La bordure devient bleue */
+    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.1);
+}
+
+.expertise-card:hover .card-line {
+    width: 80px; /* La ligne s'allonge au survol */
+    background: #ED7F10; /* Elle change de couleur (Orange Floo) */
+}
+
+.expertise-card:hover .card-bg-icon {
+    color: rgba(0, 127, 255, 0.1); /* Le numéro devient un peu plus visible */
+}
+
+/* --- RESPONSIVE (Mobile) --- */
+@media (max-width: 900px) {
+    .expertise-grid {
+        flex-direction: column; /* Les cartes s'empilent sur téléphone */
+    }
+}
