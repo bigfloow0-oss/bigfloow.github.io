@@ -1,39 +1,9 @@
-/* Variables Globales avec tes couleurs authentiques */
+/* Variables Globales */
 :root {
-    --accent-blue: #007FFF; /* Ton bleu électrique */
-    --accent-orange: #E73E01; /* Ton orange Floo */
-    --logo-black: #000000;  /* Ton noir BiG */
+    --accent: #007FFF; /* Bleu électrique */
     --bg-dark: #0a0a0a;
     --white: #ffffff;
     --gray-light: #f8f9fa;
-}
-
-/* 1. Correction du Logo textuel dans la barre de navigation */
-.brand {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--logo-black); /* Par défaut le BiG est noir */
-}
-
-.brand .floo {
-    color: var(--accent-orange) !important; /* Le Floo est orange */
-}
-
-.brand .w {
-    color: var(--accent-blue) !important; /* Le W est bleu */
-}
-
-/* 2. Correction des textes en gras (comme les dates ou M. HALLO Victor) */
-/* Nous rétablissons l'orange pour les rendre impactants */
-strong {
-    color: var(--accent-orange);
-    font-weight: 600;
-}
-
-.name-highlight {
-    color: var(--accent-blue); /* Sauf le nom M. HALLO Victor qui reste en bleu */
-    font-weight: 700;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -73,41 +43,12 @@ body { font-family: 'Poppins', sans-serif; background-color: var(--white); color
 .signature { position: absolute; bottom: 40px; right: 40px; display: flex; align-items: center; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); padding: 15px; border-left: 4px solid var(--accent); z-index: 5; }
 .mini-logo { width: 50px; margin-right: 15px; }
 
-/* Correction de la bordure About (Origine) */
-.about-card {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    background: #fcfcfc;
-    padding: 40px;
-    border-radius: 20px;
-    border-left: 8px solid var(--accent-blue); /* La bordure est BLEUE */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-    margin-bottom: 50px;
-}
-
-/* Correction de la carte 2022 (Mission) */
-.experience-card-large {
-    flex: 1;
-    background: var(--bg-dark);
-    color: white;
-    padding: 60px 40px;
-    border-radius: 30px;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.2);
-    text-align: center;
-    border: 1px solid rgba(0, 127, 255, 0.3); /* La bordure fine est BLEUE */
-}
-
-.card-badge {
-    background: var(--accent-blue); /* Le badge 2022 est BLEU */
-    color: white;
-    padding: 8px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-}
+/* Section About (LOGO À DROITE) */
+.about-section { padding: 80px 0; background: var(--white); }
+.about-container { display: flex; max-width: 1200px; margin: 0 auto; padding: 0 5%; align-items: center; justify-content: space-between; }
+.about-text-content { flex: 1.5; padding-right: 50px; }
+.logo-wrapper { flex: 1; text-align: right; }
+.logo-wrapper img { width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,127,255,0.2); }
 
 /* Section Mission */
 .mission-flex-container { display: flex; align-items: center; gap: 50px; margin-top: 40px; }
@@ -141,64 +82,3 @@ strong { color: var(--accent); font-weight: 600; }
     .about-text-content { padding-right: 0; margin-bottom: 40px; }
     .logo-wrapper { text-align: center; }
 }
-
-/* Centrage global pour cette section */
-.text-center { text-align: center; }
-
-.universe-tagline {
-    font-size: 1.2rem;
-    color: #444;
-    line-height: 1.8;
-    margin: 30px auto 60px; /* Espace le texte */
-    max-width: 800px;
-    display: block;
-}
-
-/* Grille pour les logos sociaux */
-.social-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* S'adapte à l'écran */
-    gap: 25px;
-    margin-top: 50px;
-}
-
-/* Style commun pour chaque logo */
-.social-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px;
-    background: white;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--dark); /* Noir par défaut */
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.social-icon i {
-    font-size: 2.2rem; /* Taille du logo */
-    margin-bottom: 12px;
-    transition: 0.3s;
-}
-
-.social-icon span {
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-/* Effets au survol (hover) */
-.social-icon:hover {
-    transform: translateY(-10px); /* Le logo se soulève */
-    color: white; /* Le texte devient blanc au survol */
-    border-color: transparent; /* Supprime la bordure */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Couleurs spécifiques et officielles de chaque réseau au survol */
-.social-icon.tiktok:hover { background: #000000; }
-.social-icon.youtube:hover { background: #FF0000; }
-.social-icon.facebook:hover { background: #1877F2; }
-.social-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
-.social-icon.twitter:hover { background: #000000; } /* X Twitter est noir */
-.social-icon.linkedin:hover { background: #0077B5; }
