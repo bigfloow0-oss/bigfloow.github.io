@@ -419,3 +419,78 @@ strong {
     }
     .about-card { border-left: none; border-top: 8px solid #007FFF; }
 }
+
+/* Container pour mettre côte à côte */
+.mission-flex-container {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    gap: 50px; /* Espace entre le texte et la carte */
+    margin-top: 40px;
+}
+
+/* Colonne texte */
+.mission-text-column {
+    flex: 1; /* Prend 50% de l'espace */
+}
+
+.mission-text-column p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* La Grande Carte 2022 */
+.experience-card-large {
+    flex: 1; /* Prend 50% de l'espace */
+    background: #1a1a1a; /* Fond noir comme sur ton image */
+    color: white;
+    padding: 60px 40px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.2);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-badge {
+    background: #007FFF;
+    color: white;
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.experience-card-large h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #fcfcfc;
+}
+
+.experience-card-large p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+.card-footer-line {
+    width: 50px;
+    height: 4px;
+    background: #007FFF;
+    margin: 30px auto 0;
+    border-radius: 2px;
+}
+
+/* Version Mobile : on les rempile l'un sur l'autre */
+@media (max-width: 900px) {
+    .mission-flex-container {
+        flex-direction: column;
+    }
+    .mission-text-column, .experience-card-large {
+        width: 100%;
+    }
+}
