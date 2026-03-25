@@ -494,3 +494,55 @@ strong {
         width: 100%;
     }
 }
+
+/* On s'assure que la section prend toute la largeur */
+.about-section {
+    width: 100%;
+    padding: 60px 0;
+    overflow: hidden; /* Évite les décalages bizarres */
+}
+
+/* Le container qui contient les deux blocs */
+.about-container {
+    display: flex;
+    max-width: 1200px; /* Largeur max du site */
+    margin: 0 auto;    /* Centre le bloc sur la page */
+    padding: 0 5%;     /* Marge de sécurité sur les côtés */
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Bloc texte */
+.about-text-content {
+    flex: 1.5; /* Prend un peu plus de place que le logo */
+    padding-right: 40px;
+}
+
+/* Bloc Logo à DROITE */
+.logo-wrapper {
+    flex: 1;
+    text-align: right; /* Aligne l'image à l'intérieur du bloc vers la droite */
+}
+
+.logo-wrapper img {
+    width: 100%;
+    max-width: 400px; /* Taille du logo */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 127, 255, 0.15); /* Ombre bleue légère */
+}
+
+/* Pour mobile : on rempile */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    .logo-wrapper {
+        text-align: center;
+    }
+}
