@@ -486,12 +486,3 @@ strong { color: var(--accent-orange); font-weight: 600; }
     .footer-col h4::after { left: 50%; transform: translateX(-50%); }
     .footer-socials { justify-content: center; }
 }
-
-card h3 a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-}
-.card h3 a:hover {
-    color: var(--orange);
-}
