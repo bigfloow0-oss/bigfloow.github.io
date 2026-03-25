@@ -175,3 +175,82 @@ strong { color: var(--accent-orange); font-weight: 600; }
         max-width: none;
     }
 }
+
+/* Container flexible pour aligner texte et bloc côte à côte */
+.story-flex-container {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    gap: 50px; /* Espace entre le texte et le bloc noir */
+    padding: 20px 0;
+}
+
+/* Colonne de texte */
+.story-text-content {
+    flex: 1.5; /* Prend un peu plus de place que le bloc de certification */
+}
+
+.story-text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444; /* Gris sombre pour le texte de fond */
+}
+
+/* Le Nouveau Bloc de Certification Noir */
+.certification-block-black {
+    flex: 1; /* Prend environ 40% de l'espace */
+    background: #1a1a1a; /* Fond noir profond comme sur ton image d'accueil */
+    color: white; /* Texte en blanc pour le contraste */
+    padding: 50px 40px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.2); /* Ombre douce bleutée */
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure fine pour la définition */
+}
+
+/* L'année 2022 en grand et bleu */
+.cert-year {
+    color: #007FFF; /* Ton bleu électrique spécifique */
+    font-size: 5rem; /* Très grand pour l'impact */
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif; /* Police grasse et moderne */
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+/* Titre du bloc de certification */
+.certification-block-black h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fcfcfc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Texte de description sous 2022 */
+.certification-block-black p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #bbb; /* Gris clair pour ne pas trop charger */
+}
+
+/* Petite ligne de finition bleue */
+.cert-footer-line {
+    width: 60px;
+    height: 4px;
+    background: #007FFF;
+    margin: 30px auto 0;
+    border-radius: 2px;
+}
+
+/* Mobile Responsive : on les rempile l'un sur l'autre */
+@media (max-width: 900px) {
+    .story-flex-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .story-text-content, .certification-block-black {
+        width: 100%;
+    }
+}
