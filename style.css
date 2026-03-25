@@ -179,63 +179,73 @@ strong { color: var(--accent-orange); font-weight: 600; }
 /* Container flexible pour aligner texte et bloc côte à côte */
 .story-flex-container {
     display: flex;
-    align-items: center; /* Centre verticalement */
-    gap: 50px; /* Espace entre le texte et le bloc noir */
-    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between; /* Ajout pour meilleure répartition */
+    gap: 50px;
+    padding: 40px 0; /* un peu plus d’air */
 }
 
 /* Colonne de texte */
 .story-text-content {
-    flex: 1.5; /* Prend un peu plus de place que le bloc de certification */
+    flex: 1.5;
+    max-width: 650px; /* évite que le texte soit trop large */
 }
 
 .story-text-content p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #444; /* Gris sombre pour le texte de fond */
+    color: #444;
 }
 
-/* Le Nouveau Bloc de Certification Noir */
+/* Bloc de Certification */
 .certification-block-black {
-    flex: 1; /* Prend environ 40% de l'espace */
-    background: #1a1a1a; /* Fond noir profond comme sur ton image d'accueil */
-    color: white; /* Texte en blanc pour le contraste */
+    flex: 1;
+    max-width: 420px; /* contrôle la taille */
+    background: #1a1a1a;
+    color: white;
     padding: 50px 40px;
     border-radius: 20px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.2); /* Ombre douce bleutée */
+    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.2);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure fine pour la définition */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* animation fluide */
 }
 
-/* L'année 2022 en grand et bleu */
+/* Effet hover PRO 🔥 */
+.certification-block-black:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 127, 255, 0.3);
+}
+
+/* Année */
 .cert-year {
-    color: #007FFF; /* Ton bleu électrique spécifique */
-    font-size: 5rem; /* Très grand pour l'impact */
+    color: #007FFF;
+    font-size: clamp(3rem, 5vw, 5rem); /* responsive automatique */
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif; /* Police grasse et moderne */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1;
     margin-bottom: 20px;
 }
 
-/* Titre du bloc de certification */
+/* Titre */
 .certification-block-black h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
     color: #fcfcfc;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Texte de description sous 2022 */
+/* Texte */
 .certification-block-black p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
-    color: #bbb; /* Gris clair pour ne pas trop charger */
+    color: #bbb;
 }
 
-/* Petite ligne de finition bleue */
+/* Ligne décorative */
 .cert-footer-line {
     width: 60px;
     height: 4px;
@@ -244,13 +254,21 @@ strong { color: var(--accent-orange); font-weight: 600; }
     border-radius: 2px;
 }
 
-/* Mobile Responsive : on les rempile l'un sur l'autre */
+/* Responsive */
 @media (max-width: 900px) {
     .story-flex-container {
         flex-direction: column;
+        align-items: flex-start; /* meilleur rendu mobile */
         gap: 30px;
     }
-    .story-text-content, .certification-block-black {
+
+    .story-text-content,
+    .certification-block-black {
         width: 100%;
+        max-width: 100%;
+    }
+
+    .certification-block-black {
+        padding: 40px 25px;
     }
 }
