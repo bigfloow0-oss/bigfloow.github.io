@@ -272,3 +272,99 @@ strong { color: var(--accent-orange); font-weight: 600; }
         padding: 40px 25px;
     }
 }
+
+/* Espacements entre les grands blocs de texte */
+.mt-5 { margin-top: 60px; }
+
+.content-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    max-width: 900px;
+}
+
+/* Couleur orange spécifique pour le texte BiG FlooW dans les paragraphes */
+.floo-text {
+    color: var(--accent-orange); /* #ED7F10 */
+    font-weight: 700;
+}
+
+/* Style spécifique pour l'appel à la communauté */
+.community-call {
+    background: #f8f9fa;
+    padding: 50px;
+    border-radius: 20px;
+    border-bottom: 5px solid var(--accent-blue); /* Rappel du bleu W */
+}
+
+.community-call .tagline {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+/* Amélioration du bloc de certification pour qu'il soit bien noir */
+.certification-block-black {
+    background: #000000; /* Noir pur */
+    border: 1px solid #333;
+}
+
+/* Animation légère au survol des paragraphes importants */
+.content-block:hover p {
+    color: #000;
+    transition: 0.3s;
+}
+
+/* Espacements entre les grands blocs de texte */
+.mt-5 { 
+    margin-top: 60px; 
+}
+
+.content-block p {
+    font-size: 1.05rem; /* un peu plus équilibré */
+    line-height: 1.8;
+    color: #333;
+    max-width: 900px;
+}
+
+/* Couleur orange spécifique */
+.floo-text {
+    color: var(--orange); /* CORRIGÉ (tu avais une variable inexistante) */
+    font-weight: 700;
+}
+
+/* Bloc communauté */
+.community-call {
+    background: #f8f9fa;
+    padding: 50px;
+    border-radius: 20px;
+    border-bottom: 5px solid var(--blue); /* CORRIGÉ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet hover léger 🔥 */
+.community-call:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.community-call .tagline {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+/* Bloc certification (amélioré sans casser ton style précédent) */
+.certification-block-black {
+    background: #000000;
+    border: 1px solid #333;
+}
+
+/* Animation texte (corrigée) */
+.content-block p {
+    transition: color 0.3s ease;
+}
+
+.content-block:hover p {
+    color: #000;
+}
