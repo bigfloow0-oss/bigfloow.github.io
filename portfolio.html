@@ -1,19 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio Graphique de BiG FlooW - Design graphique professionnel, identité visuelle, branding et création digitale.">
-    <title>Portfolio Graphique | BiG FlooW</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Graphique | BiG FlooW</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+/* --- PORTFOLIO --- */
+.portfolio-header {
+    text-align: center;
+    padding: 80px 20px 40px;
+    background: #f9f9f9;
+}
+.portfolio-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+.portfolio-header p.inspire-text {
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+}
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 50px 20px;
+}
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+.work-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.work-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+.work-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.work-desc {
+    padding: 20px;
+    text-align: center;
+}
+.work-desc .category {
+    display: block;
+    font-size: 0.85rem;
+    color: #007FFF;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.work-desc h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+}
+.work-desc p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+footer.text-center {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f1f1f1;
+    color: #333;
+}
+footer .social-box {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #007FFF;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+}
+footer .social-box:hover {
+    background: #005FCC;
+}
+</style>
 </head>
 <body>
 
@@ -27,132 +111,98 @@
     </ul>
 </nav>
 
-<!-- HEADER PORTFOLIO -->
+<!-- HEADER -->
 <header class="portfolio-header">
-    <div class="hero-overlay"></div>
-    <div class="portfolio-header-content">
-        <h1>L'Art de donner vie aux Idées</h1>
-        <p class="inspire-text">"Là où l'esthétique rencontre la stratégie. Nous ne concevons pas que des visuels, nous construisons des solutions qui fonctionnent pour vous."</p>
-    </div>
+    <h1>L'Art de donner vie aux Idées</h1>
+    <p class="inspire-text">"Là où l'esthétique rencontre la stratégie. Nous ne concevons pas que des visuels, nous construisons des solutions qui fonctionnent pour vous."</p>
 </header>
 
 <main class="container">
 
-    <!-- INTRODUCTION -->
-    <section class="gallery-intro section-padding">
-        <h2>Mes Conceptions</h2>
-        <p>Chaque pixel raconte une histoire. Découvrez comment je transforme des concepts abstraits en visuels percutants et professionnels.</p>
-    </section>
+<section class="portfolio-grid">
 
-    <!-- GRILLE PORTFOLIO -->
-    <section class="portfolio-grid">
-
-        <!-- Graphisme -->
-        <div class="work-item">
-            <div class="work-image">
-                <img src="concep 3.jpeg" alt="Identité Visuelle BiG FlooW">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Identité Visuelle BiG FlooW</h4>
-                <p>Une fusion entre minimalisme et impact visuel pour marquer les esprits.</p>
-            </div>
+    <!-- Graphisme Professionnel -->
+    <div class="work-item">
+        <div class="work-image">
+            <img src="concep 3.jpeg" alt="Identité Visuelle BiG FlooW">
         </div>
-
-        <div class="work-item">
-            <div class="work-image">
-                <img src="IMG-20221127-WA0012.jpg" alt="Affiche Publicitaire">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Affiche Publicitaire BiG FlooW</h4>
-                <p>Création graphique ciblée pour maximiser l’impact visuel.</p>
-            </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Identité Visuelle BiG FlooW</h4>
+            <p>Une fusion entre minimalisme et impact visuel pour marquer les esprits.</p>
         </div>
+    </div>
 
-        <div class="work-item">
-            <div class="work-image">
-                <img src="Concep 4.jpeg" alt="Identité Visuelle">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Identité Visuelle</h4>
-                <p>La force d'une marque réside dans son image.</p>
-            </div>
+    <div class="work-item">
+        <div class="work-image">
+            <img src="IMG-20221127-WA0012.jpg" alt="Affiche Publicitaire">
         </div>
-
-        <div class="work-item">
-            <div class="work-image">
-                <img src="Concep 5.jpeg" alt="Affiche Publicitaire">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Affiche Publicitaire</h4>
-                <p>Capter l'attention au premier regard.</p>
-            </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Affiche Publicitaire BiG FlooW</h4>
+            <p>Création graphique ciblée pour maximiser l’impact visuel.</p>
         </div>
+    </div>
 
-        <div class="work-item">
-            <div class="work-image">
-                <img src="Diplome.jpg" alt="Diplôme Graphique">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Certification Design</h4>
-                <p>Validation officielle de l'expertise graphique.</p>
-            </div>
+    <div class="work-item">
+        <div class="work-image">
+            <img src="Concep 4.jpeg" alt="Identité Visuelle">
         </div>
-
-        <div class="work-item">
-            <div class="work-image">
-                <img src="Imma couture.jpg" alt="Identité Visuelle Couture">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Identité Visuelle</h4>
-                <p>Création graphique adaptée aux marques de mode.</p>
-            </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Identité Visuelle</h4>
+            <p>La force d'une marque réside dans son image.</p>
         </div>
+    </div>
 
-        <div class="work-item">
-            <div class="work-image">
-                <img src="DAV PUB-1.jpg" alt="Affiche Publicitaire">
-            </div>
-            <div class="work-desc">
-                <span class="category">Graphisme Professionnel</span>
-                <h4>Identité Visuelle</h4>
-                <p>Fusion entre créativité et stratégie de marque.</p>
-            </div>
+    <div class="work-item">
+        <div class="work-image">
+            <img src="Concep 5.jpeg" alt="Affiche Publicitaire">
         </div>
-
-        <!-- 3D et Contenu Digital -->
-        <div class="work-item">
-            <div class="work-image">
-                <img src="IMG-20221120-WA0022.jpg" alt="Univers Digital Immersif">
-            </div>
-            <div class="work-desc">
-                <span class="category">Modélisation 3D</span>
-                <h4>Univers Digital Immersif</h4>
-                <p>Exploration des formes et textures pour un rendu futuriste.</p>
-            </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Affiche Publicitaire</h4>
+            <p>Capter l'attention au premier regard.</p>
         </div>
+    </div>
 
-        <div class="work-item">
-            <div class="work-image">
-                <img src="branding.png" alt="Storytelling Visuel">
-            </div>
-            <div class="work-desc">
-                <span class="category">Contenu Digital</span>
-                <h4>Storytelling Visuel</h4>
-                <p>Transformer un message simple en une expérience visuelle captivante.</p>
-            </div>
+    <div class="work-item">
+        <div class="work-image">
+            <img src="Diplome.jpg" alt="Diplôme Graphique">
         </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Certification Design</h4>
+            <p>Validation officielle de l'expertise graphique.</p>
+        </div>
+    </div>
 
-    </section>
+    <div class="work-item">
+        <div class="work-image">
+            <img src="Imma couture.jpg" alt="Identité Visuelle Couture">
+        </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Identité Visuelle</h4>
+            <p>Création graphique adaptée aux marques de mode.</p>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image">
+            <img src="DAV PUB-1.jpg" alt="Affiche Publicitaire">
+        </div>
+        <div class="work-desc">
+            <span class="category">Graphisme Professionnel</span>
+            <h4>Identité Visuelle</h4>
+            <p>Fusion entre créativité et stratégie de marque.</p>
+        </div>
+    </div>
+
+</section>
 
 </main>
 
-<!-- FOOTER -->
 <footer class="text-center section-padding">
     <p>Inspiré par le mouvement, guidé par la rigueur.</p>
     <a href="index.html" class="social-box">Retourner à l'accueil</a>
