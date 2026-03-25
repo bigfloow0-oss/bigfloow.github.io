@@ -272,3 +272,78 @@ strong { color: var(--accent-orange); font-weight: 600; }
         padding: 40px 25px;
     }
 }
+
+/* --- Style de la liste "Design Graphique" --- */
+.feature-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+/* Petit point design bleu devant chaque phrase */
+.feature-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent-blue); /* #007FFF */
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0, 127, 255, 0.5);
+}
+
+.feature-item p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+/* Mise en avant des mots importants en orange */
+.feature-item strong {
+    color: var(--accent-orange); /* #ED7F10 */
+    font-weight: 600;
+}
+
+/* Effet au survol d'un point de la liste */
+.feature-item:hover {
+    background: rgba(0, 127, 255, 0.03);
+    transform: translateX(10px);
+}
+
+/* --- Bloc Noir de Certification (Rappel) --- */
+.certification-block-black {
+    background: #000000;
+    color: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cert-year {
+    color: var(--accent-blue);
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .story-flex-container {
+        flex-direction: column;
+    }
+    .feature-item:hover {
+        transform: none;
+    }
+}
