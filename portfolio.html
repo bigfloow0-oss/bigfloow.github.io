@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BiG FlooW - Studio créatif digital spécialisé en design, 3D et branding.">
-    <title>BiG FlooW | Studio Créatif Digital</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BiG FlooW - Portfolio Graphisme, 3D et Branding">
+<title>BiG FlooW | Portfolio</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 
-    
 <style>
 /* --- PORTFOLIO --- */
 .portfolio-header {
@@ -50,6 +48,8 @@
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
 }
 .work-item:hover {
     transform: translateY(-5px);
@@ -65,7 +65,6 @@
 
 .work-desc {
     padding: 20px;
-    text-align: center;
 }
 .work-desc .category {
     display: block;
@@ -88,154 +87,179 @@
 }
 
 /* FOOTER */
-footer.text-center {
-    text-align: center;
-    padding: 40px 20px;
-    background: #f1f1f1;
-    color: #333;
+footer.main-footer {
+    background-color: #050505;
+    color: #ffffff;
+    padding: 80px 8% 20px;
+    font-family: 'Poppins', sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-footer .social-box {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 25px;
-    background: #007FFF;
-    color: #fff;
-    border-radius: 50px;
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #ED7F10;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a {
+    color: #a1a1a6;
     text-decoration: none;
-    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
-footer .social-box:hover {
-    background: #005FCC;
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+    border-left: 2px solid #007FFF;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
-</head>
-<body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="brand">BiG<span class="floo">Floo</span>W</div>
     <ul class="nav-links">
-        <li><a href="index.html#services">Expertise</a></li>
+        <li><a href="index.html#expertises">Expertise</a></li>
         <li><a href="index.html#story">À propos</a></li>
         <li><a href="index.html#contact" class="btn-contact">Parlons de votre projet</a></li>
     </ul>
 </nav>
 
 <!-- HEADER -->
-<header class="portfolio-header">
-    <h1>L'Art de donner vie aux Idées</h1>
-    <p class="inspire-text">"Là où l'esthétique rencontre la stratégie. Nous ne concevons pas que des visuels, nous construisons des solutions qui fonctionnent pour vous."</p>
+<header class="portfolio-header" id="graphisme">
+    <h1>Portfolio Graphisme</h1>
+    <p class="inspire-text">Découvrez nos créations graphiques : identités visuelles, affiches et designs impactants.</p>
 </header>
 
 <main class="container">
-
 <section class="portfolio-grid">
 
-    <!-- Graphisme Professionnel -->
     <div class="work-item">
-        <div class="work-image">
-            <img src="concep 3.jpeg" alt="Identité Visuelle BiG FlooW">
-        </div>
+        <div class="work-image"><img src="concep 3.jpeg" alt="Identité Visuelle BiG FlooW"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Identité Visuelle BiG FlooW</h4>
             <p>Une fusion entre minimalisme et impact visuel pour marquer les esprits.</p>
         </div>
     </div>
 
     <div class="work-item">
-        <div class="work-image">
-            <img src="IMG-20221127-WA0012.jpg" alt="Affiche Publicitaire">
-        </div>
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg" alt="Affiche Publicitaire"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Affiche Publicitaire BiG FlooW</h4>
             <p>Création graphique ciblée pour maximiser l’impact visuel.</p>
         </div>
     </div>
 
     <div class="work-item">
-        <div class="work-image">
-            <img src="Concep 4.jpeg" alt="Identité Visuelle">
-        </div>
+        <div class="work-image"><img src="Concep 4.jpeg" alt="Identité Visuelle"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Identité Visuelle</h4>
             <p>La force d'une marque réside dans son image.</p>
         </div>
     </div>
 
     <div class="work-item">
-        <div class="work-image">
-            <img src="Concep 5.jpeg" alt="Affiche Publicitaire">
-        </div>
+        <div class="work-image"><img src="Concep 5.jpeg" alt="Affiche Publicitaire"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Affiche Publicitaire</h4>
             <p>Capter l'attention au premier regard.</p>
         </div>
     </div>
 
     <div class="work-item">
-        <div class="work-image">
-            <img src="Diplome.jpg" alt="Diplôme Graphique">
-        </div>
+        <div class="work-image"><img src="Diplome.jpg" alt="Diplôme Graphique"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Certification Design</h4>
             <p>Validation officielle de l'expertise graphique.</p>
         </div>
     </div>
 
     <div class="work-item">
-        <div class="work-image">
-            <img src="Imma couture.jpg" alt="Identité Visuelle Couture">
-        </div>
+        <div class="work-image"><img src="Imma couture.jpg" alt="Identité Visuelle Couture"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Identité Visuelle</h4>
             <p>Création graphique adaptée aux marques de mode.</p>
         </div>
     </div>
 
     <div class="work-item">
-        <div class="work-image">
-            <img src="DAV PUB-1.jpg" alt="Affiche Publicitaire">
-        </div>
+        <div class="work-image"><img src="DAV PUB-1.jpg" alt="Affiche Publicitaire"></div>
         <div class="work-desc">
-            <span class="category">Graphisme Professionnel</span>
+            <span class="category">Graphisme</span>
             <h4>Identité Visuelle</h4>
             <p>Fusion entre créativité et stratégie de marque.</p>
         </div>
     </div>
 
 </section>
-
 </main>
 
 <!-- FOOTER -->
 <footer class="main-footer">
     <div class="footer-container">
-
         <div class="footer-col branding">
             <div class="brand-footer">BiG<span class="floo">Floo</span><span class="w">W</span></div>
-            <p class="footer-desc">
-                Société créative spécialisée en design et contenus digitaux.
-            </p>
+            <p class="footer-desc">Société créative spécialisée en design et contenus digitaux.</p>
             <p class="footer-slogan">"Là où la créativité prend vie"</p>
         </div>
-
         <div class="footer-col">
             <h4>Liens rapides</h4>
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#story">À propos</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#graphisme">Graphisme</a></li>
+                <li><a href="index.html#expertises">Services</a></li>
                 <li><a href="#">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
-
         <div class="footer-col">
             <h4>Services</h4>
             <ul>
@@ -245,15 +269,12 @@ footer .social-box:hover {
                 <li><a href="#">Branding</a></li>
             </ul>
         </div>
-
         <div class="footer-col">
             <h4>Contact</h4>
             <p><i class="fas fa-envelope"></i> bigfloow0@gmail.com</p>
             <p><i class="fas fa-map-marker-alt"></i> Lomé, Togo</p>
         </div>
-
     </div>
-
     <div class="footer-bottom">
         <p>© 2025 BiG FlooW – Tous droits réservés</p>
     </div>
