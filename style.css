@@ -186,3 +186,44 @@ body {
     .hero-content h1 { font-size: 2.5rem; }
 }
 
+/* Style global pour les cartes (expertsises) */
+.card {
+    padding: 40px;
+    background-color: #007FFF; /* Fond bleu électrique pour la carte */
+    color: white; /* Texte en blanc par défaut dans la carte */
+    border-radius: 15px; /* Bordures arrondies pour un look moderne */
+    transition: 0.4s ease;
+    border: none; /* Plus besoin de bordure puisque le fond est coloré */
+    box-shadow: 0 10px 30px rgba(0, 127, 255, 0.2); /* Ombre douce bleutée */
+    text-align: center;
+}
+
+/* Effet de survol (hover) pour dynamiser la carte */
+.card:hover {
+    transform: translateY(-10px); /* La carte se soulève légèrement */
+    box-shadow: 0 15px 40px rgba(0, 127, 255, 0.4); /* L'ombre devient plus forte */
+}
+
+/* Style pour les numéros (01, 02, 03) */
+.card-icon {
+    font-size: 3rem; /* Plus grand pour plus d'impact */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4); /* Blanc semi-transparent pour l'effet d'arrière-plan */
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Style pour les titres (Graphisme, Modélisation 3D, Branding) */
+.card h3 {
+    color: white; /* Titre en blanc */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Style pour les paragraphes de description */
+.card p {
+    color: rgba(255, 255, 255, 0.9); /* Blanc légèrement transparent pour la lisibilité */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
