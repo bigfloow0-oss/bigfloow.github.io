@@ -1,548 +1,134 @@
-/* Variables de couleurs Premium */
-:root {
-    --accent: #f39c12; /* Ton orange */
-    --bg-dark: #0a0a0a;
-    --text-light: #f5f5f7;
-    --text-muted: #a1a1a6;
-    --white: #ffffff;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--white);
-    color: var(--bg-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Navigation élégante */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px); /* Effet flou moderne */
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid #eee;
-}
-
-.brand { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
-.brand span { color: var(--accent); }
-
-.nav-links { list-style: none; display: flex; align-items: center; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { text-decoration: none; color: var(--bg-dark); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-.btn-contact { background: var(--bg-dark); color: white !important; padding: 10px 20px; border-radius: 50px; }
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: url('Big foow.jpg') no-repeat center center/cover;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 20%, transparent);
-}
-
-.hero-content { position: relative; color: white; max-width: 600px; z-index: 2; }
-.hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-.highlight { color: var(--accent); }
-
-/* La Signature Pro en bas à droite */
-.signature {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    padding: 20px;
-    border-radius: 4px;
-    border-left: 3px solid var(--accent);
-    max-width: 350px;
-    z-index: 5;
-}
-
-.mini-logo { width: 60px; height: auto; margin-right: 15px; }
-.tagline { color: var(--accent); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
-.signature-text p { color: white; font-size: 0.85rem; line-height: 1.3; }
-
-/* Section Services */
-.section-padding { padding: 100px 8%; }
-.section-title { font-size: 2rem; margin-bottom: 50px; text-align: center; font-family: 'Montserrat', sans-serif; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-
-/* Style global pour les cartes (expertsises) */
-.card {
-    padding: 40px;
-    background-color: #007FFF; /* Fond bleu électrique pour la carte */
-    color: white; /* Texte en blanc par défaut dans la carte */
-    border-radius: 15px; /* Bordures arrondies pour un look moderne */
-    transition: 0.4s ease;
-    border: none; /* Plus besoin de bordure puisque le fond est coloré */
-    box-shadow: 0 10px 30px rgba(0, 127, 255, 0.2); /* Ombre douce bleutée */
-    text-align: center;
-}
-
-/* Effet de survol (hover) pour dynamiser la carte */
-.card:hover {
-    transform: translateY(-10px); /* La carte se soulève légèrement */
-    box-shadow: 0 15px 40px rgba(0, 127, 255, 0.4); /* L'ombre devient plus forte */
-}
-
-/* Style pour les numéros (01, 02, 03) */
-.card-icon {
-    font-size: 3rem; /* Plus grand pour plus d'impact */
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.4); /* Blanc semi-transparent pour l'effet d'arrière-plan */
-    margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Style pour les titres (Graphisme, Modélisation 3D, Branding) */
-.card h3 {
-    color: white; /* Titre en blanc */
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-/* Style pour les paragraphes de description */
-.card p {
-    color: rgba(255, 255, 255, 0.9); /* Blanc légèrement transparent pour la lisibilité */
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Grille pour l'histoire */
-.story-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.story-card {
-    background: var(--bg-dark);
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.story-card h3 { color: var(--accent); font-size: 2.5rem; margin-bottom: 10px; }
-
-/* Boutons Réseaux Sociaux */
-.social-links-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.social-box {
-    padding: 12px 25px;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--bg-dark);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s all ease;
-}
-
-.social-box:hover {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-    transform: translateY(-5px);
-}
-
-/* Section Appel à l'action (CTA) */
-.cta-section {
-    background: var(--bg-dark);
-    color: white;
-    padding: 80px 8%;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; }
-
-.btn-primary {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 25px;
-    transition: 0.3s;
-}
-
-.btn-primary:hover { opacity: 0.9; transform: scale(1.05); }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .story-grid { grid-template-columns: 1fr; }
-    .hero-content h1 { font-size: 2.5rem; }
-}
-
-/* Style pour la page Portfolio */
-.portfolio-header {
-    background: var(--dark);
-    color: white;
-    padding: 120px 20px 60px;
-    text-align: center;
-}
-
-.inspire-text {
-    font-style: italic;
-    color: var(--accent);
-    font-size: 1.2rem;
-    margin-top: 15px;
-}
-
-.gallery-intro {
-    text-align: center;
-    padding: 50px 0;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.work-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.work-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.work-item:hover img {
-    transform: scale(1.1);
-}
-
-.work-desc {
-    padding: 20px;
-    background: white;
-}
-
-.card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-* 1. Mise à jour de la couleur principale */
-:root {
-    --accent: #007FFF; /* Ton nouveau bleu électrique */
-    --dark: #1a1a1a;
-    --light: #f4f4f4;
-}
-
-/* 2. Coloration automatique de tous les textes en gras */
-strong {
-    color: var(--accent);
-    font-weight: 600;
-}
-
-/* 3. Style des icônes de réseaux sociaux au survol */
-.social-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: white;
-    border: 1px solid #eee;
-    text-decoration: none;
-    color: var(--dark);
-    border-radius: 12px;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.social-card i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    transition: 0.3s;
-}
-
-/* Effet au survol : l'icône et la bordure deviennent bleues */
-.social-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 20px rgba(0, 127, 255, 0.1);
-}
-
-.social-card:hover i, 
-.social-card:hover span {
-    color: var(--accent);
-}
-
-/* 4. Ajustement des autres éléments bleus */
-.section-title::after {
-    background: var(--accent); /* La petite barre sous les titres */
-}
-
-.brand span {
-    color: var(--accent); /* Le "FlooW" dans ton logo textuel */
-}
-
-.btn-primary {
-    background: var(--accent);
-}
-
-/* On s'assure que le texte du logo est bien sombre par défaut */
-.navbar .brand {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #1a1a1a; 
-    text-decoration: none;
-}
-
-/* On force la couleur bleue sur le span à l'intérieur de brand */
-.navbar .brand span {
-    color: #007FFF !important; /* Le !important force l'application de la couleur */
-    display: inline-block; /* Aide parfois à l'affichage correct */
-}
-
-/* Section About */
-.about-section {
-    padding: 100px 0;
-    background-color: #ffffff;
-}
-
-.about-card {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    background: #fcfcfc;
-    padding: 40px;
-    border-radius: 20px;
-    border-left: 8px solid #007FFF;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-    margin-bottom: 50px;
-}
-
-.section-title-alt {
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.section-title-alt span {
-    color: #007FFF;
-}
-
-.name-highlight {
-    color: #007FFF;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-content p {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.about-image img {
-    width: 250px;
-    height: auto;
-    filter: drop-shadow(0 10px 15px rgba(0, 127, 255, 0.2));
-}
-
-/* Bloc Mission */
-.mission-grid {
-    background: #1a1a1a;
-    color: white;
-    padding: 60px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.mission-icon {
-    font-size: 3rem;
-    color: #007FFF;
-    margin-bottom: 20px;
-}
-
-.mission-item h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007FFF;
-}
-
-.mission-item p {
-    color: #ccc;
-    font-size: 1.1rem;
-    max-width: 800px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .about-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-card { border-left: none; border-top: 8px solid #007FFF; }
-}
-
-/* Container pour mettre côte à côte */
-.mission-flex-container {
-    display: flex;
-    align-items: center; /* Centre verticalement */
-    gap: 50px; /* Espace entre le texte et la carte */
-    margin-top: 40px;
-}
-
-/* Colonne texte */
-.mission-text-column {
-    flex: 1; /* Prend 50% de l'espace */
-}
-
-.mission-text-column p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-/* La Grande Carte 2022 */
-.experience-card-large {
-    flex: 1; /* Prend 50% de l'espace */
-    background: #1a1a1a; /* Fond noir comme sur ton image */
-    color: white;
-    padding: 60px 40px;
-    border-radius: 30px;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0, 127, 255, 0.2);
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.card-badge {
-    background: #007FFF;
-    color: white;
-    display: inline-block;
-    padding: 8px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-}
-
-.experience-card-large h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #fcfcfc;
-}
-
-.experience-card-large p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #bbb;
-}
-
-.card-footer-line {
-    width: 50px;
-    height: 4px;
-    background: #007FFF;
-    margin: 30px auto 0;
-    border-radius: 2px;
-}
-
-/* Version Mobile : on les rempile l'un sur l'autre */
-@media (max-width: 900px) {
-    .mission-flex-container {
-        flex-direction: column;
-    }
-    .mission-text-column, .experience-card-large {
-        width: 100%;
-    }
-}
-
-/* On s'assure que la section prend toute la largeur */
-.about-section {
-    width: 100%;
-    padding: 60px 0;
-    overflow: hidden; /* Évite les décalages bizarres */
-}
-
-/* Le container qui contient les deux blocs */
-.about-container {
-    display: flex;
-    max-width: 1200px; /* Largeur max du site */
-    margin: 0 auto;    /* Centre le bloc sur la page */
-    padding: 0 5%;     /* Marge de sécurité sur les côtés */
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Bloc texte */
-.about-text-content {
-    flex: 1.5; /* Prend un peu plus de place que le logo */
-    padding-right: 40px;
-}
-
-/* Bloc Logo à DROITE */
-.logo-wrapper {
-    flex: 1;
-    text-align: right; /* Aligne l'image à l'intérieur du bloc vers la droite */
-}
-
-.logo-wrapper img {
-    width: 100%;
-    max-width: 400px; /* Taille du logo */
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 127, 255, 0.15); /* Ombre bleue légère */
-}
-
-/* Pour mobile : on rempile */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-text-content {
-        padding-right: 0;
-        margin-bottom: 30px;
-    }
-    .logo-wrapper {
-        text-align: center;
-    }
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiG FlooW | Studio Créatif Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <nav class="navbar">
+        <div class="brand">BiG<span>Floo</span>W</span></div>
+        </nav>
+        <ul class="nav-links">
+            <li><a href="#propos">Expertise</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact" class="btn-contact">Parlons de votre projet</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal">L'innovation par le <span class="highlight">Design</span></h1>
+            <p>Studio de création & plateforme artistique au service de votre identité.</p>
+        </div>
+
+        <div class="signature">
+            <img src="logo big floow.jpg" class="mini-logo">
+            <div class="signature-text">
+                <p class="tagline">Graphisme, 3D & Digital</p>
+                <p>Transformer vos idées en contenus impactants avec un design professionnel.</p>
+            </div>
+        </div>
+    </header>
+    
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Nos expertises</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"></div>
+                    <h3><a href="portfolio.html" class="card-link">
+    <div class="card">
+        <div class="card-icon">01</div>
+        <h3>Graphisme</h3>
+        
+    </div>
+</a></h3>
+                    <p>Création d'identités visuelles fortes et mémorables pour vos marques.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">02</div>
+                    <h3>Modélisation 3D</h3>
+                    <p>Conception d'univers et d'objets en 3 dimensions pour un rendu futuriste.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">03</div>
+                    <h3>Branding</h3>
+                    <p>Stratégie de marque et storytelling pour marquer les esprits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+<main>
+   <section id="about" class="about-section">
+    <div class="container">
+        <div class="about-card">
+            <div class="about-content">
+                <h2 class="section-title-alt">Origine & <span>Inspiration</span></h2>
+                <p>
+                    <strong>BiG FlooW</strong> est un projet né de la passion et de la créativité d’un jeune visionnaire togolais 
+                    <span class="name-highlight">M. HALLO Victor</span>. 
+                </p>
+                <p>
+                    L’idée a vu le jour le <strong>05 janvier 2025</strong> lorsque, </p>en parallèle de son métier de Conseiller, 
+                    il s’est interrogé sur les activités secondaires qu’il pourrait </p>développer pour exprimer son talent et élargir ses horizons.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="logo big floow.jpg" alt="Logo BiG FlooW">
+            </div>
+        </div>
+
+        <section class="mission-section section-padding">
+    <div class="container">
+        <div class="mission-flex-container">
+            
+            <div class="mission-text-column">
+                <h2 class="section-title-alt">Mission & <span>Vision</span></h2>
+                <p>Après une longue réflexion, une évidence s’est imposée : <strong>créer du contenu numérique</strong>.</p>
+                <p>C’est ainsi qu’est né un premier compte <strong>TikTok</strong>, dédié à la création de vidéos lyrics musicales.</p>
+                <p>Très vite, le nom <strong>BiG FlooW</strong> s’est imposé de lui-même, symbolisant l’énergie, le mouvement et la fluidité de la créativité.</p>
+            </div>
+
+            <div class="experience-card-large">
+                <div class="card-badge">2022</div>
+                <h3>Expertise Certifiée</h3>
+                <p>Diplôme en graphisme reconnu par l’État togolais et fondation de <em>Dav National Design</em>.</p>
+                <div class="card-footer-line"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Mission & Univers</h2>
+            <p class="max-600">L'énergie, le mouvement et la fluidité. BiG FlooW combine deux passions : le divertissement et le graphisme professionnel.</p>
+            
+            <div class="social-links-container">
+                <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-box">TikTok</a>
+                <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-box">YouTube</a>
+                <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-box">Facebook</a>
+                <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-box">Instagram</a>
+                <a href="https://x.com/bigfloow0" target="_blank" class="social-box">X (Twitter)</a>
+                <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-box">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Plus qu’un nom, une vision.</h2>
+            <p>BiG FlooW est un univers où le divertissement, la créativité et le professionnalisme se rencontrent.</p>
+            <a href="mailto:ton-email@exemple.com" class="btn-primary">Rejoindre l'aventure</a>
+        </div>
+    </section>
+</main>
