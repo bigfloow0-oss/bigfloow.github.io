@@ -246,26 +246,17 @@ body {
 /* =========================================
    SOCIAL
    ========================================= */
-.social-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-}
-
 .social-icon {
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s;
+    width: 40px; height: 40px; background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: #fff; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);
 }
-
-.social-icon:hover {
-    background: var(--accent-blue);
-    color: white;
-}
+.social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
+.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.social-icon.tiktok:hover { background: #000; border-color: #ff0050; box-shadow: 2px 0 0 #ff0050, -2px 0 0 #00f2ea; }
+.social-icon.youtube:hover { background: #FF0000; border-color: #FF0000; }
+.social-icon.linkedin:hover { background: #0077B5; border-color: #0077B5; }
+.social-icon:hover { transform: translateY(-5px); }
 
 /* =========================================
    FOOTER PREMIUM BiG FlooW
