@@ -377,3 +377,94 @@ body {
         text-align: center;
     }
 }
+
+/* =========================
+   PORTFOLIO (NOUVELLE SECTION)
+   ========================= */
+
+.portfolio-header {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: #f9f9f9;
+}
+
+.portfolio-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #000;
+}
+
+.portfolio-header p {
+    max-width: 600px;
+    margin: 15px auto 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* GRID PROPRE */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 60px 8%;
+}
+
+/* CARD DESIGN PRO */
+.work-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.work-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* IMAGE PROPORTIONNELLE */
+.work-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* TEXTE */
+.work-desc {
+    padding: 18px;
+}
+
+.work-desc .category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+}
+
+.work-desc h4 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    font-family: 'Montserrat';
+}
+
+.work-desc p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* BOUTON RETOUR */
+.back-home {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 25px;
+    background: var(--accent-blue);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    background: var(--accent-orange);
+}
