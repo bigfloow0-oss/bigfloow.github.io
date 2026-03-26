@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="BiG FlooW - Portfolio créatif en design graphique, 3D et branding à Lomé.">
+    <meta name="description" content="BiG FlooW - Portfolio Graphisme. Découvrez nos créations visuelles à Lomé.">
     <title>BiG FlooW | Graphisme</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,30 +19,25 @@
             align-items: center;
             justify-content: center;
         }
-
         .portfolio-overlay {
             position: absolute;
             inset: 0;
             background: rgba(0,0,0,0.7);
         }
-
         .portfolio-hero h1 {
             position: relative;
             color: white;
             font-size: clamp(2rem, 5vw, 3rem);
             z-index: 2;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
             text-transform: uppercase;
         }
-
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             padding: 60px 8%;
         }
-
         .work-item {
             background: white;
             border-radius: 15px;
@@ -51,41 +45,23 @@
             transition: 0.3s;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-
-        .work-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,127,255,0.2);
-        }
-
+        .work-item:hover { transform: translateY(-10px); }
         .work-image img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
-            display: block;
         }
-
-        .work-desc {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .category {
-            color: #007FFF;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-        
-        h4 { margin-top: 5px; color: #333; }
+        .work-desc { padding: 20px; text-align: center; }
+        .category { color: #007FFF; font-weight: bold; font-size: 0.8rem; }
     </style>
 </head>
-
 <body>
 
 <nav class="navbar">
     <div class="brand">BiG<span class="floo">Floo</span><span class="w">W</span></div>
     <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="portfolio.html" style="color:#ED7F10;">Graphisme</a></li>
+        <li><a href="portfolio.html">Graphisme</a></li>
         <li><a href="portfolio-3d.html">3D</a></li>
         <li><a href="portfolio-branding.html">Branding</a></li>
         <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
@@ -98,130 +74,64 @@
 </header>
 
 <div style="text-align:center; margin:30px;">
-    <a href="index.html" style="
-        padding:12px 25px;
-        background:#007FFF;
-        color:white;
-        border-radius:30px;
-        text-decoration:none;
-        font-weight:600;">
+    <a href="index.html" style="padding:10px 25px; background:#007FFF; color:white; border-radius:30px; text-decoration:none;">
         ← Retour à l’accueil
     </a>
 </div>
 
 <section class="portfolio-grid">
-
     <div class="work-item">
-        <div class="work-image"><img src="concep 3.jpeg" alt="Projet Graphique"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Identité Visuelle</h4>
-        </div>
+        <div class="work-image"><img src="concep 3.jpeg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Identité Visuelle</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="IMG-20221127-WA0012.jpg" alt="Affiche"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Affiche Publicitaire</h4>
-        </div>
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Affiche Pub</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 3"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="concep 3.jpeg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Création Logo</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 4"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Flyer Event</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 5"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="concep 3.jpeg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Design Social Media</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 6"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Carte de Visite</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 7"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="concep 3.jpeg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Brochure</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 8"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Couverture Livre</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 9"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-item">
+        <div class="work-image"><img src="concep 3.jpeg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Packaging</h4></div>
     </div>
-
     <div class="work-item">
-        <div class="work-image"><img src="" alt="Projet 10"></div>
-        <div class="work-desc">
-            <span class="category">Graphisme</span>
-            <h4>Nom du Projet</h4>
-        </div>
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
+        <div class="work-desc"><span class="category">Graphisme</span><h4>Illustration Personnalisée</h4></div>
     </div>
-
-</section>
-
-<section style="text-align:center; padding:60px; background:#f9f9f9;">
-    <h2>Découvrez aussi</h2>
-    <p style="margin-top:20px;">
-        <a href="portfolio.html" style="color:#ED7F10; font-weight:bold; text-decoration:none;">Graphisme</a> |
-        <a href="portfolio-3d.html" style="color:#333; text-decoration:none;">3D</a> |
-        <a href="portfolio-branding.html" style="color:#333; text-decoration:none;">Branding</a>
-    </p>
 </section>
 
 <footer class="main-footer">
     <div class="footer-container">
-        <div class="footer-col branding">
-            <div class="brand-footer">BiG<span class="floo">Floo</span><span class="w">W</span></div>
-            <p>Studio créatif spécialisé en design graphique et branding.</p>
-        </div>
         <div class="footer-col">
-            <h4>Contact</h4>
-            <p><i class="fas fa-phone"></i> +228 90 49 86 80</p>
-            <p><i class="fas fa-envelope"></i> bigfloow0@gmail.com</p>
+            <div class="brand-footer">BiG<span class="floo">Floo</span><span class="w">W</span></div>
+            <p>Agence créative à Lomé.</p>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>© 2025 BiG FlooW – Tous droits réservés</p>
-    </div>
+    <div class="footer-bottom"><p>© 2025 BiG FlooW</p></div>
 </footer>
-
-<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
 
 </body>
 </html>
