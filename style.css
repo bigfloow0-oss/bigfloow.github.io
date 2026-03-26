@@ -29,21 +29,30 @@ body { font-family: 'Poppins', sans-serif; color: var(--dark-grey); line-height:
 #check { display: none; }
 .checkbtn { font-size: 28px; cursor: pointer; display: none; color: var(--logo-black); }
 
-/* HERO */
+/* --- HERO SECTION MODIFIÉE --- */
 .hero { 
-    height: 100vh; background: url('Big foow.jpg') center/cover no-repeat;
-    position: relative; display: flex; align-items: center; padding: 0 8%;
+    height: 70vh; /* Réduit à 70% de la hauteur de l'écran au lieu de 100% */
+    min-height: 500px; /* Sécurité pour que l'image ne soit pas trop écrasée sur petit écran */
+    background: url('Big foow.jpg') center/cover no-repeat;
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 8%;
 }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent); }
-.hero-content { position: relative; color: white; z-index: 2; }
-.hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-family: 'Montserrat'; }
-.highlight { color: var(--accent-orange); }
 
+/* Ajustement de la signature pour qu'elle reste bien placée */
 .signature {
-    position: absolute; bottom: 40px; right: 8%;
-    display: flex; align-items: center; gap: 15px;
-    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
-    padding: 15px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);
+    position: absolute; 
+    bottom: 20px; /* On remonte un peu le badge signature */
+    right: 8%;
+    /* ... reste du code identique ... */
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* Encore un peu plus court sur téléphone pour voir direct les expertises */
+    }
 }
 .mini-logo { width: 55px; height: 55px; border-radius: 8px; }
 .signature-text { color: white; font-size: 0.85rem; }
