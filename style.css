@@ -29,23 +29,107 @@ body { font-family: 'Poppins', sans-serif; color: var(--dark-grey); line-height:
 #check { display: none; }
 .checkbtn { font-size: 28px; cursor: pointer; display: none; color: var(--logo-black); }
 
-/* --- HERO SECTION MODIFIÉE --- */
+/* =========================================
+   HERO SECTION (COULEURS & EFFETS RESTAURÉS)
+   ========================================= */
 .hero { 
-    height: 70vh; /* Réduit à 70% de la hauteur de l'écran au lieu de 100% */
-    min-height: 500px; /* Sécurité pour que l'image ne soit pas trop écrasée sur petit écran */
+    height: 70vh; /* Hauteur moyenne comme demandé */
+    min-height: 550px; 
     background: url('Big foow.jpg') center/cover no-repeat;
     position: relative; 
     display: flex; 
     align-items: center; 
     padding: 0 8%;
+    overflow: hidden;
 }
 
-/* Ajustement de la signature pour qu'elle reste bien placée */
+/* 1. L'overlay sombre est restauré (dégradé de gauche à droite) */
+.hero-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 40%, transparent); 
+    z-index: 1;
+}
+
+/* 2. Le contenu textuel (en blanc) */
+.hero-content { 
+    position: relative; 
+    color: white; /* Tout le texte par défaut est blanc */
+    z-index: 2; 
+    max-width: 750px;
+}
+
+.hero-content h1 { 
+    font-size: clamp(2.2rem, 5vw, 3.8rem); 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 800; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Couleur Orange #ED7F10 pour le mot Design */
+.highlight { 
+    color: #ED7F10; 
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+}
+
+/* =========================================
+   SIGNATURE (LOGO CARRÉ NON DILATÉ)
+   ========================================= */
 .signature {
     position: absolute; 
-    bottom: 20px; /* On remonte un peu le badge signature */
-    right: 8%;
-    /* ... reste du code identique ... */
+    bottom: 30px; /* Positionné en bas */
+    right: 8%; /* Positionné à droite */
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+    z-index: 10;
+    
+    /* Effet transparent (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 20px; 
+    border-radius: 12px; 
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: 480px;
+}
+
+/* 3. LE LOGO NE SE DILATE PLUS JAMAIS */
+.mini-logo { 
+    width: 60px; /* Largeur fixe */
+    height: 60px; /* Hauteur fixe identique */
+    object-fit: cover; /* L'image remplit le carré sans se déformer */
+    border-radius: 8px; /* Coins légèrement arrondis */
+    flex-shrink: 0; /* Empêche le logo de rétrécir si le texte est long */
+}
+
+.signature-text { 
+    color: white; 
+    font-size: 0.85rem; 
+}
+
+.tagline { 
+    color: #ED7F10; /* Orange Floo pour le slogan */
+    font-weight: 700; 
+    margin-bottom: 3px;
+}
+
+/* adaptation pour mobile */
+@media (max-width: 768px) {
+    .signature {
+        right: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+        max-width: none;
+        bottom: 80px; /* Pour ne pas cacher WhatsApp */
+    }
 }
 
 /* --- ADAPTATION MOBILE --- */
