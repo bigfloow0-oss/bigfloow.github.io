@@ -3,51 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio 3D | BiG FlooW</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<meta name="description" content="BiG FlooW - Portfolio créatif en design graphique, 3D et branding à Lomé.">
+<title>BiG FlooW | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
+
+<style>
+.portfolio-hero {
+    height: 40vh;
+    background: url('Big foow.jpg') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+.portfolio-hero h1 {
+    position: relative;
+    color: white;
+    font-size: 2.5rem;
+    z-index: 2;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 60px 8%;
+}
+
+.work-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.work-item:hover {
+    transform: translateY(-10px);
+}
+
+.work-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.work-desc {
+    padding: 20px;
+    text-align: center;
+}
+.category {
+    color: #007FFF;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+</style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
-<div class="brand">BiG<span class="floo">Floo</span><span class="w">W</span></div>
+    <div class="brand">BiG<span class="floo">Floo</span><span class="w">W</span></div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="portfolio.html">Graphisme</a></li>
+        <li><a href="portfolio-3d.html">3D</a></li>
+        <li><a href="portfolio-branding.html">Branding</a></li>
+        <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
+    </ul>
 </nav>
 
-<header class="portfolio-header">
-<h1>Modélisation 3D</h1>
-<p>Création d’univers immersifs et futuristes.</p>
+<!-- HERO -->
+<header class="portfolio-hero">
+    <div class="portfolio-overlay"></div>
+    <h1>Portfolio Graphisme</h1>
 </header>
 
+<!-- RETOUR -->
+<div style="text-align:center; margin:30px;">
+    <a href="index.html" style="
+        padding:10px 25px;
+        background:#007FFF;
+        color:white;
+        border-radius:30px;
+        text-decoration:none;">
+        ← Retour à l’accueil
+    </a>
+</div>
+
+<!-- GRID -->
 <section class="portfolio-grid">
 
-<div class="work-item">
-<div class="work-image">
-<img src="IMG-20221120-WA0022.jpg">
-</div>
-<div class="work-desc">
-<span class="category">3D</span>
-<h4>Univers Digital</h4>
-<p>Exploration futuriste.</p>
-</div>
-</div>
+    <div class="work-item">
+        <div class="work-image"><img src="concep 3.jpeg"></div>
+        <div class="work-desc">
+            <span class="category">Graphisme</span>
+            <h4>Identité Visuelle</h4>
+        </div>
+    </div>
 
-<div class="work-item">
-<div class="work-image">
-<img src="branding.png">
-</div>
-<div class="work-desc">
-<h4>Concept 3D</h4>
-<p>Design immersif.</p>
-</div>
-</div>
+    <div class="work-item">
+        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
+        <div class="work-desc">
+            <span class="category">Graphisme</span>
+            <h4>Affiche Publicitaire</h4>
+        </div>
+    </div>
 
 </section>
 
-<div style="text-align:center;">
-<a href="index.html" class="back-home">Retour à l'accueil</a>
-</div>
+<!-- NAVIGATION ENTRE PORTFOLIOS -->
+<section style="text-align:center; padding:60px;">
+    <h2>Découvrez aussi</h2>
+    <p>
+        <a href="portfolio.html">Graphisme</a> |
+        <a href="portfolio-3d.html">3D</a> |
+        <a href="portfolio-branding.html">Branding</a>
+    </p>
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="footer-container">
+
+        <div class="footer-col branding">
+            <div class="brand-footer">BiG<span class="floo">Floo</span><span class="w">W</span></div>
+            <p>Société créative spécialisée en design et contenus digitaux.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><i class="fas fa-phone"></i> +228 90 49 86 80</p>
+            <p><i class="fas fa-phone"></i> +228 97 16 08 73</p>
+            <p><i class="fas fa-envelope"></i> bigfloow0@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Bd de la Kara, Lomé</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 BiG FlooW – Tous droits réservés</p>
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
