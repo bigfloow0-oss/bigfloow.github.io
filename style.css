@@ -219,57 +219,54 @@ body {
 }
 
 /* =========================================
-   DESIGN GRAPHIQUE DES COULEURS (STORY)
+   STORY
    ========================================= */
-
-/* --- LES TITRES (H3) EN ORANGE --- */
-.story-section h3 {
-    color: #ED7F10 !important; /* Orange BiG FlooW */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    margin-bottom: 20px; /* Bel espace sous le titre */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.story-flex-container {
+    display: flex;
+    gap: 50px;
+    border-left: 8px solid var(--accent-blue);
+    padding-left: 40px;
 }
 
-/* --- LE TEXTE "TEST" AVEC ACCENTS BLEUS --- */
-.story-section p {
-    color: #444; /* Gris foncé pour le texte principal (plus lisible) */
-    line-height: 1.8;
-    margin-bottom: 30px; /* Espace entre les blocs */
+.certification-block-black {
+    flex: 1;
+    background: #000;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
 }
 
-/* Parties colorées en BLEU dans le texte */
-.date-highlight, 
-.platform-highlight, 
-.domain-highlight, 
-.job-highlight,
-.founder-highlight {
-    color: #007FFF !important; /* Bleu BiG FlooW */
-    font-weight: 700;
+.cert-year {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent-blue);
 }
 
-/* Soulignement spécifique pour le fondateur en bleu */
-.founder-highlight {
-    border-bottom: 2px solid #007FFF;
+/* =========================================
+   SOCIAL
+   ========================================= */
+.social-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.social-icon {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-align: center;
     text-decoration: none;
+    color: #333;
+    transition: 0.3s;
 }
 
-/* --- LE NOM BiG FlooW (Garde ses couleurs d'origine) --- */
-.big-floow-highlight {
-    font-weight: 800;
-    color: #1a1a1a;
+.social-icon:hover {
+    background: var(--accent-blue);
+    color: white;
 }
-.big-floow-highlight .floo { color: #ED7F10; } /* Orange */
-.big-floow-highlight .w { color: #007FFF; }    /* Bleu */
 
-/* --- Dav National Design (En bleu également) --- */
-.dav-design-highlight {
-    color: #007FFF;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
 
 /* =========================================
    SOCIAL
@@ -830,3 +827,28 @@ h4 {
     }
     .work-image { height: 200px; }
 }
+
+/* --- COULEUR DES PARTIES COLORÉES DU TEXTE EN BLEU --- */
+.date-highlight, 
+.platform-highlight, 
+.domain-highlight, 
+.job-highlight,
+.founder-highlight,
+.dav-design-highlight {
+    color: #007FFF !important; /* Bleu BiG FlooW */
+    font-weight: 700;
+}
+
+/* Espacement pour la lisibilité */
+.story-section {
+    margin-bottom: 35px;
+}
+
+.story-section h3 {
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Garder le logo BiG FlooW avec ses deux couleurs */
+.big-floow-highlight .floo { color: #ED7F10; }
+.big-floow-highlight .w { color: #007FFF; }
