@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio 3D | BiG FlooW</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="brand">BiG<span class="floo">Floo</span><span class="w">W</span></div>
+</nav>
+
+<header class="portfolio-header">
+<h1>Modélisation 3D</h1>
+<p>Création d’univers immersifs et futuristes.</p>
+</header>
+
+<section class="portfolio-grid">
+
+<div class="work-item">
+<div class="work-image">
+<img src="IMG-20221120-WA0022.jpg">
+</div>
+<div class="work-desc">
+<span class="category">3D</span>
+<h4>Univers Digital</h4>
+<p>Exploration futuriste.</p>
+</div>
+</div>
+
+<div class="work-item">
+<div class="work-image">
+<img src="branding.png">
+</div>
+<div class="work-desc">
+<h4>Concept 3D</h4>
+<p>Design immersif.</p>
+</div>
+</div>
+
+</section>
+
+<div style="text-align:center;">
+<a href="index.html" class="back-home">Retour à l'accueil</a>
+</div>
+
+</body>
+</html>
