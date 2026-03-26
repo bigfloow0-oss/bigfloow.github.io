@@ -827,28 +827,3 @@ h4 {
     }
     .work-image { height: 200px; }
 }
-
-/* --- COULEUR DES PARTIES COLORÉES DU TEXTE EN BLEU --- */
-.date-highlight, 
-.platform-highlight, 
-.domain-highlight, 
-.job-highlight,
-.founder-highlight,
-.dav-design-highlight {
-    color: #007FFF !important; /* Bleu BiG FlooW */
-    font-weight: 700;
-}
-
-/* Espacement pour la lisibilité */
-.story-section {
-    margin-bottom: 35px;
-}
-
-.story-section h3 {
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Garder le logo BiG FlooW avec ses deux couleurs */
-.big-floow-highlight .floo { color: #ED7F10; }
-.big-floow-highlight .w { color: #007FFF; }
