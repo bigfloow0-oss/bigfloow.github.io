@@ -12,7 +12,7 @@
 
     <style>
         /* DESIGN PROFESSIONNEL BIG FLOOW */
-        body { background-color: #f6f8fa; margin: 0; }
+        body { background-color: #f6f8fa; margin: 0; font-family: 'Poppins', sans-serif; }
 
         .portfolio-hero {
             height: 35vh;
@@ -33,28 +33,29 @@
         .portfolio-hero h1 {
             position: relative;
             color: white;
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             z-index: 2;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             padding: 40px 8% 80px;
         }
 
+        /* CADRE MODERNE */
         .work-item {
             background: white;
             border-radius: 8px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid rgba(0,0,0,0.04);
         }
 
@@ -79,7 +80,7 @@
 
         .work-item:hover .work-image img { transform: scale(1.1); }
 
-        /* Ligne tricolore signature */
+        /* LIGNE TRICOLORE SIGNATURE */
         .work-image::after {
             content: '';
             position: absolute;
@@ -98,7 +99,7 @@
         .back-btn {
             display: inline-block; padding: 12px 30px; border: 2px solid #ED7F10;
             color: #333; border-radius: 5px; text-decoration: none; font-weight: 600;
-            transition: 0.3s; margin-bottom: 20px;
+            transition: 0.3s; margin-top: 20px;
         }
         .back-btn:hover { background: #ED7F10; color: white; }
     </style>
@@ -139,16 +140,16 @@
         <div class="work-desc"><span class="category">Branding</span><h4>Packaging Design</h4></div>
     </div>
     <div class="work-item">
-        <div class="work-image"><img src="branding1.jpg" alt="Projet"></div>
+        <div class="work-image"><img src="branding1.jpg" alt="Stratégie"></div>
         <div class="work-desc"><span class="category">Branding</span><h4>Stratégie Visuelle</h4></div>
     </div>
     <div class="work-item">
-        <div class="work-image"><img src="branding2.jpg" alt="Projet"></div>
+        <div class="work-image"><img src="branding2.jpg" alt="Charte"></div>
         <div class="work-desc"><span class="category">Branding</span><h4>Charte Graphique</h4></div>
     </div>
     <div class="work-item">
-        <div class="work-image"><img src="branding3.jpg" alt="Projet"></div>
-        <div class="work-desc"><span class="category">Branding</span><h4>Storytelling</h4></div>
+        <div class="work-image"><img src="branding3.jpg" alt="Story"></div>
+        <div class="work-desc"><span class="category">Branding</span><h4>Brand Storytelling</h4></div>
     </div>
     <div class="work-item">
         <div class="work-image"><img src="branding1.jpg" alt="Projet"></div>
@@ -156,7 +157,7 @@
     </div>
     <div class="work-item">
         <div class="work-image"><img src="branding2.jpg" alt="Projet"></div>
-        <div class="work-desc"><span class="category">Branding</span><h4>Refonte de Marque</h4></div>
+        <div class="work-desc"><span class="category">Branding</span><h4>Refonte d'Image</h4></div>
     </div>
     <div class="work-item">
         <div class="work-image"><img src="branding3.jpg" alt="Projet"></div>
