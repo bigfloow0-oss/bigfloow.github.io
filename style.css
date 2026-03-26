@@ -468,3 +468,175 @@ body {
 .back-home:hover {
     background: var(--accent-orange);
 }
+
+/* =========================================
+   PORFOLIO MODERNISÉ - BIG FLOOW STUDIO
+   ========================================= */
+
+/* Arrière-plan de la page légèrement grisé pour faire ressortir les cadres */
+body {
+    background-color: #f6f8fa;
+    margin: 0;
+}
+
+/* --- HERO SECTION AFFINÉE --- */
+.portfolio-hero {
+    height: 35vh; /* Un peu moins haut pour aller direct au contenu */
+    background: url('Big foow.jpg') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid #ED7F10; /* Rappel Orange Floo */
+}
+
+/* Overlay plus subtil pour la modernité */
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+}
+
+.portfolio-hero h1 {
+    position: relative;
+    color: white;
+    font-size: clamp(2rem, 5vw, 3rem);
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- BOUTON RETOUR MINIMALISTE --- */
+.back-btn-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.back-btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid #ED7F10;
+    color: #333;
+    border-radius: 5px; /* Plus moderne qu'un full arrondi */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+.back-btn:hover {
+    background: #ED7F10;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(237, 127, 16, 0.2);
+}
+
+/* =========================================
+   GRILLE ET CADRES PRO-DESIGN
+   ========================================= */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px; /* Plus d'espace pour respirer */
+    padding: 20px 8% 80px;
+}
+
+.work-item {
+    background: white;
+    border-radius: 8px; /* Coins moins arrondis = plus pro */
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    
+    /* Ombre très douce par défaut */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* --- EFFET AU SURVOL SUR TOUT LE CADRE --- */
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,127,255,0.15); /* Ombre bleutée subtile */
+    border-color: rgba(0,127,255,0.1);
+}
+
+/* --- GESTION DE L'IMAGE ET EFFET ZOOM --- */
+.work-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden; /* Important pour le zoom interne */
+    position: relative;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease; /* Transition lente pour le zoom */
+}
+
+/* Le zoom au survol */
+.work-item:hover .work-image img {
+    transform: scale(1.1); /* S'agrandit de 10% */
+}
+
+/* --- LA LIGNE TRICOLORE BiG FLOOW --- */
+.work-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
+    z-index: 5;
+}
+
+/* --- DESCRIPTION AVEC EFFET GLASSMORPHISM --- */
+.work-desc {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    background: #ffffff;
+    
+    /* Légère surélévation visuelle */
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+}
+
+/* Effet de remontée subtile au survol */
+.work-item:hover .work-desc {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.category {
+    color: #007FFF; /* Bleu W */
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+h4 {
+    margin: 0;
+    color: #1a1a1a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Adaptation responsive pour mobile */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 20px;
+    }
+    .work-image { height: 200px; }
+}
