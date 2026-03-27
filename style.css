@@ -28,64 +28,30 @@ body {
 }
 
 /* =========================================
-   NAVBAR
+   NAVBAR FIXÉE (CORRECTION)
    ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
-    background: rgba(255, 255, 255, 0.98);
-    position: fixed;
+    padding: 10px 8%;
+    background: rgba(255, 255, 255, 0.98); /* Fond blanc quasi opaque */
+    
+    /* Éléments cruciaux pour fixer la barre */
+    position: fixed; 
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    height: 80px; /* Hauteur fixe pour plus de contrôle */
+    z-index: 9999; /* Priorité maximale pour passer devant tout le reste */
+    
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
-.brand {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--logo-black);
-}
-
-.brand .floo { color: var(--accent-orange); }
-.brand .w { color: var(--accent-blue); }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li { margin-left: 25px; }
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--logo-black);
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--accent-blue);
-}
-
-.btn-contact {
-    background: var(--logo-black);
-    color: white !important;
-    padding: 10px 20px;
-    border-radius: 50px;
-}
-
-/* MENU MOBILE */
-#check { display: none; }
-
-.checkbtn {
-    font-size: 28px;
-    cursor: pointer;
-    display: none;
-    color: var(--logo-black);
+/* IMPORTANT : On décale le contenu du site vers le bas 
+   pour qu'il ne commence pas SOUS la barre */
+body {
+    padding-top: 80px; 
 }
 
 /* =========================================
