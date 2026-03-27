@@ -878,20 +878,64 @@ h4 {
     z-index: 9999;
 }
 
-.cookie-buttons button {
-    margin-left: 10px;
-    padding: 8px 15px;
+/* --- STYLE BANDEAU COOKIES --- */
+.cookie-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    z-index: 9999;
+    max-width: 500px;
+    border-left: 5px solid var(--accent-blue);
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cookie-content p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-accept, .btn-reject {
+    padding: 10px 20px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
 }
 
 .btn-accept {
-    background: #007FFF;
+    background: var(--accent-orange);
     color: white;
 }
 
 .btn-reject {
-    background: #ED7F10;
-    color: white;
+    background: #eee;
+    color: #666;
+}
+
+.btn-accept:hover { background: var(--accent-blue); }
+.btn-reject:hover { background: #ddd; }
+
+/* Responsive footer fix */
+@media (max-width: 768px) {
+    .footer-container { text-align: center; }
+    .social-links { justify-content: center; }
+    .cookie-container { left: 10px; right: 10px; bottom: 10px; }
 }
