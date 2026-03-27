@@ -225,18 +225,24 @@
 </div>
 
 <script>
+    const cookieBanner = document.getElementById('cookie-banner');
+
     function acceptCookies() {
-        document.getElementById('cookie-banner').style.display = 'none';
-        localStorage.setItem('cookiesAccepted', 'true');
+        cookieBanner.style.display = 'none';
+        localStorage.setItem('BiGFlooW_cookies', 'accepted');
     }
+
     function rejectCookies() {
-        document.getElementById('cookie-banner').style.display = 'none';
-        localStorage.setItem('cookiesAccepted', 'false');
+        cookieBanner.style.display = 'none';
+        localStorage.setItem('BiGFlooW_cookies', 'rejected');
     }
-    // Vérifier si l'utilisateur a déjà fait un choix
+
     window.onload = function() {
-        if (localStorage.getItem('cookiesAccepted')) {
-            document.getElementById('cookie-banner').style.display = 'none';
+        // Affiche le bandeau uniquement si aucun choix n'a été fait
+        if (!localStorage.getItem('BiGFlooW_cookies')) {
+            setTimeout(() => {
+                cookieBanner.style.display = 'block';
+            }, 2000); // Apparaît après 2 secondes pour un effet pro
         }
     }
 </script>
