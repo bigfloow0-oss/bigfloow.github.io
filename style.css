@@ -750,3 +750,96 @@ h4 {
         margin-top: 30px;
     }
 }
+
+/* --- FIX FOOTER & BORDURES --- */
+.main-footer {
+    background: #0a0a0a;
+    color: white;
+    padding: 80px 0 0 0; /* Pas de padding latéral ici */
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8% 60px 8%; /* Espacement interne maîtrisé */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-bottom {
+    background: #000;
+    padding: 0 0 40px 0; /* Espace en bas pour éviter de toucher le bord */
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 20px;
+}
+
+.highlight-orange { color: var(--accent-orange); }
+
+/* --- STYLE BANDEAU COOKIES --- */
+.cookie-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    z-index: 9999;
+    max-width: 500px;
+    border-left: 5px solid var(--accent-blue);
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cookie-content p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-accept, .btn-reject {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-accept {
+    background: var(--accent-orange);
+    color: white;
+}
+
+.btn-reject {
+    background: #eee;
+    color: #666;
+}
+
+.btn-accept:hover { background: var(--accent-blue); }
+.btn-reject:hover { background: #ddd; }
+
+/* Responsive footer fix */
+@media (max-width: 768px) {
+    .footer-container { text-align: center; }
+    .social-links { justify-content: center; }
+    .cookie-container { left: 10px; right: 10px; bottom: 10px; }
+}
