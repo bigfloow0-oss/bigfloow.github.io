@@ -1,5 +1,5 @@
 /* =========================================
-   VARIABLES
+   VARIABLES & RESET
    ========================================= */
 :root {
     --accent-blue: #007FFF;
@@ -9,7 +9,6 @@
     --dark-grey: #333;
 }
 
-/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,41 +20,69 @@ html {
     overflow-x: hidden;
 }
 
+/* On décale le body pour que le contenu ne soit pas caché sous la barre */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--dark-grey);
     line-height: 1.6;
+    background-color: #f6f8fa;
+    padding-top: 80px; 
 }
 
 /* =========================================
-   NAVBAR FIXÉE (CORRECTION)
+   NAVBAR (FIXÉE & STABLE)
    ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 8%;
-    background: rgba(255, 255, 255, 0.98); /* Fond blanc quasi opaque */
+    padding: 0 8%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
     
-    /* Éléments cruciaux pour fixer la barre */
-    position: fixed; 
+    /* FIXATION ABSOLUE */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px; /* Hauteur fixe pour plus de contrôle */
-    z-index: 9999; /* Priorité maximale pour passer devant tout le reste */
+    height: 80px; 
+    z-index: 9999; 
     
     box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
-/* IMPORTANT : On décale le contenu du site vers le bas 
-   pour qu'il ne commence pas SOUS la barre */
-body {
-    padding-top: 80px; 
+.brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--logo-black);
+}
+.brand .floo { color: var(--accent-orange); }
+.brand .w { color: var(--accent-blue); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.nav-links li { margin-left: 25px; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--logo-black);
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--accent-blue); }
+
+.btn-contact {
+    background: var(--logo-black);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 50px;
 }
 
 /* =========================================
-   HERO
+   HERO & SECTIONS
    ========================================= */
 .hero {
     height: 70vh;
@@ -78,840 +105,10 @@ body {
     position: relative;
     z-index: 2;
     color: white;
-    max-width: 750px;
-}
-
-.hero-content h1 {
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-
-.highlight {
-    color: var(--accent-orange);
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.9);
 }
 
 /* =========================================
-   SIGNATURE
-   ========================================= */
-.signature {
-    position: absolute;
-    bottom: 30px;
-    right: 8%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    z-index: 10;
-
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    padding: 15px 20px;
-    border-radius: 12px;
-    max-width: 480px;
-}
-
-.mini-logo {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.signature-text {
-    color: white;
-    font-size: 0.85rem;
-}
-
-.tagline {
-    color: var(--accent-orange);
-    font-weight: 700;
-}
-
-/* =========================================
-   EXPERTISES
-   ========================================= */
-.section-padding {
-    padding: 80px 8%;
-}
-
-.expertise-grid {
-    display: flex;
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.expertise-card {
-    flex: 1;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid #eee;
-    text-align: center;
-    position: relative;
-    transition: 0.4s;
-}
-
-.expertise-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-blue);
-}
-
-.card-bg-icon {
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(0,127,255,0.05);
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-.card-line {
-    width: 40px;
-    height: 3px;
-    background: var(--accent-blue);
-    margin: 15px auto;
-    transition: 0.3s;
-}
-
-.expertise-card:hover .card-line {
-    width: 80px;
-    background: var(--accent-orange);
-}
-
-/* =========================================
-   STORY
-   ========================================= */
-.story-flex-container {
-    display: flex;
-    gap: 50px;
-    border-left: 8px solid var(--accent-blue);
-    padding-left: 40px;
-}
-
-.certification-block-black {
-    flex: 1;
-    background: #000;
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.cert-year {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--accent-blue);
-}
-
-/* =========================================
-   SOCIAL
-   ========================================= */
-.social-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-}
-
-.social-icon {
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s;
-}
-
-.social-icon:hover {
-    background: var(--accent-blue);
-    color: white;
-}
-
-/* =========================================
-   FOOTER
-   ========================================= */
-.main-footer {
-    background: #0a0a0a;
-    color: white;
-    width: 100%;
-}
-
-/* CONTENU LARGE MAIS RESPONSIVE */
-.footer-inner {
-    width: 100%;
-    padding: 60px 5%;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-}
-
-/* COLONNES */
-.footer-col p {
-    color: #bbb;
-    line-height: 1.6;
-    font-size: 0.9rem;
-}
-
-.footer-col h4 {
-    color: var(--accent-orange);
-    margin-bottom: 20px;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col li {
-    margin-bottom: 10px;
-    color: #bbb;
-}
-
-.footer-col a {
-    color: #bbb;
-    text-decoration: none;
-}
-
-.footer-col a:hover {
-    color: var(--accent-blue);
-}
-
-/* LOGO */
-.brand-footer {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-/* BARRE DESIGN FULL WIDTH */
-.footer-bar {
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
-}
-
-/* BAS */
-.footer-bottom {
-    text-align: center;
-    padding: 25px;
-    background: #050505;
-    font-size: 0.85rem;
-    color: #888;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .footer-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-/* =========================================
-   WHATSAPP FLOAT
-   ========================================= */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-}
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width: 992px) {
-    .checkbtn { display: block; }
-
-    .nav-links {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: white;
-        top: 70px;
-        left: -100%;
-        flex-direction: column;
-        transition: 0.4s;
-    }
-
-    #check:checked ~ .nav-links {
-        left: 0;
-    }
-
-    .expertise-grid {
-        flex-direction: column;
-    }
-
-    .story-flex-container {
-        flex-direction: column;
-        border-left: none;
-        border-top: 8px solid var(--accent-blue);
-        padding-left: 0;
-        padding-top: 30px;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        height: 60vh;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .signature {
-        left: 20px;
-        right: 20px;
-        bottom: 100px;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-/* =========================
-   PORTFOLIO (NOUVELLE SECTION)
-   ========================= */
-
-.portfolio-header {
-    text-align: center;
-    padding: 100px 20px 60px;
-    background: #f9f9f9;
-}
-
-.portfolio-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    color: #000;
-}
-
-.portfolio-header p {
-    max-width: 600px;
-    margin: 15px auto 0;
-    color: #666;
-    font-size: 0.95rem;
-}
-
-/* GRID PROPRE */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    padding: 60px 8%;
-}
-
-/* CARD DESIGN PRO */
-.work-item {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.work-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-/* IMAGE PROPORTIONNELLE */
-.work-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-/* TEXTE */
-.work-desc {
-    padding: 18px;
-}
-
-.work-desc .category {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent-blue);
-    text-transform: uppercase;
-}
-
-.work-desc h4 {
-    font-size: 1.1rem;
-    margin: 5px 0;
-    font-family: 'Montserrat';
-}
-
-.work-desc p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* BOUTON RETOUR */
-.back-home {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 25px;
-    background: var(--accent-blue);
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.back-home:hover {
-    background: var(--accent-orange);
-}
-
-/* =========================================
-   PORFOLIO MODERNISÉ - BIG FLOOW STUDIO
-   ========================================= */
-
-/* Arrière-plan de la page légèrement grisé pour faire ressortir les cadres */
-body {
-    background-color: #f6f8fa;
-    margin: 0;
-}
-
-/* --- HERO SECTION AFFINÉE --- */
-.portfolio-hero {
-    height: 35vh; /* Un peu moins haut pour aller direct au contenu */
-    background: url('Big foow.jpg') center/cover no-repeat;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 5px solid #ED7F10; /* Rappel Orange Floo */
-}
-
-/* Overlay plus subtil pour la modernité */
-.portfolio-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6));
-}
-
-.portfolio-hero h1 {
-    position: relative;
-    color: white;
-    font-size: clamp(2rem, 5vw, 3rem);
-    z-index: 2;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* --- BOUTON RETOUR MINIMALISTE --- */
-.back-btn-container {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.back-btn {
-    padding: 12px 30px;
-    background: transparent;
-    border: 2px solid #ED7F10;
-    color: #333;
-    border-radius: 5px; /* Plus moderne qu'un full arrondi */
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-}
-
-.back-btn:hover {
-    background: #ED7F10;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(237, 127, 16, 0.2);
-}
-
-/* =========================================
-   GRILLE ET CADRES PRO-DESIGN
-   ========================================= */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px; /* Plus d'espace pour respirer */
-    padding: 20px 8% 80px;
-}
-
-.work-item {
-    background: white;
-    border-radius: 8px; /* Coins moins arrondis = plus pro */
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    
-    /* Ombre très douce par défaut */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.04);
-}
-
-/* --- EFFET AU SURVOL SUR TOUT LE CADRE --- */
-.work-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,127,255,0.15); /* Ombre bleutée subtile */
-    border-color: rgba(0,127,255,0.1);
-}
-
-/* --- GESTION DE L'IMAGE ET EFFET ZOOM --- */
-.work-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden; /* Important pour le zoom interne */
-    position: relative;
-}
-
-.work-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease; /* Transition lente pour le zoom */
-}
-
-/* Le zoom au survol */
-.work-item:hover .work-image img {
-    transform: scale(1.1); /* S'agrandit de 10% */
-}
-
-/* --- LA LIGNE TRICOLORE BiG FLOOW --- */
-.work-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
-    z-index: 5;
-}
-
-/* --- DESCRIPTION AVEC EFFET GLASSMORPHISM --- */
-.work-desc {
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    background: #ffffff;
-    
-    /* Légère surélévation visuelle */
-    transform: translateY(0);
-    transition: transform 0.4s ease;
-}
-
-/* Effet de remontée subtile au survol */
-.work-item:hover .work-desc {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.category {
-    color: #007FFF; /* Bleu W */
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 5px;
-}
-
-h4 {
-    margin: 0;
-    color: #1a1a1a;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-/* Espace sous le grand titre "Histoire & Inspiration" */
-.section-title-alt {
-    margin-bottom: 45px !important;
-}
-
-/* Espace entre chaque bloc (Origine, Mission, etc.) */
-.story-section {
-    margin-bottom: 40px !important; /* Espace entre les paragraphes */
-}
-
-/* Espace précis entre le sous-titre (h3) et son texte (p) */
-.story-section h3 {
-    margin-bottom: 15px !important;
-    font-size: 1.4rem;
-    color: #ED7F10;
-}
-
-.story-section p {
-    line-height: 1.8; /* Plus d'espace entre les lignes de texte pour la lisibilité */
-    color: #444;
-}
-
-/* Adaptation responsive pour mobile */
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr; /* Une seule colonne */
-        gap: 20px;
-    }
-    .work-image { height: 200px; }
-}
-
-.social-icon {
-    width: 40px; height: 40px; background: rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; color: #fff; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);
-}
-.social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
-.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
-.social-icon.tiktok:hover { background: #000; border-color: #ff0050; box-shadow: 2px 0 0 #ff0050, -2px 0 0 #00f2ea; }
-.social-icon.youtube:hover { background: #FF0000; border-color: #FF0000; }
-.social-icon.linkedin:hover { background: #0077B5; border-color: #0077B5; }
-.social-icon:hover { transform: translateY(-5px); }
-
-/* =========================================
-   CORRECTIONS PROFESSIONNELLES
-   ========================================= */
-
-/* 1. Correction de la taille des logos dans Story */
-.right-column-container {
-    flex: 0 0 300px; /* Largeur fixe pour la colonne logos */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.logo-display-card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid #eee;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.small-story-logo {
-    width: 100px; /* TAILLE RÉDUITE DES LOGOS */
-    height: 100px;
-    object-fit: contain; /* Évite de déformer l'image */
-    margin-bottom: 10px;
-}
-
-.logo-display-card p {
-    font-size: 0.8rem;
-    color: #888;
-    margin: 0;
-}
-
-/* 2. Correction de l'espacement Story / Footer */
-.section-padding {
-    padding: 100px 8%; /* Plus d'espace en haut et en bas */
-}
-
-#story {
-    margin-bottom: 50px; /* Espace avant le pied de page */
-}
-
-/* 3. Style du Footer Professionnel */
-.main-footer {
-    background: #0a0a0a !important;
-    margin-top: 0; 
-    border-top: 1px solid #222;
-}
-
-.footer-bottom {
-    padding: 40px 0 !important; /* Espace en bas du site */
-}
-
-.rainbow-line {
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
-    margin-bottom: 25px;
-}
-
-/* 4. Couleurs Highlights (Bleu demandé) */
-.date-highlight, .platform-highlight, .domain-highlight, .job-highlight, .founder-highlight, .dav-design-highlight {
-    color: #007FFF !important;
-    font-weight: 700;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .right-column-container {
-        flex: 1;
-        width: 100%;
-        margin-top: 30px;
-    }
-}
-
-.main-footer {
-    background: #0a0a0a;
-    color: white;
-    padding: 60px 5% 20px; /* Réduction des côtés */
-    border-top: 1px solid #222;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.footer-col p {
-    color: #bbb;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.footer-col h4 {
-    color: var(--accent-orange);
-    margin-bottom: 20px;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col li {
-    margin-bottom: 10px;
-    color: #bbb;
-}
-
-.footer-col a {
-    color: #bbb;
-    text-decoration: none;
-}
-
-.footer-col a:hover {
-    color: white;
-}
-
-.brand-footer {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.social-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 30px 0;
-    background: #050505;
-    margin-top: 40px;
-}
-
-.rainbow-line {
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
-    margin-bottom: 20px;
-}
-
-.cookie-container {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    background: #111;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* --- STYLE BANDEAU COOKIES --- */
-.cookie-container {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    border-radius: 12px;
-    padding: 20px;
-    z-index: 9999;
-    max-width: 500px;
-    border-left: 5px solid var(--accent-blue);
-}
-
-.cookie-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.cookie-content p {
-    font-size: 0.9rem;
-    color: #333;
-    margin: 0;
-}
-
-.cookie-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.btn-accept, .btn-reject {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: 0.3s;
-}
-
-.btn-accept {
-    background: var(--accent-orange);
-    color: white;
-}
-
-.btn-reject {
-    background: #eee;
-    color: #666;
-}
-
-.btn-accept:hover { background: var(--accent-blue); }
-.btn-reject:hover { background: #ddd; }
-
-/* Responsive footer fix */
-@media (max-width: 768px) {
-    .footer-container { text-align: center; }
-    .social-links { justify-content: center; }
-    .cookie-container { left: 10px; right: 10px; bottom: 10px; }
-}
-
-body {
-    padding-top: 80px; /* ajuste selon la hauteur de ta navbar */
-}
-
-/* =========================================
-   FOOTER PROFESSIONNEL (Design Graphique)
+   FOOTER PROFESSIONNEL (DESIGN ÉPURÉ)
    ========================================= */
 .main-footer {
     background: #0a0a0a;
@@ -921,10 +118,10 @@ body {
     border-top: 1px solid #222;
 }
 
-/* La ligne tricolore distinctive BiG FlooW */
+/* La ligne tricolore BiG FlooW */
 .footer-top-line {
     width: 100%;
-    height: 4px;
+    height: 5px;
     background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
     position: absolute;
     top: 0;
@@ -936,20 +133,18 @@ body {
     margin: 0 auto;
     padding: 0 8% 40px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr; /* Distribution inégale pour le style */
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 50px;
 }
 
 .footer-col h4 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: var(--white);
+    color: white;
     margin-bottom: 25px;
     position: relative;
     padding-bottom: 10px;
 }
 
-/* Petite ligne décorative sous les titres du footer */
 .footer-col h4::after {
     content: '';
     position: absolute;
@@ -960,16 +155,15 @@ body {
     background: var(--accent-orange);
 }
 
-.footer-col p {
-    color: #999;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; color: #bbb; }
+.footer-col a { color: #bbb; text-decoration: none; transition: 0.3s; }
+.footer-col a:hover { color: var(--accent-blue); }
 
-/* Icônes de réseaux sociaux pro */
 .social-links {
     display: flex;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .social-links a {
@@ -982,44 +176,31 @@ body {
     justify-content: center;
     border-radius: 8px;
     color: white;
-    transition: all 0.3s ease;
-    text-decoration: none;
+    transition: 0.3s;
 }
 
 .social-links a:hover {
     background: var(--accent-blue);
-    border-color: var(--accent-blue);
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 127, 255, 0.3);
 }
 
 .footer-bottom {
     background: #000;
-    padding: 20px 8%;
+    padding: 25px;
     text-align: center;
     border-top: 1px solid #1a1a1a;
-}
-
-.footer-bottom p {
-    font-size: 0.85rem;
     color: #666;
-    margin: 0;
+    font-size: 0.85rem;
 }
 
-/* Adaptation Mobile */
-@media (max-width: 768px) {
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 992px) {
     .footer-inner {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 40px;
     }
-    
-    .footer-col h4::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
+    .social-links { justify-content: center; }
+    .footer-col h4::after { left: 50%; transform: translateX(-50%); }
 }
