@@ -911,29 +911,6 @@ body {
 }
 
 /* =========================================
-   NAVBAR (Correction pour le défilement)
-   ========================================= */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 8%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px); /* Effet de flou moderne */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s ease; /* Transition fluide */
-}
-
-/* On s'assure que le contenu ne passe pas sous la barre fixe */
-body {
-    padding-top: 70px; 
-}
-
-/* =========================================
    FOOTER PROFESSIONNEL (Design Graphique)
    ========================================= */
 .main-footer {
