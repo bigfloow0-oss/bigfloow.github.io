@@ -273,22 +273,23 @@ body {
 .main-footer {
     background: #0a0a0a;
     color: white;
-    padding: 60px 5% 20px; /* Réduction des côtés */
-    border-top: 1px solid #222;
+    width: 100%;
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: auto;
+/* CONTENU LARGE MAIS RESPONSIVE */
+.footer-inner {
+    width: 100%;
+    padding: 60px 5%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
 }
 
+/* COLONNES */
 .footer-col p {
     color: #bbb;
-    font-size: 0.9rem;
     line-height: 1.6;
+    font-size: 0.9rem;
 }
 
 .footer-col h4 {
@@ -298,7 +299,6 @@ body {
 
 .footer-col ul {
     list-style: none;
-    padding: 0;
 }
 
 .footer-col li {
@@ -312,9 +312,10 @@ body {
 }
 
 .footer-col a:hover {
-    color: white;
+    color: var(--accent-blue);
 }
 
+/* LOGO */
 .brand-footer {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -322,24 +323,28 @@ body {
     margin-bottom: 15px;
 }
 
-.social-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 30px 0;
-    background: #050505;
-    margin-top: 40px;
-}
-
-.rainbow-line {
+/* BARRE DESIGN FULL WIDTH */
+.footer-bar {
     width: 100%;
     height: 4px;
     background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
-    margin-bottom: 20px;
+}
+
+/* BAS */
+.footer-bottom {
+    text-align: center;
+    padding: 25px;
+    background: #050505;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 }
 
 /* =========================================
