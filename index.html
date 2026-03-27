@@ -195,6 +195,11 @@
     </div>
 </footer>
 
+    <!-- WHATSAPP -->
+<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <div id="cookie-banner" class="cookie-container">
     <div class="cookie-content">
         <p>Ce site utilise des cookies pour vous offrir la meilleure expérience possible. 🍪</p>
@@ -204,11 +209,23 @@
         </div>
     </div>
 </div>
-    
-    <!-- WHATSAPP -->
-<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
+
+<script>
+    function acceptCookies() {
+        document.getElementById('cookie-banner').style.display = 'none';
+        localStorage.setItem('cookiesAccepted', 'true');
+    }
+    function rejectCookies() {
+        document.getElementById('cookie-banner').style.display = 'none';
+        localStorage.setItem('cookiesAccepted', 'false');
+    }
+    // Vérifier si l'utilisateur a déjà fait un choix
+    window.onload = function() {
+        if (localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    }
+</script>
     
 <script>
     function acceptCookies() {
@@ -228,4 +245,5 @@
 </script>
     
 </body>
+    
 </html>
