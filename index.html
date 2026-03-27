@@ -153,8 +153,9 @@
 </section>
 
 <footer class="main-footer">
-    <div class="footer-container">
-        
+
+    <div class="footer-inner">
+
         <!-- Branding -->
         <div class="footer-col branding">
             <div class="brand-footer">
@@ -197,10 +198,14 @@
 
     </div>
 
+    <!-- Barre design -->
+    <div class="footer-bar"></div>
+
+    <!-- Bottom -->
     <div class="footer-bottom">
-        <div class="rainbow-line"></div>
-        <p>© 2026 BiG FlooW – Tous droits réservés. Design par Victor HALLO.</p>
+        <p>© 2026 BiG FlooW – Tous droits réservés | Design par Victor HALLO</p>
     </div>
+
 </footer>
     
             <!-- WHATSAPP -->
@@ -212,29 +217,25 @@
     <div class="cookie-content">
         <p>Ce site utilise des cookies pour vous offrir la meilleure expérience possible. 🍪</p>
         <div class="cookie-buttons">
-            <button onclick="acceptCookies()" class="btn-accept">Accepter</button>
-            <button onclick="rejectCookies()" class="btn-reject">Refuser</button>
+            <button onclick="setCookieChoice('accepted')" class="btn-accept">Accepter</button>
+            <button onclick="setCookieChoice('rejected')" class="btn-reject">Refuser</button>
         </div>
     </div>
 </div>
   
 <script>
-function acceptCookies() {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'true');
+function setCookieChoice(choice) {
+    localStorage.setItem("cookieChoice", choice);
+    document.getElementById("cookie-banner").style.display = "none";
 }
 
-function rejectCookies() {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'false');
-}
-
-window.onload = function () {
-    if (localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookie-banner').style.display = 'none';
+window.addEventListener("load", function () {
+    if (!localStorage.getItem("cookieChoice")) {
+        document.getElementById("cookie-banner").style.display = "flex";
     }
-};
+});
 </script>
       
 </body> 
+    
 </html>
