@@ -237,40 +237,28 @@ body {
     letter-spacing: 1px;
 }
 
-/* Style des blocs de droite (Certification et Logos) */
-.right-column .certification-block-black {
-    background: #000 !important;
+.story-section { margin-bottom: 40px; }
+.story-section h3 { font-family: 'Montserrat'; margin-bottom: 10px; color: var(--accent-blue); }
+
+.certification-block-black {
+    background: #000;
+    color: white;
     padding: 40px;
-    border-radius: 5px;
-    box-shadow: 10px 10px 0px var(--accent-blue); /* Ombre décalée style design pro */
+    border-radius: 4px;
     margin-bottom: 30px;
 }
 
-.right-column .logo-display-block {
-    background: #ffffff;
-    border: 1px solid #eeeeee !important;
-    padding: 30px;
+.cert-year { font-size: 3.5rem; font-weight: 800; color: var(--accent-blue); line-height: 1; }
+
+.logo-display-block {
     text-align: center;
-    transition: transform 0.3s ease;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    margin-bottom: 20px;
 }
 
-.right-column .logo-display-block:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-/* Animation des images (Optionnel : Noir et Blanc par défaut) */
-.story-logo-img {
-    max-width: 140px;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: 0.4s ease;
-}
-
-.logo-display-block:hover .story-logo-img {
-    filter: grayscale(0%);
-    opacity: 1;
-}
+.story-logo-img { max-width: 150px; height: auto; margin-bottom: 10px; }
+.logo-caption { font-size: 0.8rem; color: var(--text-soft); }
 
 /* =========================================
    FOOTER PREMIUM
