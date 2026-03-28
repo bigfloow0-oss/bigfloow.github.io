@@ -214,37 +214,106 @@ body {
 .expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
 
 /* =========================================
-   STORY SECTION
+   DESIGN PREMIUM - SECTION STORY
    ========================================= */
-.story-flex-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 80px;
-    align-items: start;
+
+/* Fond de section et espacement */
+#story {
+    background-color: #ffffff !important; /* Fond blanc pur pour la clarté */
+    border-top: 1px solid #f0f0f0;
 }
 
-.story-section { margin-bottom: 40px; }
-.story-section h3 { font-family: 'Montserrat'; margin-bottom: 10px; color: var(--accent-blue); }
+/* Style des titres de sous-sections (Origine, Mission, etc.) */
+.story-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-.certification-block-black {
-    background: #000;
-    color: white;
-    padding: 40px;
-    border-radius: 4px;
+/* Ajout d'un petit indicateur visuel avant chaque titre */
+.story-section h3::before {
+    content: "";
+    width: 12px;
+    height: 2px;
+    background: var(--accent-orange);
+    display: inline-block;
+}
+
+/* Style du texte principal */
+.story-section p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+    text-align: justify;
     margin-bottom: 30px;
 }
 
-.cert-year { font-size: 3.5rem; font-weight: 800; color: var(--accent-blue); line-height: 1; }
-
-.logo-display-block {
-    text-align: center;
-    padding: 20px;
-    border: 1px dashed #ccc;
-    margin-bottom: 20px;
+/* Mise en valeur des mots-clés (Highlights) */
+.big-floow-highlight { font-weight: 800; color: #000; }
+.date-highlight, .job-highlight, .platform-highlight, .domain-highlight, .founder-highlight, .dav-design-highlight {
+    font-weight: 600;
+    color: var(--dark-grey);
+    border-bottom: 1px solid var(--accent-orange); /* Soulignement élégant orange */
+    padding-bottom: 1px;
 }
 
-.story-logo-img { max-width: 150px; height: auto; margin-bottom: 10px; }
-.logo-caption { font-size: 0.8rem; color: var(--text-soft); }
+/* --- BLOCS DE DROITE --- */
+
+/* Bloc de certification noir */
+.certification-block-black {
+    background: #000;
+    border-left: 5px solid var(--accent-blue); /* Ligne d'accent bleue */
+    padding: 40px;
+    transition: var(--transition);
+}
+
+.certification-block-black:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Blocs des logos à droite */
+.logo-display-block {
+    background: #fff;
+    border: 1px solid #eee !important; /* Bordure fine au lieu de pointillés */
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 25px;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.logo-display-block:hover {
+    border-color: var(--accent-orange) !important;
+    transform: translateY(-5px);
+}
+
+.story-logo-img {
+    filter: grayscale(100%); /* Look artistique */
+    transition: 0.5s;
+    opacity: 0.8;
+}
+
+.logo-display-block:hover .story-logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.logo-caption {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    color: #999;
+}
 
 /* =========================================
    FOOTER PREMIUM
