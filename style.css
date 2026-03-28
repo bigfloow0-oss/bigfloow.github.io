@@ -213,48 +213,119 @@ body {
 
 .expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
 
-/* --- NOUVEAU DESIGN STORY PREMIUM --- */
+/* =========================================
+   STORY PREMIUM - DISPOSITION INVERSÉE
+   ========================================= */
 
-/* On cible spécifiquement la colonne de texte */
-.story-text-content .story-section {
-    margin-bottom: 40px;
-    border-left: 3px solid #f0f0f0; /* Petite ligne discrète à gauche de chaque bloc */
-    padding-left: 25px;
-    transition: all 0.3s ease;
+.story-flex-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 1fr pour les logos, 1.5fr pour le texte */
+    gap: 80px;
+    align-items: start;
+    /* On utilise l'ordre CSS pour placer la 2ème colonne du HTML à GAUCHE */
 }
 
-.story-text-content .story-section:hover {
-    border-left: 3px solid var(--accent-orange); /* La ligne devient orange au survol */
+/* On force l'affichage de la colonne des logos (2ème dans le HTML) en position 1 */
+.right-column-container {
+    grid-column: 1; 
+    grid-row: 1;
 }
 
-/* Forcer le style des titres H3 dans la story */
-#story .story-section h3 {
-    font-family: 'Montserrat', sans-serif !important;
-    color: var(--accent-blue) !important;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+/* On force l'affichage du texte (1er dans le HTML) en position 2 */
+.story-text-content {
+    grid-column: 2;
+    grid-row: 1;
 }
 
-.story-section { margin-bottom: 40px; }
-.story-section h3 { font-family: 'Montserrat'; margin-bottom: 10px; color: var(--accent-blue); }
-
+/* --- DESIGN DES BLOCS (GAUCHE) --- */
 .certification-block-black {
     background: #000;
-    color: white;
+    color: #fff;
     padding: 40px;
-    border-radius: 4px;
+    border-right: 5px solid var(--accent-orange); /* Ligne décorative */
+    text-align: center;
+    box-shadow: 15px 15px 0px var(--accent-blue);
     margin-bottom: 30px;
 }
 
-.cert-year { font-size: 3.5rem; font-weight: 800; color: var(--accent-blue); line-height: 1; }
+.cert-year {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    font-family: 'Montserrat';
+    line-height: 1;
+}
 
 .logo-display-block {
-    text-align: center;
-    padding: 20px;
-    border: 1px dashed #ccc;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    padding: 30px;
     margin-bottom: 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.logo-display-block:hover {
+    border-color: var(--accent-blue);
+    transform: translateX(10px); /* Petit décalage vers la droite au survol */
+}
+
+.story-logo-img {
+    max-width: 140px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: 0.4s;
+}
+
+.logo-display-block:hover .story-logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* --- DESIGN DU TEXTE (DROITE) --- */
+.story-text-content h2 {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.story-text-content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-blue);
+}
+
+.story-section h3 {
+    color: var(--accent-orange);
+    font-size: 1.3rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.story-section p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Adaptabilité Mobile */
+@media (max-width: 992px) {
+    .story-flex-container {
+        grid-template-columns: 1fr; /* On repasse sur une seule colonne */
+    }
+    .right-column-container, .story-text-content {
+        grid-column: 1; /* Tout le monde revient dans l'ordre sur mobile */
+    }
+    .story-text-content {
+        grid-row: 1; /* Le texte repasse en haut sur mobile */
+    }
+    .right-column-container {
+        grid-row: 2; /* Les logos passent en bas sur mobile */
+    }
 }
 
 .story-logo-img { max-width: 150px; height: auto; margin-bottom: 10px; }
