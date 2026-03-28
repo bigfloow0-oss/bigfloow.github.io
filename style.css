@@ -213,106 +213,63 @@ body {
 
 .expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
 
-/* =========================================
-   DESIGN PREMIUM - SECTION STORY
-   ========================================= */
+/* --- NOUVEAU DESIGN STORY PREMIUM --- */
 
-/* Fond de section et espacement */
-#story {
-    background-color: #ffffff !important; /* Fond blanc pur pour la clarté */
-    border-top: 1px solid #f0f0f0;
+/* On cible spécifiquement la colonne de texte */
+.story-text-content .story-section {
+    margin-bottom: 40px;
+    border-left: 3px solid #f0f0f0; /* Petite ligne discrète à gauche de chaque bloc */
+    padding-left: 25px;
+    transition: all 0.3s ease;
 }
 
-/* Style des titres de sous-sections (Origine, Mission, etc.) */
-.story-section h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
+.story-text-content .story-section:hover {
+    border-left: 3px solid var(--accent-orange); /* La ligne devient orange au survol */
+}
+
+/* Forcer le style des titres H3 dans la story */
+#story .story-section h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--accent-blue) !important;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-blue);
     margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    letter-spacing: 1px;
 }
 
-/* Ajout d'un petit indicateur visuel avant chaque titre */
-.story-section h3::before {
-    content: "";
-    width: 12px;
-    height: 2px;
-    background: var(--accent-orange);
-    display: inline-block;
-}
-
-/* Style du texte principal */
-.story-section p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.8;
-    text-align: justify;
+/* Style des blocs de droite (Certification et Logos) */
+.right-column .certification-block-black {
+    background: #000 !important;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px var(--accent-blue); /* Ombre décalée style design pro */
     margin-bottom: 30px;
 }
 
-/* Mise en valeur des mots-clés (Highlights) */
-.big-floow-highlight { font-weight: 800; color: #000; }
-.date-highlight, .job-highlight, .platform-highlight, .domain-highlight, .founder-highlight, .dav-design-highlight {
-    font-weight: 600;
-    color: var(--dark-grey);
-    border-bottom: 1px solid var(--accent-orange); /* Soulignement élégant orange */
-    padding-bottom: 1px;
-}
-
-/* --- BLOCS DE DROITE --- */
-
-/* Bloc de certification noir */
-.certification-block-black {
-    background: #000;
-    border-left: 5px solid var(--accent-blue); /* Ligne d'accent bleue */
-    padding: 40px;
-    transition: var(--transition);
-}
-
-.certification-block-black:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-/* Blocs des logos à droite */
-.logo-display-block {
-    background: #fff;
-    border: 1px solid #eee !important; /* Bordure fine au lieu de pointillés */
-    border-radius: 8px;
+.right-column .logo-display-block {
+    background: #ffffff;
+    border: 1px solid #eeeeee !important;
     padding: 30px;
-    margin-top: 25px;
-    transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.logo-display-block:hover {
-    border-color: var(--accent-orange) !important;
-    transform: translateY(-5px);
+.right-column .logo-display-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
+/* Animation des images (Optionnel : Noir et Blanc par défaut) */
 .story-logo-img {
-    filter: grayscale(100%); /* Look artistique */
-    transition: 0.5s;
-    opacity: 0.8;
+    max-width: 140px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: 0.4s ease;
 }
 
 .logo-display-block:hover .story-logo-img {
     filter: grayscale(0%);
     opacity: 1;
-}
-
-.logo-caption {
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    margin-top: 15px;
-    color: #999;
 }
 
 /* =========================================
