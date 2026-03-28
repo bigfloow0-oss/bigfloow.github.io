@@ -3,57 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BiG FlooW - Portfolio Graphisme. Découvrez nos créations visuelles à Lomé.">
-    <title>BiG FlooW | Graphisme</title>
+    <title>BiG FlooW | Studio Graphique Premium</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .portfolio-hero {
-            height: 40vh;
-            background: url('home1.jpeg') center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-        }
-        .portfolio-hero h1 {
-            position: relative;
-            color: white;
-            font-size: clamp(2rem, 5vw, 3rem);
-            z-index: 2;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 60px 8%;
-        }
-        .work-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .work-item:hover { transform: translateY(-10px); }
-        .work-image img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .work-desc { padding: 20px; text-align: center; }
-        .category { color: #007FFF; font-weight: bold; font-size: 0.8rem; }
-    </style>
 </head>
 <body>
 
@@ -64,112 +18,96 @@
         <li><a href="portfolio.html">Graphisme</a></li>
         <li><a href="portfolio-3d.html">3D</a></li>
         <li><a href="portfolio-branding.html">Branding</a></li>
-        <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
+        <li><a href="#contact" class="btn-contact">Contact</a></li>
     </ul>
 </nav>
 
 <header class="portfolio-hero">
     <div class="portfolio-overlay"></div>
-    <h1>Graphisme</h1>
+    <div style="z-index: 2;">
+        <h1>Graphisme</h1>
+        <div class="hero-line"></div>
+    </div>
 </header>
 
-<div style="text-align:center; margin:30px;">
-    <a href="index.html" style="padding:10px 25px; background:#007FFF; color:white; border-radius:30px; text-decoration:none;">
-        ← Retour à l’accueil
+<div style="text-align:center; padding: 40px 0; background: #f8f9fa;">
+    <a href="index.html" class="back-btn-modern" style="text-decoration:none; color: #333; font-weight: 600;">
+        <i class="fas fa-arrow-left"></i> Retour à l'accueil
     </a>
 </div>
 
-<section class="portfolio-grid">
-    <div class="work-item">
-        <div class="work-image"><img src="concep 3.jpeg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Identité Visuelle</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Affiche Pub</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="concep 3.jpeg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Création Logo</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Flyer Event</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="concep 3.jpeg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Design Social Media</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Carte de Visite</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="concep 3.jpeg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Brochure</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Couverture Livre</h4></div>
-    </div>
-    <div class="work-item">
+<section class="portfolio-section">
+    <div class="portfolio-grid">
         <div class="work-item">
-        <div class="work-image"><img src="concep 3.jpeg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Packaging</h4></div>
-    </div>
-    <div class="work-item">
-        <div class="work-image"><img src="IMG-20221127-WA0012.jpg"></div>
-        <div class="work-desc"><span class="category">Graphisme</span><h4>Illustration Personnalisée</h4></div>
+            <div class="work-image"><img src="concep 3.jpeg" alt="Identité Visuelle"></div>
+            <div class="work-desc">
+                <span class="category">Graphisme</span>
+                <h4>Identité Visuelle</h4>
+            </div>
+        </div>
+        <div class="work-item">
+            <div class="work-image"><img src="IMG-20221127-WA0012.jpg" alt="Affiche Pub"></div>
+            <div class="work-desc">
+                <span class="category">Publicité</span>
+                <h4>Affiche Pub</h4>
+            </div>
+        </div>
+        <div class="work-item">
+            <div class="work-image"><img src="concep 3.jpeg" alt="Création Logo"></div>
+            <div class="work-desc">
+                <span class="category">Branding</span>
+                <h4>Création Logo</h4>
+            </div>
+        </div>
+        <div class="work-item">
+            <div class="work-image"><img src="IMG-20221127-WA0012.jpg" alt="Flyer Event"></div>
+            <div class="work-desc">
+                <span class="category">Événementiel</span>
+                <h4>Flyer Event</h4>
+            </div>
+        </div>
     </div>
 </section>
 
-<footer class="main-footer" style="background: #111; color: #fff; padding-top: 60px; font-family: 'Poppins', sans-serif;">
-    <div class="footer-top">
-        <div class="footer-container" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 8%;">
-            
-            <div class="footer-col branding">
-                <div class="brand-footer" style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.8rem; margin-bottom: 15px; color: #ffffff;">
-                    BiG <span style="color: #ED7F10;">Floo</span><span style="color: #007FFF;">W</span>
-                </div>
-                <p style="color: #bbb; line-height: 1.6; font-size: 0.9rem; margin-bottom: 20px;">
-                    L'innovation par le Design. Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.
-                </p>
-                
-                <div class="social-links" style="display: flex; gap: 12px;">
-                    <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
-                    <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+<footer class="main-footer" id="contact">
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="brand" style="color: white; margin-bottom: 20px;">
+                BiG<span class="floo">Floo</span><span class="w">W</span>
             </div>
-
-            <div class="footer-col">
-                <h4 style="color: #ED7F10; font-family: 'Montserrat', sans-serif; margin-bottom: 25px; position: relative;">Navigation</h4>
-                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
-                    <li style="margin-bottom: 12px;"><a href="index.html" style="color: #bbb; text-decoration: none;">Accueil</a></li>
-                    <li style="margin-bottom: 12px;"><a href="portfolio.html" style="color: #bbb; text-decoration: none;">Graphisme</a></li>
-                    <li style="margin-bottom: 12px;"><a href="portfolio-3d.html" style="color: #bbb; text-decoration: none;">Modélisation 3D</a></li>
-                    <li style="margin-bottom: 12px;"><a href="portfolio-branding.html" style="color: #bbb; text-decoration: none;">Branding</a></li>
-                </ul>
+            <p>L'innovation par le Design. Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
             </div>
+        </div>
 
-            <div class="footer-col">
-                <h4 style="color: #ED7F10; font-family: 'Montserrat', sans-serif; margin-bottom: 25px;">Contactez-nous</h4>
-                <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #bbb;">
-                    <li style="margin-bottom: 12px;"><i class="fas fa-phone-alt" style="color: #ED7F10; margin-right: 10px;"></i> +228 90 49 86 80</li>
-                    <li style="margin-bottom: 12px;"><i class="fas fa-phone-alt" style="color: #ED7F10; margin-right: 10px;"></i> +228 97 16 08 73</li>
-                    <li style="margin-bottom: 12px;"><i class="fas fa-envelope" style="color: #ED7F10; margin-right: 10px;"></i> bigfloow0@gmail.com</li>
-                    <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" style="color: #ED7F10; margin-right: 10px;"></i> Bd de la Kara, Lomé</li>
-                </ul>
-            </div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="portfolio.html">Graphisme</a></li>
+                <li><a href="portfolio-3d.html">Modélisation 3D</a></li>
+                <li><a href="portfolio-branding.html">Branding</a></li>
+            </ul>
+        </div>
 
+        <div class="footer-col">
+            <h4>Contactez-nous</h4>
+            <ul class="footer-links">
+                <li><i class="fas fa-phone-alt" style="color: var(--accent-orange); margin-right: 10px;"></i> +228 90 49 86 80</li>
+                <li><i class="fas fa-envelope" style="color: var(--accent-orange); margin-right: 10px;"></i> bigfloow0@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange); margin-right: 10px;"></i> Bd de la Kara, Lomé</li>
+            </ul>
         </div>
     </div>
 
-    <div class="footer-bottom" style="margin-top: 50px; text-align: center; padding: 30px 0; background: #0a0a0a;">
-        <div style="width: 100%; height: 4px; background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%); margin-bottom: 20px;"></div>
-        <p style="font-size: 0.8rem; color: #666;">© 2026 <span style="color: #ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
+    <div class="footer-bottom">
+        <div class="line-gradient"></div>
+        <p>© 2026 <span style="color: var(--accent-orange);">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
     </div>
 </footer>
 
