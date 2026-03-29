@@ -186,15 +186,22 @@
 
 <script>
     function acceptCookies() {
+        // Cache la bannière avec une petite animation si tu veux, ou direct :
         document.getElementById('cookie-banner').style.display = 'none';
+        // Enregistre le choix
         localStorage.setItem('cookiesAccepted', 'true');
     }
-    // Vérifier si déjà accepté
-    window.onload = function() {
-        if(localStorage.getItem('cookiesAccepted')) {
+
+    // Au chargement de la page
+    window.addEventListener('load', function() {
+        // Si l'utilisateur a déjà accepté, on cache la bannière
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
             document.getElementById('cookie-banner').style.display = 'none';
+        } else {
+            // Sinon on s'assure qu'elle est bien visible
+            document.getElementById('cookie-banner').style.display = 'block';
         }
-    }
+    });
 </script>
     
 <a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
