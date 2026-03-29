@@ -179,6 +179,14 @@
  <div id="cookie-banner" class="cookie-box">
     <div class="cookie-content">
         <i class="fas fa-cookie-bite cookie-icon"></i>
+        <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>.</p>
+        <button onclick="acceptCookies()" class="cookie-btn">Accepter</button>
+    </div>
+</div>
+
+<div id="cookie-banner" class="cookie-box">
+    <div class="cookie-content">
+        <i class="fas fa-cookie-bite cookie-icon"></i>
         <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>. En continuant, vous acceptez notre politique de design.</p>
         <button onclick="acceptCookies()" class="cookie-btn">Accepter</button>
     </div>
@@ -186,22 +194,15 @@
 
 <script>
     function acceptCookies() {
-        // Cache la bannière avec une petite animation si tu veux, ou direct :
         document.getElementById('cookie-banner').style.display = 'none';
-        // Enregistre le choix
         localStorage.setItem('cookiesAccepted', 'true');
     }
-
-    // Au chargement de la page
-    window.addEventListener('load', function() {
-        // Si l'utilisateur a déjà accepté, on cache la bannière
-        if (localStorage.getItem('cookiesAccepted') === 'true') {
+    // Vérifier si déjà accepté
+    window.onload = function() {
+        if(localStorage.getItem('cookiesAccepted')) {
             document.getElementById('cookie-banner').style.display = 'none';
-        } else {
-            // Sinon on s'assure qu'elle est bien visible
-            document.getElementById('cookie-banner').style.display = 'block';
         }
-    });
+    }
 </script>
     
 <a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
