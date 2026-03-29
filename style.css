@@ -402,23 +402,21 @@ body {
    BANNIÈRE COOKIE - VERSION CORRIGÉE
    ========================================= */
 .cookie-box {
-    position: fixed !important;
-    bottom: 30px !important;
-    left: 30px !important;
-    width: 380px !important;
-    background: #000000 !important;
-    color: #ffffff !important;
-    padding: 30px !important;
-    border-radius: 12px !important;
-    z-index: 999999 !important;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5) !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
-    /* On enlève display: block car le JS doit pouvoir le passer en 'none' */
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 380px;
+    background: #000;
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    z-index: 9999;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: none; /* IMPORTANT */
 }
 
 /* Cette classe sera ajoutée par JS si le cookie n'est pas encore accepté */
-.cookie-box.active { display: block !important; }
-
 .cookie-content {
     display: flex;
     flex-direction: column;
