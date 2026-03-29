@@ -22,6 +22,7 @@
         <li><a href="index.html">Accueil</a></li>
         <li><a href="portfolio.html">Graphisme</a></li>
         <li><a href="portfolio-3d.html">Modélisation 3D</a></li>
+        <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
         <li><a href="portfolio-branding.html">Branding</a></li>
         <li><a href="#contact" class="btn-contact">Contact</a></li>
     </ul>
@@ -71,6 +72,75 @@
     </div>
 </section>
 
+    <section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-target="150">0</span>
+                <p>Logos Créés</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="85">0</span>
+                <p>Projets 3D</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="120">0</span>
+                <p>Clients Heureux</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="5">0</span>
+                <p>Années d'Expérience</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="custom-cursor"></div>
+<div class="cursor-dot"></div>
+
+<script>
+    // --- DARK MODE ---
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const icon = themeToggle.querySelector('i');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
+    });
+
+    // --- CURSEUR ---
+    const cursor = document.querySelector('.custom-cursor');
+    const dot = document.querySelector('.cursor-dot');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+    });
+
+    // --- COMPTEUR ANIMÉ ---
+    const stats = document.querySelectorAll('.stat-number');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const target = +entry.target.getAttribute('data-target');
+                let count = 0;
+                const updateCount = () => {
+                    const speed = target / 50;
+                    if(count < target) {
+                        count = Math.ceil(count + speed);
+                        entry.target.innerText = count + "+";
+                        setTimeout(updateCount, 30);
+                    } else { entry.target.innerText = target + "+"; }
+                };
+                updateCount();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    stats.forEach(s => observer.observe(s));
+</script>
+    
 <section id="story" class="section-padding" style="background: #fdfdfd;">
     <div class="container">
         <div class="story-flex-container">
