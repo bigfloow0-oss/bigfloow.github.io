@@ -399,41 +399,70 @@ body {
 }
 
 /* =========================================
-   BANNIÈRE COOKIE PREMIUM - CORRIGÉ
+   BANNIÈRE COOKIE - DESIGN PREMIUM FIXE
    ========================================= */
 .cookie-box {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 350px;
-    background: #000;
-    color: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    z-index: 9999; /* Très haut pour être au-dessus de tout */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
-    display: block; /* On force l'affichage par défaut */
+    position: fixed !important; /* Force la position fixe */
+    bottom: 30px !important;
+    left: 30px !important;
+    width: 380px !important;
+    background: #000000 !important; /* Noir profond */
+    color: #ffffff !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    z-index: 999999 !important; /* Doit être au-dessus de la navbar et du curseur */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    display: block; /* S'assure qu'il n'est pas caché par défaut */
 }
 
-/* On s'assure que le contenu est bien aligné */
 .cookie-content {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
 }
 
-.cookie-content p {
-    font-size: 0.85rem;
-    color: #bbb;
-    margin: 10px 0 20px 0;
-    line-height: 1.4;
+.cookie-icon {
+    font-size: 2rem !important;
+    color: #ED7F10 !important; /* Ton orange BiG FlooW */
 }
 
-/* Ajustement mobile pour ne pas cacher le bouton WhatsApp */
+.cookie-box p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: #cccccc !important;
+    margin: 0 !important;
+}
+
+.cookie-box p span {
+    color: #007FFF !important; /* Ton bleu BiG FlooW */
+    font-weight: 700;
+}
+
+.cookie-btn {
+    background: #007FFF !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    font-weight: 600 !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: 0.3s ease !important;
+    align-self: flex-end;
+}
+
+.cookie-btn:hover {
+    background: #ED7F10 !important;
+    transform: translateY(-3px);
+}
+
+/* Ajustement pour mobile */
 @media (max-width: 480px) {
     .cookie-box {
-        left: 15px;
-        right: 15px;
-        bottom: 100px; /* Remonté pour laisser la place à l'icône WhatsApp */
-        width: auto;
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
+        bottom: 20px !important;
     }
 }
