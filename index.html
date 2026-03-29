@@ -262,32 +262,37 @@ stats.forEach(s => observer.observe(s));
     </div>
 </footer>
 
- <div id="cookie-banner" class="cookie-box">
-    <div class="cookie-content">
-        <i class="fas fa-cookie-bite cookie-icon"></i>
-        <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>. En continuant, vous acceptez notre politique de design.</p>
-        <button type="button" onclick="acceptCookies()" class="cookie-btn">Accepter</button>
-    </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const banner = document.getElementById("cookie-banner");
-
-    // Vérifie si déjà accepté
-    if (localStorage.getItem("cookiesAccepted") === "true") {
-        banner.style.display = "none";
-    } else {
-        banner.style.display = "block";
+ <script>
+    // --- GESTION DES COOKIES ---
+    function acceptCookies() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+            // On cache et on supprime carrément l'élément pour être sûr
+            banner.setAttribute('style', 'display:none !important');
+            localStorage.setItem('cookiesAcceptedByUser', 'true');
+        }
     }
-});
 
-// Fonction bouton
-function acceptCookies() {
-    const banner = document.getElementById("cookie-banner");
-    banner.style.display = "none";
-    localStorage.setItem("cookiesAccepted", "true");
-}
+    // Vérification au chargement
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('cookiesAcceptedByUser') === 'true') {
+            const banner = document.getElementById('cookie-banner');
+            if (banner) banner.style.display = 'none';
+        }
+    });
+
+    // --- MODE SOMBRE ---
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const icon = themeToggle.querySelector('i');
+        // Change l'icône
+        if(document.body.classList.contains('dark-theme')){
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+    });
 </script>
     
 <a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
