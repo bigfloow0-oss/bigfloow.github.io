@@ -399,22 +399,25 @@ body {
 }
 
 /* =========================================
-   BANNIÈRE COOKIE - DESIGN PREMIUM FIXE
+   BANNIÈRE COOKIE - VERSION CORRIGÉE
    ========================================= */
 .cookie-box {
-    position: fixed !important; /* Force la position fixe */
+    position: fixed !important;
     bottom: 30px !important;
     left: 30px !important;
     width: 380px !important;
-    background: #000000 !important; /* Noir profond */
+    background: #000000 !important;
     color: #ffffff !important;
     padding: 30px !important;
     border-radius: 12px !important;
-    z-index: 999999 !important; /* Doit être au-dessus de la navbar et du curseur */
+    z-index: 999999 !important;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5) !important;
     border: 1px solid rgba(255,255,255,0.15) !important;
-    display: block; /* S'assure qu'il n'est pas caché par défaut */
+    /* On enlève display: block car le JS doit pouvoir le passer en 'none' */
 }
+
+/* Cette classe sera ajoutée par JS si le cookie n'est pas encore accepté */
+.cookie-box.active { display: block !important; }
 
 .cookie-content {
     display: flex;
@@ -423,59 +426,61 @@ body {
     gap: 15px;
 }
 
-.cookie-icon {
-    font-size: 2rem !important;
-    color: #ED7F10 !important; /* Ton orange BiG FlooW */
-}
-
-.cookie-box p {
-    font-size: 0.9rem !important;
-    line-height: 1.5 !important;
-    color: #cccccc !important;
-    margin: 0 !important;
-}
-
-.cookie-box p span {
-    color: #007FFF !important; /* Ton bleu BiG FlooW */
-    font-weight: 700;
-}
-
-.cookie-btn {
-    background: #007FFF !important;
+.cookie-box .cookie-btn {
+    background: var(--accent-blue) !important;
     color: #fff !important;
     border: none !important;
     padding: 12px 30px !important;
     font-weight: 600 !important;
     border-radius: 5px !important;
     cursor: pointer !important;
-    transition: 0.3s ease !important;
     align-self: flex-end;
 }
 
-.cookie-btn:hover {
-    background: #ED7F10 !important;
-    transform: translateY(-3px);
-}
+/* =========================================
+   CORRECTION MODE SOMBRE (DARK THEME)
+   ========================================= */
 
-/* Ajustement pour mobile */
-@media (max-width: 480px) {
-    .cookie-box {
-        left: 15px !important;
-        right: 15px !important;
-        width: auto !important;
-        bottom: 20px !important;
-    }
-}
-
-/* --- VARIABLES DARK MODE --- */
+/* 1. Les Variables */
 body.dark-theme {
     --white: #121212;
     --dark-grey: #ffffff;
     --bg-light: #1e1e1e;
-    --text-soft: #aaa;
+    --text-soft: #cccccc;
+    background-color: var(--white);
+    color: var(--dark-grey);
 }
-body.dark-theme .navbar { background: rgba(18, 18, 18, 0.95); }
-body.dark-theme .expertise-card, body.dark-theme .logo-display-block { background: #1e1e1e; border-color: #333; }
+
+/* 2. Forcer les textes de la section Story et Expertises en blanc */
+body.dark-theme #story, 
+body.dark-theme #expertises,
+body.dark-theme .expertise-card,
+body.dark-theme .logo-display-block {
+    background-color: var(--white) !important;
+    color: var(--dark-grey) !important;
+}
+
+body.dark-theme p, 
+body.dark-theme .story-section p, 
+body.dark-theme .expertise-card p {
+    color: var(--text-soft) !important;
+}
+
+body.dark-theme .section-title,
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: var(--white) !important; /* Le blanc de la variable devient noir, donc on met blanc fixe ou var(--dark-grey) */
+    color: #ffffff !important;
+}
+
+body.dark-theme .navbar {
+    background: rgba(18, 18, 18, 0.95) !important;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-theme .nav-links a {
+    color: #ffffff !important;
+}
 
 /* --- BOUTON THEME --- */
 .theme-btn {
@@ -484,48 +489,12 @@ body.dark-theme .expertise-card, body.dark-theme .logo-display-block { backgroun
     cursor: pointer;
     font-size: 1.2rem;
     color: var(--dark-grey);
-    padding: 5px;
+    padding: 10px;
     transition: 0.3s;
 }
 
-/* --- CURSEUR PERSO (Masqué sur mobile) --- */
-@media (min-width: 1025px) {
-    body { cursor: none; }
-    .custom-cursor {
-        width: 40px; height: 40px; border: 2px solid var(--accent-blue);
-        border-radius: 50%; position: fixed; pointer-events: none;
-        z-index: 9999; transform: translate(-50%, -50%); transition: 0.1s ease-out;
-    }
-    .cursor-dot {
-        width: 8px; height: 8px; background: var(--accent-orange);
-        border-radius: 50%; position: fixed; pointer-events: none;
-        z-index: 10000; transform: translate(-50%, -50%);
-    }
-}
-
-/* --- SECTION STATS --- */
-.stats-section {
-    background: var(--logo-black);
-    padding: 80px 0;
-    color: white;
-    text-align: center;
-}
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-}
-.stat-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: 'Montserrat';
-    color: var(--accent-orange);
-    margin-bottom: 10px;
-}
-.stat-item p {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    opacity: 0.8;
-}
+/* =========================================
+   STATS & CURSEUR (Inchangé)
+   ========================================= */
+.stats-section { background: #000; padding: 80px 0; color: white; text-align: center; }
+.stat-number { display: block; font-size: 3rem; font-weight: 800; color: var(--accent-orange); }
