@@ -397,3 +397,61 @@ body {
     box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
     z-index: 999;
 }
+
+/* =========================================
+   BANNIÈRE COOKIE PREMIUM
+   ========================================= */
+.cookie-box {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 350px;
+    background: #000;
+    color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    z-index: 10000;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cookie-content p {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 15px 0;
+}
+
+.cookie-content p span {
+    color: var(--accent-orange);
+    font-weight: 700;
+}
+
+.cookie-icon {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+}
+
+.cookie-btn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cookie-btn:hover {
+    background: var(--accent-orange);
+    transform: scale(1.05);
+}
+
+/* Responsive Cookie */
+@media (max-width: 480px) {
+    .cookie-box {
+        left: 10px;
+        right: 10px;
+        width: auto;
+    }
+}
