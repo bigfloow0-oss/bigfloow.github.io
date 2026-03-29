@@ -109,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="right-column">
+            <div class="right-column-container">
                 <div class="certification-block-black">
                     <div class="cert-year">2022</div>
                     <h3>Expertise Certifiée</h3>
@@ -159,11 +159,12 @@
             </div>
 
             <div class="footer-col">
+              <div class="footer-col">
                 <h4>Contact</h4>
                 <ul>
-                    <li><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 90 49 86 80</li>
-                    <li><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</li>
-                    <li><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</li>
+                    <li><a href="tel:+22890498680" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 90 49 86 80</a></li>
+                    <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
+                    <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
                 </ul>
             </div>
@@ -175,6 +176,27 @@
     </div>
 </footer>
 
+ <div id="cookie-banner" class="cookie-box">
+    <div class="cookie-content">
+        <i class="fas fa-cookie-bite cookie-icon"></i>
+        <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>. En continuant, vous acceptez notre politique de design.</p>
+        <button onclick="acceptCookies()" class="cookie-btn">Accepter</button>
+    </div>
+</div>
+
+<script>
+    function acceptCookies() {
+        document.getElementById('cookie-banner').style.display = 'none';
+        localStorage.setItem('cookiesAccepted', 'true');
+    }
+    // Vérifier si déjà accepté
+    window.onload = function() {
+        if(localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    }
+</script>
+    
 <a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
