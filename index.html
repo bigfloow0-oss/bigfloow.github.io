@@ -99,46 +99,63 @@
 <div class="cursor-dot"></div>
 
 <script>
-    // --- DARK MODE ---
-    const themeToggle = document.getElementById('theme-toggle');
+// DARK MODE
+const themeToggle = document.getElementById('theme-toggle');
+
+if(themeToggle){
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
         const icon = themeToggle.querySelector('i');
-        icon.classList.toggle('fa-moon');
-        icon.classList.toggle('fa-sun');
-    });
 
-    // --- CURSEUR ---
-    const cursor = document.querySelector('.custom-cursor');
-    const dot = document.querySelector('.cursor-dot');
-    document.addEventListener('mousemove', (e) => {
+        if(document.body.classList.contains('dark-theme')){
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+    });
+}
+
+// CURSEUR
+const cursor = document.querySelector('.custom-cursor');
+const dot = document.querySelector('.cursor-dot');
+
+document.addEventListener('mousemove', (e) => {
+    if(cursor && dot){
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
         dot.style.left = e.clientX + 'px';
         dot.style.top = e.clientY + 'px';
-    });
+    }
+});
 
-    // --- COMPTEUR ANIMÉ ---
-    const stats = document.querySelectorAll('.stat-number');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                const target = +entry.target.getAttribute('data-target');
-                let count = 0;
-                const updateCount = () => {
-                    const speed = target / 50;
-                    if(count < target) {
-                        count = Math.ceil(count + speed);
-                        entry.target.innerText = count + "+";
-                        setTimeout(updateCount, 30);
-                    } else { entry.target.innerText = target + "+"; }
-                };
-                updateCount();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    stats.forEach(s => observer.observe(s));
+// STATS
+const stats = document.querySelectorAll('.stat-number');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const target = +entry.target.getAttribute('data-target');
+            let count = 0;
+
+            const updateCount = () => {
+                const speed = target / 50;
+
+                if(count < target){
+                    count += speed;
+                    entry.target.innerText = Math.ceil(count) + "+";
+                    requestAnimationFrame(updateCount);
+                } else {
+                    entry.target.innerText = target + "+";
+                }
+            };
+
+            updateCount();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+stats.forEach(s => observer.observe(s));
 </script>
     
 <section id="story" class="section-padding" style="background: #fdfdfd;">
@@ -187,13 +204,13 @@
                 </div>
 
                 <div class="logo-display-block">
-                    <img src="logo big floow.png" alt="Logo BiG FlooW" class="story-logo-img">
-                    <p class="logo-caption">L'énergie créative actuelle.</p>
+                    <img src="dav_design_logo.jpg" alt="Logo Dav National Design" class="story-logo-img">
+                    <p class="logo-caption">L'héritage du design professionnel.</p>
                 </div>
 
                 <div class="logo-display-block">
-                    <img src="dav_design_logo.jpg" alt="Logo Dav National Design" class="story-logo-img">
-                    <p class="logo-caption">L'héritage du design professionnel.</p>
+                    <img src="logo big floow.png" alt="Logo BiG FlooW" class="story-logo-img">
+                    <p class="logo-caption">L'énergie créative actuelle.</p>
                 </div>
             </div>
 
@@ -255,36 +272,23 @@
 </div>
 
 <script>
-    // --- GESTION DES COOKIES ---
-    function acceptCookies() {
-        const banner = document.getElementById('cookie-banner');
-        if (banner) {
-            // On cache et on supprime carrément l'élément pour être sûr
-            banner.setAttribute('style', 'display:none !important');
-            localStorage.setItem('cookiesAcceptedByUser', 'true');
-        }
+document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+
+    // Vérifie si déjà accepté
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+        banner.style.display = "none";
+    } else {
+        banner.style.display = "block";
     }
+});
 
-    // Vérification au chargement
-    window.addEventListener('DOMContentLoaded', () => {
-        if (localStorage.getItem('cookiesAcceptedByUser') === 'true') {
-            const banner = document.getElementById('cookie-banner');
-            if (banner) banner.style.display = 'none';
-        }
-    });
-
-    // --- MODE SOMBRE ---
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        const icon = themeToggle.querySelector('i');
-        // Change l'icône
-        if(document.body.classList.contains('dark-theme')){
-            icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-        }
-    });
+// Fonction bouton
+function acceptCookies() {
+    const banner = document.getElementById("cookie-banner");
+    banner.style.display = "none";
+    localStorage.setItem("cookiesAccepted", "true");
+}
 </script>
     
 <a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
