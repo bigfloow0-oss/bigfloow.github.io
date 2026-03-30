@@ -574,3 +574,40 @@ body.dark-theme .nav-links a {
     
     .stat-number { font-size: 2rem; }
 }
+
+/* =========================================
+   CORRECTION BARRE DE NAVIGATION MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 3%; /* Réduit l'espace sur les côtés */
+        flex-direction: column; /* Aligne le logo en haut et les liens en dessous */
+        height: auto; /* Laisse la barre s'agrandir si besoin */
+    }
+
+    .brand {
+        font-size: 1.2rem; /* Réduit un peu le logo */
+        margin-bottom: 5px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Autorise les liens à passer à la ligne */
+        justify-content: center; /* Centre les liens */
+        gap: 10px; /* Espace entre les liens */
+    }
+
+    .nav-links li {
+        margin-left: 0; /* Supprime la marge de gauche inutile ici */
+    }
+
+    .nav-links a {
+        font-size: 0.75rem; /* Réduit la taille du texte pour que ça tienne */
+        white-space: nowrap; /* Empêche un mot seul de se couper */
+    }
+
+    .btn-contact {
+        padding: 6px 12px; /* Réduit la taille du bouton noir */
+        font-size: 0.7rem;
+    }
+}
