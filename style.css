@@ -496,3 +496,39 @@ body.dark-theme .nav-links a {
    ========================================= */
 .stats-section { background: #000; padding: 80px 0; color: white; text-align: center; }
 .stat-number { display: block; font-size: 3rem; font-weight: 800; color: var(--accent-orange); }
+
+/* =========================================
+   ADAPTABILITÉ MOBILE (RESPONSIVE)
+   ========================================= */
+
+/* Pour les Tablettes et écrans moyens */
+@media (max-width: 992px) {
+    .nav-links li { margin-left: 15px; }
+    .hero-content h1 { font-size: 3rem; }
+    .story-flex-container { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Pour les Smartphones (iPhone, Android) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+        height: auto;
+    }
+
+    /* On cache certains liens ou on réduit la taille pour que ça tienne sur une ligne */
+    .nav-links a { font-size: 0.75rem; }
+    .nav-links li { margin-left: 10px; }
+    
+    .btn-contact { padding: 8px 12px; font-size: 0.75rem; }
+
+    .hero { height: 70vh; text-align: center; justify-content: center; }
+    .hero-content p { font-size: 1rem; }
+    
+    .signature { 
+        display: none; /* On cache la signature sur petit mobile pour gagner de la place */
+    }
+
+    .expertise-grid { grid-template-columns: 1fr; }
+    
+    .stat-number { font-size: 2rem; }
+}
