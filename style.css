@@ -403,17 +403,17 @@ body {
    ========================================= */
 .cookie-box {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 380px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px; /* Prend presque toute la largeur sur mobile */
+    max-width: 400px;
     background: #000;
     color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    z-index: 9999;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.15);
-    display: none; /* IMPORTANT */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10000;
+    display: none; /* Caché par défaut, affiché par JS */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* Cette classe sera ajoutée par JS si le cookie n'est pas encore accepté */
@@ -492,10 +492,52 @@ body.dark-theme .nav-links a {
 }
 
 /* =========================================
-   STATS & CURSEUR (Inchangé)
+   SECTION STATS - ALIGNEMENT HORIZONTAL
    ========================================= */
-.stats-section { background: #000; padding: 80px 0; color: white; text-align: center; }
-.stat-number { display: block; font-size: 3rem; font-weight: 800; color: var(--accent-orange); }
+.stats-section {
+    background: #000;
+    padding: 60px 0;
+    color: white;
+}
+
+.stats-grid {
+    display: flex;             /* Active l'alignement horizontal */
+    justify-content: space-around; /* Espace égal entre les éléments */
+    align-items: center;
+    flex-wrap: nowrap;         /* Force à rester sur une seule ligne sur PC */
+    text-align: center;
+}
+
+.stat-item {
+    flex: 1;                   /* Chaque stat prend la même largeur */
+    padding: 10px;
+}
+
+.stat-number {
+    display: block;
+    font-size: clamp(1.5rem, 4vw, 3rem); /* Taille adaptative selon l'écran */
+    font-weight: 800;
+    color: var(--accent-orange);
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+
+/* --- ADAPTATION MOBILE POUR LES STATS --- */
+@media (max-width: 768px) {
+    .stats-grid {
+        flex-wrap: wrap;       /* Sur téléphone, on autorise le passage à la ligne */
+    }
+    .stat-item {
+        flex: 0 0 50%;         /* 2 colonnes par ligne sur mobile */
+        margin-bottom: 20px;
+    }
+}
 
 /* =========================================
    ADAPTABILITÉ MOBILE (RESPONSIVE)
