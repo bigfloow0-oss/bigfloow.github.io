@@ -269,24 +269,25 @@ stats.forEach(s => observer.observe(s));
         <button id="accept-cookie" class="cookie-btn">Accepter</button>
     </div>
 </div>
- <script>
-    // --- GESTION DES COOKIES ---
-    function acceptCookies() {
-        const banner = document.getElementById('cookie-banner');
-        if (banner) {
-            // On cache et on supprime carrément l'élément pour être sûr
-            banner.setAttribute('style', 'display:none !important');
-            localStorage.setItem('cookiesAcceptedByUser', 'true');
-        }
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBox = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookie');
+
+    // 1. Vérifier si l'utilisateur a déjà accepté
+    if (!localStorage.getItem('cookiesAccepted')) {
+        cookieBox.style.display = 'block'; // Afficher si non accepté
     }
 
-    // Vérification au chargement
-    window.addEventListener('DOMContentLoaded', () => {
-        if (localStorage.getItem('cookiesAcceptedByUser') === 'true') {
-            const banner = document.getElementById('cookie-banner');
-            if (banner) banner.style.display = 'none';
-        }
+    // 2. Action au clic sur le bouton
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieBox.style.fadeOut = "slow"; 
+        cookieBox.style.display = 'none';
     });
+});
+</script>
 
     // --- MODE SOMBRE ---
     const themeToggle = document.getElementById('theme-toggle');
