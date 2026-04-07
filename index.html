@@ -303,35 +303,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    // On sélectionne toutes les images que vous voulez rendre zoomables
+    // On sélectionne les logos de l'histoire et le mini-logo
     const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
 
     imagesToZoom.forEach(image => {
-        // On prépare le curseur pour indiquer que c'est cliquable
-        image.style.cursor = "zoom-in";
+        image.style.cursor = "zoom-in"; // Curseur loupe
 
-        image.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log("Image cliquée : " + image.src); // Pour vérifier dans la console
-            
+        image.addEventListener('click', () => {
             lightbox.classList.add('active');
             lightboxImg.src = image.src;
-            lightboxCaption.innerText = image.alt || "Aperçu BiG FlooW";
-            document.body.style.overflow = 'hidden'; // Empêche le défilement du site derrière
+            // Utilise l'attribut ALT comme légende, sinon un texte par défaut
+            lightboxCaption.innerText = image.alt || "Création BiG FlooW";
+            document.body.style.overflow = 'hidden'; // Bloque le défilement
         });
     });
 
-    // Fonction pour fermer
+    // Fonction de fermeture
     const closeLightbox = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Réactive le défilement
+        document.body.style.overflow = 'auto'; // Relance le défilement
     };
 
     if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
     
-    // Fermer si on clique sur le fond noir
+    // Ferme si on clique n'importe où sur le fond noir (mais pas sur l'image elle-même)
     lightbox.addEventListener('click', (e) => {
-        if(e.target !== lightboxImg) {
+        if(e.target === lightbox) {
             closeLightbox();
         }
     });
