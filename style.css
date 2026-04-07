@@ -664,3 +664,14 @@ body.dark-theme .nav-links a {
     font-weight: 600;
     font-family: 'Montserrat';
 }
+
+/* Ajoute ceci à tes styles de curseur existants */
+.custom-cursor, .cursor-dot {
+    pointer-events: none; /* TRÈS IMPORTANT : permet de cliquer "à travers" le curseur */
+    z-index: 9999;
+}
+
+/* Vérifie que la Lightbox est bien au-dessus de TOUT */
+.lightbox {
+    z-index: 10000 !important; 
+}
