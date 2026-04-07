@@ -302,6 +302,31 @@ document.addEventListener('DOMContentLoaded', function() {
     <img class="lightbox-content" id="lightbox-img">
     <div id="lightbox-caption"></div>
 </div>
+    <script>
+        // GESTION DE LA LIGHTBOX (OUVERTURE DES IMAGES)
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+
+// On sélectionne toutes les images qui peuvent être agrandies
+// Ici, je cible les logos de ton histoire et l'image du hero
+const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
+
+imagesToZoom.forEach(image => {
+    image.style.cursor = "zoom-in"; // Change le curseur pour indiquer que c'est cliquable
+    
+    image.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = image.src;
+        lightboxCaption.innerText = image.alt; // Utilise le texte alternatif comme légende
+    });
+});
+
+// Fermer la lightbox au clic
+lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+</script>
     
 </body>
 </html>
