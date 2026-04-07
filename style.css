@@ -611,3 +611,56 @@ body.dark-theme .nav-links a {
         font-size: 0.7rem;
     }
 }
+
+/* =========================================
+   LIGHTBOX (IMAGE EN GRAND)
+   ========================================= */
+.lightbox {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 2000; /* Au-dessus de la navbar */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir transparent */
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+/* Animation d'ouverture */
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#lightbox-caption {
+    margin-top: 20px;
+    color: var(--accent-orange);
+    font-weight: 600;
+    font-family: 'Montserrat';
+}
