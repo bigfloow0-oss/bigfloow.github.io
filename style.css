@@ -1,5 +1,5 @@
 /* =========================================
-   VARIABLES & BASE
+   VARIABLES & BASE (Optimisées pour l'espace)
    ========================================= */
 :root {
     --accent-blue: #007FFF;
@@ -10,27 +10,85 @@
     --dark-grey: #1a1a1a;
     --text-soft: #666;
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* Variable pour les bordures fines signature */
+    --thin-border: 1px solid rgba(0, 0, 0, 0.08); 
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html { scroll-behavior: smooth; }
+/* ... (conserve tes sélecteurs universels * et html) ... */
 
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--dark-grey);
-    line-height: 1.6;
+    line-height: 1.7; /* Interligne augmenté pour l'aération */
     background-color: var(--white);
+    font-size: 18px; /* Taille de base augmentée de 1rem à 18px */
 }
 
+/* CONTAINER ÉLARGI (Le cœur de la solution) */
 .container {
-    max-width: 1200px;
+    max-width: 1400px; /* Passage de 1200 à 1400 pour plus de présence */
     margin: 0 auto;
     padding: 0 5%;
+}
+
+/* =========================================
+   TITRES PLUS IMPACTANTS ET LISIBLES
+   ========================================= */
+h1 {
+    font-size: clamp(3rem, 7vw, 5rem); /* Titre massif sur PC, s'adapte sur mobile */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+h2.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    margin-bottom: 70px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+/* =========================================
+   AUTRES SECTIONS AGRANDIES
+   ========================================= */
+/* Hero Content élargi */
+.hero-content {
+    max-width: 1100px; 
+    padding: 0 5%;
+}
+
+/* Expertise Cards (épuré avec bordure fine) */
+.expertise-grid {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Colonnes plus larges */
+}
+
+.expertise-card {
+    padding: 70px 50px; /* Plus d'espace interne */
+    border: var(--thin-border); /* Bordure signature très fine */
+}
+
+/* Section Histoire (Story) */
+.story-flex-container {
+    gap: 120px; /* Plus d'espace entre les logos et le texte */
+}
+
+.story-section p {
+    font-size: 1.3rem; /* Lecture très confortable */
+    line-height: 1.9;
+}
+
+.certification-block-black {
+    padding: 60px;
+    box-shadow: 25px 25px 0px var(--accent-blue);
+}
+
+/* Stats Section */
+.stat-number {
+    font-size: clamp(3rem, 6vw, 4.5rem);
 }
 
 /* =========================================
