@@ -1006,3 +1006,164 @@ body.dark-theme .nav-links a {
         max-width: 400px;
     }
 }
+
+/* =========================================
+   DESIGN PREMIUM : HISTOIRE & INSPIRATION (SPLIT)
+   ========================================= */
+
+.premium-story {
+    background-color: #fdfdfd; /* Fond très clair conservé */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Titre principal centré et espacé */
+.story-main-title {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+/* Grille principale en 2 colonnes */
+.story-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 60px; /* Espace généreux entre les colonnes */
+    align-items: start;
+}
+
+/* Style commun aux colonnes */
+.story-col {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espace entre les articles et blocs */
+}
+
+/* --- STYLE DES ARTICLES DE TEXTE --- */
+.story-article {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    transition: 0.3s;
+}
+
+.story-article:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.article-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.article-number {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.article-header h3 {
+    color: var(--accent-orange);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.story-article p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* --- GAUCHE : STYLE DU BADGE CERTIFICATION --- */
+.certification-badge {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #000; /* Fond noir Premium */
+    color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-orange);
+    box-shadow: 10px 10px 0px rgba(0, 127, 255, 0.1); /* Ombre bleue discrète */
+}
+
+.certification-badge .cert-year {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent-blue);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
+
+.cert-text h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.cert-text p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* --- DROITE : STYLE DU SHOWCASE LOGOS --- */
+.legacy-logos-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.logo-box {
+    text-align: center;
+    flex: 1;
+}
+
+.legacy-img {
+    max-width: 100px;
+    height: auto;
+    filter: grayscale(100%); /* Premium : Noir et blanc par défaut */
+    opacity: 0.6;
+    transition: 0.4s;
+    margin-bottom: 10px;
+}
+
+.legacy-logos-showcase:hover .legacy-img {
+    filter: grayscale(0%); /* Couleur au survol du bloc */
+    opacity: 1;
+}
+
+.logo-box p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-soft);
+    margin: 0;
+}
+
+.logo-separator {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-orange));
+}
+
+/* --- ADAPTATION MOBILE (Responsive) --- */
+@media (max-width: 992px) {
+    .story-split-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur tablette/mobile */
+        gap: 40px;
+    }
+}
