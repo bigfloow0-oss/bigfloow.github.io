@@ -235,9 +235,6 @@
             <h4>Asset 3D : stylos SUNU</h4>
         </div>
     </div>
-
-    
-
     
 </section>
 
@@ -249,6 +246,82 @@
         <a href="portfolio-branding.html" style="color:#333; text-decoration:none; font-weight:600;">Branding</a>
     </p>
 </section>
+
+        <script>
+// ==========================================
+// GESTION DU THÈME BI G FLOOW
+// ==========================================
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Fonction pour changer l'icône (Lune/Soleil)
+function updateIcon(isDark) {
+    const icon = themeToggle.querySelector('i');
+    if (isDark) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+    }
+}
+
+// Vérification au chargement de la page
+const currentTheme = localStorage.getItem('bigfloow-theme');
+if (currentTheme === 'dark') {
+    body.classList.add('dark-theme');
+    updateIcon(true);
+}
+
+// Action au clic sur le bouton
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = body.classList.toggle('dark-theme');
+        localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
+        updateIcon(isDark);
+    });
+}
+    
+// CURSEUR
+const cursor = document.querySelector('.custom-cursor');
+const dot = document.querySelector('.cursor-dot');
+
+document.addEventListener('mousemove', (e) => {
+    if(cursor && dot){
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+    }
+});
+
+// STATS
+const stats = document.querySelectorAll('.stat-number');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const target = +entry.target.getAttribute('data-target');
+            let count = 0;
+
+            const updateCount = () => {
+                const speed = target / 50;
+
+                if(count < target){
+                    count += speed;
+                    entry.target.innerText = Math.ceil(count) + "+";
+                    requestAnimationFrame(updateCount);
+                } else {
+                    entry.target.innerText = target + "+";
+                }
+            };
+
+            updateCount();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+stats.forEach(s => observer.observe(s));
+</script>
 
 <footer class="main-footer" style="background: #111; color: #fff; padding-top: 60px; font-family: 'Poppins', sans-serif;">
     <div class="footer-top">
