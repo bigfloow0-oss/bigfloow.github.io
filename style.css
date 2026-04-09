@@ -918,3 +918,60 @@ body.dark-theme .nav-links a {
 
 .youtube-btn { background: #FF0000; color: white; }
 .tiktok-btn { background: #000000; color: white; }
+
+/* =========================================
+   ALIGNEMENT HORIZONTAL DES EXPERTISES
+   ========================================= */
+
+/* 1. Le conteneur Flex */
+.expertise-grid {
+    display: flex;
+    flex-direction: row;        /* Aligne sur une ligne */
+    justify-content: center;   /* Centre l'ensemble des blocs */
+    flex-wrap: nowrap;         /* Empêche de passer à la ligne */
+    gap: 30px;                 /* Espace entre les blocs */
+    width: 100%;
+    overflow-x: auto;          /* Ajoute un défilement horizontal si l'écran est trop petit */
+    padding: 20px 0;           /* Un peu d'espace en haut/bas */
+}
+
+/* 2. Style unifié pour chaque carte d'expertise */
+.expertise-card {
+    flex: 0 0 280px;           /* Taille fixe (280px) pour chaque carte */
+    height: 380px;             /* Hauteur uniforme pour tout le monde */
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 40px 30px;
+    position: relative;
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    border-color: #007bff; /* Bleu d'accentuation */
+    box-shadow: 0 10px 20px rgba(0,123,255,0.1);
+}
+
+/* 3. Style pour le numéro de fond (comme le 04 de ton image) */
+.card-number {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(0,0,0,0.03); /* Couleur très claire */
+    line-height: 1;
+}
+
+/* --- ADAPTATION MOBILE (Important) --- */
+@media (max-width: 992px) {
+    .expertise-grid {
+        justify-content: flex-start; /* Aligne à gauche sur petit écran */
+        padding-left: 5%;         /* Espace pour le défilement */
+        padding-right: 5%;
+    }
+}
