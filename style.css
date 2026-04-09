@@ -440,56 +440,42 @@ body {
    CORRECTION MODE SOMBRE (DARK THEME)
    ========================================= */
 
-/* 1. Les Variables */
+/* On redéfinit les variables quand la classe .dark-theme est présente */
 body.dark-theme {
     --white: #121212;
     --dark-grey: #ffffff;
     --bg-light: #1e1e1e;
-    --text-soft: #cccccc;
+    --text-soft: #bbbbbb;
     background-color: var(--white);
     color: var(--dark-grey);
 }
 
-/* 2. Forcer les textes de la section Story et Expertises en blanc */
+/* On force le changement des sections qui avaient des couleurs fixes */
 body.dark-theme #story, 
-body.dark-theme #expertises,
 body.dark-theme .expertise-card,
-body.dark-theme .logo-display-block {
-    background-color: var(--white) !important;
-    color: var(--dark-grey) !important;
-}
-
-body.dark-theme p, 
-body.dark-theme .story-section p, 
-body.dark-theme .expertise-card p {
-    color: var(--text-soft) !important;
-}
-
-body.dark-theme .section-title,
-body.dark-theme h2,
-body.dark-theme h3 {
-    color: var(--white) !important; /* Le blanc de la variable devient noir, donc on met blanc fixe ou var(--dark-grey) */
-    color: #ffffff !important;
-}
-
+body.dark-theme .logo-display-block,
 body.dark-theme .navbar {
-    background: rgba(18, 18, 18, 0.95) !important;
-    border-bottom: 1px solid #333;
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border-color: #333;
 }
 
+/* Correction des titres pour qu'ils soient lisibles */
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3,
 body.dark-theme .nav-links a {
     color: #ffffff !important;
 }
 
-/* --- BOUTON THEME --- */
-.theme-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--dark-grey);
-    padding: 10px;
-    transition: 0.3s;
+/* Ajustement des paragraphes */
+body.dark-theme p {
+    color: #bbbbbb !important;
+}
+
+/* On s'assure que le bouton de thème reste visible */
+body.dark-theme .theme-btn {
+    color: var(--accent-orange);
 }
 
 /* =========================================
