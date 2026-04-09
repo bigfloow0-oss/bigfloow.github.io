@@ -78,6 +78,47 @@
     </section>
 </main>
 
+    <div class="custom-cursor"></div>
+<div class="cursor-dot"></div>
+
+<script>
+// GESTION DU THÈME AVEC MÉMOIRE (LocalStorage)
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// 1. Fonction pour mettre à jour l'icône du bouton
+const updateThemeIcon = (isDark) => {
+    const icon = themeToggle.querySelector('i');
+    if (isDark) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+    }
+};
+
+// 2. Vérifier si un choix a déjà été fait précédemment
+const savedTheme = localStorage.getItem('bigfloow-theme');
+
+if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    updateThemeIcon(true);
+}
+
+// 3. Écouter le clic sur le bouton
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        
+        const isDarkMode = body.classList.contains('dark-theme');
+        
+        // Enregistrer le choix dans la mémoire du navigateur
+        localStorage.setItem('bigfloow-theme', isDarkMode ? 'dark' : 'light');
+        
+        // Mettre à jour l'icône visuelle
+        updateThemeIcon(isDarkMode);
+    });
+}
+
 <footer class="main-footer" id="contact">
     <div class="container">
         <div class="footer-container">
