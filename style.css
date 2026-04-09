@@ -682,3 +682,168 @@ body.dark-theme .nav-links a {
     pointer-events: none; /* Empêche le curseur de bloquer les clics */
     z-index: 9999;
 }
+
+/* =========================================
+   PAGE PORTFOLIO CONTENUS - STYLES SPÉCIFIQUES
+   ========================================= */
+
+/* Header allégé pour les pages secondaires */
+.hero-portfolio {
+    height: 50vh; /* Moins haut que l'accueil */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    color: white;
+    text-align: center;
+}
+
+.hero-content-portfolio {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-top: 80px; /* Espace pour la navbar fixe */
+}
+
+.hero-content-portfolio h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+/* Grille de Portfolio */
+.portfolio-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 20px 0;
+}
+
+/* Carte Vidéo Premium */
+.video-portfolio-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.video-portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: rgba(0,127,255,0.2); /* Légère lueur bleue */
+}
+
+/* Conteneur de l'image de couverture */
+.card-cover-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.video-portfolio-card:hover .video-cover {
+    transform: scale(1.08); /* Léger zoom de l'image au survol */
+}
+
+/* Overlay "Play" au survol */
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.play-overlay i {
+    font-size: 4rem;
+    color: white;
+    opacity: 0.8;
+}
+
+.video-portfolio-card:hover .play-overlay {
+    opacity: 1;
+}
+
+/* Informations de la carte */
+.video-card-info {
+    padding: 25px;
+}
+
+.video-card-info h3 {
+    font-size: 1.15rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--dark-grey);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.video-type {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-blue);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Boutons d'action */
+.card-action-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Couleurs des boutons réseaux */
+.youtube-btn {
+    background: rgba(205, 32, 31, 0.1);
+    color: #CD201F;
+}
+.youtube-btn:hover { background: #CD201F; color: white; }
+
+.tiktok-btn {
+    background: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+.tiktok-btn:hover { background: #000; color: white; }
+
+.facebook-btn {
+    background: rgba(24, 119, 242, 0.1);
+    color: #1877F2;
+}
+.facebook-btn:hover { background: #1877F2; color: white; }
+
+/* Adaptation Mobile */
+@media (max-width: 768px) {
+    .hero-portfolio { height: 40vh; }
+    .portfolio-video-grid { grid-template-columns: 1fr; gap: 25px; }
+}
