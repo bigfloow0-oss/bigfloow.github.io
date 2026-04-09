@@ -168,28 +168,46 @@ body {
 }
 .blue-text { color: var(--accent-blue); }
 
+/* =========================================
+   CORRECTION ALIGNEMENT (4 BLOCS)
+   ========================================= */
+
 .expertise-grid {
-    display: grid;
-    /* auto-fit permet de passer à la ligne si l'écran est trop petit */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centre les blocs s'il reste de la place */
+    align-items: stretch;    /* Force toutes les cartes à avoir la même hauteur */
+    gap: 15px;               /* Réduit l'espace entre les blocs pour gagner de la place */
+    width: 100%;             /* Prend toute la largeur disponible */
+    max-width: 1200px;       /* Largeur maximale du groupe */
+    margin: 0 auto;          /* Centre le groupe dans la page */
+    padding: 20px 10px;
 }
 
 .expertise-card {
-    background: var(--white);
-    padding: 50px 40px;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid #eee;
+    /* flex: grow | shrink | basis */
+    flex: 1 1 250px;         /* 1: s'étire, 1: peut rétrécir, 250px: taille de base */
+    min-width: 200px;        /* Sécurité pour ne pas être trop écrasé */
+    max-width: 280px;        /* Ne dépasse pas cette taille pour rester élégant */
+    
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 30px 20px;
     position: relative;
-    transition: var(--transition);
-    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
 
-.expertise-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-blue);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+/* On s'assure que le texte ne dépasse pas */
+.expertise-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.expertise-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .card-bg-icon {
