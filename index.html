@@ -112,43 +112,48 @@
 <div class="cursor-dot"></div>
 
 <script>
-// GESTION DU THÈME AVEC MÉMOIRE (LocalStorage)
+// ==========================================
+// GESTION DU THÈME (VERSION OPTIMISÉE)
+// ==========================================
+
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// 1. Fonction pour mettre à jour l'icône du bouton
-const updateThemeIcon = (isDark) => {
-    const icon = themeToggle.querySelector('i');
-    if (isDark) {
-        icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        icon.classList.replace('fa-sun', 'fa-moon');
+// 1. FONCTION DE MISE À JOUR VISUELLE (Icône)
+function updateUI(isDark) {
+    const icon = themeToggle ? themeToggle.querySelector('i') : null;
+    if (icon) {
+        if (isDark) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
     }
-};
+}
 
-// 2. Vérifier si un choix a déjà été fait précédemment
+// 2. VÉRIFICATION IMMÉDIATE DU THÈME ENREGISTRÉ
+// On fait cela dès le chargement du script
 const savedTheme = localStorage.getItem('bigfloow-theme');
 
 if (savedTheme === 'dark') {
     body.classList.add('dark-theme');
-    updateThemeIcon(true);
+    updateUI(true);
 }
 
-// 3. Écouter le clic sur le bouton
+// 3. ÉCOUTEUR D'ÉVÉNEMENT POUR LE BOUTON
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
+        // On bascule la classe
+        const isDarkNow = body.classList.toggle('dark-theme');
         
-        const isDarkMode = body.classList.contains('dark-theme');
+        // On enregistre le nouveau choix (mémoire du navigateur)
+        localStorage.setItem('bigfloow-theme', isDarkNow ? 'dark' : 'light');
         
-        // Enregistrer le choix dans la mémoire du navigateur
-        localStorage.setItem('bigfloow-theme', isDarkMode ? 'dark' : 'light');
-        
-        // Mettre à jour l'icône visuelle
-        updateThemeIcon(isDarkMode);
+        // On met à jour l'icône
+        updateUI(isDarkNow);
     });
 }
-
+    
 // CURSEUR
 const cursor = document.querySelector('.custom-cursor');
 const dot = document.querySelector('.cursor-dot');
