@@ -1167,3 +1167,87 @@ body.dark-theme .nav-links a {
         gap: 40px;
     }
 }
+
+/* --- VARIABLES DE COULEURS ADAPTATIVES --- */
+:root {
+    --story-bg: #ffffff;
+    --story-text: #333333;
+    --story-border: #eeeeee;
+}
+
+/* SI LE MODE SOMBRE EST ACTIVÉ SUR LE NAVIGATEUR OU LE SITE */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --story-bg: #1a1a1a; /* Fond sombre pour les cadres */
+        --story-text: #ffffff; /* Texte blanc */
+        --story-border: #333333;
+    }
+}
+
+/* --- ALIGNEMENT HORIZONTAL (2022 + LOGOS) --- */
+.story-assets-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.certification-badge {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #000; /* On garde le noir pour le contraste premium */
+    padding: 20px 40px;
+    border-radius: 12px;
+    min-width: 300px;
+}
+
+.legacy-logos-showcase {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--story-bg);
+    border: 1px solid var(--story-border);
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 300px;
+}
+
+/* --- GRILLE DE TEXTE ÉLARGIE --- */
+.story-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%; /* Utilise toute la largeur du container */
+}
+
+.story-article {
+    background: var(--story-bg);
+    color: var(--story-text);
+    padding: 25px;
+    border-left: 3px solid var(--accent-blue);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.story-article h3 {
+    color: var(--accent-orange);
+    margin-bottom: 15px;
+}
+
+.story-article p {
+    line-height: 1.8;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.legacy-img {
+    height: 60px;
+    width: auto;
+    /* Filtre pour que les logos soient visibles en mode sombre */
+    filter: drop-shadow(0px 0px 2px rgba(255,255,255,0.2));
+}
