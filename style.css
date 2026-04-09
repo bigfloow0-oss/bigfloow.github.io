@@ -169,68 +169,100 @@ body {
 .blue-text { color: var(--accent-blue); }
 
 /* =========================================
-   CORRECTION ALIGNEMENT (4 BLOCS)
+   SECTION EXPERTISES - ALIGNEMENT PARFAIT
    ========================================= */
 
 .expertise-grid {
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Centre les blocs s'il reste de la place */
-    align-items: stretch;    /* Force toutes les cartes à avoir la même hauteur */
-    gap: 15px;               /* Réduit l'espace entre les blocs pour gagner de la place */
-    width: 100%;             /* Prend toute la largeur disponible */
-    max-width: 1200px;       /* Largeur maximale du groupe */
-    margin: 0 auto;          /* Centre le groupe dans la page */
-    padding: 20px 10px;
+    justify-content: center; /* Centre les 4 blocs */
+    align-items: stretch;    /* Même hauteur pour tous */
+    gap: 20px;               /* Espace entre les blocs */
+    width: 100%;
+    max-width: 1250px;       /* Largeur max du conteneur */
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 .expertise-card {
-    /* flex: grow | shrink | basis */
-    flex: 1 1 250px;         /* 1: s'étire, 1: peut rétrécir, 250px: taille de base */
-    min-width: 200px;        /* Sécurité pour ne pas être trop écrasé */
-    max-width: 280px;        /* Ne dépasse pas cette taille pour rester élégant */
+    /* Calcul : (100% / 4) moins les espaces (gap) */
+    flex: 1 1 calc(25% - 20px); 
+    min-width: 220px;        /* Taille minimale pour garder la lisibilité */
+    max-width: 280px;        /* Taille maximale pour l'élégance */
     
     background: #ffffff;
     border: 1px solid #f0f0f0;
     border-radius: 12px;
-    padding: 30px 20px;
+    padding: 40px 25px;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
     transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
 }
 
-/* On s'assure que le texte ne dépasse pas */
+/* On force le titre et le texte à ne pas briser l'alignement */
 .expertise-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Évite que le titre passe sur 2 lignes */
 }
 
 .expertise-card p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.5;
+    color: var(--text-soft);
 }
 
-.card-bg-icon {
+/* Décoration : Numéro et Ligne */
+.card-number {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    bottom: 10px;
+    right: 15px;
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 900;
     color: rgba(0,0,0,0.03);
-    transition: var(--transition);
+    pointer-events: none;
 }
-
-.expertise-card:hover .card-bg-icon { color: rgba(0,127,255,0.1); }
 
 .card-line {
-    width: 40px;
+    width: 30px;
     height: 4px;
     background: var(--accent-blue);
-    margin: 20px 0;
-    transition: var(--transition);
+    margin: 15px 0;
+    transition: 0.3s;
 }
 
-.expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
+.expertise-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-blue);
+}
+
+.expertise-card:hover .card-line {
+    width: 60px;
+    background: var(--accent-orange);
+}
+
+/* --- ADAPTATION MOBILE ET TABLETTE --- */
+@media (max-width: 1024px) {
+    .expertise-grid {
+        flex-wrap: wrap; /* Sur tablette, on autorise le passage à la ligne (2x2) */
+        justify-content: center;
+    }
+    .expertise-card {
+        flex: 0 0 calc(45% - 10px); /* 2 colonnes sur tablette */
+    }
+}
+
+@media (max-width: 600px) {
+    .expertise-card {
+        flex: 0 0 100%; /* 1 seule colonne sur petit téléphone */
+        max-width: 100%;
+    }
+}
 
 /* =========================================
    STORY PREMIUM - DISPOSITION INVERSÉE
