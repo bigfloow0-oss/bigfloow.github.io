@@ -168,101 +168,52 @@ body {
 }
 .blue-text { color: var(--accent-blue); }
 
-/* =========================================
-   SECTION EXPERTISES - ALIGNEMENT PARFAIT
-   ========================================= */
-
 .expertise-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Centre les 4 blocs */
-    align-items: stretch;    /* Même hauteur pour tous */
-    gap: 20px;               /* Espace entre les blocs */
-    width: 100%;
-    max-width: 1250px;       /* Largeur max du conteneur */
-    margin: 0 auto;
-    padding: 20px 0;
+    display: grid;
+    /* auto-fit permet de passer à la ligne si l'écran est trop petit */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
 }
 
 .expertise-card {
-    /* Calcul : (100% / 4) moins les espaces (gap) */
-    flex: 1 1 calc(25% - 20px); 
-    min-width: 220px;        /* Taille minimale pour garder la lisibilité */
-    max-width: 280px;        /* Taille maximale pour l'élégance */
-    
-    background: #ffffff;
-    border: 1px solid #f0f0f0;
-    border-radius: 12px;
-    padding: 40px 25px;
+    background: var(--white);
+    padding: 50px 40px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #eee;
     position: relative;
-    text-align: left;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-}
-
-/* On force le titre et le texte à ne pas briser l'alignement */
-.expertise-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    white-space: nowrap; /* Évite que le titre passe sur 2 lignes */
-}
-
-.expertise-card p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-}
-
-/* Décoration : Numéro et Ligne */
-.card-number {
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-size: 4rem;
-    font-weight: 900;
-    color: rgba(0,0,0,0.03);
-    pointer-events: none;
-}
-
-.card-line {
-    width: 30px;
-    height: 4px;
-    background: var(--accent-blue);
-    margin: 15px 0;
-    transition: 0.3s;
+    transition: var(--transition);
+    overflow: hidden;
 }
 
 .expertise-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent-blue);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-.expertise-card:hover .card-line {
-    width: 60px;
-    background: var(--accent-orange);
+.card-bg-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(0,0,0,0.03);
+    transition: var(--transition);
 }
 
-/* --- ADAPTATION MOBILE ET TABLETTE --- */
-@media (max-width: 1024px) {
-    .expertise-grid {
-        flex-wrap: wrap; /* Sur tablette, on autorise le passage à la ligne (2x2) */
-        justify-content: center;
-    }
-    .expertise-card {
-        flex: 0 0 calc(45% - 10px); /* 2 colonnes sur tablette */
-    }
+.expertise-card:hover .card-bg-icon { color: rgba(0,127,255,0.1); }
+
+.card-line {
+    width: 40px;
+    height: 4px;
+    background: var(--accent-blue);
+    margin: 20px 0;
+    transition: var(--transition);
 }
 
-@media (max-width: 600px) {
-    .expertise-card {
-        flex: 0 0 100%; /* 1 seule colonne sur petit téléphone */
-        max-width: 100%;
-    }
-}
+.expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
+
 
 /* =========================================
    STORY PREMIUM - DISPOSITION INVERSÉE
