@@ -441,7 +441,7 @@ body {
    CORRECTION MODE SOMBRE (DARK THEME)
    ========================================= */
 
-/* 1. Les Variables */
+/* --- 1. Fusion des couleurs Mode Sombre --- */
 body.dark-theme {
     --white: #121212;
     --dark-grey: #ffffff;
@@ -449,6 +449,29 @@ body.dark-theme {
     --text-soft: #cccccc;
     background-color: var(--white);
     color: var(--dark-grey);
+}
+
+/* --- 2. Correction Titres Invisibles --- */
+body.dark-theme .section-title,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme .expertise-card h3 {
+    color: #ffffff !important; /* Forcer le blanc pur en mode sombre */
+}
+
+/* --- 3. Nettoyage Navbar Mobile --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 2%;
+    }
+    .nav-links {
+        margin-top: 10px;
+        gap: 8px;
+    }
+    .nav-links a {
+        font-size: 0.7rem;
+    }
 }
 
 /* 2. Forcer les textes de la section Story et Expertises en blanc */
