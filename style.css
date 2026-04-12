@@ -438,10 +438,9 @@ body {
 }
 
 /* =========================================
-   CORRECTION MODE SOMBRE (DARK THEME)
+   CORRECTIONS FINALES (À GARDER)
    ========================================= */
 
-/* --- 1. Fusion des couleurs Mode Sombre --- */
 body.dark-theme {
     --white: #121212;
     --dark-grey: #ffffff;
@@ -451,48 +450,11 @@ body.dark-theme {
     color: var(--dark-grey);
 }
 
-/* --- 2. Correction Titres Invisibles --- */
 body.dark-theme .section-title,
 body.dark-theme h2,
 body.dark-theme h3,
-body.dark-theme .expertise-card h3 {
-    color: #ffffff !important; /* Forcer le blanc pur en mode sombre */
-}
-
-/* --- 3. Nettoyage Navbar Mobile --- */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 10px 2%;
-    }
-    .nav-links {
-        margin-top: 10px;
-        gap: 8px;
-    }
-    .nav-links a {
-        font-size: 0.7rem;
-    }
-}
-
-/* 2. Forcer les textes de la section Story et Expertises en blanc */
-body.dark-theme #story, 
-body.dark-theme #expertises,
-body.dark-theme .expertise-card,
-body.dark-theme .logo-display-block {
-    background-color: var(--white) !important;
-    color: var(--dark-grey) !important;
-}
-
-body.dark-theme p, 
-body.dark-theme .story-section p, 
-body.dark-theme .expertise-card p {
-    color: var(--text-soft) !important;
-}
-
-body.dark-theme .section-title,
-body.dark-theme h2,
-body.dark-theme h3 {
-    color: var(--white) !important; /* Le blanc de la variable devient noir, donc on met blanc fixe ou var(--dark-grey) */
+body.dark-theme .expertise-card h3,
+body.dark-theme .nav-links a {
     color: #ffffff !important;
 }
 
@@ -501,8 +463,18 @@ body.dark-theme .navbar {
     border-bottom: 1px solid #333;
 }
 
-body.dark-theme .nav-links a {
-    color: #ffffff !important;
+/* --- Menu Mobile Unique --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 2%;
+        height: auto;
+    }
+    .nav-links {
+        margin-top: 10px;
+        gap: 12px;
+        justify-content: center;
+    }
 }
 
 /* --- BOUTON THEME --- */
