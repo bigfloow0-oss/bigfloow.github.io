@@ -252,35 +252,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    // On sélectionne toutes les images que vous voulez rendre zoomables
-    const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
+    // MODIFICATION : On cible TOUTES les images de la grille portfolio + les logos
+    const imagesToZoom = document.querySelectorAll('.work-image img, .story-logo-img, .mini-logo');
 
     imagesToZoom.forEach(image => {
-        // On prépare le curseur pour indiquer que c'est cliquable
+        // On change le curseur pour montrer que c'est zoomable
         image.style.cursor = "zoom-in";
 
         image.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log("Image cliquée : " + image.src); // Pour vérifier dans la console
             
+            // Affichage de la lightbox
             lightbox.classList.add('active');
             lightboxImg.src = image.src;
-            lightboxCaption.innerText = image.alt || "Aperçu BiG FlooW";
-            document.body.style.overflow = 'hidden'; // Empêche le défilement du site derrière
+            
+            // On récupère le titre (h4) situé dans la description à côté de l'image
+            const parentWorkItem = image.closest('.work-item');
+            if(parentWorkItem) {
+                const title = parentWorkItem.querySelector('h4').innerText;
+                lightboxCaption.innerText = title;
+            } else {
+                lightboxCaption.innerText = image.alt || "Réalisation BiG FlooW";
+            }
+            
+            document.body.style.overflow = 'hidden'; 
         });
     });
 
     // Fonction pour fermer
     const closeLightbox = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Réactive le défilement
+        document.body.style.overflow = 'auto'; 
     };
 
     if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
     
     // Fermer si on clique sur le fond noir
     lightbox.addEventListener('click', (e) => {
-        if(e.target !== lightboxImg) {
+        if(e.target === lightbox || e.target === closeBtn) {
             closeLightbox();
         }
     });
