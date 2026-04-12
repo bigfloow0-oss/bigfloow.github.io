@@ -459,5 +459,41 @@ stats.forEach(s => observer.observe(s));
     <i class="fab fa-whatsapp"></i>
 </a>
 
+       <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="imgFull">
+    <div id="caption"></div>
+</div>
+
+    <script>
+// ... Tes anciens codes (Stats, Curseur, etc.)
+
+// ==========================================
+// GESTION DE L'AGRANDISSEMENT DES IMAGES
+// ==========================================
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("imgFull");
+const captionText = document.getElementById("caption");
+
+const images = document.querySelectorAll(".work-image img");
+
+images.forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        const title = this.closest('.work-item').querySelector('h4').innerText;
+        captionText.innerHTML = title;
+    }
+});
+
+modal.onclick = function(e) {
+    if (e.target !== modalImg) {
+        modal.style.display = "none";
+    }
+}
+// Fin du script
+</script>
+    
 </body>
 </html>
