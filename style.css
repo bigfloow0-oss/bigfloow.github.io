@@ -1007,11 +1007,11 @@ body.dark-theme .nav-links a {
     }
 }
 
-/* Style du Modal (fond noir) */
+/* --- STYLE DU MODAL (AGRANDISSEMENT IMAGE) --- */
 .modal {
     display: none; /* Caché par défaut */
     position: fixed;
-    z-index: 9999; /* Par-dessus tout */
+    z-index: 10000; /* Très élevé pour passer devant le bouton WhatsApp */
     padding-top: 50px;
     left: 0;
     top: 0;
@@ -1021,24 +1021,21 @@ body.dark-theme .nav-links a {
     cursor: zoom-out;
 }
 
-/* Image à l'intérieur du modal */
 .modal-content {
     margin: auto;
     display: block;
     max-width: 90%;
     max-height: 80vh;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,127,255,0.5);
+    box-shadow: 0 0 30px rgba(237, 127, 16, 0.3); /* Lueur orange BiG FlooW */
     animation: zoomIn 0.3s ease;
 }
 
-/* Animation d'apparition */
 @keyframes zoomIn {
-    from {transform: scale(0.7); opacity: 0;}
+    from {transform: scale(0.8); opacity: 0;}
     to {transform: scale(1); opacity: 1;}
 }
 
-/* Bouton fermer */
 .close-modal {
     position: absolute;
     top: 20px;
@@ -1051,10 +1048,9 @@ body.dark-theme .nav-links a {
 }
 
 .close-modal:hover {
-    color: #007FFF;
+    color: var(--accent-orange);
 }
 
-/* Légende sous l'image */
 #caption {
     margin: auto;
     display: block;
@@ -1062,5 +1058,8 @@ body.dark-theme .nav-links a {
     text-align: center;
     color: #ccc;
     padding: 20px 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
