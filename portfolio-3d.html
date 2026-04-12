@@ -46,27 +46,60 @@
             padding: 60px 8%;
         }
 
-        .work-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 1px solid #eee;
-        }
+       .work-item {
+    background: white;
+    border-radius: 8px; /* Coins arrondis pour l'élégance */
+    overflow: hidden; /* Important pour que la barre tricolore soit bien coupée */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animation fluide */
+    position: relative; /* Pour positionner la barre tricolore */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Lueur discrète par défaut */
+    border: 1px solid rgba(0,0,0,0.04); /* Petite bordure de sécurité */
+}
 
-        .work-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,127,255,0.2);
-        }
+/* 2. Effet de Survol Premium */
+.work-item:hover {
+    transform: translateY(-10px); /* Léger soulèvement */
+    /* Lueur plus prononcée avec une touche de ton bleu BiG FlooW */
+    box-shadow: 0 20px 50px rgba(0,127,255,0.15); 
+}
 
-        .work-image img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
+/* 3. L'Image et son Animation au Survol */
+.work-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden; /* Pour que l'image ne dépasse pas au zoom */
+    position: relative;
+}
 
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit tout l'espace proprement */
+    transition: transform 0.6s ease; /* Pour l'animation de zoom */
+}
+
+.work-item:hover .work-image img {
+    transform: scale(1.1); /* Léger zoom de l'image au survol */
+}
+
+/* 4. LA BARRE DECORATIVE TRICOLORE (Design Signature) */
+/* Ce code crée un élément fictif à la fin de l'image pour dessiner la barre */
+.work-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Hauteur de la barre */
+    /* Le dégradé linéaire définit les 3 couleurs à 33% chacune */
+    background: linear-gradient(
+        to right, 
+        #000000 33.33%,     /* Noir */
+        #ED7F10 33.33% 66.66%, /* Orange */
+        #007FFF 66.66%      /* Bleu */
+    );
+    z-index: 5; /* S'assure qu'elle est au-dessus de l'image */
+}
         .work-desc {
             padding: 20px;
             text-align: center;
