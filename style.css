@@ -78,20 +78,20 @@ body {
 .nav-links a:hover { color: var(--accent-blue); }
 
 .btn-contact {
-    background: var(--accent-blue) !important; /* Remplace le fond noir par ton bleu de marque */
-    color: white !important; /* Garde le texte blanc */
+    background: var(--accent-blue) !important;
+    color: white !important;
     padding: 10px 22px;
     border-radius: 4px;
-    border: 2px solid var(--accent-blue); /* Définit la couleur du cadre en bleu */
+    border: 2px solid var(--accent-blue);
     transition: var(--transition);
-    text-decoration: none; /* S'assure qu'il n'y a pas de soulignement */
+    text-decoration: none;
 }
 
 .btn-contact:hover {
-    background: var(--accent-orange) !important; /* Change le fond en orange au survol */
-    border-color: var(--accent-orange); /* Assure que la bordure change aussi de couleur au survol */
-    color: white !important; /* Maintient le texte blanc pour le contraste */
-    transform: translateY(-2px); /* Léger effet de soulèvement pour le dynamisme */
+    background: var(--accent-orange) !important;
+    border-color: var(--accent-orange);
+    color: white !important;
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -134,7 +134,6 @@ body {
     color: rgba(255,255,255,0.8);
 }
 
-/* Signature flottante */
 .signature {
     position: absolute;
     bottom: 40px;
@@ -173,27 +172,64 @@ body {
 .blue-text { color: var(--accent-blue); }
 
 .expertise-grid {
-    display: grid;
-    /* auto-fit permet de passer à la ligne si l'écran est trop petit */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 20px 10px !important;
+    flex-wrap: wrap !important;
 }
 
 .expertise-card {
-    background: var(--white);
-    padding: 50px 40px;
+    flex: 0 1 calc(20% - 20px) !important;
+    min-width: 220px;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 35px 25px;
     text-decoration: none;
     color: inherit;
-    border: 1px solid #eee;
     position: relative;
     transition: var(--transition);
     overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .expertise-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent-blue);
     box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* Carte Web — accentuée */
+.expertise-card--web {
+    border-color: var(--accent-orange);
+    background: linear-gradient(145deg, #fff 80%, #fff8f2);
+}
+
+.expertise-card--web:hover {
+    border-color: var(--accent-orange);
+    box-shadow: 0 20px 40px rgba(237,127,16,0.12);
+}
+
+/* Badge "Nouveau" sur la carte */
+.new-badge {
+    display: inline-block;
+    background: var(--accent-orange);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
 }
 
 .card-bg-icon {
@@ -216,39 +252,177 @@ body {
     transition: var(--transition);
 }
 
-.expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
-
-
-/* =========================================
-   STORY PREMIUM - DISPOSITION INVERSÉE
-   ========================================= */
-
-.story-flex-container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr; /* 1fr pour les logos, 1.5fr pour le texte */
-    gap: 80px;
-    align-items: start;
-    /* On utilise l'ordre CSS pour placer la 2ème colonne du HTML à GAUCHE */
+.expertise-card--web .card-line {
+    background: var(--accent-orange);
 }
 
-/* On force l'affichage de la colonne des logos (2ème dans le HTML) en position 1 */
+.expertise-card:hover .card-line { width: 80px; background: var(--accent-orange); }
+
+.expertise-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--logo-black);
+}
+
+.expertise-card p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+}
+
+.card-number {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.03) !important;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* =========================================
+   SECTION SERVICES WEB
+   ========================================= */
+.web-services-section {
+    background: #f4f8ff;
+}
+
+.web-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.web-service-card {
+    background: #fff;
+    border: 1px solid #e8eef8;
+    border-radius: 16px;
+    padding: 40px 30px;
+    position: relative;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.web-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,127,255,0.08);
+    border-color: var(--accent-blue);
+}
+
+.web-service-card--featured {
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 10px 30px rgba(0,127,255,0.1);
+}
+
+.web-badge-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-blue);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.web-service-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #007FFF15, #007FFF30);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+}
+
+.web-service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--dark-grey);
+}
+
+.web-service-card p {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.web-service-features {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.web-service-features li {
+    font-size: 0.9rem;
+    color: #444;
+    padding: 4px 0;
+}
+
+.web-service-features li i {
+    color: var(--accent-blue);
+    margin-right: 8px;
+    font-size: 0.75rem;
+}
+
+.btn-devis-web {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+}
+
+.btn-devis-web i { margin-right: 10px; }
+
+.btn-devis-web:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(37,211,102,0.4);
+    background: #20ba58;
+}
+
+/* =========================================
+   STORY PREMIUM
+   ========================================= */
+.story-flex-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+}
+
 .right-column-container {
     grid-column: 1; 
     grid-row: 1;
 }
 
-/* On force l'affichage du texte (1er dans le HTML) en position 2 */
 .story-text-content {
     grid-column: 2;
     grid-row: 1;
 }
 
-/* --- DESIGN DES BLOCS (GAUCHE) --- */
 .certification-block-black {
     background: #000;
     color: #fff;
     padding: 40px;
-    border-right: 5px solid var(--accent-orange); /* Ligne décorative */
+    border-right: 5px solid var(--accent-orange);
     text-align: center;
     box-shadow: 15px 15px 0px var(--accent-blue);
     margin-bottom: 30px;
@@ -273,7 +447,7 @@ body {
 
 .logo-display-block:hover {
     border-color: var(--accent-blue);
-    transform: translateX(10px); /* Petit décalage vers la droite au survol */
+    transform: translateX(10px);
 }
 
 .story-logo-img {
@@ -288,7 +462,6 @@ body {
     opacity: 1;
 }
 
-/* --- DESIGN DU TEXTE (DROITE) --- */
 .story-text-content h2 {
     position: relative;
     padding-bottom: 15px;
@@ -318,27 +491,18 @@ body {
     text-align: justify;
 }
 
-/* Adaptabilité Mobile */
 @media (max-width: 992px) {
-    .story-flex-container {
-        grid-template-columns: 1fr; /* On repasse sur une seule colonne */
-    }
-    .right-column-container, .story-text-content {
-        grid-column: 1; /* Tout le monde revient dans l'ordre sur mobile */
-    }
-    .story-text-content {
-        grid-row: 1; /* Le texte repasse en haut sur mobile */
-    }
-    .right-column-container {
-        grid-row: 2; /* Les logos passent en bas sur mobile */
-    }
+    .story-flex-container { grid-template-columns: 1fr; }
+    .right-column-container, .story-text-content { grid-column: 1; }
+    .story-text-content { grid-row: 1; }
+    .right-column-container { grid-row: 2; }
 }
 
 .story-logo-img { max-width: 150px; height: auto; margin-bottom: 10px; }
 .logo-caption { font-size: 0.8rem; color: var(--text-soft); }
 
 /* =========================================
-   NOUVEAU : PORTFOLIO RÉCENT (ACCUEIL)
+   PORTFOLIO RÉCENT
    ========================================= */
 .portfolio-grid {
     display: grid;
@@ -353,7 +517,7 @@ body {
     overflow: hidden;
     background: #000;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    height: 380px; /* Légèrement plus haut pour l'élégance */
+    height: 380px;
     cursor: pointer;
 }
 
@@ -361,12 +525,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition); /* Utilise votre variable de transition */
+    transition: var(--transition);
 }
 
 .portfolio-item:hover img {
     transform: scale(1.1);
-    opacity: 0.4; /* On assombrit pour faire ressortir le texte */
+    opacity: 0.4;
 }
 
 .portfolio-overlay {
@@ -386,12 +550,10 @@ body {
     transition: var(--transition);
 }
 
-.portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
-}
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
 
 .portfolio-overlay h3 {
-    color: #fff !important; /* Force le blanc même en mode sombre */
+    color: #fff !important;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 15px;
@@ -408,15 +570,10 @@ body {
 }
 
 .portfolio-item:hover h3, 
-.portfolio-item:hover p {
-    transform: translateY(0);
-}
+.portfolio-item:hover p { transform: translateY(0); }
 
-/* Adaptation pour mobile */
 @media (max-width: 768px) {
-    .portfolio-item {
-        height: 300px;
-    }
+    .portfolio-item { height: 300px; }
 }
 
 /* =========================================
@@ -430,24 +587,242 @@ body {
 
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 50px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
 }
 
 .footer-col h4 {
     color: var(--accent-orange);
     font-family: 'Montserrat';
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 0.85rem;
 }
 
 .footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 15px; }
+.footer-col ul li { margin-bottom: 12px; font-size: 0.9rem; }
 .footer-col a { color: #888; text-decoration: none; transition: 0.3s; }
 .footer-col a:hover { color: white; }
 
+/* Icône de lien nav footer */
+.footer-link-icon {
+    font-size: 0.6rem;
+    color: var(--accent-orange);
+    margin-right: 8px;
+}
+
+/* Badge "Nouveau" dans footer nav */
+.footer-new-tag {
+    background: var(--accent-orange);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badge qualité */
+.footer-quality-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+.footer-quality-badge i { color: var(--accent-orange); }
+
+/* Bouton WhatsApp dans footer */
+.footer-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25d366;
+    color: white !important;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.footer-whatsapp-btn:hover {
+    background: #20ba58;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* ===== FORMULAIRE DEVIS RAPIDE FOOTER ===== */
+.footer-col--devis p.footer-devis-intro {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.footer-devis-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-devis-form input,
+.footer-devis-form select {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #ddd;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    outline: none;
+    width: 100%;
+}
+
+.footer-devis-form input::placeholder { color: #555; }
+
+.footer-devis-form select option {
+    background: #111;
+    color: #ddd;
+}
+
+.footer-devis-form input:focus,
+.footer-devis-form select:focus {
+    border-color: var(--accent-orange);
+}
+
+.footer-devis-btn {
+    background: #25d366;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-devis-btn:hover {
+    background: #20ba58;
+    transform: translateY(-2px);
+}
+
+/* ===== NEWSLETTER FOOTER ===== */
+.footer-newsletter {
+    border-top: 1px solid #1a1a1a;
+    padding: 30px 5%;
+    margin: 0 -5%;
+    background: #080808;
+}
+
+.footer-newsletter-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-newsletter-text {
+    font-size: 0.95rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+}
+
+.footer-newsletter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-newsletter-form input[type="email"] {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #ddd;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.footer-newsletter-form input[type="email"]:focus {
+    border-color: var(--accent-orange);
+}
+
+.newsletter-btn {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.newsletter-btn:hover {
+    background: #c96a00;
+    transform: translateY(-2px);
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-bottom {
+    background: #000;
+}
+
+.footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom-links a {
+    color: #444;
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+
+.footer-bottom-links a:hover { color: #888; }
+
+/* ===== RÉSEAUX SOCIAUX ===== */
 .social-links { display: flex; gap: 15px; }
 .social-icon {
     width: 45px;
@@ -462,7 +837,6 @@ body {
     transition: var(--transition);
 }
 
-/* Couleurs d'origine au survol */
 .facebook:hover { background: #1877F2; }
 .instagram:hover { background: #E4405F; }
 .tiktok:hover { background: #000; border: 1px solid #fff; }
@@ -487,24 +861,23 @@ body {
 }
 
 /* =========================================
-   BANNIÈRE COOKIE - VERSION CORRIGÉE
+   BANNIÈRE COOKIE
    ========================================= */
 .cookie-box {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    right: 20px; /* Prend presque toute la largeur sur mobile */
+    right: 20px;
     max-width: 400px;
     background: #000;
     color: #fff;
     padding: 20px;
     border-radius: 10px;
     z-index: 10000;
-    display: none; /* Caché par défaut, affiché par JS */
+    display: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Cette classe sera ajoutée par JS si le cookie n'est pas encore accepté */
 .cookie-content {
     display: flex;
     flex-direction: column;
@@ -524,10 +897,8 @@ body {
 }
 
 /* =========================================
-   CORRECTION MODE SOMBRE (DARK THEME)
+   DARK THEME
    ========================================= */
-
-/* 1. Les Variables */
 body.dark-theme {
     --white: #121212;
     --dark-grey: #ffffff;
@@ -537,7 +908,6 @@ body.dark-theme {
     color: var(--dark-grey);
 }
 
-/* 2. Forcer les textes de la section Story et Expertises en blanc */
 body.dark-theme #story, 
 body.dark-theme #expertises,
 body.dark-theme .expertise-card,
@@ -555,7 +925,6 @@ body.dark-theme .expertise-card p {
 body.dark-theme .section-title,
 body.dark-theme h2,
 body.dark-theme h3 {
-    color: var(--white) !important; /* Le blanc de la variable devient noir, donc on met blanc fixe ou var(--dark-grey) */
     color: #ffffff !important;
 }
 
@@ -568,7 +937,28 @@ body.dark-theme .nav-links a {
     color: #ffffff !important;
 }
 
-/* --- BOUTON THEME --- */
+body.dark-theme .brand {
+    color: #ffffff !important;
+}
+
+body.dark-theme .web-services-section {
+    background: #1a1a1a;
+}
+
+body.dark-theme .web-service-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-theme .web-service-card h3 {
+    color: #fff !important;
+}
+
+body.dark-theme .web-service-card p,
+body.dark-theme .web-service-features li {
+    color: #ccc !important;
+}
+
 .theme-btn {
     background: none;
     border: none;
@@ -580,15 +970,7 @@ body.dark-theme .nav-links a {
 }
 
 /* =========================================
-   CORRECTION LOGO MODE SOMBRE
-   ========================================= */
-
-body.dark-theme .brand {
-    color: #ffffff !important; /* Force "BiG" à devenir blanc pour la lisibilité */
-}
-
-/* =========================================
-   SECTION STATS - ALIGNEMENT HORIZONTAL
+   STATS
    ========================================= */
 .stats-section {
     background: #000;
@@ -597,21 +979,21 @@ body.dark-theme .brand {
 }
 
 .stats-grid {
-    display: flex;             /* Active l'alignement horizontal */
-    justify-content: space-around; /* Espace égal entre les éléments */
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: nowrap;         /* Force à rester sur une seule ligne sur PC */
+    flex-wrap: nowrap;
     text-align: center;
 }
 
 .stat-item {
-    flex: 1;                   /* Chaque stat prend la même largeur */
+    flex: 1;
     padding: 10px;
 }
 
 .stat-number {
     display: block;
-    font-size: clamp(1.5rem, 4vw, 3rem); /* Taille adaptative selon l'écran */
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--accent-orange);
     margin-bottom: 5px;
@@ -624,92 +1006,69 @@ body.dark-theme .brand {
     color: #ccc;
 }
 
-/* --- ADAPTATION MOBILE POUR LES STATS --- */
 @media (max-width: 768px) {
-    .stats-grid {
-        flex-wrap: wrap;       /* Sur téléphone, on autorise le passage à la ligne */
-    }
-    .stat-item {
-        flex: 0 0 50%;         /* 2 colonnes par ligne sur mobile */
-        margin-bottom: 20px;
-    }
+    .stats-grid { flex-wrap: wrap; }
+    .stat-item { flex: 0 0 50%; margin-bottom: 20px; }
 }
 
 /* =========================================
-   ADAPTABILITÉ MOBILE (RESPONSIVE)
+   RESPONSIF GLOBAL
    ========================================= */
+@media (max-width: 1100px) {
+    .expertise-grid {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    .expertise-card {
+        flex: 0 1 calc(45% - 10px) !important;
+    }
+}
 
-/* Pour les Tablettes et écrans moyens */
 @media (max-width: 992px) {
     .nav-links li { margin-left: 15px; }
     .hero-content h1 { font-size: 3rem; }
     .story-flex-container { grid-template-columns: 1fr; gap: 40px; }
+    .footer-container { grid-template-columns: 1fr 1fr; }
 }
 
-/* Pour les Smartphones (iPhone, Android) */
 @media (max-width: 768px) {
     .navbar {
-        padding: 10px 5%;
+        padding: 10px 3%;
+        flex-direction: column;
         height: auto;
     }
 
-    /* On cache certains liens ou on réduit la taille pour que ça tienne sur une ligne */
-    .nav-links a { font-size: 0.75rem; }
-    .nav-links li { margin-left: 10px; }
-    
-    .btn-contact { padding: 8px 12px; font-size: 0.75rem; }
-
-    .hero { height: 70vh; text-align: center; justify-content: center; }
-    .hero-content p { font-size: 1rem; }
-    
-    .signature { 
-        display: none; /* On cache la signature sur petit mobile pour gagner de la place */
-    }
-
-    .expertise-grid { grid-template-columns: 1fr; }
-    
-    .stat-number { font-size: 2rem; }
-}
-
-/* =========================================
-   CORRECTION BARRE DE NAVIGATION MOBILE
-   ========================================= */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 10px 3%; /* Réduit l'espace sur les côtés */
-        flex-direction: column; /* Aligne le logo en haut et les liens en dessous */
-        height: auto; /* Laisse la barre s'agrandir si besoin */
-    }
-
-    .brand {
-        font-size: 1.2rem; /* Réduit un peu le logo */
-        margin-bottom: 5px;
-    }
+    .brand { font-size: 1.2rem; margin-bottom: 5px; }
 
     .nav-links {
         display: flex;
-        flex-wrap: wrap; /* Autorise les liens à passer à la ligne */
-        justify-content: center; /* Centre les liens */
-        gap: 10px; /* Espace entre les liens */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 
-    .nav-links li {
-        margin-left: 0; /* Supprime la marge de gauche inutile ici */
-    }
+    .nav-links li { margin-left: 0; }
+    .nav-links a { font-size: 0.75rem; white-space: nowrap; }
+    .btn-contact { padding: 6px 12px; font-size: 0.7rem; }
 
-    .nav-links a {
-        font-size: 0.75rem; /* Réduit la taille du texte pour que ça tienne */
-        white-space: nowrap; /* Empêche un mot seul de se couper */
-    }
+    .hero { height: 70vh; text-align: center; justify-content: center; }
+    .hero-content p { font-size: 1rem; }
+    .signature { display: none; }
 
-    .btn-contact {
-        padding: 6px 12px; /* Réduit la taille du bouton noir */
-        font-size: 0.7rem;
-    }
+    .expertise-card { flex: 0 1 100% !important; max-width: 400px; }
+
+    .stat-number { font-size: 2rem; }
+
+    .footer-container { grid-template-columns: 1fr; }
+    .footer-newsletter-inner { flex-direction: column; align-items: flex-start; }
+    .footer-newsletter-form input[type="email"] { width: 100%; }
+    .footer-bottom-inner { flex-direction: column; text-align: center; }
+
+    .web-services-grid { grid-template-columns: 1fr; }
 }
 
 /* =========================================
-   LIGHTBOX (IMAGE EN GRAND) - FINAL 
+   LIGHTBOX
    ========================================= */
 .lightbox {
     display: none;
@@ -725,11 +1084,8 @@ body.dark-theme .brand {
     flex-direction: column;
 }
 
-.lightbox.active {
-    display: flex;
-}
+.lightbox.active { display: flex; }
 
-/* Image agrandie */
 .lightbox-content {
     max-width: 90%;
     max-height: 80vh;
@@ -739,11 +1095,8 @@ body.dark-theme .brand {
     transition: transform 0.3s ease;
 }
 
-.lightbox.active .lightbox-content {
-    transform: scale(1);
-}
+.lightbox.active .lightbox-content { transform: scale(1); }
 
-/* Titre sous l'image */
 #lightbox-caption {
     color: white;
     margin-top: 20px;
@@ -751,9 +1104,10 @@ body.dark-theme .brand {
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
-/* Bouton de fermeture */
 .lightbox-close {
     position: absolute;
     top: 30px;
@@ -769,30 +1123,19 @@ body.dark-theme .brand {
     transform: rotate(90deg);
 }
 
-#lightbox-caption {
-    color: white;
-    margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
 /* =========================================
    SÉCURITÉ CURSEUR
    ========================================= */
 .custom-cursor, .cursor-dot {
-    pointer-events: none; /* Empêche le curseur de bloquer les clics */
+    pointer-events: none;
     z-index: 9999;
 }
 
 /* =========================================
-   PAGE PORTFOLIO CONTENUS - STYLES SPÉCIFIQUES
+   PAGE PORTFOLIO CONTENUS
    ========================================= */
-
-/* Header allégé pour les pages secondaires */
 .hero-portfolio {
-    height: 50vh; /* Moins haut que l'accueil */
+    height: 50vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -805,7 +1148,7 @@ body.dark-theme .brand {
     position: relative;
     z-index: 2;
     width: 100%;
-    margin-top: 80px; /* Espace pour la navbar fixe */
+    margin-top: 80px;
 }
 
 .hero-content-portfolio h1 {
@@ -815,7 +1158,6 @@ body.dark-theme .brand {
     margin-bottom: 15px;
 }
 
-/* Grille de Portfolio */
 .portfolio-video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -823,7 +1165,6 @@ body.dark-theme .brand {
     padding: 20px 0;
 }
 
-/* Carte Vidéo Premium */
 .video-portfolio-card {
     background: var(--white);
     border-radius: 16px;
@@ -836,13 +1177,12 @@ body.dark-theme .brand {
 .video-portfolio-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border-color: rgba(0,127,255,0.2); /* Légère lueur bleue */
+    border-color: rgba(0,127,255,0.2);
 }
 
-/* Conteneur de l'image de couverture */
 .card-cover-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
 }
@@ -857,11 +1197,8 @@ body.dark-theme .brand {
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.video-portfolio-card:hover .video-cover {
-    transform: scale(1.08); /* Léger zoom de l'image au survol */
-}
+.video-portfolio-card:hover .video-cover { transform: scale(1.08); }
 
-/* Overlay "Play" au survol */
 .play-overlay {
     position: absolute;
     inset: 0;
@@ -874,20 +1211,11 @@ body.dark-theme .brand {
     z-index: 2;
 }
 
-.play-overlay i {
-    font-size: 4rem;
-    color: white;
-    opacity: 0.8;
-}
+.play-overlay i { font-size: 4rem; color: white; opacity: 0.8; }
 
-.video-portfolio-card:hover .play-overlay {
-    opacity: 1;
-}
+.video-portfolio-card:hover .play-overlay { opacity: 1; }
 
-/* Informations de la carte */
-.video-card-info {
-    padding: 25px;
-}
+.video-card-info { padding: 25px; }
 
 .video-card-info h3 {
     font-size: 1.15rem;
@@ -907,12 +1235,7 @@ body.dark-theme .brand {
     margin-bottom: 20px;
 }
 
-/* Boutons d'action */
-.card-action-links {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+.card-action-links { display: flex; gap: 10px; flex-wrap: wrap; }
 
 .action-btn {
     text-decoration: none;
@@ -926,199 +1249,30 @@ body.dark-theme .brand {
     gap: 8px;
 }
 
-/* Couleurs des boutons réseaux */
-.youtube-btn {
-    background: rgba(205, 32, 31, 0.1);
-    color: #CD201F;
-}
+.youtube-btn { background: rgba(205, 32, 31, 0.1); color: #CD201F; }
 .youtube-btn:hover { background: #CD201F; color: white; }
 
-.tiktok-btn {
-    background: rgba(0, 0, 0, 0.1);
-    color: #000;
-}
+.tiktok-btn { background: rgba(0, 0, 0, 0.1); color: #000; }
 .tiktok-btn:hover { background: #000; color: white; }
 
-.facebook-btn {
-    background: rgba(24, 119, 242, 0.1);
-    color: #1877F2;
-}
+.facebook-btn { background: rgba(24, 119, 242, 0.1); color: #1877F2; }
 .facebook-btn:hover { background: #1877F2; color: white; }
 
-/* Adaptation Mobile */
 @media (max-width: 768px) {
     .hero-portfolio { height: 40vh; }
     .portfolio-video-grid { grid-template-columns: 1fr; gap: 25px; }
 }
 
-/* --- Styles pour la page Contenus --- */
-.hero-portfolio {
-    height: 45vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    color: white;
-}
-
-.portfolio-video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.video-portfolio-card {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.video-portfolio-card:hover {
-    transform: translateY(-10px);
-}
-
-.card-cover-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
-    background: #eee;
-}
-
-.video-cover {
-    position: absolute;
-    width: 100%; height: 100%;
-    object-fit: cover;
-}
-
-.play-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.3);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.video-portfolio-card:hover .play-overlay {
-    opacity: 1;
-}
-
-.play-overlay i { font-size: 3rem; color: white; }
-
-.video-card-info { padding: 20px; }
-
-.action-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.youtube-btn { background: #FF0000; color: white; }
-.tiktok-btn { background: #000000; color: white; }
-
 /* =========================================
-   SECTION EXPERTISES - VERSION FINALE UNIFIÉE
+   MODAL
    ========================================= */
-
-/* 1. Le conteneur : On force l'alignement horizontal sur PC */
-.expertise-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: stretch !important; /* Pour que toutes les cartes aient la même hauteur */
-    gap: 20px !important;
-    width: 100% !important;
-    max-width: 1200px !important;
-    margin: 40px auto !important;
-    padding: 20px 10px !important;
-    flex-wrap: nowrap !important; /* Empêche de passer à la ligne sur PC */
-}
-
-/* 2. La Carte : On utilise calc() pour que les 4 rentrent pile dans les 100% */
-.expertise-card {
-    /* (100% / 4 cartes) - les espaces entre elles */
-    flex: 0 1 calc(25% - 20px) !important; 
-    min-width: 250px; /* Sécurité pour ne pas être trop écrasé */
-    background: #ffffff;
-    border: 1px solid #f0f0f0;
-    border-radius: 12px;
-    padding: 35px 25px;
-    position: relative;
-    transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-}
-
-.expertise-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-blue);
-    box-shadow: 0 10px 25px rgba(0,127,255,0.1);
-}
-
-/* 3. Ajustement du texte interne */
-.expertise-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--logo-black);
-}
-
-.expertise-card p {
-    font-size: 0.9rem;
-    color: var(--text-soft);
-    line-height: 1.5;
-}
-
-/* 4. Le numéro décoratif en fond */
-.card-number {
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-size: 4.5rem;
-    font-weight: 900;
-    color: rgba(0,0,0,0.03) !important;
-    line-height: 1;
-    pointer-events: none;
-}
-
-/* =========================================
-   ADAPTATION SMARTPHONE & TABLETTE
-   ========================================= */
-
-@media (max-width: 1100px) {
-    .expertise-grid {
-        flex-wrap: wrap !important; /* On autorise le passage à la ligne sous 1100px */
-        justify-content: center !important;
-    }
-    .expertise-card {
-        flex: 0 1 calc(45% - 10px) !important; /* 2 par ligne sur tablette */
-    }
-}
-
-@media (max-width: 768px) {
-    .expertise-card {
-        flex: 0 1 100% !important; /* 1 seule par ligne sur mobile */
-        max-width: 400px;
-    }
-}
-
-/* --- STYLE DU MODAL (AGRANDISSEMENT IMAGE) --- */
 .modal {
-    display: none; /* Caché par défaut */
+    display: none;
     position: fixed;
-    z-index: 10000; /* Très élevé pour passer devant le bouton WhatsApp */
+    z-index: 10000;
     padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.9);
     cursor: zoom-out;
 }
@@ -1129,7 +1283,7 @@ body.dark-theme .brand {
     max-width: 90%;
     max-height: 80vh;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(237, 127, 16, 0.3); /* Lueur orange BiG FlooW */
+    box-shadow: 0 0 30px rgba(237, 127, 16, 0.3);
     animation: zoomIn 0.3s ease;
 }
 
@@ -1140,8 +1294,7 @@ body.dark-theme .brand {
 
 .close-modal {
     position: absolute;
-    top: 20px;
-    right: 35px;
+    top: 20px; right: 35px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
@@ -1149,9 +1302,7 @@ body.dark-theme .brand {
     transition: 0.3s;
 }
 
-.close-modal:hover {
-    color: var(--accent-orange);
-}
+.close-modal:hover { color: var(--accent-orange); }
 
 #caption {
     margin: auto;
