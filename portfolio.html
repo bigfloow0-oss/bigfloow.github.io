@@ -242,9 +242,14 @@ const observer = new IntersectionObserver((entries) => {
 stats.forEach(s => observer.observe(s));
 </script>
 
+<!-- ============================================================
+     FOOTER PREMIUM
+     ============================================================ -->
 <footer class="main-footer" id="contact">
     <div class="container">
         <div class="footer-container">
+
+            <!-- COL 1 : BRANDING -->
             <div class="footer-col branding">
                 <div class="brand" style="color:white; margin-bottom: 20px;">BiG <span class="floo">Floo</span><span class="w">W</span></div>
                 <p>Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.</p>
@@ -255,87 +260,185 @@ stats.forEach(s => observer.observe(s));
                     <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
                 </div>
+                <!-- BADGE QUALITÉ -->
+                <div class="footer-quality-badge">
+                    <i class="fas fa-medal"></i>
+                    <span>Design Certifié · Togo · 2022</span>
+                </div>
             </div>
 
+            <!-- COL 2 : NAVIGATION -->
             <div class="footer-col">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="portfolio.html">Graphisme</a></li>
-                    <li><a href="portfolio-3d.html">Modélisation 3D</a></li>
-                    <li><a href="portfolio-branding.html">Branding</a></li>
+                    <li><a href="index.html"><i class="fas fa-chevron-right footer-link-icon"></i> Accueil</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-chevron-right footer-link-icon"></i> Graphisme</a></li>
+                    <li><a href="portfolio-3d.html"><i class="fas fa-chevron-right footer-link-icon"></i> Modélisation 3D</a></li>
+                    <li><a href="portfolio-branding.html"><i class="fas fa-chevron-right footer-link-icon"></i> Branding</a></li>
+                    <li><a href="portfolio-contenus.html"><i class="fas fa-chevron-right footer-link-icon"></i> Contenus</a></li>
+                    <li><a href="portfolio-web.html"><i class="fas fa-chevron-right footer-link-icon"></i> Création Web <span class="footer-new-tag">Nouveau</span></a></li>
                 </ul>
             </div>
 
+            <!-- COL 3 : CONTACT -->
             <div class="footer-col">
                 <h4>Contact</h4>
                 <ul>
-                    <li><i class="fas fa-phone-alt"></i> +228 90 49 86 80</li>
-                    <li><i class="fas fa-phone-alt"></i> +228 97 16 08 73</li>
-                    <li><i class="fas fa-envelope"></i> bigfloow0@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Bd de la Kara, Lomé</li>
+                    <li><a href="tel:+22890498680" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 90 49 86 80</a></li>
+                    <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
+                    <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
+                    <li>
+                        <a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Écrire sur WhatsApp
+                        </a>
+                    </li>
                 </ul>
+            </div>
+
+            <!-- COL 4 : DEVIS RAPIDE (NOUVEAU PREMIUM) -->
+            <div class="footer-col footer-col--devis">
+                <h4>Devis Rapide</h4>
+                <p class="footer-devis-intro">Un projet en tête ? Dites-nous en plus :</p>
+                <form class="footer-devis-form" onsubmit="sendFooterDevis(event)">
+                    <input type="text" id="devis-name" placeholder="Votre nom" required>
+                    <select id="devis-service">
+                        <option value="" disabled selected>Type de service</option>
+                        <option value="Graphisme / Logo">Graphisme / Logo</option>
+                        <option value="Modélisation 3D">Modélisation 3D</option>
+                        <option value="Branding complet">Branding complet</option>
+                        <option value="Création de site internet">Création de site internet</option>
+                        <option value="Contenu vidéo">Contenu vidéo</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <input type="text" id="devis-budget" placeholder="Budget estimé (FCFA)">
+                    <button type="submit" class="footer-devis-btn">
+                        <i class="fab fa-whatsapp"></i> Envoyer via WhatsApp
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- BARRE NEWSLETTER PREMIUM -->
+        <div class="footer-newsletter">
+            <div class="footer-newsletter-inner">
+                <div class="footer-newsletter-text">
+                    <i class="fas fa-bell" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                    <span>Restez informé de nos dernières créations</span>
+                </div>
+                <div class="footer-newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Votre adresse email">
+                    <button onclick="subscribeNewsletter()" class="newsletter-btn">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="line-gradient" style="height: 4px; background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);"></div>
+        <div class="footer-bottom-inner">
+            <p style="font-size: 0.8rem; color: #666;">© 2026 <span style="color: #ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        <div class="line-gradient" style="height: 4px; background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);"></div>
-        <p style="font-size: 0.8rem; color: #666;">© 2026 <span style="color: #ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
-    </div>
 </footer>
 
-    <script>
+<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div id="cookie-banner" class="cookie-box">
+    <div class="cookie-content">
+        <i class="fas fa-cookie-bite cookie-icon"></i>
+        <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>.</p>
+        <button id="accept-cookie" class="cookie-btn">Accepter</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('cookie-banner');
+    const btn = document.getElementById('accept-cookie');
+
+    if (!localStorage.getItem('bigfloow_cookies')) {
+        banner.style.display = 'block';
+    }
+
+    btn.addEventListener('click', function() {
+        localStorage.setItem('bigfloow_cookies', 'true');
+        banner.style.display = 'none';
+    });
+});
+
+/* DEVIS RAPIDE FOOTER → WhatsApp */
+function sendFooterDevis(e) {
+    e.preventDefault();
+    const name    = document.getElementById('devis-name').value.trim();
+    const service = document.getElementById('devis-service').value;
+    const budget  = document.getElementById('devis-budget').value.trim();
+
+    if (!name || !service) return;
+
+    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
+    const url = `https://wa.me/22890498680?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+}
+
+/* NEWSLETTER */
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value.trim();
+    if (!email || !email.includes('@')) {
+        alert('Veuillez entrer une adresse email valide.');
+        return;
+    }
+    const msg = `Bonjour BiG FlooW,\nJe souhaite m'inscrire à la newsletter avec l'email : ${email}`;
+    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
+    document.getElementById('newsletter-email').value = '';
+}
+</script>
+
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+    
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    // MODIFICATION : On cible TOUTES les images de la grille portfolio + les logos
-    const imagesToZoom = document.querySelectorAll('.work-image img, .story-logo-img, .mini-logo');
+    const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
 
     imagesToZoom.forEach(image => {
-        // On change le curseur pour montrer que c'est zoomable
         image.style.cursor = "zoom-in";
 
-        image.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Affichage de la lightbox
+        image.addEventListener('click', () => {
             lightbox.classList.add('active');
             lightboxImg.src = image.src;
-            
-            // On récupère le titre (h4) situé dans la description à côté de l'image
-            const parentWorkItem = image.closest('.work-item');
-            if(parentWorkItem) {
-                const title = parentWorkItem.querySelector('h4').innerText;
-                lightboxCaption.innerText = title;
-            } else {
-                lightboxCaption.innerText = image.alt || "Réalisation BiG FlooW";
-            }
-            
-            document.body.style.overflow = 'hidden'; 
+            lightboxCaption.innerText = image.alt || "Création BiG FlooW";
+            document.body.style.overflow = 'hidden';
         });
     });
 
-    // Fonction pour fermer
     const closeLightbox = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; 
+        document.body.style.overflow = 'auto';
     };
 
     if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
     
-    // Fermer si on clique sur le fond noir
     lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox || e.target === closeBtn) {
-            closeLightbox();
-        }
+        if(e.target === lightbox) closeLightbox();
     });
 });
 </script>
-
-    <!-- Structure de la Lightbox (à ajouter avant </body>) -->
+    
 <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" src="" alt="Aperçu" class="lightbox-content">
@@ -343,7 +446,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <style>
-/* Style rapide pour le bouton de fermeture */
 .lightbox-close {
     position: absolute;
     top: 20px;
