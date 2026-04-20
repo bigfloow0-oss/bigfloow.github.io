@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BiG FlooW - Agence de design graphique, branding et modélisation 3D à Lomé. Création d'identités visuelles professionnelles.">
-    <title>BiG FlooW | Agence de Design Graphique & Branding à Lomé</title>
+    <meta name="description" content="BiG FlooW - Agence de design graphique, branding, modélisation 3D et création de sites internet à Lomé. Création d'identités visuelles professionnelles.">
+    <title>BiG FlooW | Agence de Design Graphique, Branding & Web à Lomé</title>
     <link rel="icon" type="image/png" href="fac2_logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,6 +22,7 @@
         <li><a href="portfolio.html">Graphisme</a></li>
         <li><a href="portfolio-3d.html">3D</a></li>
         <li><a href="portfolio-branding.html">Branding</a></li>
+        <li><a href="portfolio-web.html">Web</a></li>
         <li><a href="#contact" class="btn-contact">Contact</a></li>
     </ul>
 </nav>
@@ -38,7 +37,7 @@
     <div class="signature">
         <img src="logo big floow.jpg" class="mini-logo" alt="Logo BiG FlooW">
         <div class="signature-text">
-            <p class="tagline">Graphisme, 3D & Branding</p>
+            <p class="tagline">Graphisme, 3D, Branding & Web</p>
             <p>Création visuelle professionnelle adaptée à votre image.</p>
         </div>
     </div>
@@ -82,6 +81,15 @@
                 <p>Réalisation de vidéos lyrics et contenus dynamiques pour TikTok et YouTube.</p>
                 <span class="card-number">04</span>
             </a>
+
+            <!-- CARTE 5 : CRÉATION DE SITE INTERNET -->
+            <a href="portfolio-web.html" class="expertise-card expertise-card--web">
+                <div class="new-badge">Nouveau</div>
+                <h3>Création de Sites Web</h3>
+                <div class="card-line"></div>
+                <p>Conception de sites vitrines, portfolios et pages web modernes, responsives et optimisés.</p>
+                <span class="card-number">05</span>
+            </a>
         </div>
     </div>
 </section>
@@ -115,7 +123,7 @@
     </div>
 </section>
     
-    <section class="stats-section">
+<section class="stats-section">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
@@ -134,6 +142,10 @@
                 <span class="stat-number" data-target="5">0</span>
                 <p>Années d'Expérience</p>
             </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="12">0</span>
+                <p>Sites Web Créés</p>
+            </div>
         </div>
     </div>
 </section>
@@ -142,13 +154,9 @@
 <div class="cursor-dot"></div>
 
 <script>
-// ==========================================
-// GESTION DU THÈME BIG FLOOW
-// ==========================================
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Fonction pour changer l'icône (Lune/Soleil)
 function updateIcon(isDark) {
     const icon = themeToggle.querySelector('i');
     if (isDark) {
@@ -158,14 +166,12 @@ function updateIcon(isDark) {
     }
 }
 
-// Vérification au chargement de la page
 const currentTheme = localStorage.getItem('bigfloow-theme');
 if (currentTheme === 'dark') {
     body.classList.add('dark-theme');
     updateIcon(true);
 }
 
-// Action au clic sur le bouton
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         const isDark = body.classList.toggle('dark-theme');
@@ -174,7 +180,6 @@ if (themeToggle) {
     });
 }
     
-// CURSEUR
 const cursor = document.querySelector('.custom-cursor');
 const dot = document.querySelector('.cursor-dot');
 
@@ -187,7 +192,6 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
-// STATS
 const stats = document.querySelectorAll('.stat-number');
 
 const observer = new IntersectionObserver((entries) => {
@@ -198,7 +202,6 @@ const observer = new IntersectionObserver((entries) => {
 
             const updateCount = () => {
                 const speed = target / 50;
-
                 if(count < target){
                     count += speed;
                     entry.target.innerText = Math.ceil(count) + "+";
@@ -228,7 +231,7 @@ stats.forEach(s => observer.observe(s));
                     <div class="feature-item story-section">
                         <h3>Origine & Inspiration</h3>
                         <p>
-                            <span class="big-floow-highlight">BiG <span class="floo">Floo</span><span class="w">W</span></span> est un projet né de la passion et de la créativité d’un jeune visionnaire togolais. L’idée a vu le jour le <span class="date-highlight">05 janvier 2025</span>, lorsque, en parallèle de son métier de <span class="job-highlight">Conseiller</span>, il s’est interrogé sur les activités secondaires qu’il pourrait développer pour exprimer son talent et élargir ses horizons.
+                            <span class="big-floow-highlight">BiG <span class="floo">Floo</span><span class="w">W</span></span> est un projet né de la passion et de la créativité d'un jeune visionnaire togolais. L'idée a vu le jour le <span class="date-highlight">05 janvier 2025</span>, lorsque, en parallèle de son métier de <span class="job-highlight">Conseiller</span>, il s'est interrogé sur les activités secondaires qu'il pourrait développer pour exprimer son talent et élargir ses horizons.
                         </p>
                     </div>
 
@@ -249,7 +252,7 @@ stats.forEach(s => observer.observe(s));
                     <div class="feature-item story-section">
                         <h3>Activités & Domaines</h3>
                         <p>
-                           L'objectif est d'allier le <span class="domain-highlight">divertissement</span> et le <span class="domain-highlight">graphisme</span> au sein d'un même projet. <span class="big-floow-highlight">BiG <span class="floo">Floo</span><span class="w">W</span></span> devient alors une vitrine professionnelle dédiée au design et à la communication digitale.
+                           L'objectif est d'allier le <span class="domain-highlight">divertissement</span>, le <span class="domain-highlight">graphisme</span> et la <span class="domain-highlight">création web</span> au sein d'un même projet. <span class="big-floow-highlight">BiG <span class="floo">Floo</span><span class="w">W</span></span> devient alors une vitrine professionnelle dédiée au design, à la communication digitale et à la conception de sites internet modernes.
                         </p>
                     </div>
                 </div>
@@ -277,11 +280,66 @@ stats.forEach(s => observer.observe(s));
     </div>
 </section>
 
+<!-- SECTION SERVICES WEB - NOUVEAU -->
+<section id="web-services" class="section-padding web-services-section">
+    <div class="container">
+        <h2 class="section-title">Création de <span class="highlight">Sites Web</span></h2>
+        <p style="text-align: center; max-width: 650px; margin: 0 auto 60px; color: #666;">Des sites modernes, rapides et optimisés pour booster votre présence digitale en Afrique et partout dans le monde.</p>
+
+        <div class="web-services-grid">
+            <div class="web-service-card">
+                <div class="web-service-icon"><i class="fas fa-store"></i></div>
+                <h3>Site Vitrine</h3>
+                <p>Présentez votre activité avec élégance. Idéal pour les entreprises, commerces et artisans.</p>
+                <ul class="web-service-features">
+                    <li><i class="fas fa-check"></i> Design sur-mesure</li>
+                    <li><i class="fas fa-check"></i> 100% responsive</li>
+                    <li><i class="fas fa-check"></i> Optimisé SEO</li>
+                </ul>
+            </div>
+
+            <div class="web-service-card web-service-card--featured">
+                <div class="web-badge-popular">Le plus demandé</div>
+                <div class="web-service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Portfolio Pro</h3>
+                <p>Mettez en valeur vos créations et votre expertise avec un portfolio percutant et mémorable.</p>
+                <ul class="web-service-features">
+                    <li><i class="fas fa-check"></i> Galerie dynamique</li>
+                    <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                    <li><i class="fas fa-check"></i> Animations modernes</li>
+                </ul>
+            </div>
+
+            <div class="web-service-card">
+                <div class="web-service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Landing Page</h3>
+                <p>Une page de conversion puissante pour promouvoir vos services, événements ou produits.</p>
+                <ul class="web-service-features">
+                    <li><i class="fas fa-check"></i> Design impactant</li>
+                    <li><i class="fas fa-check"></i> Appel à l'action clair</li>
+                    <li><i class="fas fa-check"></i> Livraison rapide</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20souhaite%20un%20devis%20pour%20la%20création%20de%20mon%20site%20internet." class="btn-devis-web" target="_blank">
+                <i class="fab fa-whatsapp"></i> Demander un devis gratuit
+            </a>
+        </div>
+    </div>
+</section>
+
 </main>
 
+<!-- ============================================================
+     FOOTER PREMIUM
+     ============================================================ -->
 <footer class="main-footer" id="contact">
     <div class="container">
         <div class="footer-container">
+
+            <!-- COL 1 : BRANDING -->
             <div class="footer-col branding">
                 <div class="brand" style="color:white; margin-bottom: 20px;">BiG <span class="floo">Floo</span><span class="w">W</span></div>
                 <p>Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.</p>
@@ -292,18 +350,27 @@ stats.forEach(s => observer.observe(s));
                     <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
                 </div>
+                <!-- BADGE QUALITÉ -->
+                <div class="footer-quality-badge">
+                    <i class="fas fa-medal"></i>
+                    <span>Design Certifié · Togo · 2022</span>
+                </div>
             </div>
 
+            <!-- COL 2 : NAVIGATION -->
             <div class="footer-col">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="portfolio.html">Graphisme</a></li>
-                    <li><a href="portfolio-3d.html">Modélisation 3D</a></li>
-                    <li><a href="portfolio-branding.html">Branding</a></li>
+                    <li><a href="index.html"><i class="fas fa-chevron-right footer-link-icon"></i> Accueil</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-chevron-right footer-link-icon"></i> Graphisme</a></li>
+                    <li><a href="portfolio-3d.html"><i class="fas fa-chevron-right footer-link-icon"></i> Modélisation 3D</a></li>
+                    <li><a href="portfolio-branding.html"><i class="fas fa-chevron-right footer-link-icon"></i> Branding</a></li>
+                    <li><a href="portfolio-contenus.html"><i class="fas fa-chevron-right footer-link-icon"></i> Contenus</a></li>
+                    <li><a href="portfolio-web.html"><i class="fas fa-chevron-right footer-link-icon"></i> Création Web <span class="footer-new-tag">Nouveau</span></a></li>
                 </ul>
             </div>
 
+            <!-- COL 3 : CONTACT -->
             <div class="footer-col">
                 <h4>Contact</h4>
                 <ul>
@@ -311,13 +378,63 @@ stats.forEach(s => observer.observe(s));
                     <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
                     <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
+                    <li>
+                        <a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Écrire sur WhatsApp
+                        </a>
+                    </li>
                 </ul>
             </div>
+
+            <!-- COL 4 : DEVIS RAPIDE (NOUVEAU PREMIUM) -->
+            <div class="footer-col footer-col--devis">
+                <h4>Devis Rapide</h4>
+                <p class="footer-devis-intro">Un projet en tête ? Dites-nous en plus :</p>
+                <form class="footer-devis-form" onsubmit="sendFooterDevis(event)">
+                    <input type="text" id="devis-name" placeholder="Votre nom" required>
+                    <select id="devis-service">
+                        <option value="" disabled selected>Type de service</option>
+                        <option value="Graphisme / Logo">Graphisme / Logo</option>
+                        <option value="Modélisation 3D">Modélisation 3D</option>
+                        <option value="Branding complet">Branding complet</option>
+                        <option value="Création de site internet">Création de site internet</option>
+                        <option value="Contenu vidéo">Contenu vidéo</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <input type="text" id="devis-budget" placeholder="Budget estimé (FCFA)">
+                    <button type="submit" class="footer-devis-btn">
+                        <i class="fab fa-whatsapp"></i> Envoyer via WhatsApp
+                    </button>
+                </form>
+            </div>
+
         </div>
+
+        <!-- BARRE NEWSLETTER PREMIUM -->
+        <div class="footer-newsletter">
+            <div class="footer-newsletter-inner">
+                <div class="footer-newsletter-text">
+                    <i class="fas fa-bell" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                    <span>Restez informé de nos dernières créations</span>
+                </div>
+                <div class="footer-newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Votre adresse email">
+                    <button onclick="subscribeNewsletter()" class="newsletter-btn">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+
     </div>
+
     <div class="footer-bottom">
         <div class="line-gradient" style="height: 4px; background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);"></div>
-        <p style="font-size: 0.8rem; color: #666;">© 2026 <span style="color: #ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
+        <div class="footer-bottom-inner">
+            <p style="font-size: 0.8rem; color: #666;">© 2026 <span style="color: #ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -325,7 +442,7 @@ stats.forEach(s => observer.observe(s));
     <i class="fab fa-whatsapp"></i>
 </a>
 
-    <div id="cookie-banner" class="cookie-box">
+<div id="cookie-banner" class="cookie-box">
     <div class="cookie-content">
         <i class="fas fa-cookie-bite cookie-icon"></i>
         <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>.</p>
@@ -338,20 +455,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const banner = document.getElementById('cookie-banner');
     const btn = document.getElementById('accept-cookie');
 
-    // Vérifie si l'utilisateur a déjà accepté
     if (!localStorage.getItem('bigfloow_cookies')) {
         banner.style.display = 'block';
     }
 
-    // Cache la bannière et enregistre le choix
     btn.addEventListener('click', function() {
         localStorage.setItem('bigfloow_cookies', 'true');
         banner.style.display = 'none';
     });
 });
+
+/* DEVIS RAPIDE FOOTER → WhatsApp */
+function sendFooterDevis(e) {
+    e.preventDefault();
+    const name    = document.getElementById('devis-name').value.trim();
+    const service = document.getElementById('devis-service').value;
+    const budget  = document.getElementById('devis-budget').value.trim();
+
+    if (!name || !service) return;
+
+    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
+    const url = `https://wa.me/22890498680?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+}
+
+/* NEWSLETTER */
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value.trim();
+    if (!email || !email.includes('@')) {
+        alert('Veuillez entrer une adresse email valide.');
+        return;
+    }
+    const msg = `Bonjour BiG FlooW,\nJe souhaite m'inscrire à la newsletter avec l'email : ${email}`;
+    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
+    document.getElementById('newsletter-email').value = '';
+}
 </script>
-    
-   <script>
+
+<script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
     
@@ -362,39 +503,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    // On sélectionne les logos de l'histoire et le mini-logo
     const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
 
     imagesToZoom.forEach(image => {
-        image.style.cursor = "zoom-in"; // Curseur loupe
+        image.style.cursor = "zoom-in";
 
         image.addEventListener('click', () => {
             lightbox.classList.add('active');
             lightboxImg.src = image.src;
-            // Utilise l'attribut ALT comme légende, sinon un texte par défaut
             lightboxCaption.innerText = image.alt || "Création BiG FlooW";
-            document.body.style.overflow = 'hidden'; // Bloque le défilement
+            document.body.style.overflow = 'hidden';
         });
     });
 
-    // Fonction de fermeture
     const closeLightbox = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Relance le défilement
+        document.body.style.overflow = 'auto';
     };
 
     if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
     
-    // Ferme si on clique n'importe où sur le fond noir (mais pas sur l'image elle-même)
     lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox) {
-            closeLightbox();
-        }
+        if(e.target === lightbox) closeLightbox();
     });
 });
 </script>
     
-    <!-- Structure de la Lightbox (à ajouter avant </body>) -->
 <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" src="" alt="Aperçu" class="lightbox-content">
@@ -402,7 +536,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <style>
-/* Style rapide pour le bouton de fermeture */
 .lightbox-close {
     position: absolute;
     top: 20px;
