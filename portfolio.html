@@ -169,7 +169,7 @@
     <script>
         
 // ==========================================
-// GESTION DU THÈME BI G FLOOW
+// GESTION DU THÈME BIG FLOOW
 // ==========================================
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
@@ -394,76 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     <div id="lightbox-caption"></div>
 </div>
-    
-// ==========================================
-// GESTION DE L'AGRANDISSEMENT DES CRÉATIONS
-// Design Signature BiG FlooW
-// ==========================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.querySelector('.lightbox-close');
-
-    // MODIFICATION IMPORTANT : On cible TOUTES les images de ton portfolio (.work-item)
-    // + les logos et mini-logos déjà prévus.
-    const imagesToZoom = document.querySelectorAll('.work-item img, .story-logo-img, .mini-logo');
-
-    imagesToZoom.forEach(image => {
-        // Indique visuellement que l'image est cliquable
-        image.style.cursor = "zoom-in";
-
-        image.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // 1. Ouvrir la lightbox
-            lightbox.classList.add('active');
-            
-            // 2. Charger l'image cliquée
-            lightboxImg.src = image.src;
-            
-            // 3. Récupérer le titre (h4) situé dans la description de la même carte (.work-item)
-            const parentWorkItem = image.closest('.work-item');
-            if(parentWorkItem) {
-                const title = parentWorkItem.querySelector('h4').innerText;
-                lightboxCaption.innerText = title;
-            } else {
-                // Secours : utilise le texte alternatif si pas de h4 trouvé
-                lightboxCaption.innerText = image.alt || "Création BiG FlooW";
-            }
-            
-            // 4. Empêcher le défilement du site en arrière-plan
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    // Fonction pour fermer la lightbox
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Réactive le défilement
-    };
-
-    // Fermeture via le bouton croix
-    if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    
-    // Fermeture si on clique n'importe où sur le fond noir
-    // mais PAS si on clique sur l'image elle-même.
-    lightbox.addEventListener('click', (e) => {
-        // 'lightbox' est le fond noir
-        if(e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    // Optionnel : Fermeture avec la touche 'Echap'
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
-});
-    
+       
 <style>
 .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001; }
 </style>
