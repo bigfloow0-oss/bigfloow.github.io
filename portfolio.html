@@ -382,18 +382,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
-    const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
+    
+    // On cible TOUTES les images dans les blocs "work-image"
+    const imagesToZoom = document.querySelectorAll('.work-image img');
+
     imagesToZoom.forEach(image => {
         image.style.cursor = "zoom-in";
         image.addEventListener('click', () => {
-            lightbox.classList.add('active'); lightboxImg.src = image.src;
+            lightbox.classList.add('active');
+            lightboxImg.src = image.src;
             lightboxCaption.innerText = image.alt || "Création BiG FlooW";
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Bloque le scroll
         });
     });
-    const closeLightbox = () => { lightbox.classList.remove('active'); document.body.style.overflow = 'auto'; };
+
+    const closeLightbox = () => { 
+        lightbox.classList.remove('active'); 
+        document.body.style.overflow = 'auto'; // Réactive le scroll
+    };
+
     if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+    
+    // Fermer en cliquant sur le fond noir
+    lightbox.addEventListener('click', (e) => { 
+        if(e.target === lightbox) closeLightbox(); 
+    });
 });
 </script>
 
