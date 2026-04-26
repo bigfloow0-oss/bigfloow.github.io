@@ -308,9 +308,9 @@ body {
 .story-block strong { color: var(--dark-grey); }
 
 /* =========================================
-   STORY PARTIE 2 — CLAIRE
+   STORY PARTIE 2 — SOMBRE
    ========================================= */
-.story-part--dark { background: #fafafa; }
+.story-part--dark { background: #0a0a0a; }
 .story-part--dark .story-header h2 { color: #fff; }
 
 .story-founder-grid {
