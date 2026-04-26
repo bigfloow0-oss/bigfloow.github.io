@@ -1,0 +1,190 @@
+/* =========================================
+   STYLE UNIFORMISÉ POUR PORTFOLIOS
+   BiG FlooW - Headers, Footers & Grilles
+   ========================================= */
+
+/* --- Variables & Base (Incluses pour autonomie) --- */
+:root {
+    --accent-blue: #007FFF;
+    --accent-orange: #ED7F10;
+    --logo-black: #000000;
+    --white: #ffffff;
+    --dark-grey: #1a1a1a;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+    background-color: var(--white);
+    margin: 0;
+    color: var(--dark-grey);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/* --- NAVBAR PREMIUM (Basée sur l'index) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 3%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.brand { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--logo-black); }
+.brand .floo { color: var(--accent-orange); }
+.brand .w { color: var(--accent-blue); }
+
+.nav-links { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
+.nav-links li { margin-left: 25px; }
+.nav-links a { text-decoration: none; color: var(--logo-black); font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+.nav-links a:hover { color: var(--accent-blue); }
+
+.btn-contact {
+    background: var(--accent-blue) !important;
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    border: 2px solid var(--accent-blue);
+    transition: var(--transition);
+    text-decoration: none;
+}
+.btn-contact:hover { background: var(--accent-orange) !important; border-color: var(--accent-orange); color: white !important; transform: translateY(-2px); }
+
+/* --- HERO SECTION UNIFORME --- */
+.portfolio-hero {
+    height: 35vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid var(--accent-orange);
+    margin-top: 80px; /* Espace pour la navbar fixed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+}
+
+.portfolio-hero h1 {
+    position: relative;
+    color: white;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+/* --- BOUTON RETOUR & TITRES --- */
+.back-btn-container { text-align: center; margin: 40px 0; }
+.back-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--accent-orange);
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.back-btn:hover { background: var(--accent-orange); color: white; }
+
+/* --- GRILLE PORTFOLIO PREMIUM (Design Uniforme) --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 8% 80px;
+    width: 100%;
+}
+
+.work-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,127,255,0.15);
+}
+
+.work-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in; /* Indique qu'on peut zoomer */
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.work-item:hover .work-image img { transform: scale(1.1); }
+
+/* --- Barre décorative tricolore signature --- */
+.work-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #000 33.33%, var(--accent-orange) 33.33% 66.66%, var(--accent-blue) 66.66%);
+    z-index: 5;
+}
+
+.work-desc { padding: 20px; text-align: center; }
+.category { color: var(--accent-blue); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 5px; }
+.work-desc h4 { margin: 0; color: #1a1a1a; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
+
+/* --- SECTION AUTRES STYLES --- */
+.other-styles-section { text-align: center; padding: 40px; background: #f9f9f9; }
+.other-styles-section h2 { font-family: 'Montserrat'; margin-bottom: 20px; color: #333; }
+.other-styles-section p a { color: #333; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+.other-styles-section p a:hover { color: var(--accent-blue); }
+.other-styles-section p a.active { color: var(--accent-blue); }
+
+/* --- BOUTON THÈME ET CURSEUR (Inclus pour uniformité) --- */
+.theme-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; color: var(--logo-black); padding: 10px; transition: 0.3s; }
+.custom-cursor, .cursor-dot { pointer-events: none; z-index: 9999; }
+
+/* --- RESPONSIVE UNIFORME --- */
+@media (max-width: 992px) {
+    .nav-links li { margin-left: 15px; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; padding: 40px 5%; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 10px 3%; flex-direction: column; height: auto; }
+    .brand { font-size: 1.2rem; margin-bottom: 5px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .nav-links li { margin-left: 0; }
+    .nav-links a { font-size: 0.75rem; white-space: nowrap; }
+    .btn-contact { padding: 6px 12px; font-size: 0.7rem; }
+    .portfolio-hero { margin-top: 100px; height: 30vh; }
+    .portfolio-grid { grid-template-columns: 1fr; padding: 30px 5%; gap: 20px; }
+    .other-styles-section { padding: 30px 5%; }
+}
