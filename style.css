@@ -308,9 +308,9 @@ body {
 .story-block strong { color: var(--dark-grey); }
 
 /* =========================================
-   STORY PARTIE 2 — SOMBRE
+   STORY PARTIE 2 — CLAIRE
    ========================================= */
-.story-part--dark { background: #0a0a0a; }
+.story-part--dark { background: #fafafa; }
 .story-part--dark .story-header h2 { color: #fff; }
 
 .story-founder-grid {
@@ -740,13 +740,14 @@ body.dark-theme .expertise-card--wide { background: linear-gradient(135deg, #1a1
 /* Masquer le bouton WhatsApp flottant */
 .whatsapp-float { display: none !important; }
 
-<style>
-    /* Masque le bouton flottant par défaut */
-    #chatbase-bubble-button, 
-    .chatbase-bubble-button {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
-</style>
+/* =========================================
+   MASQUAGE DU BOUTON CHATBASE FLOTTANT
+   ========================================= */
+#chatbase-bubble-button, 
+#chatbase-bubble-window iframe[name="chatbase-bubble-window"],
+[id^="chatbase-"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
