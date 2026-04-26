@@ -308,95 +308,41 @@ body {
 .story-block strong { color: var(--dark-grey); }
 
 /* =========================================
-   STORY PARTIE 2 — SOMBRE
+   HARMONISATION DES SECTIONS STORY
    ========================================= */
-.story-part--dark { background: #0a0a0a; }
-.story-part--dark .story-header h2 { color: #fff; }
-
-.story-founder-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+/* On rend l'arrière-plan uniforme (Blanc/Gris très clair) */
+.story-part--dark { 
+    background: #fafafa !important; /* Même couleur que la partie 1 */
 }
 
-/* Carte fondateur pleine largeur */
+/* On ajuste la couleur du texte pour qu'il soit lisible sur fond clair */
+.story-part--dark .story-header h2,
+.story-part--dark .story-block--light h3,
+.story-part--dark .founder-info h3 { 
+    color: var(--dark-grey) !important; 
+}
+
+.story-part--dark .story-block--light p { 
+    color: #555 !important; 
+}
+
+.story-part--dark .story-block--light {
+    background: #fff !important;
+    border: 1px solid #eee !important;
+}
+
+/* Ajustement de la carte fondateur pour fond clair */
 .founder-card {
-    grid-column: 1 / -1;
-    background: #111;
-    border: 1px solid #222;
-    border-left: 5px solid var(--accent-orange);
-    border-radius: 16px;
-    padding: 30px 35px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
+    background: #fff !important;
+    border: 1px solid #eee !important;
+    border-left: 5px solid var(--accent-orange) !important;
 }
 
-.founder-avatar {
-    width: 70px; height: 70px;
-    background: linear-gradient(135deg, var(--accent-orange), var(--accent-blue));
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem; font-weight: 800;
-    color: white;
-    flex-shrink: 0;
-}
-
-.founder-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 4px; }
-.founder-title { color: var(--accent-orange); font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; }
-.founder-badges { display: flex; gap: 10px; flex-wrap: wrap; }
 .founder-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #1a1a1a; border: 1px solid #333;
-    color: #aaa; font-size: 0.78rem;
-    padding: 5px 14px; border-radius: 20px;
+    background: #f0f0f0 !important;
+    border: 1px solid #ddd !important;
+    color: #666 !important;
 }
-.founder-badge i { color: var(--accent-orange); font-size: 0.7rem; }
-
-/* Blocs story sombres */
-.story-block--light {
-    background: #111;
-    border-color: #222;
-}
-.story-block--light:hover { border-color: var(--accent-orange); box-shadow: 0 10px 30px rgba(237,127,16,0.08); }
-.story-block--light h3 { color: #fff; }
-.story-block--light p { color: #bbb; }
-.story-block--light strong { color: var(--accent-orange); }
-
-/* Logos row */
-.story-logos-row {
-    grid-column: 1 / -1;
-    display: flex; gap: 20px; align-items: stretch;
-}
-
-.logo-display-block {
-    flex: 1;
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 25px 20px;
-    text-align: center;
-    transition: 0.4s;
-}
-.logo-display-block:hover { border-color: var(--accent-orange); transform: translateY(-4px); }
-.story-logo-img { max-width: 120px; height: auto; margin-bottom: 10px; filter: grayscale(100%); opacity: 0.6; transition: 0.4s; }
-.logo-display-block:hover .story-logo-img { filter: grayscale(0%); opacity: 1; }
-.logo-caption { font-size: 0.78rem; color: #666; }
-
-/* Bloc cert compact */
-.cert-mini-block {
-    flex: 0 0 140px;
-    background: #000;
-    border: 1px solid #222;
-    border-right: 4px solid var(--accent-orange);
-    border-radius: 12px;
-    padding: 25px 20px;
-    text-align: center;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-}
-.cert-year { font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'Montserrat'; line-height: 1; margin-bottom: 8px; }
-.cert-mini-block p { font-size: 0.78rem; color: #888; line-height: 1.4; }
 
 /* =========================================
    SECTION SERVICES WEB
@@ -741,13 +687,26 @@ body.dark-theme .expertise-card--wide { background: linear-gradient(135deg, #1a1
 .whatsapp-float { display: none !important; }
 
 /* =========================================
-   MASQUAGE DU BOUTON CHATBASE FLOTTANT
+   CORRECTIONS RESPONSIVE (LARGEUR DU SITE)
    ========================================= */
-#chatbase-bubble-button, 
-#chatbase-bubble-window iframe[name="chatbase-bubble-window"],
-[id^="chatbase-"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+.container { 
+    width: 100%;
+    max-width: 1200px; /* Largeur optimale pour PC */
+    margin: 0 auto; 
+    padding: 0 5%; /* Marge de sécurité pour mobile */
+}
+
+/* Empêcher le débordement horizontal sur iPhone/Android */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+    .story-logos-row { gap: 15px; }
+    /* On s'assure que les colonnes ne sont jamais trop larges */
+    .story-two-col, .story-founder-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
