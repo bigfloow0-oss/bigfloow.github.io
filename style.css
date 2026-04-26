@@ -753,42 +753,60 @@ body, html {
 }
 
 /* =========================================
-   DARK MODE — FIX FORCÉ
+   DARK MODE FIX FINAL (INDEX - STORY)
    ========================================= */
 
-/* Support class="dark" sur body OU html */
-.dark .founder-card,
-.dark .story-block--light,
-.dark .logo-display-block,
-.dark .cert-mini-block,
-body.dark .founder-card,
-body.dark .story-block--light,
-body.dark .logo-display-block,
-body.dark .cert-mini-block {
+/* Fond section ADN */
+body.dark-theme .story-part--dark {
+    background: #0f0f0f !important;
+}
+
+/* 🔥 CARTES (le vrai problème) */
+body.dark-theme .founder-card {
     background: #1a1a1a !important;
     border-color: #2a2a2a !important;
 }
 
-/* Texte */
-.dark .story-block--light p,
-.dark .logo-caption,
-.dark .cert-mini-block p {
+body.dark-theme .story-block--light {
+    background: #1a1a1a !important;
+    border-color: #2a2a2a !important;
+}
+
+body.dark-theme .logo-display-block {
+    background: #1a1a1a !important;
+    border-color: #2a2a2a !important;
+}
+
+body.dark-theme .cert-mini-block {
+    background: #1a1a1a !important;
+    border-color: #2a2a2a !important;
+}
+
+/* 🔥 TEXTE */
+body.dark-theme .story-block--light p,
+body.dark-theme .logo-caption,
+body.dark-theme .cert-mini-block p {
     color: #bbbbbb !important;
 }
 
-/* Titres */
-.dark .story-block--light h3 {
+body.dark-theme .story-block--light h3 {
     color: #ffffff !important;
 }
 
-/* 🔵 NOM DU FONDATEUR EN BLEU */
-.dark .founder-info h3 {
-    color: var(--accent-blue) !important;
+/* 🔵 NOM DU FONDATEUR (comme tu veux) */
+body.dark-theme .founder-info h3 {
+    color: #007FFF !important;
 }
 
-/* Badge */
-.dark .founder-badge {
+/* Badge fondateur */
+body.dark-theme .founder-badge {
     background: #222 !important;
     border-color: #333 !important;
     color: #ccc !important;
+}
+
+/* Logos visibles */
+body.dark-theme .story-logo-img {
+    filter: grayscale(100%) brightness(1.2);
+    opacity: 0.9;
 }
