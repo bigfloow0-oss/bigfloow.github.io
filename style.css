@@ -308,10 +308,18 @@ body {
 .story-block strong { color: var(--dark-grey); }
 
 /* =========================================
-   STORY PARTIE 2 — SOMBRE
+   STORY PARTIE 2 — ADN (Passage en Clair)
    ========================================= */
-.story-part--dark { background: #fafafa; }
-.story-part--dark .story-header h2 { color: #000000; }
+
+/* Le fond de la section devient blanc comme la partie Histoire */
+.story-part--dark { 
+    background: #ffffff; 
+}
+
+/* On force le titre principal en noir */
+.story-part--dark .story-header h2 { 
+    color: #000000 !important; 
+}
 
 .story-founder-grid {
     display: grid;
@@ -319,17 +327,18 @@ body {
     gap: 25px;
 }
 
-/* Carte fondateur pleine largeur */
+/* Carte fondateur : Fond blanc, texte noir */
 .founder-card {
     grid-column: 1 / -1;
-    background: #111;
-    border: 1px solid #222;
+    background: #ffffff; /* Fond blanc */
+    border: 1px solid #eeeeee; /* Bordure légère */
     border-left: 5px solid var(--accent-orange);
     border-radius: 16px;
     padding: 30px 35px;
     display: flex;
     align-items: center;
     gap: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Petit relief */
 }
 
 .founder-avatar {
@@ -343,28 +352,40 @@ body {
     flex-shrink: 0;
 }
 
-.founder-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 4px; }
+.founder-info h3 { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.2rem; 
+    color: #1a1a1a; /* Texte sombre */
+    margin-bottom: 4px; 
+}
+
 .founder-title { color: var(--accent-orange); font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; }
+
 .founder-badges { display: flex; gap: 10px; flex-wrap: wrap; }
 .founder-badge {
     display: inline-flex; align-items: center; gap: 6px;
-    background: #1a1a1a; border: 1px solid #333;
-    color: #aaa; font-size: 0.78rem;
+    background: #f5f5f5; /* Badge clair */
+    border: 1px solid #e0e0e0;
+    color: #555; /* Texte gris */
+    font-size: 0.78rem;
     padding: 5px 14px; border-radius: 20px;
 }
 .founder-badge i { color: var(--accent-orange); font-size: 0.7rem; }
 
-/* Blocs story sombres */
+/* Blocs d'expertise : Fond blanc, texte sombre */
 .story-block--light {
-    background: #111;
-    border-color: #222;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
 }
-.story-block--light:hover { border-color: var(--accent-orange); box-shadow: 0 10px 30px rgba(237,127,16,0.08); }
-.story-block--light h3 { color: #fff; }
-.story-block--light p { color: #bbb; }
+.story-block--light:hover { 
+    border-color: var(--accent-orange); 
+    box-shadow: 0 10px 30px rgba(237,127,16,0.12); 
+}
+.story-block--light h3 { color: #1a1a1a; }
+.story-block--light p { color: #555555; }
 .story-block--light strong { color: var(--accent-orange); }
 
-/* Logos row */
+/* Rangée des Logos */
 .story-logos-row {
     grid-column: 1 / -1;
     display: flex; gap: 20px; align-items: stretch;
@@ -372,23 +393,29 @@ body {
 
 .logo-display-block {
     flex: 1;
-    background: #111;
-    border: 1px solid #222;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
     border-radius: 12px;
     padding: 25px 20px;
     text-align: center;
     transition: 0.4s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 .logo-display-block:hover { border-color: var(--accent-orange); transform: translateY(-4px); }
-.story-logo-img { max-width: 120px; height: auto; margin-bottom: 10px; filter: grayscale(100%); opacity: 0.6; transition: 0.4s; }
-.logo-display-block:hover .story-logo-img { filter: grayscale(0%); opacity: 1; }
-.logo-caption { font-size: 0.78rem; color: #666; }
 
-/* Bloc cert compact */
+/* On ajuste l'opacité pour que les logos soient visibles sur fond blanc */
+.story-logo-img { 
+    max-width: 120px; height: auto; margin-bottom: 10px; 
+    filter: grayscale(100%); opacity: 0.8; transition: 0.4s; 
+}
+.logo-display-block:hover .story-logo-img { filter: grayscale(0%); opacity: 1; }
+.logo-caption { font-size: 0.78rem; color: #888; }
+
+/* Bloc Certificat (2018) */
 .cert-mini-block {
     flex: 0 0 140px;
-    background: #000;
-    border: 1px solid #222;
+    background: #fdfdfd;
+    border: 1px solid #eeeeee;
     border-right: 4px solid var(--accent-orange);
     border-radius: 12px;
     padding: 25px 20px;
@@ -396,7 +423,7 @@ body {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 .cert-year { font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'Montserrat'; line-height: 1; margin-bottom: 8px; }
-.cert-mini-block p { font-size: 0.78rem; color: #888; line-height: 1.4; }
+.cert-mini-block p { font-size: 0.78rem; color: #666; line-height: 1.4; }
 
 /* =========================================
    FOOTER PREMIUM
