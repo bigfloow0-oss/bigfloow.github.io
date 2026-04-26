@@ -308,18 +308,12 @@ body {
 .story-block strong { color: var(--dark-grey); }
 
 /* =========================================
-   STORY PARTIE 2 — ADN (Passage en Clair)
+   STORY PARTIE 2 — ADN (Adaptatif Clair/Sombre)
    ========================================= */
 
-/* Le fond de la section devient blanc comme la partie Histoire */
-.story-part--dark { 
-    background: #fafafa; 
-}
-
-/* On force le titre principal en noir */
-.story-part--dark .story-header h2 { 
-    color: #000000 !important; 
-}
+/* 1. État par défaut (Mode Clair) */
+.story-part--dark { background: #fafafa; transition: background 0.3s; }
+.story-part--dark .story-header h2 { color: #000000; }
 
 .story-founder-grid {
     display: grid;
@@ -327,103 +321,70 @@ body {
     gap: 25px;
 }
 
-/* Carte fondateur : Fond blanc, texte noir */
+/* Carte fondateur */
 .founder-card {
     grid-column: 1 / -1;
-    background: #ffffff; /* Fond blanc */
-    border: 1px solid #eeeeee; /* Bordure légère */
+    background: #ffffff;
+    border: 1px solid #eeeeee;
     border-left: 5px solid var(--accent-orange);
     border-radius: 16px;
     padding: 30px 35px;
     display: flex;
     align-items: center;
     gap: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Petit relief */
-}
-
-.founder-avatar {
-    width: 70px; height: 70px;
-    background: linear-gradient(135deg, var(--accent-orange), var(--accent-blue));
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem; font-weight: 800;
-    color: white;
-    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s;
 }
 
 .founder-info h3 { 
     font-family: 'Montserrat', sans-serif; 
     font-size: 1.2rem; 
-    color: #1a1a1a; /* Texte sombre */
+    color: #1a1a1a; 
     margin-bottom: 4px; 
 }
 
-.founder-title { color: var(--accent-orange); font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; }
-
-.founder-badges { display: flex; gap: 10px; flex-wrap: wrap; }
-.founder-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #f5f5f5; /* Badge clair */
-    border: 1px solid #e0e0e0;
-    color: #555; /* Texte gris */
-    font-size: 0.78rem;
-    padding: 5px 14px; border-radius: 20px;
-}
-.founder-badge i { color: var(--accent-orange); font-size: 0.7rem; }
-
-/* Blocs d'expertise : Fond blanc, texte sombre */
-.story-block--light {
+/* Blocs d'expertise et Logos */
+.story-block--light, .logo-display-block, .cert-mini-block {
     background: #ffffff;
     border: 1px solid #eeeeee;
-}
-.story-block--light:hover { 
-    border-color: var(--accent-orange); 
-    box-shadow: 0 10px 30px rgba(237,127,16,0.12); 
+    transition: all 0.3s;
 }
 .story-block--light h3 { color: #1a1a1a; }
 .story-block--light p { color: #555555; }
-.story-block--light strong { color: var(--accent-orange); }
 
-/* Rangée des Logos */
-.story-logos-row {
-    grid-column: 1 / -1;
-    display: flex; gap: 20px; align-items: stretch;
+/* 2. ÉTAT MODE SOMBRE (DÉCLENCHÉ PAR .dark-mode) */
+
+/* Fond de section en noir */
+body.dark-mode .story-part--dark { background: #080808 !important; }
+
+/* Titre principal passe en blanc */
+body.dark-mode .story-part--dark .story-header h2 { color: #ffffff !important; }
+
+/* Cadres (Cartes, Blocs, Logos) passent en noir */
+body.dark-mode .founder-card,
+body.dark-mode .story-block--light,
+body.dark-mode .logo-display-block,
+body.dark-mode .cert-mini-block {
+    background: #111111 !important;
+    border-color: #222222 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-.logo-display-block {
-    flex: 1;
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 12px;
-    padding: 25px 20px;
-    text-align: center;
-    transition: 0.4s;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+/* NOM DU FONDATEUR EN BLEU EN MODE SOMBRE */
+body.dark-mode .founder-info h3 { 
+    color: var(--accent-blue) !important; 
 }
-.logo-display-block:hover { border-color: var(--accent-orange); transform: translateY(-4px); }
 
-/* On ajuste l'opacité pour que les logos soient visibles sur fond blanc */
-.story-logo-img { 
-    max-width: 120px; height: auto; margin-bottom: 10px; 
-    filter: grayscale(100%); opacity: 0.8; transition: 0.4s; 
-}
-.logo-display-block:hover .story-logo-img { filter: grayscale(0%); opacity: 1; }
-.logo-caption { font-size: 0.78rem; color: #888; }
+/* Textes des blocs en blanc/gris clair en mode sombre */
+body.dark-mode .story-block--light h3 { color: #ffffff !important; }
+body.dark-mode .story-block--light p { color: #bbbbbb !important; }
 
-/* Bloc Certificat (2018) */
-.cert-mini-block {
-    flex: 0 0 140px;
-    background: #fdfdfd;
-    border: 1px solid #eeeeee;
-    border-right: 4px solid var(--accent-orange);
-    border-radius: 12px;
-    padding: 25px 20px;
-    text-align: center;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+/* Badges en mode sombre */
+body.dark-mode .founder-badge {
+    background: #1a1a1a !important;
+    border-color: #333 !important;
+    color: #aaa !important;
 }
-.cert-year { font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'Montserrat'; line-height: 1; margin-bottom: 8px; }
-.cert-mini-block p { font-size: 0.78rem; color: #666; line-height: 1.4; }
 
 /* =========================================
    FOOTER PREMIUM
