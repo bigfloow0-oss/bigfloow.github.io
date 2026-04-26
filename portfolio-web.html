@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BiG FlooW - Création de sites web à Lomé. Sites vitrines, portfolios, landing pages modernes et responsives.">
+    <title>BiG FlooW | Création de Sites Web</title>
+    <link rel="icon" type="image/png" href="fac2_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    /* ===== HERO WEB ===== */
+    .web-hero {
+        height: 70vh;
+        background: linear-gradient(135deg, #0a0a0a 0%, #001a3a 50%, #0a0a0a 100%);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding-top: 70px;
+    }
+
+    /* Grille décorative animée */
+    .web-hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(0,127,255,0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,127,255,0.07) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: gridSlide 20s linear infinite;
+    }
+    @keyframes gridSlide {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(60px); }
+    }
+
+    /* Cercles lumineux décoratifs */
+    .web-hero-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.15;
+    }
+    .glow-blue { width: 500px; height: 500px; background: var(--accent-blue); top: -100px; right: -100px; }
+    .glow-orange { width: 300px; height: 300px; background: var(--accent-orange); bottom: -50px; left: -50px; }
+
+    .web-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        max-width: 800px;
+        padding: 0 5%;
+    }
+    .web-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0,127,255,0.2);
+        border: 1px solid rgba(0,127,255,0.4);
+        color: #7fbfff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 7px 18px;
+        border-radius: 30px;
+        margin-bottom: 25px;
+    }
+    .web-hero-content h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(2rem, 5.5vw, 3.8rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 20px;
+    }
+    .web-hero-content h1 span { color: var(--accent-orange); }
+    .web-hero-content p {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.7);
+        max-width: 600px;
+        margin: 0 auto 35px;
+        line-height: 1.7;
+    }
+    .web-hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn-hero-primary {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: var(--accent-orange); color: white;
+        padding: 14px 32px; border-radius: 50px;
+        font-weight: 700; font-size: 0.95rem;
+        text-decoration: none; transition: all 0.3s;
+        box-shadow: 0 8px 25px rgba(237,127,16,0.35);
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(237,127,16,0.45); }
+    .btn-hero-secondary {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: transparent; color: white;
+        padding: 14px 32px; border-radius: 50px;
+        font-weight: 600; font-size: 0.95rem;
+        text-decoration: none; transition: all 0.3s;
+        border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-hero-secondary:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+    /* Stats rapides hero */
+    .web-hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+    .web-hero-stat { text-align: center; }
+    .web-hero-stat strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent-orange); }
+    .web-hero-stat span { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ===== SECTION POURQUOI BiG FlooW ===== */
+    .why-section {
+        padding: 90px 0;
+        background: #fafafa;
+    }
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+        margin-top: 50px;
+    }
+    .why-card {
+        background: white;
+        border-radius: 16px;
+        padding: 35px 28px;
+        border: 1px solid #eee;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+    }
+    .why-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        background: var(--accent-blue);
+        transform: scaleY(0);
+        transition: transform 0.3s;
+        transform-origin: bottom;
+    }
+    .why-card:hover::before { transform: scaleY(1); }
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,127,255,0.08); border-color: transparent; }
+    .why-icon {
+        width: 55px; height: 55px;
+        background: rgba(0,127,255,0.08);
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.4rem; color: var(--accent-blue);
+        margin-bottom: 18px;
+    }
+    .why-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: #111; }
+    .why-card p { font-size: 0.9rem; color: #666; line-height: 1.7; }
+
+    /* ===== OFFRES / TARIFS ===== */
+    .offers-section { padding: 90px 0; background: #050505; }
+    .offers-section .section-title { color: white; }
+    .offers-subtitle { text-align: center; color: #888; max-width: 600px; margin: -30px auto 60px; font-size: 0.95rem; }
+    .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .offer-card {
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 20px;
+        padding: 40px 30px;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+    }
+    .offer-card:hover { transform: translateY(-8px); border-color: var(--accent-blue); box-shadow: 0 20px 50px rgba(0,127,255,0.15); }
+    .offer-card--popular {
+        border: 2px solid var(--accent-orange);
+        background: linear-gradient(145deg, #111, #1a0f05);
+    }
+    .offer-card--popular:hover { border-color: var(--accent-orange); box-shadow: 0 20px 50px rgba(237,127,16,0.2); }
+    .offer-popular-badge {
+        position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+        background: var(--accent-orange); color: white;
+        font-size: 0.65rem; font-weight: 800;
+        text-transform: uppercase; letter-spacing: 1.5px;
+        padding: 5px 20px; border-radius: 0 0 10px 10px;
+        white-space: nowrap;
+    }
+    .offer-icon {
+        width: 60px; height: 60px;
+        border-radius: 14px;
+        background: rgba(0,127,255,0.12);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.6rem; color: var(--accent-blue);
+        margin-bottom: 20px;
+    }
+    .offer-card--popular .offer-icon { background: rgba(237,127,16,0.12); color: var(--accent-orange); }
+    .offer-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; color: white; margin-bottom: 8px; }
+    .offer-card .offer-desc { font-size: 0.88rem; color: #777; margin-bottom: 25px; line-height: 1.6; }
+    .offer-features { list-style: none; margin-bottom: 30px; }
+    .offer-features li {
+        font-size: 0.88rem; color: #aaa; padding: 8px 0;
+        border-bottom: 1px solid #1a1a1a;
+        display: flex; align-items: center; gap: 10px;
+    }
+    .offer-features li i { color: var(--accent-blue); font-size: 0.7rem; flex-shrink: 0; }
+    .offer-card--popular .offer-features li i { color: var(--accent-orange); }
+    .offer-cta {
+        display: block; text-align: center;
+        background: var(--accent-blue); color: white;
+        padding: 13px 20px; border-radius: 10px;
+        font-weight: 700; font-size: 0.9rem;
+        text-decoration: none; transition: all 0.3s;
+    }
+    .offer-cta:hover { background: #005fcc; transform: translateY(-2px); }
+    .offer-card--popular .offer-cta { background: var(--accent-orange); }
+    .offer-card--popular .offer-cta:hover { background: #c96a00; }
+
+    /* ===== GALERIE MOCKUPS ===== */
+    .gallery-section { padding: 90px 0; background: white; }
+    .gallery-filter {
+        display: flex; gap: 12px; justify-content: center;
+        flex-wrap: wrap; margin-bottom: 50px;
+    }
+    .filter-btn {
+        padding: 9px 22px; border-radius: 25px;
+        border: 1.5px solid #ddd; background: white;
+        font-size: 0.85rem; font-weight: 600; color: #555;
+        cursor: pointer; transition: all 0.3s;
+        font-family: 'Poppins', sans-serif;
+    }
+    .filter-btn.active, .filter-btn:hover {
+        background: var(--accent-blue); color: white; border-color: var(--accent-blue);
+    }
+    .mockup-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+    }
+    .mockup-card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #f8f8f8;
+        border: 1px solid #eee;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+    .mockup-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: var(--accent-blue); }
+    .mockup-browser {
+        background: #1a1a1a;
+        padding: 12px 15px 0;
+    }
+    .browser-bar {
+        display: flex; align-items: center; gap: 8px;
+        margin-bottom: 10px;
+    }
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .browser-dot.red { background: #ff5f57; }
+    .browser-dot.yellow { background: #febc2e; }
+    .browser-dot.green { background: #28c840; }
+    .browser-url {
+        flex: 1; background: #2a2a2a; border-radius: 5px;
+        height: 22px; margin-left: 8px;
+        display: flex; align-items: center; padding: 0 10px;
+    }
+    .browser-url span { font-size: 0.65rem; color: #666; font-family: monospace; }
+    .mockup-screen {
+        width: 100%; height: 200px;
+        display: flex; align-items: center; justify-content: center;
+        position: relative; overflow: hidden;
+    }
+    .mockup-screen-inner {
+        width: 100%; height: 100%;
+        display: flex; flex-direction: column;
+        position: relative; overflow: hidden;
+    }
+    /* Vitrines simulées avec CSS */
+    .screen-vitrine { background: linear-gradient(135deg, #f0f4ff, #e8f0fe); }
+    .screen-portfolio { background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
+    .screen-landing { background: linear-gradient(135deg, #fff8f0, #ffecd2); }
+    .screen-ecom { background: linear-gradient(135deg, #f0fff4, #e6ffed); }
+    .screen-resto { background: linear-gradient(135deg, #1a0a00, #3d1a00); }
+    .screen-event { background: linear-gradient(135deg, #0d001a, #1a0033); }
+
+    .screen-nav { height: 28px; display: flex; align-items: center; padding: 0 15px; gap: 10px; background: rgba(255,255,255,0.15); }
+    .screen-nav-dot { width: 30px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.4); }
+    .screen-nav-dot:first-child { width: 50px; background: rgba(255,255,255,0.7); }
+    .screen-body { flex: 1; padding: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+    .screen-heading { height: 14px; border-radius: 4px; background: rgba(255,255,255,0.6); width: 70%; }
+    .screen-heading.dark { background: rgba(0,0,0,0.2); }
+    .screen-sub { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.3); width: 50%; }
+    .screen-sub.dark { background: rgba(0,0,0,0.12); }
+    .screen-btn { height: 24px; border-radius: 6px; width: 100px; margin-top: 5px; }
+    .screen-btn.orange { background: var(--accent-orange); }
+    .screen-btn.blue { background: var(--accent-blue); }
+    .screen-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 5px; }
+    .screen-card-item { height: 40px; border-radius: 6px; background: rgba(255,255,255,0.2); }
+    .screen-card-item.dark { background: rgba(0,0,0,0.1); }
+
+    .mockup-info { padding: 20px 22px; }
+    .mockup-type { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-blue); font-weight: 700; margin-bottom: 6px; }
+    .mockup-name { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .mockup-desc { font-size: 0.83rem; color: #777; line-height: 1.5; }
+    .mockup-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .mockup-tag { font-size: 0.68rem; padding: 3px 10px; border-radius: 20px; background: rgba(0,127,255,0.08); color: var(--accent-blue); font-weight: 600; }
+
+    /* ===== PROCESSUS ===== */
+    .process-section { padding: 90px 0; background: #f4f8ff; }
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0;
+        margin-top: 60px;
+        position: relative;
+    }
+    .process-steps::before {
+        content: '';
+        position: absolute;
+        top: 38px; left: 10%; right: 10%;
+        height: 2px;
+        background: linear-gradient(to right, var(--accent-blue), var(--accent-orange));
+        z-index: 0;
+    }
+    .process-step {
+        text-align: center;
+        padding: 0 15px;
+        position: relative;
+        z-index: 1;
+    }
+    .step-number {
+        width: 75px; height: 75px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid var(--accent-blue);
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.4rem; font-weight: 800;
+        color: var(--accent-blue);
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 25px rgba(0,127,255,0.15);
+    }
+    .process-step:nth-child(2) .step-number { border-color: #5ba3ff; }
+    .process-step:nth-child(3) .step-number { border-color: #ed9f50; }
+    .process-step:nth-child(4) .step-number { border-color: var(--accent-orange); }
+    .process-step h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: #111; }
+    .process-step p { font-size: 0.83rem; color: #666; line-height: 1.6; }
+
+    /* ===== TÉMOIGNAGES ===== */
+    .temoignages-section { padding: 90px 0; background: #0a0a0a; }
+    .temoignages-section .section-title { color: white; }
+    .temoignages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 50px;
+    }
+    .temoignage-card {
+        background: #111;
+        border: 1px solid #1e1e1e;
+        border-radius: 16px;
+        padding: 30px;
+        position: relative;
+        transition: all 0.3s;
+    }
+    .temoignage-card:hover { border-color: var(--accent-orange); transform: translateY(-4px); }
+    .temoignage-quote { font-size: 3rem; color: var(--accent-orange); line-height: 1; margin-bottom: 15px; font-family: Georgia, serif; }
+    .temoignage-text { color: #aaa; font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .temoignage-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+        width: 42px; height: 42px; border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-orange), var(--accent-blue));
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Montserrat', sans-serif; font-weight: 700;
+        color: white; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; font-size: 0.9rem; color: white; }
+    .author-role { font-size: 0.75rem; color: #555; }
+    .stars { color: var(--accent-orange); font-size: 0.75rem; margin-bottom: 2px; }
+
+    /* ===== CTA FINAL ===== */
+    .cta-web-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #001a3a 0%, #0a0a0a 50%, #1a0800 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .cta-web-glow { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.12; }
+    .cta-glow1 { width: 400px; height: 400px; background: var(--accent-blue); top: -150px; left: -100px; }
+    .cta-glow2 { width: 300px; height: 300px; background: var(--accent-orange); bottom: -100px; right: -50px; }
+    .cta-web-section h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; color: white; margin-bottom: 20px; position: relative; z-index: 1; }
+    .cta-web-section h2 span { color: var(--accent-orange); }
+    .cta-web-section p { color: rgba(255,255,255,0.6); font-size: 1rem; max-width: 550px; margin: 0 auto 40px; position: relative; z-index: 1; line-height: 1.7; }
+    .cta-web-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .cta-btn-wa {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: #25d366; color: white;
+        padding: 16px 36px; border-radius: 50px;
+        font-weight: 700; font-size: 1rem;
+        text-decoration: none; transition: all 0.3s;
+        box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+    }
+    .cta-btn-wa:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(37,211,102,0.45); }
+    .cta-btn-back {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: transparent; color: white;
+        padding: 16px 36px; border-radius: 50px;
+        font-weight: 600; font-size: 1rem;
+        text-decoration: none; transition: all 0.3s;
+        border: 2px solid rgba(255,255,255,0.25);
+    }
+    .cta-btn-back:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+    /* Barre tricolore décorative */
+    .tricolor-bar { height: 4px; background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .process-steps::before { display: none; }
+        .process-steps { gap: 30px; }
+        .web-hero-stats { gap: 25px; }
+        .web-hero-stat strong { font-size: 1.5rem; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- STICKERS DESIGN EN ARRIÈRE-PLAN -->
+<div class="bg-stickers" aria-hidden="true">
+    <i class="fas fa-pen-nib sticker s1"></i>
+    <i class="fas fa-bezier-curve sticker s2"></i>
+    <i class="fas fa-palette sticker s3"></i>
+    <i class="fas fa-vector-square sticker s4"></i>
+    <i class="fas fa-draw-polygon sticker s5"></i>
+    <i class="fas fa-crop-alt sticker s6"></i>
+    <i class="fas fa-magic sticker s7"></i>
+    <i class="fas fa-object-group sticker s8"></i>
+    <i class="fas fa-layer-group sticker s9"></i>
+    <i class="fas fa-ruler-combined sticker s10"></i>
+    <i class="fas fa-cube sticker s11"></i>
+    <i class="fas fa-paint-brush sticker s12"></i>
+    <i class="fas fa-globe sticker s13"></i>
+    <i class="fas fa-film sticker s14"></i>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="brand">BiG <span class="floo">Floo</span><span class="w">W</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="portfolio.html">Graphisme</a></li>
+        <li><a href="portfolio-3d.html">3D</a></li>
+        <li><a href="portfolio-branding.html">Branding</a></li>
+        <li><a href="portfolio-web.html" style="color: var(--accent-orange); font-weight:700;">Web</a></li>
+        <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="web-hero">
+    <div class="web-hero-grid"></div>
+    <div class="web-hero-glow glow-blue"></div>
+    <div class="web-hero-glow glow-orange"></div>
+
+    <div class="web-hero-content">
+        <div class="web-hero-label">
+            <i class="fas fa-globe"></i>
+            Nouveau Service · BiG FlooW
+        </div>
+        <h1>Votre site web,<br>conçu par des <span>designers</span></h1>
+        <p>Nous ne faisons pas que coder — nous créons des expériences visuelles qui convertissent vos visiteurs en clients. Design graphique professionnel + développement web = résultats garantis.</p>
+        <div class="web-hero-btns">
+            <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20veux%20un%20site%20web%20professionnel." class="btn-hero-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Démarrer mon projet
+            </a>
+            <a href="#galerie-web" class="btn-hero-secondary">
+                <i class="fas fa-eye"></i> Voir nos réalisations
+            </a>
+        </div>
+
+        <div class="web-hero-stats">
+            <div class="web-hero-stat">
+                <strong>12+</strong>
+                <span>Sites livrés</span>
+            </div>
+            <div class="web-hero-stat">
+                <strong>100%</strong>
+                <span>Responsive</span>
+            </div>
+            <div class="web-hero-stat">
+                <strong>5 ans</strong>
+                <span>D'expérience</span>
+            </div>
+            <div class="web-hero-stat">
+                <strong>48h</strong>
+                <span>Délai moyen</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="tricolor-bar"></div>
+
+<!-- Lien retour -->
+<div style="text-align:center; padding: 25px 0 10px;">
+    <a href="index.html" style="display:inline-flex; align-items:center; gap:8px; padding:10px 25px; background:var(--accent-blue); color:white; border-radius:30px; text-decoration:none; font-weight:600; font-size:0.9rem; transition:0.3s;" onmouseover="this.style.background='#005fcc'" onmouseout="this.style.background='var(--accent-blue)'">
+        <i class="fas fa-arrow-left"></i> Retour à l'accueil
+    </a>
+</div>
+
+<!-- ===== POURQUOI NOUS CHOISIR ===== -->
+<section class="why-section">
+    <div class="container">
+        <span class="story-label" style="display:block; width:fit-content; margin: 0 auto 15px;">Notre Avantage</span>
+        <h2 class="section-title">Pourquoi choisir <span style="color:var(--accent-orange)">BiG FlooW</span><br>pour votre site web ?</h2>
+        <p style="text-align:center; color:#777; max-width:600px; margin: -30px auto 0; font-size:0.95rem;">Nous combinons l'œil du designer graphique et la maîtrise du développeur web pour vous livrer un site qui se démarque vraiment.</p>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Design Graphique Pro</h3>
+                <p>Chaque pixel est pensé. Nos 5 ans d'expertise en graphisme garantissent un site visuellement impactant, cohérent et mémorable.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>100% Responsive</h3>
+                <p>Votre site sera parfait sur mobile, tablette et ordinateur. En Afrique, 80% des visiteurs naviguent depuis leur téléphone.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Livraison Rapide</h3>
+                <p>Votre site en 48h à 7 jours selon la complexité. Nous respectons les délais convenus, sans compromis sur la qualité.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-search"></i></div>
+                <h3>Optimisé SEO</h3>
+                <p>Un beau site qui n'est pas trouvé sur Google ne sert à rien. Nous intégrons les bases SEO dès la conception.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-hand-shake"></i></div>
+                <h3>Suivi Personnalisé</h3>
+                <p>Pas de template copié-collé. Chaque site est conçu spécifiquement pour votre activité, vos couleurs, votre identité.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Ancré en Afrique</h3>
+                <p>Basé à Lomé, nous comprenons le contexte africain. Tarifs adaptés, communication en français, disponibilité locale.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== NOS OFFRES ===== -->
+<section class="offers-section">
+    <div class="container">
+        <h2 class="section-title">Nos <span style="color:var(--accent-orange)">Offres</span></h2>
+        <p class="offers-subtitle">Choisissez la formule qui correspond à vos besoins. Tous les prix incluent la livraison et un mois de support.</p>
+
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-icon"><i class="fas fa-store"></i></div>
+                <h3>Site Vitrine</h3>
+                <p class="offer-desc">Idéal pour présenter votre activité professionnellement et attirer de nouveaux clients.</p>
+                <ul class="offer-features">
+                    <li><i class="fas fa-check"></i> Design sur-mesure (maquette incluse)</li>
+                    <li><i class="fas fa-check"></i> Jusqu'à 5 pages</li>
+                    <li><i class="fas fa-check"></i> 100% responsive mobile</li>
+                    <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                    <li><i class="fas fa-check"></i> Intégration réseaux sociaux</li>
+                    <li><i class="fas fa-check"></i> Livraison en 3-5 jours</li>
+                </ul>
+                <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20suis%20intéressé%20par%20un%20site%20vitrine." class="offer-cta" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Demander un devis
+                </a>
+            </div>
+
+            <div class="offer-card offer-card--popular">
+                <div class="offer-popular-badge">⭐ Le plus choisi</div>
+                <div class="offer-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Portfolio Pro</h3>
+                <p class="offer-desc">La solution complète pour les créatifs, artistes et agences qui veulent briller en ligne.</p>
+                <ul class="offer-features">
+                    <li><i class="fas fa-check"></i> Design premium sur-mesure</li>
+                    <li><i class="fas fa-check"></i> Galerie photos / projets dynamique</li>
+                    <li><i class="fas fa-check"></i> Animations et transitions fluides</li>
+                    <li><i class="fas fa-check"></i> Section témoignages clients</li>
+                    <li><i class="fas fa-check"></i> Mode sombre / clair</li>
+                    <li><i class="fas fa-check"></i> Optimisation SEO avancée</li>
+                    <li><i class="fas fa-check"></i> Livraison en 5-7 jours</li>
+                </ul>
+                <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20veux%20un%20portfolio%20professionnel." class="offer-cta" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Démarrer maintenant
+                </a>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Landing Page</h3>
+                <p class="offer-desc">Une page percutante pour lancer un produit, promouvoir un événement ou capturer des leads.</p>
+                <ul class="offer-features">
+                    <li><i class="fas fa-check"></i> Design haute conversion</li>
+                    <li><i class="fas fa-check"></i> 1 page longue ultra-soignée</li>
+                    <li><i class="fas fa-check"></i> Boutons d'appel à l'action</li>
+                    <li><i class="fas fa-check"></i> Intégration WhatsApp direct</li>
+                    <li><i class="fas fa-check"></i> Optimisé pour la vitesse</li>
+                    <li><i class="fas fa-check"></i> Livraison en 24-48h</li>
+                </ul>
+                <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20souhaite%20une%20landing%20page." class="offer-cta" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Demander un devis
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GALERIE MOCKUPS ===== -->
+<section class="gallery-section" id="galerie-web">
+    <div class="container">
+        <span class="story-label" style="display:block; width:fit-content; margin: 0 auto 15px;">Nos Réalisations</span>
+        <h2 class="section-title">Exemples de <span style="color:var(--accent-blue)">Créations Web</span></h2>
+
+        <div class="gallery-filter">
+            <button class="filter-btn active" onclick="filterCards('all', this)">Tous</button>
+            <button class="filter-btn" onclick="filterCards('vitrine', this)">Sites Vitrines</button>
+            <button class="filter-btn" onclick="filterCards('portfolio', this)">Portfolios</button>
+            <button class="filter-btn" onclick="filterCards('landing', this)">Landing Pages</button>
+        </div>
+
+        <div class="mockup-grid">
+
+            <!-- CARD 1 : Site vitrine mode -->
+            <div class="mockup-card" data-cat="vitrine" onclick="openLightboxMock(this)">
+                <div class="mockup-browser">
+                    <div class="browser-bar">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="browser-url"><span>bigfloow.com/mode-boutique</span></div>
+                    </div>
+                    <div class="mockup-screen screen-vitrine">
+                        <div class="mockup-screen-inner">
+                            <div class="screen-nav">
+                                <div class="screen-nav-dot"></div>
+                                <div class="screen-nav-dot" style="width:25px"></div>
+                                <div class="screen-nav-dot" style="width:25px"></div>
+                                <div class="screen-nav-dot" style="width:25px"></div>
+                            </div>
+                            <div class="screen-body">
+                                <div class="screen-heading dark" style="width:60%"></div>
+                                <div class="screen-sub dark" style="width:80%"></div>
+                                <div class="screen-sub dark" style="width:40%"></div>
+                                <div class="screen-btn orange"></div>
+                                <div class="screen-cards">
+                                    <div class="screen-card-item dark"></div>
+                                    <div class="screen-card-item dark"></div>
+                                    <div class="screen-card-item dark"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-info">
+                    <div class="mockup-type">Site Vitrine</div>
+                    <div class="mockup-name">Boutique Mode & Prêt-à-Porter</div>
+                    <div class="mockup-desc">Site vitrine élégant pour une boutique de mode avec catalogue produits et prise de contact.</div>
+                    <div class="mockup-tags">
+                        <span class="mockup-tag">Design Premium</span>
+                        <span class="mockup-tag">Responsive</span>
+                        <span class="mockup-tag">5 pages</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 : Portfolio créatif -->
+            <div class="mockup-card" data-cat="portfolio" onclick="openLightboxMock(this)">
+                <div class="mockup-browser">
+                    <div class="browser-bar">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="browser-url"><span>bigfloow.com/portfolio-designer</span></div>
+                    </div>
+                    <div class="mockup-screen screen-portfolio">
+                        <div class="mockup-screen-inner">
+                            <div class="screen-nav" style="background:rgba(0,127,255,0.2)">
+                                <div class="screen-nav-dot" style="background:rgba(0,127,255,0.8)"></div>
+                                <div class="screen-nav-dot" style="width:25px; background:rgba(255,255,255,0.2)"></div>
+                                <div class="screen-nav-dot" style="width:25px; background:rgba(255,255,255,0.2)"></div>
+                            </div>
+                            <div class="screen-body">
+                                <div class="screen-heading" style="width:55%"></div>
+                                <div class="screen-sub" style="width:75%"></div>
+                                <div class="screen-btn blue" style="width:80px"></div>
+                                <div class="screen-cards" style="grid-template-columns:1fr 1fr;">
+                                    <div class="screen-card-item" style="background:rgba(0,127,255,0.3); height:55px"></div>
+                                    <div class="screen-card-item" style="background:rgba(237,127,16,0.3); height:55px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-info">
+                    <div class="mockup-type">Portfolio</div>
+                    <div class="mockup-name">Portfolio Designer Graphique</div>
+                    <div class="mockup-desc">Portfolio sombre et moderne pour un designer avec galerie interactive et mode nuit.</div>
+                    <div class="mockup-tags">
+                        <span class="mockup-tag">Mode Sombre</span>
+                        <span class="mockup-tag">Galerie</span>
+                        <span class="mockup-tag">Animations</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 : Landing page événement -->
+            <div class="mockup-card" data-cat="landing" onclick="openLightboxMock(this)">
+                <div class="mockup-browser">
+                    <div class="browser-bar">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="browser-url"><span>bigfloow.com/evenement-lome</span></div>
+                    </div>
+                    <div class="mockup-screen screen-event">
+                        <div class="mockup-screen-inner">
+                            <div class="screen-nav" style="background:rgba(120,0,255,0.2)">
+                                <div class="screen-nav-dot" style="background:rgba(200,100,255,0.7)"></div>
+                            </div>
+                            <div class="screen-body" style="align-items:center; text-align:center">
+                                <div class="screen-heading" style="width:80%; margin:0 auto"></div>
+                                <div class="screen-sub" style="width:60%; margin:0 auto"></div>
+                                <div style="display:flex; gap:5px; margin-top:8px;">
+                                    <div class="screen-btn" style="background:rgba(120,0,255,0.8); width:70px"></div>
+                                    <div class="screen-btn" style="background:transparent; border:1px solid rgba(255,255,255,0.3); width:70px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-info">
+                    <div class="mockup-type">Landing Page</div>
+                    <div class="mockup-name">Page Événement & Concert</div>
+                    <div class="mockup-desc">Landing page pour événement avec compte à rebours, billets et call-to-action optimisé.</div>
+                    <div class="mockup-tags">
+                        <span class="mockup-tag">Haute Conversion</span>
+                        <span class="mockup-tag">CTA Fort</span>
+                        <span class="mockup-tag">48h</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 : Site restaurant -->
+            <div class="mockup-card" data-cat="vitrine" onclick="openLightboxMock(this)">
+                <div class="mockup-browser">
+                    <div class="browser-bar">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="browser-url"><span>bigfloow.com/restaurant-lome</span></div>
+                    </div>
+                    <div class="mockup-screen screen-resto">
+                        <div class="mockup-screen-inner">
+                            <div class="screen-nav" style="background:rgba(237,127,16,0.15)">
+                                <div class="screen-nav-dot" style="background:rgba(237,127,16,0.9)"></div>
+                            </div>
+                            <div class="screen-body">
+                                <div class="screen-heading" style="width:65%"></div>
+                                <div class="screen-sub" style="width:45%"></div>
+                                <div class="screen-btn orange"></div>
+                                <div class="screen-cards">
+                                    <div class="screen-card-item" style="background:rgba(237,127,16,0.25)"></div>
+                                    <div class="screen-card-item" style="background:rgba(237,127,16,0.15)"></div>
+                                    <div class="screen-card-item" style="background:rgba(237,127,16,0.2)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-info">
+                    <div class="mockup-type">Site Vitrine</div>
+                    <div class="mockup-name">Restaurant & Restauration</div>
+                    <div class="mockup-desc">Site vitrine chaud et élégant pour restaurant avec menu en ligne et réservation directe.</div>
+                    <div class="mockup-tags">
+                        <span class="mockup-tag">Menu Digital</span>
+                        <span class="mockup-tag">Réservation</span>
+                        <span class="mockup-tag">WhatsApp</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5 : Portfolio photographe -->
+            <div class="mockup-card" data-cat="portfolio" onclick="openLightboxMock(this)">
+                <div class="mockup-browser">
+                    <div class="browser-bar">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="browser-url"><span>bigfloow.com/photo-portfolio</span></div>
+                    </div>
+                    <div class="mockup-screen" style="background: #f5f0eb;">
+                        <div class="mockup-screen-inner">
+                            <div class="screen-nav" style="background:rgba(0,0,0,0.05)">
+                                <div class="screen-nav-dot" style="background:rgba(0,0,0,0.4)"></div>
+                            </div>
+                            <div class="screen-body">
+                                <div class="screen-heading dark" style="width:45%"></div>
+                                <div class="screen-sub dark" style="width:30%"></div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; margin-top:8px;">
+                                    <div style="height:40px; border-radius:4px; background:rgba(0,0,0,0.12)"></div>
+                                    <div style="height:40px; border-radius:4px; background:rgba(0,0,0,0.18); grid-row: span 2"></div>
+                                    <div style="height:40px; border-radius:4px; background:rgba(0,0,0,0.1)"></div>
+                                    <div style="height:22px; border-radius:4px; background:rgba(0,0,0,0.08)"></div>
+                                    <div style="height:22px; border-radius:4px; background:rgba(0,0,0,0.08)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-info">
+                    <div class="mockup-type">Portfolio</div>
+                    <div class="mockup-name">Portfolio Photographe</div>
+                    <div class="mockup-desc">Portfolio élégant et minimaliste pour photographe avec galerie masonry et lightbox.</div>
+                    <div class="mockup-tags">
+                        <span class="mockup-tag">Galerie Masonry</span>
+                        <span class="mockup-tag">Minimaliste</span>
+                        <span class="mockup-tag">Lightbox</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6 : Landing page service -->
+            <div class="mockup-card" data-cat="landing" onclick="openLightboxMock(this)">
+                <div class="mockup-browser">
+                    <div class="browser-bar">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="browser-url"><span>bigfloow.com/service-promo</span></div>
+                    </div>
+                    <div class="mockup-screen screen-landing">
+                        <div class="mockup-screen-inner">
+                            <div class="screen-nav" style="background:rgba(237,127,16,0.1)">
+                                <div class="screen-nav-dot" style="background:rgba(237,127,16,0.7)"></div>
+                            </div>
+                            <div class="screen-body">
+                                <div class="screen-heading dark" style="width:75%"></div>
+                                <div class="screen-sub dark"></div>
+                                <div class="screen-sub dark" style="width:60%"></div>
+                                <div class="screen-btn orange"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-info">
+                    <div class="mockup-type">Landing Page</div>
+                    <div class="mockup-name">Promotion Service / Produit</div>
+                    <div class="mockup-desc">Page de lancement pour service ou produit avec offre limitée et formulaire de capture.</div>
+                    <div class="mockup-tags">
+                        <span class="mockup-tag">Urgence</span>
+                        <span class="mockup-tag">Conversion</span>
+                        <span class="mockup-tag">Lead Gen</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESSUS ===== -->
+<section class="process-section">
+    <div class="container">
+        <span class="story-label" style="display:block; width:fit-content; margin: 0 auto 15px;">Comment ça marche ?</span>
+        <h2 class="section-title">Notre <span style="color:var(--accent-blue)">Processus</span> Simple</h2>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Discussion</h4>
+                <p>On discute de votre projet, vos besoins et votre identité via WhatsApp ou en personne à Lomé.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Maquette</h4>
+                <p>Nous créons une maquette graphique de votre site pour validation avant de commencer le développement.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Développement</h4>
+                <p>Notre équipe développe votre site avec les technologies les plus modernes, en respectant vos délais.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Livraison</h4>
+                <p>Vous recevez votre site en ligne, avec une formation sur son utilisation et un mois de support inclus.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TÉMOIGNAGES ===== -->
+<section class="temoignages-section">
+    <div class="container">
+        <h2 class="section-title">Ce que disent <span style="color:var(--accent-orange)">nos clients</span></h2>
+        <div class="temoignages-grid">
+            <div class="temoignage-card">
+                <div class="temoignage-quote">"</div>
+                <p class="temoignage-text">BiG FlooW a transformé mon idée en un site magnifique en moins d'une semaine. Le design est exactement ce que j'imaginais — moderne, propre et professionnel.</p>
+                <div class="temoignage-author">
+                    <div class="author-avatar">AK</div>
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="author-name">Akossiwa K.</div>
+                        <div class="author-role">Créatrice de mode, Lomé</div>
+                    </div>
+                </div>
+            </div>
+            <div class="temoignage-card">
+                <div class="temoignage-quote">"</div>
+                <p class="temoignage-text">Très satisfait du résultat. Mon portfolio est maintenant ma meilleure carte de visite. Les animations sont fluides et le rendu sur mobile est parfait.</p>
+                <div class="temoignage-author">
+                    <div class="author-avatar">KM</div>
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="author-name">Komi M.</div>
+                        <div class="author-role">Photographe professionnel</div>
+                    </div>
+                </div>
+            </div>
+            <div class="temoignage-card">
+                <div class="temoignage-quote">"</div>
+                <p class="temoignage-text">La landing page créée pour notre événement a permis d'augmenter nos inscriptions de 40%. Le design attire l'attention et les boutons d'action sont bien placés.</p>
+                <div class="temoignage-author">
+                    <div class="author-avatar">YA</div>
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="author-name">Yao A.</div>
+                        <div class="author-role">Organisateur d'événements</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-web-section">
+    <div class="cta-web-glow cta-glow1"></div>
+    <div class="cta-web-glow cta-glow2"></div>
+    <div class="container">
+        <h2>Prêt à avoir un site web qui<br><span>fait la différence ?</span></h2>
+        <p>Ne laissez pas vos concurrents vous devancer en ligne. Contactez BiG FlooW dès aujourd'hui et recevez votre devis gratuit en moins de 2 heures.</p>
+        <div class="cta-web-btns">
+            <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20veux%20créer%20mon%20site%20web%20professionnel.%20Pouvez-vous%20me%20faire%20un%20devis%20?" class="cta-btn-wa" target="_blank">
+                <i class="fab fa-whatsapp"></i> Obtenir mon devis gratuit
+            </a>
+            <a href="index.html#contact" class="cta-btn-back">
+                <i class="fas fa-envelope"></i> Autre moyen de contact
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER (identique à portfolio.html) ===== -->
+<footer class="main-footer" id="contact">
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-col branding">
+                <div class="brand" style="color:white; margin-bottom: 20px;">BiG <span class="floo">Floo</span><span class="w">W</span></div>
+                <p>Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="footer-quality-badge">
+                    <i class="fas fa-medal"></i>
+                    <span>Design Certifié · Togo · 2022</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right footer-link-icon"></i> Accueil</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-chevron-right footer-link-icon"></i> Graphisme</a></li>
+                    <li><a href="portfolio-3d.html"><i class="fas fa-chevron-right footer-link-icon"></i> Modélisation 3D</a></li>
+                    <li><a href="portfolio-branding.html"><i class="fas fa-chevron-right footer-link-icon"></i> Branding</a></li>
+                    <li><a href="portfolio-contenus.html"><i class="fas fa-chevron-right footer-link-icon"></i> Contenus</a></li>
+                    <li><a href="portfolio-web.html"><i class="fas fa-chevron-right footer-link-icon"></i> Création Web <span class="footer-new-tag">Nouveau</span></a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+22890498680" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 90 49 86 80</a></li>
+                    <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
+                    <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
+                    <li><a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <!-- BOUTON CHATBOT -->
+                    <li style="margin-top:10px;">
+                        <button onclick="toggleChatbot()" class="footer-help-btn">
+                            <i class="fas fa-robot"></i> Besoin d'aide supplémentaire ?
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col--devis">
+                <h4>Devis Rapide</h4>
+                <p class="footer-devis-intro">Un projet en tête ? Dites-nous en plus :</p>
+                <form class="footer-devis-form" onsubmit="sendFooterDevis(event)">
+                    <input type="text" id="devis-name" placeholder="Votre nom" required>
+                    <select id="devis-service">
+                        <option value="" disabled selected>Type de service</option>
+                        <option value="Graphisme / Logo">Graphisme / Logo</option>
+                        <option value="Modélisation 3D">Modélisation 3D</option>
+                        <option value="Branding complet">Branding complet</option>
+                        <option value="Création de site internet">Création de site internet</option>
+                        <option value="Contenu vidéo">Contenu vidéo</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <input type="text" id="devis-budget" placeholder="Budget estimé (FCFA)">
+                    <button type="submit" class="footer-devis-btn"><i class="fab fa-whatsapp"></i> Envoyer via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-newsletter">
+            <div class="footer-newsletter-inner">
+                <div class="footer-newsletter-text">
+                    <i class="fas fa-bell" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                    <span>Restez informé de nos dernières créations</span>
+                </div>
+                <div class="footer-newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Votre adresse email">
+                    <button onclick="subscribeNewsletter()" class="newsletter-btn">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="line-gradient" style="height: 4px; background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);"></div>
+        <div class="footer-bottom-inner">
+            <p style="font-size: 0.8rem; color: #666;">© 2026 <span style="color: #ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie -->
+<div id="cookie-banner" class="cookie-box">
+    <div class="cookie-content">
+        <i class="fas fa-cookie-bite cookie-icon"></i>
+        <p>Nous utilisons des cookies pour optimiser votre expérience sur <span>BiG FlooW</span>.</p>
+        <button id="accept-cookie" class="cookie-btn">Accepter</button>
+    </div>
+</div>
+
+<!-- Lightbox mockup -->
+<div id="mockup-lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; align-items:center; justify-content:center; flex-direction:column; backdrop-filter:blur(10px);">
+    <span onclick="closeMockLightbox()" style="position:absolute; top:20px; right:30px; color:white; font-size:50px; cursor:pointer; font-weight:bold; transition:0.3s;" onmouseover="this.style.color='#ED7F10'" onmouseout="this.style.color='white'">&times;</span>
+    <div id="mockup-lightbox-content" style="background:#111; border-radius:20px; padding:30px; max-width:600px; width:90%; border:1px solid #333;"></div>
+</div>
+
+<script>
+// COOKIE
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('cookie-banner');
+    const btn = document.getElementById('accept-cookie');
+    if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
+    btn.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
+});
+
+// DEVIS
+function sendFooterDevis(e) {
+    e.preventDefault();
+    const name = document.getElementById('devis-name').value.trim();
+    const service = document.getElementById('devis-service').value;
+    const budget = document.getElementById('devis-budget').value.trim();
+    if (!name || !service) return;
+    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
+    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// NEWSLETTER
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value.trim();
+    if (!email || !email.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
+    const msg = `Bonjour BiG FlooW,\nJe souhaite m'inscrire à la newsletter avec l'email : ${email}`;
+    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
+    document.getElementById('newsletter-email').value = '';
+}
+
+// FILTRE GALERIE
+function filterCards(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.mockup-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeIn 0.4s ease';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// LIGHTBOX MOCKUP
+function openLightboxMock(card) {
+    const name = card.querySelector('.mockup-name').textContent;
+    const desc = card.querySelector('.mockup-desc').textContent;
+    const type = card.querySelector('.mockup-type').textContent;
+    const tags = card.querySelector('.mockup-tags').innerHTML;
+    const lb = document.getElementById('mockup-lightbox');
+    document.getElementById('mockup-lightbox-content').innerHTML = `
+        <p style="color:var(--accent-orange); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px;">${type}</p>
+        <h3 style="color:white; font-family:'Montserrat',sans-serif; font-size:1.4rem; margin-bottom:15px;">${name}</h3>
+        <p style="color:#aaa; font-size:0.92rem; line-height:1.7; margin-bottom:20px;">${desc}</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:25px;">${tags}</div>
+        <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20voudrais%20un%20site%20similaire%20à%20:%20${encodeURIComponent(name)}" target="_blank"
+           style="display:inline-flex; align-items:center; gap:10px; background:#25d366; color:white; padding:13px 28px; border-radius:50px; font-weight:700; text-decoration:none; font-size:0.9rem;">
+            <i class="fab fa-whatsapp"></i> Je veux ce type de site
+        </a>`;
+    lb.style.display = 'flex';
+}
+function closeMockLightbox() {
+    document.getElementById('mockup-lightbox').style.display = 'none';
+}
+document.getElementById('mockup-lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeMockLightbox();
+});
+
+// CHATBOT (déclenché uniquement depuis le footer)
+function toggleChatbot() {
+    if (window.chatbase) window.chatbase('open');
+}
+
+// Chatbase script (chargé normalement mais widget caché par défaut)
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+
+@keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+</script>
+
+</body>
+</html>
