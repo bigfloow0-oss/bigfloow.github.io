@@ -850,3 +850,41 @@ body.dark-theme .story-logo-img {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+/* =========================================
+   FIX MOBILE : SECTION ADN & HISTOIRE
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* On force la grille à ne faire qu'une seule colonne */
+    .story-two-col, 
+    .story-founder-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 40px 5% !important;
+    }
+
+    /* Ajustement de la taille des textes pour mobile */
+    .story-part h2 {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+
+    .story-block--light {
+        padding: 20px !important;
+        margin-bottom: 15px;
+    }
+
+    /* On centre les images sur mobile pour un meilleur look */
+    .story-logo-display {
+        justify-content: center !important;
+        margin-top: 20px;
+    }
+
+    /* Ajustement de la bannière Hero */
+    .portfolio-hero h1 {
+        font-size: 1.5rem !important;
+        padding: 0 10px;
+    }
+}
