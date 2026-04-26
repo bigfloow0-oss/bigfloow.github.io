@@ -313,7 +313,7 @@ body {
 
 /* Le fond de la section devient blanc comme la partie Histoire */
 .story-part--dark { 
-    background: #ffffff; 
+    background: #fafafa; 
 }
 
 /* On force le titre principal en noir */
