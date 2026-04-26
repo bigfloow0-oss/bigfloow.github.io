@@ -113,6 +113,49 @@
         }
         
         h4 { margin-top: 5px; color: #333; }
+        /* --- DESIGN DU BOUTON RETOUR (STYLE PHOTO) --- */
+.back-btn-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #007FFF; /* Ton bleu BiG FlooW */
+    color: white !important;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 50px; /* Forme pilule comme sur la photo */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 127, 255, 0.3);
+    border: 2px solid transparent;
+}
+
+.back-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol */
+.back-btn:hover {
+    background-color: #005bb7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 127, 255, 0.4);
+}
+
+.back-btn:hover i {
+    transform: translateX(-5px); /* La flèche bouge à gauche au survol */
+}
+
+/* Style pour le mode sombre */
+body.dark-theme .back-btn {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
     </style>
 </head>
 
@@ -139,9 +182,13 @@
 </header>
 
 <main>
-    <div style="text-align:center; margin:40px 0;">
-        <a href="index.html" class="back-btn">← Retour à l’accueil</a>
+    <div class="back-btn-container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Retour à l’accueil
+        </a>
     </div>
+    
+    </main>
 
     <section class="portfolio-grid">
         <!-- Item 1 -->
@@ -181,7 +228,6 @@
         <!-- Ajoute d'autres articles ici si nécessaire -->
 
     </section>
-</main>
 
     <section style="text-align:center; padding:40px; background:#f9f9f9;">
     <h2 style="font-family:'Montserrat'; margin-bottom:20px;">Explorer d'autres styles</h2>
