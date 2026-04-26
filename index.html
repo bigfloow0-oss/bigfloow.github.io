@@ -397,6 +397,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
                     <li><a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <li style="margin-top:10px;">
+                        <button onclick="toggleChatbot()" class="footer-help-btn">
+                            <i class="fas fa-robot"></i> Besoin d'aide supplémentaire ?
+                        </button>
+                    </li>
                 </ul>
             </div>
             <div class="footer-col footer-col--devis">
@@ -443,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </footer>
 
-<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
 
 <div id="cookie-banner" class="cookie-box">
     <div class="cookie-content">
@@ -475,6 +480,14 @@ function subscribeNewsletter() {
     const msg = `Bonjour BiG FlooW,\nJe souhaite m'inscrire à la newsletter avec l'email : ${email}`;
     window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
     document.getElementById('newsletter-email').value = '';
+}
+</script>
+
+<script>
+function toggleChatbot() {
+    if (window.chatbase) {
+        window.chatbase("open");
+    }
 }
 </script>
 
