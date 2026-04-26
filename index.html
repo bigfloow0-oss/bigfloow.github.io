@@ -312,53 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </section>
-
-<!-- ==================== SERVICES WEB ==================== -->
-<section id="web-services" class="section-padding web-services-section">
-    <div class="container">
-        <h2 class="section-title">Création de <span class="highlight">Sites Web</span></h2>
-        <p style="text-align: center; max-width: 650px; margin: 0 auto 60px; color: #666;">Des sites modernes, rapides et optimisés pour booster votre présence digitale en Afrique et partout dans le monde.</p>
-        <div class="web-services-grid">
-            <div class="web-service-card">
-                <div class="web-service-icon"><i class="fas fa-store"></i></div>
-                <h3>Site Vitrine</h3>
-                <p>Présentez votre activité avec élégance. Idéal pour les <strong>entreprises</strong>, commerces et artisans.</p>
-                <ul class="web-service-features">
-                    <li><i class="fas fa-check"></i> Design sur-mesure</li>
-                    <li><i class="fas fa-check"></i> 100% responsive</li>
-                    <li><i class="fas fa-check"></i> Optimisé SEO</li>
-                </ul>
-            </div>
-            <div class="web-service-card web-service-card--featured">
-                <div class="web-badge-popular">Le plus demandé</div>
-                <div class="web-service-icon"><i class="fas fa-briefcase"></i></div>
-                <h3>Portfolio Pro</h3>
-                <p>Mettez en valeur vos créations avec un <strong>portfolio percutant</strong> et mémorable.</p>
-                <ul class="web-service-features">
-                    <li><i class="fas fa-check"></i> Galerie dynamique</li>
-                    <li><i class="fas fa-check"></i> Formulaire de contact</li>
-                    <li><i class="fas fa-check"></i> Animations modernes</li>
-                </ul>
-            </div>
-            <div class="web-service-card">
-                <div class="web-service-icon"><i class="fas fa-paint-brush"></i></div>
-                <h3>Landing Page</h3>
-                <p>Une page de <strong>conversion puissante</strong> pour promouvoir vos services ou événements.</p>
-                <ul class="web-service-features">
-                    <li><i class="fas fa-check"></i> Design impactant</li>
-                    <li><i class="fas fa-check"></i> Appel à l'action clair</li>
-                    <li><i class="fas fa-check"></i> Livraison rapide</li>
-                </ul>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20souhaite%20un%20devis%20pour%20la%20création%20de%20mon%20site%20internet." class="btn-devis-web" target="_blank">
-                <i class="fab fa-whatsapp"></i> Demander un devis gratuit
-            </a>
-        </div>
-    </div>
-</section>
-
+    
 </main>
 
 <!-- ==================== FOOTER PREMIUM ==================== -->
@@ -486,11 +440,31 @@ function subscribeNewsletter() {
 </script>
 
 <script>
-function toggleChatbot() {
-    if (window.chatbase) {
-        window.chatbase("open");
+(function(){
+    if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+        window.chatbase=(...arguments)=>{
+            if(!window.chatbase.q){window.chatbase.q=[]}
+            window.chatbase.q.push(arguments)
+        };
+        window.chatbase=new Proxy(window.chatbase,{
+            get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}
+        })
     }
-}
+    
+    // CONFIGURATION POUR MASQUER L'ICÔNE PAR DÉFAUT
+    window.chatbase("setConfig", {
+        launcherVisibility: "hidden", 
+    });
+
+    const onLoad=function(){
+        const script=document.createElement("script");
+        script.src="https://www.chatbase.co/embed.min.js";
+        script.id="lamcS_rk7GxldSZ8_1qHN";
+        script.domain="www.chatbase.co";
+        document.body.appendChild(script)
+    };
+    if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}
+})();
 </script>
 
 <script>(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();</script>
