@@ -3,107 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BiG FlooW - Portfolio Branding créatif à Lomé.">
-    <title>BiG FlooW | Branding</title>
+
+    <meta name="description" content="BiG FlooW - Portfolio Modélisation 3D et univers futuristes à Lomé.">
+    <title>BiG FlooW | Portfolio 3D</title>
     <link rel="icon" type="image/png" href="fac2_logo.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="portfolio-uniforme.css">
+
+    <style>
+        .portfolio-hero {
+            height: 40vh;
+            background: url('home 3.webp') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .portfolio-hero h1 {
+            position: relative;
+            color: white;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            z-index: 2;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 8%;
+        }
+
+       .work-item {
+    background: white;
+    border-radius: 8px; /* Coins arrondis pour l'élégance */
+    overflow: hidden; /* Important pour que la barre tricolore soit bien coupée */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animation fluide */
+    position: relative; /* Pour positionner la barre tricolore */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Lueur discrète par défaut */
+    border: 1px solid rgba(0,0,0,0.04); /* Petite bordure de sécurité */
+}
+
+/* 2. Effet de Survol Premium */
+.work-item:hover {
+    transform: translateY(-10px); /* Léger soulèvement */
+    /* Lueur plus prononcée avec une touche de ton bleu BiG FlooW */
+    box-shadow: 0 20px 50px rgba(0,127,255,0.15); 
+}
+
+/* 3. L'Image et son Animation au Survol */
+.work-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden; /* Pour que l'image ne dépasse pas au zoom */
+    position: relative;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit tout l'espace proprement */
+    transition: transform 0.6s ease; /* Pour l'animation de zoom */
+}
+
+.work-item:hover .work-image img {
+    transform: scale(1.1); /* Léger zoom de l'image au survol */
+}
+
+/* 4. LA BARRE DECORATIVE TRICOLORE (Design Signature) */
+/* Ce code crée un élément fictif à la fin de l'image pour dessiner la barre */
+.work-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Hauteur de la barre */
+    /* Le dégradé linéaire définit les 3 couleurs à 33% chacune */
+    background: linear-gradient(
+        to right, 
+        #000000 33.33%,     /* Noir */
+        #ED7F10 33.33% 66.66%, /* Orange */
+        #007FFF 66.66%      /* Bleu */
+    );
+    z-index: 5; /* S'assure qu'elle est au-dessus de l'image */
+}
+        .work-desc {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category {
+            color: #007FFF;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        h4 { margin-top: 5px; color: #333; }
+    </style>
 </head>
 
 <body>
 
-<div class="bg-stickers" aria-hidden="true">
-    <i class="fas fa-pen-nib sticker s1"></i>
-    <i class="fas fa-bezier-curve sticker s2"></i>
-    <i class="fas fa-palette sticker s3"></i>
-    <i class="fas fa-vector-square sticker s4"></i>
-    <i class="fas fa-draw-polygon sticker s5"></i>
-    <i class="fas fa-crop-alt sticker s6"></i>
-    <i class="fas fa-magic sticker s7"></i>
-    <i class="fas fa-object-group sticker s8"></i>
-    <i class="fas fa-layer-group sticker s9"></i>
-    <i class="fas fa-ruler-combined sticker s10"></i>
-    <i class="fas fa-cube sticker s11"></i>
-    <i class="fas fa-paint-brush sticker s12"></i>
-    <i class="fas fa-globe sticker s13"></i>
-    <i class="fas fa-film sticker s14"></i>
-</div>
-
-<header>
-    <nav class="navbar">
-        <div class="brand">BiG <span class="floo">Floo</span><span class="w">W</span></div>
-        <ul class="nav-links">
-            <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="portfolio.html">Graphisme</a></li>
-            <li><a href="portfolio-3d.html">3D</a></li>
-            <li><a href="portfolio-branding.html">Branding</a></li>
-            <li><a href="portfolio-web.html">Web</a></li>
-            <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="portfolio-hero" style="background-image: url('image 1.webp');">
-        <div class="portfolio-overlay"></div>
-        <h1>Branding</h1>
-    </div>
+<nav class="navbar">
+    <div class="brand">BiG <span class="floo">Floo</span><span class="w">W</span></div>
+    <ul class="nav-links">
+        <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="portfolio.html">Graphisme</a></li>
+        <li><a href="portfolio-3d.html">3D</a></li>
+        <li><a href="portfolio-branding.html">Branding</a></li>
+        <li><a href="portfolio-web.html">Web</a></li>
+        <li><a href="#contact" class="btn-contact">Contact</a></li>
+    </ul>
+</nav>
+    
+<header class="portfolio-hero">
+    <div class="portfolio-overlay"></div>
+    <h1>Modélisation 3D</h1>
 </header>
 
-<main>
-    <div class="back-btn-container">
-        <a href="index.html" class="back-btn">← Retour à l’accueil</a>
+<div style="text-align:center; margin:40px 0;">
+    <a href="index.html" style="
+        padding:12px 30px;
+        background:#007FFF;
+        color:white;
+        border-radius:30px;
+        text-decoration:none;
+        font-weight:600;
+        transition:0.3s;">
+        ← Retour à l’accueil
+    </a>
+</div>
+
+<section class="portfolio-grid">
+
+    <div class="work-item">
+        <div class="work-image"><img src="africa_leanse_shirt_3d.webp" alt="Rendu 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Shirt Africa Leanse</h4>
+        </div>
     </div>
 
-    <section class="portfolio-grid">
-        
-        <article class="work-item">
-            <div class="work-image">
-                <img src="branding1.jpg" alt="Projet branding identité visuelle">
-            </div>
-            <div class="work-desc">
-                <span class="category">Branding</span>
-                <h4>Identité de Marque</h4>
-            </div>
-        </article>
-
-        <article class="work-item">
-            <div class="work-image"><img src="branding2.jpg" alt="Logo"></div>
-            <div class="work-desc"><span class="category">Branding</span><h4>Création de Logo</h4></div>
-        </article>
-
-        <article class="work-item">
-            <div class="work-image"><img src="branding3.jpg" alt="Packaging"></div>
-            <div class="work-desc"><span class="category">Branding</span><h4>Packaging Design</h4></div>
-        </article>
-
-        <article class="work-item">
-            <div class="work-image"><img src="branding2.jpg" alt="Logo"></div>
-            <div class="work-desc"><span class="category">Branding</span><h4>Création de Logo</h4></div>
-        </article>
-
-        <article class="work-item">
-            <div class="work-image"><img src="branding3.jpg" alt="Packaging"></div>
-            <div class="work-desc"><span class="category">Branding</span><h4>Packaging Design</h4></div>
-        </article>
-        
-        </section>
-
-    <section class="other-styles-section">
-        <div class="container">
-            <h2>Explorer d'autres styles</h2>
-            <p>
-                <a href="portfolio.html">Graphisme</a> |
-                <a href="portfolio-3d.html">3D</a> |
-                <a href="portfolio-branding.html" class="active">Branding</a>
-            </p>
+    <div class="work-item">
+        <div class="work-image"><img src="African _calendrier_Table_3d.webp" alt="Rendu 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Calendrier de bureau Africa Leanse</h4>
         </div>
-    </section>
-</main>
+    </div>
 
+    <div class="work-item">
+        <div class="work-image"><img src="africa_leanse_calendar_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Calendrier Africa Leanse</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="africa_leanse_règle_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Règle Africa Leanse</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="Cahier_Afrcan_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Cahier Africa Leanse</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="Cahier_Afrcan_Lease_VERSO_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Cahier Africa Leanse (Verso)</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="Casquette_AFRICAN_LEASE_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Casquette African Lease</h4>
+        </div>
+    </div>
+
+     <div class="work-item">
+        <div class="work-image"><img src="sac-sunu-3d_1.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D pour SUNU</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="sac-sunu-3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D pour SUNU</h4>
+        </div>
+    </div>
+
+      <div class="work-item">
+        <div class="work-image"><img src="Cahier_SUNU_RECTO_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Cahier SUNU (Recto)</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="Cahier_SUNU_VERSO_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Cahier SUNU (Verso)</h4>
+        </div>
+    </div>
+
+     <div class="work-item">
+        <div class="work-image"><img src="Casquette_sunu_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Casquette SUNU</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="SUNU _calendar_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : Calendrier SUNU</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="Bic_2_Sunu_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : stylos SUNU</h4>
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-image"><img src="Bic_2_Sunu_3d.webp" alt="Ajouter image 3D"></div>
+        <div class="work-desc">
+            <span class="category">Modélisation 3D</span>
+            <h4>Asset 3D : stylos SUNU</h4>
+        </div>
+    </div>
+    
+</section>
+
+<section style="text-align:center; padding:40px; background:#f9f9f9;">
+    <h2 style="font-family:'Montserrat'; margin-bottom:20px;">Explorer d'autres styles</h2>
+    <p>
+        <a href="portfolio.html" style="color:#333; text-decoration:none; font-weight:600;">Graphisme</a> |
+        <a href="portfolio-3d.html" style="color:#007FFF; text-decoration:none; font-weight:600;">3D</a> |
+        <a href="portfolio-branding.html" style="color:#333; text-decoration:none; font-weight:600;">Branding</a>
+    </p>
+</section>
+
+        <script>
+// ==========================================
+// GESTION DU THÈME BI G FLOOW
+// ==========================================
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Fonction pour changer l'icône (Lune/Soleil)
+function updateIcon(isDark) {
+    const icon = themeToggle.querySelector('i');
+    if (isDark) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+    }
+}
+
+// Vérification au chargement de la page
+const currentTheme = localStorage.getItem('bigfloow-theme');
+if (currentTheme === 'dark') {
+    body.classList.add('dark-theme');
+    updateIcon(true);
+}
+
+// Action au clic sur le bouton
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = body.classList.toggle('dark-theme');
+        localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
+        updateIcon(isDark);
+    });
+}
+    
+// CURSEUR
+const cursor = document.querySelector('.custom-cursor');
+const dot = document.querySelector('.cursor-dot');
+
+document.addEventListener('mousemove', (e) => {
+    if(cursor && dot){
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+    }
+});
+
+// STATS
+const stats = document.querySelectorAll('.stat-number');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const target = +entry.target.getAttribute('data-target');
+            let count = 0;
+
+            const updateCount = () => {
+                const speed = target / 50;
+
+                if(count < target){
+                    count += speed;
+                    entry.target.innerText = Math.ceil(count) + "+";
+                    requestAnimationFrame(updateCount);
+                } else {
+                    entry.target.innerText = target + "+";
+                }
+            };
+
+            updateCount();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+stats.forEach(s => observer.observe(s));
+</script>
+
+    <!-- ==================== FOOTER PREMIUM ==================== -->
 <footer class="main-footer" id="contact">
     <div class="container">
         <div class="footer-container">
@@ -140,7 +395,7 @@
                     <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
                     <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
-                    <li><a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <a href="https://wa.me/..." target="_blank" rel="noopener noreferrer" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
                     <li style="margin-top:10px;">
                         <button onclick="toggleChatbot()" class="footer-help-btn">
                             <i class="fas fa-robot"></i> Besoin d'aide supplémentaire ?
@@ -192,6 +447,8 @@
     </div>
 </footer>
 
+
+
 <div id="cookie-banner" class="cookie-box">
     <div class="cookie-content">
         <i class="fas fa-cookie-bite cookie-icon"></i>
@@ -200,103 +457,13 @@
     </div>
 </div>
 
-<div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <div class="lightbox-content-wrapper">
-        <img id="lightbox-img" src="" alt="Aperçu" class="lightbox-content">
-    </div>
-    <div id="lightbox-caption"></div>
-</div>
-
-<div class="custom-cursor"></div>
-<div class="cursor-dot"></div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
-    // --- GESTION DU THÈME BIG FLOOW ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    function updateIcon(isDark) {
-        if (!themeToggle) return;
-        const icon = themeToggle.querySelector('i');
-        if (!icon) return;
-        if (isDark) icon.classList.replace('fa-moon', 'fa-sun');
-        else icon.classList.replace('fa-sun', 'fa-moon');
-    }
-
-    const currentTheme = localStorage.getItem('bigfloow-theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-theme');
-        updateIcon(true);
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.classList.toggle('dark-theme');
-            localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
-            updateIcon(isDark);
-        });
-    }
-
-    // --- CURSEUR ---
-    const cursor = document.querySelector('.custom-cursor');
-    const dot = document.querySelector('.cursor-dot');
-
-    document.addEventListener('mousemove', (e) => {
-        if (cursor && dot) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            dot.style.left = e.clientX + 'px';
-            dot.style.top = e.clientY + 'px';
-        }
-    });
-
-    // --- COOKIE ---
     const banner = document.getElementById('cookie-banner');
-    const btnAccept = document.getElementById('accept-cookie');
-    if (banner && btnAccept) {
-        if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
-        btnAccept.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
-    }
-
-    // --- LIGHTBOX PREMIUM GLOBAL ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.querySelector('.lightbox-close');
-    
-    // Sélectionne toutes les images à zoomer (index et grilles portfolio uniforme)
-    const imagesToZoom = document.querySelectorAll('.work-image img, .story-logo-img, .mini-logo');
-    
-    imagesToZoom.forEach(image => {
-        // Change le curseur du conteneur parent pour indiquer le zoom possible
-        if (image.closest('.work-image')) { image.closest('.work-image').style.cursor = "zoom-in"; }
-        else { image.style.cursor = "zoom-in"; }
-
-        image.addEventListener('click', () => {
-            if (!lightbox) return;
-            lightbox.classList.add('active'); 
-            lightboxImg.src = image.src;
-            // Utilise l'alt de l'image ou un texte par défaut
-            lightboxCaption.innerText = image.alt || "Création BiG FlooW";
-            document.body.style.overflow = 'hidden'; // Bloque le défilement de la page
-        });
-    });
-
-    const closeLightbox = () => { 
-        if (!lightbox) return;
-        lightbox.classList.remove('active'); 
-        document.body.style.overflow = 'auto'; // Réactive le défilement
-    };
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
-
+    const btn = document.getElementById('accept-cookie');
+    if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
+    btn.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
 });
-
-// --- DEVIS FOOTER (Uniforme) ---
 function sendFooterDevis(e) {
     e.preventDefault();
     const name = document.getElementById('devis-name').value.trim();
@@ -306,8 +473,6 @@ function sendFooterDevis(e) {
     const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
     window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
 }
-
-// --- NEWSLETTER (Uniforme) ---
 function subscribeNewsletter() {
     const email = document.getElementById('newsletter-email').value.trim();
     if (!email || !email.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
@@ -315,14 +480,62 @@ function subscribeNewsletter() {
     window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
     document.getElementById('newsletter-email').value = '';
 }
+</script>
 
-// --- CHATBOT FOOTER (Uniforme) ---
+<script>
 function toggleChatbot() {
-    if (window.chatbase) { window.chatbase("open"); }
+    if (window.chatbase) {
+        window.chatbase("open");
+    }
 }
 </script>
 
 <script>(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+    
+    // On cible TOUTES les images dans les blocs "work-image"
+    const imagesToZoom = document.querySelectorAll('.work-image img');
+
+    imagesToZoom.forEach(image => {
+        image.style.cursor = "zoom-in";
+        image.addEventListener('click', () => {
+            lightbox.classList.add('active');
+            lightboxImg.src = image.src;
+            lightboxCaption.innerText = image.alt || "Création BiG FlooW";
+            document.body.style.overflow = 'hidden'; // Bloque le scroll
+        });
+    });
+
+    const closeLightbox = () => { 
+        lightbox.classList.remove('active'); 
+        document.body.style.overflow = 'auto'; // Réactive le scroll
+    };
+
+    if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    
+    // Fermer en cliquant sur le fond noir
+    lightbox.addEventListener('click', (e) => { 
+        if(e.target === lightbox) closeLightbox(); 
+    });
+});
+</script>
+
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Aperçu" class="lightbox-content">
+    <div id="lightbox-caption"></div>
+</div>
+
+<style>
+.lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001; }
+</style>
 
 </body>
 </html>
