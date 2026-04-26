@@ -11,88 +11,123 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .portfolio-hero {
-            height: 40vh;
-            background: url('home1.jpeg') center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-        }
-        .portfolio-hero h1 {
-            position: relative;
-            color: white;
-            font-size: clamp(2rem, 5vw, 3rem);
-            z-index: 2;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 60px 8%;
-        }
-       .work-item {
-    background: white;
-    border-radius: 8px; /* Coins arrondis pour l'élégance */
-    overflow: hidden; /* Important pour que la barre tricolore soit bien coupée */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animation fluide */
-    position: relative; /* Pour positionner la barre tricolore */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Lueur discrète par défaut */
-    border: 1px solid rgba(0,0,0,0.04); /* Petite bordure de sécurité */
-}
+    /* --- HERO & GRID BASE --- */
+    .portfolio-hero {
+        height: 40vh;
+        background: url('home1.jpeg') center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+    }
+    .portfolio-hero h1 {
+        position: relative;
+        color: white;
+        font-size: clamp(2rem, 5vw, 3rem);
+        z-index: 2;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
 
-/* 2. Effet de Survol Premium */
-.work-item:hover {
-    transform: translateY(-10px); /* Léger soulèvement */
-    /* Lueur plus prononcée avec une touche de ton bleu BiG FlooW */
-    box-shadow: 0 20px 50px rgba(0,127,255,0.15); 
-}
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 60px 8%;
+        background-color: #fff;
+    }
 
-/* 3. L'Image et son Animation au Survol */
-.work-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden; /* Pour que l'image ne dépasse pas au zoom */
-    position: relative;
-}
+    /* --- CARDS DESIGN (Comme sur Branding) --- */
+    .work-item {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
 
-.work-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Remplit tout l'espace proprement */
-    transition: transform 0.6s ease; /* Pour l'animation de zoom */
-}
+    .work-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
 
-.work-item:hover .work-image img {
-    transform: scale(1.1); /* Léger zoom de l'image au survol */
-}
+    .work-image {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+    }
 
-/* 4. LA BARRE DECORATIVE TRICOLORE (Design Signature) */
-/* Ce code crée un élément fictif à la fin de l'image pour dessiner la barre */
-.work-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px; /* Hauteur de la barre */
-    /* Le dégradé linéaire définit les 3 couleurs à 33% chacune */
-    background: linear-gradient(
-        to right, 
-        #000000 33.33%,     /* Noir */
-        #ED7F10 33.33% 66.66%, /* Orange */
-        #007FFF 66.66%      /* Bleu */
-    );
-    z-index: 5; /* S'assure qu'elle est au-dessus de l'image */
-}
-    </style>
+    .work-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .work-item:hover .work-image img {
+        transform: scale(1.08);
+    }
+
+    /* Barre signature BiG FlooW */
+    .work-image::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #000 33%, #ED7F10 33% 66%, #007FFF 66%);
+    }
+
+    /* --- DESIGN DES TEXTES (Design demandé) --- */
+    .work-desc {
+        padding: 20px;
+        text-align: left;
+    }
+
+    .work-desc .category {
+        display: block;
+        color: #ED7F10; /* Orange signature */
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+
+    .work-desc h4 {
+        margin: 0;
+        color: #1a1a1a;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    /* --- LIGHTBOX STYLE --- */
+    .lightbox {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        flex-direction: column;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content { max-width: 90%; max-height: 80vh; border-radius: 5px; }
+    #lightbox-caption { color: white; margin-top: 15px; font-family: 'Montserrat'; }
+    .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+</style>
 </head>
 <body>
 
