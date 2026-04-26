@@ -753,57 +753,42 @@ body, html {
 }
 
 /* =========================================
-   MODE SOMBRE — Corrections ADN
+   DARK MODE — FIX FORCÉ
    ========================================= */
 
-/* Active uniquement si ton site utilise une classe dark sur body ou html */
-body.dark .story-part--dark {
-    background: #0f0f0f;
-}
-
-/* Cartes deviennent sombres */
+/* Support class="dark" sur body OU html */
+.dark .founder-card,
+.dark .story-block--light,
+.dark .logo-display-block,
+.dark .cert-mini-block,
 body.dark .founder-card,
 body.dark .story-block--light,
 body.dark .logo-display-block,
 body.dark .cert-mini-block {
-    background: #1a1a1a;
-    border-color: #2a2a2a;
-    box-shadow: none;
+    background: #1a1a1a !important;
+    border-color: #2a2a2a !important;
 }
 
-/* Texte général devient clair */
-body.dark .story-block--light p,
-body.dark .logo-caption,
-body.dark .cert-mini-block p {
-    color: #bbbbbb;
+/* Texte */
+.dark .story-block--light p,
+.dark .logo-caption,
+.dark .cert-mini-block p {
+    color: #bbbbbb !important;
 }
 
-/* Titre des blocs */
-body.dark .story-block--light h3 {
-    color: #ffffff;
+/* Titres */
+.dark .story-block--light h3 {
+    color: #ffffff !important;
 }
 
-/* 🔥 NOM DU FONDATEUR EN BLEU (comme demandé) */
-body.dark .founder-info h3 {
-    color: var(--accent-blue);
+/* 🔵 NOM DU FONDATEUR EN BLEU */
+.dark .founder-info h3 {
+    color: var(--accent-blue) !important;
 }
 
-/* Badge fondateur */
-body.dark .founder-badge {
-    background: #222;
-    border-color: #333;
-    color: #ccc;
-}
-
-/* Logos mieux visibles */
-body.dark .story-logo-img {
-    opacity: 0.9;
-    filter: grayscale(100%) brightness(1.2);
-}
-
-/* Hover garde ton style */
-body.dark .story-block--light:hover,
-body.dark .logo-display-block:hover {
-    border-color: var(--accent-orange);
-    box-shadow: 0 10px 30px rgba(237,127,16,0.15);
+/* Badge */
+.dark .founder-badge {
+    background: #222 !important;
+    border-color: #333 !important;
+    color: #ccc !important;
 }
