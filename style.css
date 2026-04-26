@@ -739,3 +739,14 @@ body.dark-theme .expertise-card--wide { background: linear-gradient(135deg, #1a1
 
 /* Masquer le bouton WhatsApp flottant */
 .whatsapp-float { display: none !important; }
+
+<style>
+    /* Masque le bouton flottant par défaut */
+    #chatbase-bubble-button, 
+    .chatbase-bubble-button {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+</style>
