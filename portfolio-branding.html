@@ -451,7 +451,12 @@ stats.forEach(s => observer.observe(s));
                     <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
                     <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
-                    <li><a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <a href="https://wa.me/..." target="_blank" rel="noopener noreferrer" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <li style="margin-top:10px;">
+                        <button onclick="toggleChatbot()" class="footer-help-btn">
+                            <i class="fas fa-robot"></i> Besoin d'aide supplémentaire ?
+                        </button>
+                    </li>
                 </ul>
             </div>
             <div class="footer-col footer-col--devis">
@@ -498,7 +503,7 @@ stats.forEach(s => observer.observe(s));
     </div>
 </footer>
 
-<a href="https://wa.me/22890498680" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
 
 <div id="cookie-banner" class="cookie-box">
     <div class="cookie-content">
@@ -533,7 +538,16 @@ function subscribeNewsletter() {
 }
 </script>
 
+<script>
+function toggleChatbot() {
+    if (window.chatbase) {
+        window.chatbase("open");
+    }
+}
+</script>
+
 <script>(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();</script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
