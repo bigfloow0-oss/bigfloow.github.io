@@ -308,82 +308,95 @@ body {
 .story-block strong { color: var(--dark-grey); }
 
 /* =========================================
-   HARMONISATION DES SECTIONS STORY
+   STORY PARTIE 2 — SOMBRE
    ========================================= */
-/* On rend l'arrière-plan uniforme (Blanc/Gris très clair) */
-.story-part--dark { 
-    background: #fafafa !important; /* Même couleur que la partie 1 */
+.story-part--dark { background: #fafafa; }
+.story-part--dark .story-header h2 { color: #000000; }
+
+.story-founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
-/* On ajuste la couleur du texte pour qu'il soit lisible sur fond clair */
-.story-part--dark .story-header h2,
-.story-part--dark .story-block--light h3,
-.story-part--dark .founder-info h3 { 
-    color: var(--dark-grey) !important; 
-}
-
-.story-part--dark .story-block--light p { 
-    color: #555 !important; 
-}
-
-.story-part--dark .story-block--light {
-    background: #fff !important;
-    border: 1px solid #eee !important;
-}
-
-/* Ajustement de la carte fondateur pour fond clair */
+/* Carte fondateur pleine largeur */
 .founder-card {
-    background: #fff !important;
-    border: 1px solid #eee !important;
-    border-left: 5px solid var(--accent-orange) !important;
+    grid-column: 1 / -1;
+    background: #111;
+    border: 1px solid #222;
+    border-left: 5px solid var(--accent-orange);
+    border-radius: 16px;
+    padding: 30px 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-.founder-badge {
-    background: #f0f0f0 !important;
-    border: 1px solid #ddd !important;
-    color: #666 !important;
-}
-
-/* =========================================
-   SECTION SERVICES WEB
-   ========================================= */
-.web-services-section { background: #f4f8ff; }
-.web-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
-.web-service-card {
-    background: #fff; border: 1px solid #e8eef8;
-    border-radius: 16px; padding: 40px 30px;
-    position: relative; transition: var(--transition); text-align: center;
-}
-.web-service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,127,255,0.08); border-color: var(--accent-blue); }
-.web-service-card--featured { border: 2px solid var(--accent-blue); box-shadow: 0 10px 30px rgba(0,127,255,0.1); }
-
-.web-badge-popular {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-    background: var(--accent-blue); color: white;
-    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1px; padding: 5px 18px; border-radius: 20px; white-space: nowrap;
-}
-.web-service-icon {
+.founder-avatar {
     width: 70px; height: 70px;
-    background: rgba(0,127,255,0.08);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px; font-size: 1.8rem; color: var(--accent-blue);
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-blue));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem; font-weight: 800;
+    color: white;
+    flex-shrink: 0;
 }
-.web-service-card h3 { font-family: 'Montserrat'; font-size: 1.3rem; margin-bottom: 12px; color: var(--dark-grey); }
-.web-service-card p { color: var(--text-soft); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
-.web-service-features { list-style: none; text-align: left; display: inline-block; }
-.web-service-features li { font-size: 0.9rem; color: #444; padding: 4px 0; }
-.web-service-features li i { color: var(--accent-blue); margin-right: 8px; font-size: 0.75rem; }
 
-.btn-devis-web {
-    display: inline-block; background: #25d366; color: white;
-    padding: 16px 40px; border-radius: 50px;
-    font-weight: 700; font-size: 1rem; text-decoration: none;
-    transition: var(--transition); box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+.founder-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 4px; }
+.founder-title { color: var(--accent-orange); font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; }
+.founder-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.founder-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #1a1a1a; border: 1px solid #333;
+    color: #aaa; font-size: 0.78rem;
+    padding: 5px 14px; border-radius: 20px;
 }
-.btn-devis-web i { margin-right: 10px; }
-.btn-devis-web:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37,211,102,0.4); background: #20ba58; }
+.founder-badge i { color: var(--accent-orange); font-size: 0.7rem; }
+
+/* Blocs story sombres */
+.story-block--light {
+    background: #111;
+    border-color: #222;
+}
+.story-block--light:hover { border-color: var(--accent-orange); box-shadow: 0 10px 30px rgba(237,127,16,0.08); }
+.story-block--light h3 { color: #fff; }
+.story-block--light p { color: #bbb; }
+.story-block--light strong { color: var(--accent-orange); }
+
+/* Logos row */
+.story-logos-row {
+    grid-column: 1 / -1;
+    display: flex; gap: 20px; align-items: stretch;
+}
+
+.logo-display-block {
+    flex: 1;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+.logo-display-block:hover { border-color: var(--accent-orange); transform: translateY(-4px); }
+.story-logo-img { max-width: 120px; height: auto; margin-bottom: 10px; filter: grayscale(100%); opacity: 0.6; transition: 0.4s; }
+.logo-display-block:hover .story-logo-img { filter: grayscale(0%); opacity: 1; }
+.logo-caption { font-size: 0.78rem; color: #666; }
+
+/* Bloc cert compact */
+.cert-mini-block {
+    flex: 0 0 140px;
+    background: #000;
+    border: 1px solid #222;
+    border-right: 4px solid var(--accent-orange);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.cert-year { font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'Montserrat'; line-height: 1; margin-bottom: 8px; }
+.cert-mini-block p { font-size: 0.78rem; color: #888; line-height: 1.4; }
 
 /* =========================================
    FOOTER PREMIUM
