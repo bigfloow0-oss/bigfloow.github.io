@@ -758,7 +758,7 @@ body, html {
 
 /* Fond section ADN */
 body.dark-theme .story-part--dark {
-    background: #0f0f0f !important;
+    background: #1a1a1a !important;
 }
 
 /* 🔥 CARTES (le vrai problème) */
@@ -811,72 +811,80 @@ body.dark-theme .story-logo-img {
     opacity: 0.9;
 }
 
-/* Style de la Lightbox */
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: none; /* Caché par défaut */
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 9999;
-    padding: 20px;
-}
 
-.lightbox.active {
-    display: flex; /* S'affiche quand on ajoute la classe active */
-}
+/* =========================================
+   DARK MODE COMPLET — TOUS LES TEXTES LISIBLES
+   ========================================= */
+body.dark-theme { color: #e0e0e0; }
+body.dark-theme p { color: #cccccc !important; }
+body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 { color: #ffffff !important; }
+body.dark-theme .story-part { background: #1a1a1a !important; }
+body.dark-theme .story-part--dark { background: #141414 !important; }
+body.dark-theme .why-section, body.dark-theme #expertises { background: #121212 !important; }
+body.dark-theme .story-block { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .story-block p { color: #cccccc !important; }
+body.dark-theme .story-block h3 { color: #ffffff !important; }
+body.dark-theme .story-block--light { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .story-block--light p { color: #cccccc !important; }
+body.dark-theme .story-block--light h3 { color: #ffffff !important; }
+body.dark-theme .founder-card { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .founder-info h3 { color: var(--accent-blue) !important; }
+body.dark-theme .founder-badge { background: #2a2a2a !important; border-color: #333 !important; color: #ccc !important; }
+body.dark-theme .logo-display-block { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .logo-caption { color: #999 !important; }
+body.dark-theme .cert-mini-block { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .cert-mini-block p { color: #999 !important; }
+body.dark-theme .web-service-card { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .web-service-features li { color: #ccc !important; }
+body.dark-theme .work-item { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .work-desc h4 { color: #fff !important; }
+body.dark-theme .portfolio-section { background: #121212 !important; }
+body.dark-theme #story, body.dark-theme #story-part1, body.dark-theme #story-part2 { background: #1a1a1a !important; }
+body.dark-theme .port-hero-desc { color: rgba(255,255,255,0.65) !important; }
+body.dark-theme .section-title { color: #fff !important; }
+body.dark-theme .why-card { background: #1e1e1e !important; border-color: #2a2a2a !important; }
+body.dark-theme .why-card h3 { color: #fff !important; }
+body.dark-theme .why-card p { color: #ccc !important; }
+body.dark-theme .port-stat { color: #aaa !important; }
+body.dark-theme .story-header .section-title { color: #fff !important; }
+body.dark-theme .cert-year { color: var(--accent-blue) !important; }
 
-.lightbox-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    animation: zoomIn 0.3s ease;
+/* =========================================
+   CHATBOT — MASQUER L'ICÔNE FLOTTANTE PAR DÉFAUT
+   Visible seulement via le bouton footer
+   ========================================= */
+#chatbase-bubble-button,
+.chatbase-bubble-button,
+[id*="chatbase"] iframe[style*="position: fixed"],
+iframe[src*="chatbase"] { 
+    display: none !important; 
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
-
-#lightbox-caption {
-    color: white;
-    margin-top: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-}
-
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+/* Quand le chatbot est ouvert par le bouton, on le rend visible */
+body.chatbot-open #chatbase-bubble-button,
+body.chatbot-open .chatbase-bubble-button { 
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
 }
 
 /* =========================================
-   FIX MOBILE : SECTION ADN & HISTOIRE
+   PHOTO FONDATEUR
    ========================================= */
-
-@media screen and (max-width: 768px) {
-    /* On force la section Histoire/ADN à s'empiler */
-    section.story-part, 
-    .story-two-col, 
-    .story-founder-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        grid-template-columns: 1fr !important;
-        padding: 30px 15px !important;
-    }
-
-    /* On force les blocs de texte à prendre toute la largeur */
-    .story-block--light, 
-    .story-part--dark .story-block {
-        width: 100% !important;
-        margin-bottom: 20px !important;
-    }
-
-    /* Ajustement de l'image ou du logo qui déborde */
-    .story-logo-display img, 
-    .story-image-container img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
+.founder-avatar {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-orange);
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(237,127,16,0.3);
+}
+.founder-photo {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    cursor: zoom-in;
 }
