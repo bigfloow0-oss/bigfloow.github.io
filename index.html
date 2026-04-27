@@ -6,15 +6,12 @@
     <meta name="description" content="BiG FlooW - Agence de design graphique, branding, modélisation 3D et création de sites internet à Lomé. Création d'identités visuelles professionnelles.">
     <title>BiG FlooW | Agence de Design Graphique, Branding & Web à Lomé</title>
     <link rel="icon" type="image/png" href="fac2_logo.png">
-    <link rel="icon" href="fac2_logo.png" type="image/png">
-    <link rel="shortcut icon" href="fac2_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- STICKERS DESIGN EN ARRIÈRE-PLAN -->
 <div class="bg-stickers" aria-hidden="true">
     <i class="fas fa-pen-nib sticker s1"></i>
     <i class="fas fa-bezier-curve sticker s2"></i>
@@ -32,42 +29,42 @@
     <i class="fas fa-film sticker s14"></i>
 </div>
 
-<nav class="navbar">
-    <div class="brand">BiG <span class="floo">Floo</span><span class="w">W</span></div>
-    <ul class="nav-links">
-        <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="portfolio.html">Graphisme</a></li>
-        <li><a href="portfolio-3d.html">3D</a></li>
-        <li><a href="portfolio-branding.html">Branding</a></li>
-        <li><a href="portfolio-web.html">Web</a></li>
-        <li><a href="#contact" class="btn-contact">Contact</a></li>
-    </ul>
-</nav>
+<header>
+    <nav class="navbar">
+        <div class="brand">BiG <span class="floo">Floo</span><span class="w">W</span></div>
+        <ul class="nav-links">
+            <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="portfolio.html">Graphisme</a></li>
+            <li><a href="portfolio-3d.html">3D</a></li>
+            <li><a href="portfolio-branding.html">Branding</a></li>
+            <li><a href="portfolio-web.html">Web</a></li>
+            <li><a href="#contact" class="btn-contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>L'innovation par le <span class="highlight">Design</span></h1>
-        <p>Nous transformons vos idées en identités visuelles puissantes, modernes et impactantes.</p>
-    </div>
-    <div class="signature">
-        <img src="logo-big-floow.jpg" class="mini-logo" alt="Logo BiG FlooW">
-        <div class="signature-text">
-            <p class="tagline">Graphisme, 3D, Branding & Web</p>
-            <p>Création visuelle professionnelle adaptée à votre image.</p>
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>L'innovation par le <span class="highlight">Design</span></h1>
+            <p>Nous transformons vos idées en identités visuelles puissantes, modernes et impactantes.</p>
+        </div>
+        <div class="signature">
+            <img src="logo-big-floow.jpg" class="mini-logo" alt="Logo BiG FlooW">
+            <div class="signature-text">
+                <p class="tagline">Graphisme, 3D, Branding & Web</p>
+                <p>Création visuelle professionnelle adaptée à votre image.</p>
+            </div>
         </div>
     </div>
 </header>
 
 <main>
 
-<!-- ==================== EXPERTISES ==================== -->
 <section id="expertises" class="section-padding">
     <div class="container">
         <h2 class="section-title">Nos <span class="blue-text">Expertises</span></h2>
 
-        <!-- Rangée 1 : 4 cartes principales -->
         <div class="expertise-grid expertise-grid--top">
             <a href="portfolio.html" class="expertise-card">
                 <h3><i class="fas fa-pen-nib card-icon"></i> Graphisme</h3>
@@ -95,7 +92,6 @@
             </a>
         </div>
 
-        <!-- Rangée 2 : carte Web pleine largeur -->
         <div class="expertise-grid expertise-grid--bottom">
             <a href="portfolio-web.html" class="expertise-card expertise-card--web expertise-card--wide">
                 <div class="web-card-inner">
@@ -104,6 +100,7 @@
                         <h3><i class="fas fa-globe card-icon"></i> Création de Sites Web</h3>
                         <div class="card-line"></div>
                         <p>Conception de sites vitrines, portfolios et pages web modernes, responsives et optimisés pour booster votre présence digitale en Afrique et dans le monde.</p>
+                        <span class="card-number">05</span>
                     </div>
                     <div class="web-card-right">
                         <div class="web-card-tags">
@@ -112,18 +109,13 @@
                             <span class="web-tag"><i class="fas fa-bolt"></i> Livraison Rapide</span>
                             <span class="web-tag"><i class="fas fa-palette"></i> Design Sur-Mesure</span>
                         </div>
-                        <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20souhaite%20un%20devis%20site%20web." class="web-card-cta" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-whatsapp"></i> Demander un devis
-                        </a>
                     </div>
                 </div>
-                <span class="card-number">05</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- ==================== STATS ==================== -->
 <section class="stats-section">
     <div class="container">
         <div class="stats-grid">
@@ -151,83 +143,6 @@
     </div>
 </section>
 
-<div class="custom-cursor"></div>
-<div class="cursor-dot"></div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    function updateIcon(isDark) {
-        if (!themeToggle) return;
-        const icon = themeToggle.querySelector('i');
-        if (!icon) return;
-
-        if (isDark) icon.classList.replace('fa-moon', 'fa-sun');
-        else icon.classList.replace('fa-sun', 'fa-moon');
-    }
-
-    const currentTheme = localStorage.getItem('bigfloow-theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-theme');
-        updateIcon(true);
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.classList.toggle('dark-theme');
-            localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
-            updateIcon(isDark);
-        });
-    }
-
-    const cursor = document.querySelector('.custom-cursor');
-    const dot = document.querySelector('.cursor-dot');
-
-    document.addEventListener('mousemove', (e) => {
-        if (cursor && dot) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            dot.style.left = e.clientX + 'px';
-            dot.style.top = e.clientY + 'px';
-        }
-    });
-
-    const stats = document.querySelectorAll('.stat-number');
-
-    if (stats.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = +entry.target.getAttribute('data-target');
-                    let count = 0;
-
-                    const updateCount = () => {
-                        const speed = target / 50;
-                        if (count < target) {
-                            count += speed;
-                            entry.target.innerText = Math.ceil(count) + "+";
-                            requestAnimationFrame(updateCount);
-                        } else {
-                            entry.target.innerText = target + "+";
-                        }
-                    };
-
-                    updateCount();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        stats.forEach(s => observer.observe(s));
-    }
-
-});
-</script>
-
-<!-- ==================== STORY PARTIE 1 : ORIGINE & MISSION ==================== -->
 <section id="story-part1" class="section-padding story-part">
     <div class="container">
         <div class="story-header">
@@ -253,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<!-- ==================== STORY PARTIE 2 : PARCOURS & FONDATEUR ==================== -->
 <section id="story-part2" class="section-padding story-part story-part--dark">
     <div class="container">
         <div class="story-header">
@@ -262,22 +176,23 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="story-founder-grid">
 
-            <!-- CARTE FONDATEUR -->
             <div class="founder-card">
-                <div class="founder-avatar">
-                    <img src="image.webp" alt="Victor HALLO — Fondateur BiG FlooW" class="founder-photo">
+                <div class="founder-photo-container">
+                    <img src="image.webp" alt="M. Victor HALLO" class="founder-photo-img">
                 </div>
                 <div class="founder-info">
                     <h3>M. Victor HALLO</h3>
                     <p class="founder-title">Fondateur & Directeur Créatif</p>
                     <div class="founder-badges">
-                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Graphisme 2022</span>
+                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Comptabilité Contrôle et Audit</span>
+                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Marketing commercial</span>
+                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Graphisme</span>
+                        <span class="founder-badge"><i class="fas fa-certificate"></i> Certifié TSW INT'L</span>
                         <span class="founder-badge"><i class="fas fa-certificate"></i> Certifié État Togolais</span>
                     </div>
                 </div>
             </div>
 
-            <!-- BLOC PARCOURS -->
             <div class="story-block story-block--light">
                 <div class="story-icon-box story-icon-box--orange"><i class="fas fa-route"></i></div>
                 <h3>Parcours</h3>
@@ -286,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <!-- BLOC ACTIVITÉS -->
             <div class="story-block story-block--light">
                 <div class="story-icon-box story-icon-box--orange"><i class="fas fa-layer-group"></i></div>
                 <h3>Activités & Domaines</h3>
@@ -295,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <!-- LOGOS -->
             <div class="story-logos-row">
                 <div class="logo-display-block">
                     <img src="dav_design_logo.jpg" alt="Logo Dav National Design" class="story-logo-img">
@@ -317,7 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 </main>
 
-<!-- ==================== FOOTER PREMIUM ==================== -->
 <footer class="main-footer" id="contact">
     <div class="container">
         <div class="footer-container">
@@ -354,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
                     <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
-                    <a href="https://wa.me/22890498680" target="_blank" rel="noopener noreferrer" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <li><a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
                     <li style="margin-top:10px;">
                         <button onclick="toggleChatbot()" class="footer-help-btn">
                             <i class="fas fa-robot"></i> Besoin d'aide supplémentaire ?
@@ -406,8 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </footer>
 
-
-
 <div id="cookie-banner" class="cookie-box">
     <div class="cookie-content">
         <i class="fas fa-cookie-bite cookie-icon"></i>
@@ -416,22 +326,128 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content-wrapper">
+        <img id="lightbox-img" src="" alt="Aperçu" class="lightbox-content">
+    </div>
+    <div id="lightbox-caption"></div>
+</div>
+
+<div class="custom-cursor"></div>
+<div class="cursor-dot"></div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+    // --- GESTION DU THÈME BIG FLOOW ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    function updateIcon(isDark) {
+        if (!themeToggle) return;
+        const icon = themeToggle.querySelector('i');
+        if (!icon) return;
+        if (isDark) icon.classList.replace('fa-moon', 'fa-sun');
+        else icon.classList.replace('fa-sun', 'fa-moon');
+    }
+
+    const currentTheme = localStorage.getItem('bigfloow-theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-theme');
+        updateIcon(true);
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.classList.toggle('dark-theme');
+            localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
+            updateIcon(isDark);
+        });
+    }
+
+    // --- CURSEUR ---
+    const cursor = document.querySelector('.custom-cursor');
+    const dot = document.querySelector('.cursor-dot');
+
+    document.addEventListener('mousemove', (e) => {
+        if (cursor && dot) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+        }
+    });
+
+    // --- COOKIE ---
     const banner = document.getElementById('cookie-banner');
-    const btn = document.getElementById('accept-cookie');
-    if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
-    btn.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
+    const btnAccept = document.getElementById('accept-cookie');
+    if (banner && btnAccept) {
+        if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
+        btnAccept.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
+    }
+
+    // --- LIGHTBOX PREMIUM GLOBAL ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+    
+    // Sélectionne toutes les images à zoomer (index et grilles portfolio uniforme)
+    // 🔥 Ajout de .founder-photo-img ici pour zoomer le fondateur
+    const imagesToZoom = document.querySelectorAll('.work-image img, .story-logo-img, .mini-logo, .founder-photo-img');
+    
+    imagesToZoom.forEach(image => {
+        // Change le curseur du conteneur parent pour indiquer le zoom possible
+        if (image.closest('.work-image')) { image.closest('.work-image').style.cursor = "zoom-in"; }
+        else { image.style.cursor = "zoom-in"; }
+
+        image.addEventListener('click', () => {
+            if (!lightbox) return;
+            lightbox.classList.add('active'); 
+            lightboxImg.src = image.src;
+            // Utilise l'alt de l'image ou un texte par défaut
+            lightboxCaption.innerText = image.alt || "Création BiG FlooW";
+            document.body.style.overflow = 'hidden'; // Bloque le défilement de la page
+        });
+    });
+
+    const closeLightbox = () => { 
+        if (!lightbox) return;
+        lightbox.classList.remove('active'); 
+        document.body.style.overflow = 'auto'; // Réactive le défilement
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+
+    // --- STATS (Index uniquement) ---
+    const stats = document.querySelectorAll('.stat-number');
+    if (stats.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    let count = 0;
+                    const updateCount = () => {
+                        const speed = target / 50;
+                        if (count < target) {
+                            count += speed;
+                            entry.target.innerText = Math.ceil(count) + "+";
+                            requestAnimationFrame(updateCount);
+                        } else { entry.target.innerText = target + "+"; }
+                    };
+                    updateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        stats.forEach(s => observer.observe(s));
+    }
+
 });
-function sendFooterDevis(e) {
-    e.preventDefault();
-    const name = document.getElementById('devis-name').value.trim();
-    const service = document.getElementById('devis-service').value;
-    const budget = document.getElementById('devis-budget').value.trim();
-    if (!name || !service) return;
-    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
-    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
-}
+
+// --- NEWSLETTER (Uniforme) ---
 function subscribeNewsletter() {
     const email = document.getElementById('newsletter-email').value.trim();
     if (!email || !email.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
@@ -439,54 +455,14 @@ function subscribeNewsletter() {
     window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
     document.getElementById('newsletter-email').value = '';
 }
-</script>
 
-<script>
+// --- CHATBOT FOOTER (Uniforme) ---
 function toggleChatbot() {
-    document.body.classList.add('chatbot-open');
-    // Show bubble and open
-    const iframes = document.querySelectorAll('iframe[src*="chatbase"], #chatbase-bubble-button, .chatbase-bubble-button');
-    iframes.forEach(el => {
-        el.style.cssText = 'display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:all!important;';
-    });
-    setTimeout(() => {
-        if (window.chatbase) window.chatbase('open');
-    }, 200);
+    if (window.chatbase) { window.chatbase("open"); }
 }
 </script>
 
 <script>(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const imagesToZoom = document.querySelectorAll('.story-logo-img, .mini-logo');
-    imagesToZoom.forEach(image => {
-        image.style.cursor = "zoom-in";
-        image.addEventListener('click', () => {
-            lightbox.classList.add('active'); lightboxImg.src = image.src;
-            lightboxCaption.innerText = image.alt || "Création BiG FlooW";
-            document.body.style.overflow = 'hidden';
-        });
-    });
-    const closeLightbox = () => { lightbox.classList.remove('active'); document.body.style.overflow = 'auto'; };
-    if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
-});
-</script>
-
-<div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Aperçu" class="lightbox-content">
-    <div id="lightbox-caption"></div>
-</div>
-
-<style>
-.lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001; }
-</style>
 
 </body>
 </html>
