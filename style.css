@@ -811,12 +811,136 @@ body.dark-theme .story-logo-img {
     opacity: 0.9;
 }
 
+/* =========================================
+   MOBILE FIX — SECTION "NOTRE ADN"
+   Centrage et empilement sur téléphone (< 600px)
+   ========================================= */
+@media (max-width: 600px) {
+
+    /* Grille ADN → 1 colonne */
+    .story-founder-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* Carte fondateur → empilée + centrée */
+    .founder-card {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 25px 20px !important;
+        grid-column: 1 !important;
+    }
+    .founder-info { width: 100%; }
+    .founder-info h3 { text-align: center; }
+    .founder-badges { justify-content: center !important; }
+
+    /* Photo plus grande */
+    .founder-avatar,
+    .founder-photo-container {
+        width: 90px !important;
+        height: 90px !important;
+    }
+
+    /* Blocs texte */
+    .story-block--light { padding: 22px 16px !important; }
+    .story-block--light h3,
+    .story-block--light p { text-align: center; }
+    .story-icon-box { margin: 0 auto 15px !important; }
+
+    /* Logos → colonne centrée */
+    .story-logos-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        grid-column: 1 !important;
+    }
+    .logo-display-block {
+        width: 100% !important;
+        flex: none !important;
+    }
+    .cert-mini-block {
+        width: 100% !important;
+        flex: none !important;
+        border-right: none !important;
+        border-bottom: 4px solid var(--accent-orange) !important;
+    }
+
+    /* Titres */
+    .story-part--dark .story-header {
+        text-align: center;
+    }
+    .story-part--dark .story-header h2 {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+    }
+    .story-label--light {
+        display: block;
+        margin: 0 auto 15px;
+        width: fit-content;
+    }
+
+    /* Stats section */
+    .stats-grid { flex-wrap: wrap !important; }
+    .stat-item { flex: 0 0 50% !important; margin-bottom: 15px; }
+
+    /* Section histoire partie 1 */
+    .story-two-col {
+        grid-template-columns: 1fr !important;
+    }
+    .story-block { padding: 22px 16px !important; }
+    .story-block h3, .story-block p { text-align: center; }
+    .story-icon-box { margin: 0 auto 15px !important; }
+}
 
 /* =========================================
-   CHATBOT — BOUTON BULBE MASQUÉ PAR DÉFAUT
-   Le widget s'ouvre uniquement via le bouton footer
-   "Besoin d'aide supplémentaire ?"
+   TABLETTE — SECTION "NOTRE ADN" (601–900px)
    ========================================= */
-/* On cache SEULEMENT le bouton bulle flottant, pas le panneau de chat */
-#chatbase-bubble-button { display: none !important; }
-body.chatbot-open #chatbase-bubble-button { display: flex !important; }
+@media (min-width: 601px) and (max-width: 900px) {
+    .story-founder-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .founder-card { grid-column: 1 !important; }
+    .story-logos-row {
+        grid-column: 1 !important;
+        flex-wrap: wrap !important;
+    }
+    .logo-display-block {
+        flex: 0 0 calc(50% - 10px) !important;
+    }
+    .cert-mini-block {
+        flex: 0 0 100% !important;
+        border-right: none !important;
+        border-bottom: 4px solid var(--accent-orange) !important;
+    }
+}
+
+/* =========================================
+   PHOTO FONDATEUR — STYLES
+   ========================================= */
+.founder-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-orange);
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(237,127,16,0.3);
+    background: none;
+}
+.founder-photo-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    display: block;
+    cursor: zoom-in;
+}
+
+/* =========================================
+   CHATBOT — BOUTON BULLE MASQUÉ PAR DÉFAUT
+   ========================================= */
+#chatbase-bubble-button,
+.chatbase-bubble-button { display: none !important; }
+body.chatbot-open #chatbase-bubble-button,
+body.chatbot-open .chatbase-bubble-button { display: flex !important; }
