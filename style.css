@@ -758,7 +758,7 @@ body, html {
 
 /* Fond section ADN */
 body.dark-theme .story-part--dark {
-    background: #1a1a1a !important;
+    background: #0f0f0f !important;
 }
 
 /* 🔥 CARTES (le vrai problème) */
@@ -813,78 +813,10 @@ body.dark-theme .story-logo-img {
 
 
 /* =========================================
-   DARK MODE COMPLET — TOUS LES TEXTES LISIBLES
+   CHATBOT — BOUTON BULBE MASQUÉ PAR DÉFAUT
+   Le widget s'ouvre uniquement via le bouton footer
+   "Besoin d'aide supplémentaire ?"
    ========================================= */
-body.dark-theme { color: #e0e0e0; }
-body.dark-theme p { color: #cccccc !important; }
-body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 { color: #ffffff !important; }
-body.dark-theme .story-part { background: #1a1a1a !important; }
-body.dark-theme .story-part--dark { background: #141414 !important; }
-body.dark-theme .why-section, body.dark-theme #expertises { background: #121212 !important; }
-body.dark-theme .story-block { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .story-block p { color: #cccccc !important; }
-body.dark-theme .story-block h3 { color: #ffffff !important; }
-body.dark-theme .story-block--light { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .story-block--light p { color: #cccccc !important; }
-body.dark-theme .story-block--light h3 { color: #ffffff !important; }
-body.dark-theme .founder-card { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .founder-info h3 { color: var(--accent-blue) !important; }
-body.dark-theme .founder-badge { background: #2a2a2a !important; border-color: #333 !important; color: #ccc !important; }
-body.dark-theme .logo-display-block { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .logo-caption { color: #999 !important; }
-body.dark-theme .cert-mini-block { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .cert-mini-block p { color: #999 !important; }
-body.dark-theme .web-service-card { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .web-service-features li { color: #ccc !important; }
-body.dark-theme .work-item { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .work-desc h4 { color: #fff !important; }
-body.dark-theme .portfolio-section { background: #121212 !important; }
-body.dark-theme #story, body.dark-theme #story-part1, body.dark-theme #story-part2 { background: #1a1a1a !important; }
-body.dark-theme .port-hero-desc { color: rgba(255,255,255,0.65) !important; }
-body.dark-theme .section-title { color: #fff !important; }
-body.dark-theme .why-card { background: #1e1e1e !important; border-color: #2a2a2a !important; }
-body.dark-theme .why-card h3 { color: #fff !important; }
-body.dark-theme .why-card p { color: #ccc !important; }
-body.dark-theme .port-stat { color: #aaa !important; }
-body.dark-theme .story-header .section-title { color: #fff !important; }
-body.dark-theme .cert-year { color: var(--accent-blue) !important; }
-
-/* =========================================
-   CHATBOT — MASQUER L'ICÔNE FLOTTANTE PAR DÉFAUT
-   Visible seulement via le bouton footer
-   ========================================= */
-#chatbase-bubble-button,
-.chatbase-bubble-button,
-[id*="chatbase"] iframe[style*="position: fixed"],
-iframe[src*="chatbase"] { 
-    display: none !important; 
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-/* Quand le chatbot est ouvert par le bouton, on le rend visible */
-body.chatbot-open #chatbase-bubble-button,
-body.chatbot-open .chatbase-bubble-button { 
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: all !important;
-}
-
-/* =========================================
-   PHOTO FONDATEUR
-   ========================================= */
-.founder-avatar {
-    width: 70px; height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--accent-orange);
-    flex-shrink: 0;
-    box-shadow: 0 4px 15px rgba(237,127,16,0.3);
-}
-.founder-photo {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
-    display: block;
-    cursor: zoom-in;
-}
+/* On cache SEULEMENT le bouton bulle flottant, pas le panneau de chat */
+#chatbase-bubble-button { display: none !important; }
+body.chatbot-open #chatbase-bubble-button { display: flex !important; }
