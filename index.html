@@ -426,15 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
     btn.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
 });
-function sendFooterDevis(e) {
-    e.preventDefault();
-    const name = document.getElementById('devis-name').value.trim();
-    const service = document.getElementById('devis-service').value;
-    const budget = document.getElementById('devis-budget').value.trim();
-    if (!name || !service) return;
-    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
-    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
-}
+    
 function subscribeNewsletter() {
     const email = document.getElementById('newsletter-email').value.trim();
     if (!email || !email.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
