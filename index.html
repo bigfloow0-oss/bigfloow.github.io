@@ -98,30 +98,25 @@
         <!-- Rangée 2 : carte Web pleine largeur -->
         <div class="expertise-grid expertise-grid--bottom">
             <a href="portfolio-web.html" class="expertise-card expertise-card--web expertise-card--wide">
-                <div class="web-card-inner">
                     <div class="web-card-left">
                         <div class="new-badge">Nouveau Service</div>
                         <h3><i class="fas fa-globe card-icon"></i> Création de Sites Web</h3>
                         <div class="card-line"></div>
                         <p>Conception de sites vitrines, portfolios et pages web modernes, responsives et optimisés pour booster votre présence digitale en Afrique et dans le monde.</p>
-                    </div>
-                    <div class="web-card-right">
+                        <span class="card-number">05</span>
+                </div>
+            </div>
+        </a>
                         <div class="web-card-tags">
                             <span class="web-tag"><i class="fas fa-mobile-alt"></i> 100% Responsive</span>
                             <span class="web-tag"><i class="fas fa-search"></i> Optimisé SEO</span>
                             <span class="web-tag"><i class="fas fa-bolt"></i> Livraison Rapide</span>
                             <span class="web-tag"><i class="fas fa-palette"></i> Design Sur-Mesure</span>
                         </div>
-                        <a href="https://wa.me/22890498680?text=Bonjour%20BiG%20FlooW%2C%20je%20souhaite%20un%20devis%20site%20web." class="web-card-cta" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-whatsapp"></i> Demander un devis
-                        </a>
                     </div>
                 </div>
-                <span class="card-number">05</span>
-            </a>
-        </div>
-    </div>
-</section>
+            </div>
+         </section>
 
 <!-- ==================== STATS ==================== -->
 <section class="stats-section">
@@ -264,17 +259,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <!-- CARTE FONDATEUR -->
             <div class="founder-card">
-                <div class="founder-avatar">
-                    <img src="image.webp" alt="Victor HALLO — Fondateur BiG FlooW" class="founder-photo">
-                </div>
+                 <div class="founder-avatar">VH</div>
                 <div class="founder-info">
                     <h3>M. Victor HALLO</h3>
                     <p class="founder-title">Fondateur & Directeur Créatif</p>
                     <div class="founder-badges">
-                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Comptabilité Contrôle et Audit</span>
-                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Marketing commercial</span>
-                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Graphisme</span>
-                        <span class="founder-badge"><i class="fas fa-certificate"></i> Certifié TSW INT'L</span>
+                        <span class="founder-badge"><i class="fas fa-graduation-cap"></i> Diplômé Graphisme 2022</span>
                         <span class="founder-badge"><i class="fas fa-certificate"></i> Certifié État Togolais</span>
                     </div>
                 </div>
@@ -357,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="tel:+22897160873" style="color:inherit; text-decoration:none;"><i class="fas fa-phone-alt" style="color: var(--accent-orange);"></i> +228 97 16 08 73</a></li>
                     <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit; text-decoration:none;"><i class="fas fa-envelope" style="color: var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
-                    <a href="https://wa.me/22890498680" target="_blank" rel="noopener noreferrer" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
+                    <a href="https://wa.me/..." target="_blank" rel="noopener noreferrer" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
                     <li style="margin-top:10px;">
                         <button onclick="toggleChatbot()" class="footer-help-btn">
                             <i class="fas fa-robot"></i> Besoin d'aide supplémentaire ?
@@ -426,7 +416,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
     btn.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
 });
-    
+function sendFooterDevis(e) {
+    e.preventDefault();
+    const name = document.getElementById('devis-name').value.trim();
+    const service = document.getElementById('devis-service').value;
+    const budget = document.getElementById('devis-budget').value.trim();
+    if (!name || !service) return;
+    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
+    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
+}
 function subscribeNewsletter() {
     const email = document.getElementById('newsletter-email').value.trim();
     if (!email || !email.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
@@ -438,19 +436,55 @@ function subscribeNewsletter() {
 
 <script>
 function toggleChatbot() {
-    document.body.classList.add('chatbot-open');
-    // Show bubble and open
-    const iframes = document.querySelectorAll('iframe[src*="chatbase"], #chatbase-bubble-button, .chatbase-bubble-button');
-    iframes.forEach(el => {
-        el.style.cssText = 'display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:all!important;';
-    });
-    setTimeout(() => {
-        if (window.chatbase) window.chatbase('open');
-    }, 200);
+    // Strategy: use chatbase API if available, otherwise inject and open
+    if (window.chatbase && typeof window.chatbase === 'function') {
+        try {
+            const state = window.chatbase('getState');
+            // Re-enable the bubble button visually
+            document.querySelectorAll(
+                '#chatbase-bubble-button, .chatbase-bubble-button, [class*="chatbase"]'
+            ).forEach(el => {
+                el.style.removeProperty('display');
+                el.style.removeProperty('visibility');
+                el.style.removeProperty('opacity');
+                el.style.removeProperty('pointer-events');
+                el.removeAttribute('hidden');
+            });
+            window.chatbase('open');
+        } catch(e) {
+            console.log('Chatbase not ready, retrying...', e);
+            setTimeout(toggleChatbot, 500);
+        }
+    } else {
+        // Not loaded yet — wait and retry
+        setTimeout(toggleChatbot, 500);
+    }
 }
 </script>
 
-<script>(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="lamcS_rk7GxldSZ8_1qHN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();</script>
+<script>
+// Chatbase — chargé en différé, widget fermé par défaut
+window.chatbaseConfig = {
+    chatbotId: "lamcS_rk7GxldSZ8_1qHN",
+    defaultOpen: false,   // Widget fermé au chargement
+    hideButton: true,     // Bouton bulbe masqué par défaut
+};
+
+(function(){
+    if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+        window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+        window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}
+    const onLoad=function(){
+        const script=document.createElement("script");
+        script.src="https://www.chatbase.co/embed.min.js";
+        script.id="lamcS_rk7GxldSZ8_1qHN";
+        script.domain="www.chatbase.co";
+        document.body.appendChild(script);
+    };
+    if(document.readyState==="complete"){onLoad();}else{window.addEventListener("load",onLoad);}
+})();
+</script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
