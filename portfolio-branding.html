@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-    /* ── Entête page portfolio (GARDÉ) ── */
+    /* ── Entête page portfolio ── */
     .port-hero {
         height: 55vh; min-height: 300px;
         position: relative;
         display: flex; align-items: flex-end; justify-content: flex-start;
         overflow: hidden;
-        padding-top: 70px; /* nav height */
+        padding-top: 70px;
     }
     .port-hero-bg {
         position: absolute; inset: 0;
@@ -32,7 +32,7 @@
     }
     .port-hero-content {
         position: relative; z-index: 2;
-        padding: 0 8% 50px; /* Aligné avec la grille */
+        padding: 0 8% 50px;
         width: 100%;
     }
     .port-hero-label {
@@ -57,11 +57,11 @@
     }
     .port-tricolor { height: 5px; background: linear-gradient(to right,#000 33%,#ED7F10 33% 66%,#007FFF 66%); }
 
-    /* ── Barre retour + stats (GARDÉ) ── */
+    /* ── Barre retour + stats ── */
     .port-toolbar {
         display: flex; align-items: center; justify-content: space-between;
         flex-wrap: wrap; gap: 15px;
-        padding: 25px 8% 0; /* Aligné avec la grille */
+        padding: 25px 8% 0;
         max-width: 1300px; margin: 0 auto;
     }
     .back-pill {
@@ -79,7 +79,7 @@
     }
     .port-stat i { color: var(--accent-blue); }
 
-    /* ── Section Stratégie de Marque (NOUVEAU) ── */
+    /* ── Section Stratégie ── */
     .branding-strategy {
         padding: 80px 8%;
         max-width: 1300px; margin: 0 auto;
@@ -100,7 +100,7 @@
     }
     .strategy-visual img { width: 100%; border-radius: 8px; display: block;}
 
-    /* ── Grille Portfolio Uniforme (GARDÉ) ── */
+    /* ── Grille Portfolio ── */
     .portfolio-section { padding: 40px 0 100px; }
     .portfolio-grid-new {
         display: grid;
@@ -110,7 +110,7 @@
         max-width: 1300px; margin: 0 auto;
     }
 
-    /* ── Carte work-item (DESIGN SIGNATURE) ── */
+    /* ── Carte work-item ── */
     .work-item {
         background: white; border-radius: 10px;
         overflow: hidden; position: relative;
@@ -133,7 +133,6 @@
     }
     .work-item:hover .work-image img { transform: scale(1.1); }
 
-    /* Barre tricolore signature */
     .work-image::after {
         content: ''; position: absolute; bottom: 0; left: 0;
         width: 100%; height: 5px; z-index: 5;
@@ -160,7 +159,6 @@
     }
     .work-cta:hover { color: var(--accent-blue); gap: 12px; }
 
-    /* CTA bas de page (GARDÉ) ── */
     .port-cta-band {
         background: linear-gradient(135deg, #001020, #000000);
         padding: 80px 8%; text-align: center;
@@ -182,24 +180,29 @@
     }
     .port-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 45px rgba(37,211,102,0.4); }
 
-    /* Dark theme (GARDÉ + AJUSTÉ) ── */
     body.dark-theme .work-item { background: #1a1a1a; border-color: #2a2a2a; }
     body.dark-theme .work-desc h4 { color: #fff; }
     body.dark-theme .strategy-text h2 { color: #fff; }
     body.dark-theme .branding-strategy { background: #121212; }
     body.dark-theme .strategy-visual { background: #1a1a1a; border-color: #2a2a2a; }
 
-    /* Responsive ── */
+    /* Lightbox Styles */
+    .lightbox {
+        display: none; position: fixed; z-index: 9999; inset: 0;
+        background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
+        flex-direction: column; padding: 20px;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content-wrapper { max-width: 90%; max-height: 80vh; position: relative; }
+    .lightbox-content { width: 100%; height: auto; border-radius: 4px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
+    .lightbox-close { position: absolute; top: -40px; right: 0; color: white; font-size: 35px; cursor: pointer; }
+    #lightbox-caption { color: white; margin-top: 20px; font-family: 'Montserrat'; font-weight: 600; text-align: center; }
+
     @media (max-width: 992px) {
         .branding-strategy { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%;}
         .portfolio-grid-new { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); padding: 0 5%;}
         .port-toolbar { padding: 20px 5% 0; }
         .port-hero-content { padding: 0 5% 40px; }
-    }
-    @media (max-width: 768px) {
-        .port-hero { height: 48vh; }
-        .port-hero-content h1 { font-size: 2.2rem; letter-spacing: 2px; }
-        .strategy-text h2 { font-size: 1.8rem; }
     }
     </style>
 </head>
@@ -242,60 +245,62 @@
     <div class="strategy-text">
         <h2>La Stratégie derrière le <span>Design</span></h2>
         <p>Pour BiG FlooW, le branding n'est pas une question de décoration, c'est une question de perception. Nous nous positionnons comme l'agence de design premium à Lomé, dédiée aux entrepreneurs ambitieux.</p>
-        <p>Notre ADN repose sur une dualité forte : la créativité visionnaire (le Créateur) et la rigueur stratégique (l'Expert). Chaque pixel, chaque couleur, chaque choix typographique est pensé pour incarner cette promesse : transformer votre vision en une marque forte, cohérente et percutante qui génère de la valeur.</p>
+        <p>Notre ADN repose sur une dualité forte : la créativité visionnaire (le Créateur) et la rigueur stratégique (l'Expert). Chaque pixel, chaque couleur, chaque choix typographique est pensé pour incarner cette promesse.</p>
     </div>
     <div class="strategy-visual">
-        <img src="image_branding_2.webp" alt="Schéma stratégique du branding BiG FlooW">
+        <!-- Correction : Utilisation du nom d'image direct -->
+        <img src="image_branding_2.webp" alt="Schéma stratégique BiG FlooW">
     </div>
 </section>
 
 <section class="portfolio-section" id="identite">
     <div class="portfolio-grid-new">
         
+        <!-- Toutes les src d'images ont été synchronisées avec les noms fonctionnels -->
         <div class="work-item" onclick="openLightbox('image_branding_3.webp', 'Le Logo : Innovation et Dualité')">
             <div class="work-image">
-                <img src="images/branding/logo-branding-bigfloow.webp" alt="Analyse du logo BiG FlooW" loading="lazy">
+                <img src="image_branding_3.webp" alt="Analyse du logo BiG FlooW">
             </div>
             <div class="work-desc">
                 <div class="work-meta"><span class="category">Fondation</span></div>
                 <h4>Le Logo : L'Architecture Visuelle</h4>
-                <p>Analyse de notre logo : une typographie forte et intemporelle pour la stabilité, combinée à une touche de couleur vive pour l'innovation et la créativité.</p>
+                <p>Analyse de notre logo : une typographie forte et intemporelle pour la stabilité, combinée à une touche de couleur vive pour l'innovation.</p>
                 <span class="work-cta">Analyser le logo <i class="fas fa-search-plus"></i></span>
             </div>
         </div>
 
-        <div class="work-item" onclick="openLightbox('image_branding_4.webp', 'La Palette de Couleurs : Stratégie et Émotion')">
+        <div class="work-item" onclick="openLightbox('image_branding_4.webp', 'La Palette Signature : Bleu, Orange, Noir')">
             <div class="work-image">
-                <img src="images/branding/palette-branding-bigfloow.webp" alt="Palette de couleurs stratégique BiG FlooW" loading="lazy">
+                <img src="image_branding_4.webp" alt="Palette de couleurs BiG FlooW">
             </div>
             <div class="work-desc">
                 <div class="work-meta"><span class="category">Psychologie</span></div>
                 <h4>La Palette Signature : Bleu, Orange, Noir</h4>
-                <p>Pourquoi ce choix ? Le Bleu pour la confiance et la technologie, l'Orange pour l'énergie et la créativité, le Noir pour le luxe et le professionnalisme.</p>
+                <p>Le Bleu pour la confiance, l'Orange pour l'énergie créative, et le Noir pour le luxe et le professionnalisme rigoureux.</p>
                 <span class="work-cta">Découvrir la palette <i class="fas fa-search-plus"></i></span>
             </div>
         </div>
 
-        <div class="work-item" onclick="openLightbox('image_branding_5.webp', 'La Typographie : Clarté et Modernité')">
+        <div class="work-item" onclick="openLightbox('image_branding_5.webp', 'Le Choix Typographique : Montserrat & Poppins')">
             <div class="work-image">
-                <img src="images/branding/typographie-branding-bigfloow.webp" alt="Choix typographique stratégique BiG FlooW" loading="lazy">
+                <img src="image_branding_5.webp" alt="Typographie BiG FlooW">
             </div>
             <div class="work-desc">
                 <div class="work-meta"><span class="category">Structure</span></div>
                 <h4>Le Choix Typographique : Montserrat & Poppins</h4>
-                <p>Notre binôme de police : Montserrat pour les titres (impact, modernité) et Poppins pour le corps de texte (clarté, élégance).</p>
+                <p>Notre binôme de polices : Montserrat pour l'impact et la modernité, Poppins pour une lisibilité élégante et claire.</p>
                 <span class="work-cta">Étudier la typo <i class="fas fa-search-plus"></i></span>
             </div>
         </div>
 
-        <div class="work-item" onclick="openLightbox('image_branding_6.webp', 'Applications de la marque : Cohérence Premium')">
+        <div class="work-item" onclick="openLightbox('image_branding_6.webp', 'Applications : Du Digital au Physique')">
             <div class="work-image">
-                <img src="images/branding/mockup-branding-bigfloow.webp" alt="Mockup papeterie premium BiG FlooW" loading="lazy">
+                <img src="image_branding_6.webp" alt="Mockup Papeterie BiG FlooW">
             </div>
             <div class="work-desc">
                 <div class="work-meta"><span class="category">Cohérence</span></div>
                 <h4>Applications : Du Digital au Physique</h4>
-                <p>Comment notre marque prend vie sur différents supports : cartes de visite, en-têtes, réseaux sociaux, garantissant une expérience premium unifiée.</p>
+                <p>Déclinaisons sur supports réels : cartes de visite, papeterie et interfaces mobiles pour une expérience de marque premium.</p>
                 <span class="work-cta">Voir les applications <i class="fas fa-search-plus"></i></span>
             </div>
         </div>
@@ -305,76 +310,10 @@
 
 <div class="port-cta-band" id="appel-action">
     <h3>Prêt à construire une marque forte ? <span>Travaillons ensemble.</span></h3>
-    <p>Ne laissez pas votre identité au hasard. Confiez-la aux experts de BiG FlooW à Lomé.</p>
-    <a href="https://wa.me/22890498680?text=Bonjour BiG FlooW 👋, je souhaite discuter du branding de mon entreprise." class="port-cta-btn" target="_blank">
+    <a href="https://wa.me/22890498680" class="port-cta-btn" target="_blank">
         <i class="fab fa-whatsapp"></i> Obtenir un diagnostic gratuit
     </a>
 </div>
-
-<footer class="main-footer" id="contact">
-    <div class="container">
-        <div class="footer-container">
-            <div class="footer-col branding">
-                <div class="brand" style="color:white;margin-bottom:20px;">BiG <span class="floo">Floo</span><span class="w">W</span></div>
-                <p>Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.</p>
-                <div class="social-links" style="margin-top:20px;">
-                    <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
-                    <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="footer-quality-badge"><i class="fas fa-medal"></i><span>Design Certifié · Togo · 2022</span></div>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-chevron-right footer-link-icon"></i> Accueil</a></li>
-                    <li><a href="portfolio.html"><i class="fas fa-chevron-right footer-link-icon"></i> Graphisme</a></li>
-                    <li><a href="portfolio-3d.html"><i class="fas fa-chevron-right footer-link-icon"></i> Modélisation 3D</a></li>
-                    <li><a href="portfolio-branding.html"><i class="fas fa-chevron-right footer-link-icon"></i> Branding</a></li>
-                    <li><a href="portfolio-contenus.html"><i class="fas fa-chevron-right footer-link-icon"></i> Contenus</a></li>
-                    <li><a href="portfolio-web.html"><i class="fas fa-chevron-right footer-link-icon"></i> Création Web <span class="footer-new-tag">Nouveau</span></a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="tel:+22890498680" style="color:inherit;text-decoration:none;"><i class="fas fa-phone-alt" style="color:var(--accent-orange);"></i> +228 90 49 86 80</a></li>
-                    <li><a href="tel:+22897160873" style="color:inherit;text-decoration:none;"><i class="fas fa-phone-alt" style="color:var(--accent-orange);"></i> +228 97 16 08 73</a></li>
-                    <li><a href="mailto:bigfloow0@gmail.com" style="color:inherit;text-decoration:none;"><i class="fas fa-envelope" style="color:var(--accent-orange);"></i> bigfloow0@gmail.com</a></li>
-                    <li><i class="fas fa-map-marker-alt" style="color:var(--accent-orange);"></i> Bd de la Kara, Lomé</li>
-                    <li><a href="https://wa.me/22890498680" target="_blank" class="footer-whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a></li>
-                </ul>
-            </div>
-            <div class="footer-col footer-col--devis">
-                <h4>Devis Rapide</h4>
-                <p class="footer-devis-intro">Un projet en tête ? Dites-nous en plus :</p>
-                <form class="footer-devis-form" onsubmit="sendFooterDevis(event)">
-                    <input type="text" id="devis-name" placeholder="Votre nom" required>
-                    <select id="devis-service">
-                        <option value="" disabled selected>Type de service</option>
-                        <option>Graphisme / Logo</option>
-                        <option>Modélisation 3D</option>
-                        <option>Branding complet</option>
-                        <option>Création de site internet</option>
-                        <option>Contenu vidéo</option>
-                        <option>Autre</option>
-                    </select>
-                    <input type="text" id="devis-budget" placeholder="Budget estimé (FCFA)">
-                    <button type="submit" class="footer-devis-btn"><i class="fab fa-whatsapp"></i> Envoyer via WhatsApp</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div style="height:4px;background:linear-gradient(to right,#000 33%,#ED7F10 33% 66%,#007FFF 66%);"></div>
-        <div class="footer-bottom-inner">
-            <p style="font-size:0.8rem;color:#666;">© 2026 <span style="color:#ED7F10;">BiG FlooW</span> – Tous droits réservés. Design par Victor HALLO.</p>
-            <div class="footer-bottom-links"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div>
-        </div>
-    </div>
-</footer>
 
 <div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLightbox()">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
@@ -385,51 +324,26 @@
 </div>
 
 <script>
-// ==========================================
-// THÈME SOMBRE (GARDÉ ET SIMPLIFIÉ)
-// ==========================================
+// Thème sombre
 const themeToggle = document.getElementById('theme-toggle');
-function updateIcon(d){if(!themeToggle)return;const i=themeToggle.querySelector('i');if(d)i.classList.replace('fa-moon','fa-sun');else i.classList.replace('fa-sun','fa-moon');}
-const st=localStorage.getItem('bigfloow-theme');
-if(st==='dark'){document.body.classList.add('dark-theme');updateIcon(true);}
-if(themeToggle){themeToggle.addEventListener('click',()=>{const d=document.body.classList.toggle('dark-theme');localStorage.setItem('bigfloow-theme',d?'dark':'light');updateIcon(d);});}
-
-// ==========================================
-// UTILS & EVENTS
-// ==========================================
-function sendFooterDevis(e){
-    e.preventDefault();
-    const n=document.getElementById('devis-name').value.trim(),s=document.getElementById('devis-service').value,bgt=document.getElementById('devis-budget').value.trim();
-    if(!n||!s)return;
-    const msg='Bonjour BiG FlooW\u{1F44B}\n\nJe souhaite un devis pour :\n- Nom : '+n+'\n- Service : '+s+(bgt?'\n- Budget : '+bgt+' FCFA':'')+' \n\nMerci !';
-    window.open('https://wa.me/22890498680?text='+encodeURIComponent(msg),'_blank');
-}
-function subscribeNewsletter(){
-    const e=document.getElementById('newsletter-email').value.trim();
-    if(!e||!e.includes('@')){alert('Email invalide');return;}
-    window.open('https://wa.me/22890498680?text='+encodeURIComponent('Newsletter : '+e),'_blank');
-    document.getElementById('newsletter-email').value='';
+if(themeToggle){
+    themeToggle.addEventListener('click',()=>{
+        document.body.classList.toggle('dark-theme');
+    });
 }
 
-// ==========================================
-// LIGHTBOX (GARDÉ ET OPTIMISÉ POUR LE TEXTE)
-// ==========================================
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lightbox-img');
-const lbCap = document.getElementById('lightbox-caption');
-
+// Lightbox
 function openLightbox(src, cap){
-    lbImg.src = src;
-    lbCap.textContent = cap || 'Création BiG FlooW';
-    lb.classList.add('active');
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-caption').textContent = cap;
+    document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 function closeLightbox(){
-    lb.classList.remove('active');
+    document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
-
 </script>
 
 </body>
