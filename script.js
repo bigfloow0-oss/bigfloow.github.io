@@ -164,10 +164,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // ---------- THEME TOGGLE ----------
+    // =========================================
+    // THEME TOGGLE CORRIGÉ - MODE SOMBRE
+    // =========================================
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-    
+
     function updateIcon(isDark) {
         if (!themeToggle) return;
         const icon = themeToggle.querySelector('i');
@@ -180,23 +182,46 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.classList.add('fa-moon');
         }
     }
-    
-    const currentTheme = localStorage.getItem('bigfloow-theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-theme');
-        updateIcon(true);
-    } else if (currentTheme === 'light') {
-        body.classList.remove('dark-theme');
-        updateIcon(false);
+
+    // Vérifier le thème sauvegardé
+    const savedTheme = localStorage.getItem('bigfloow-theme');
+
+    // Appliquer le thème
+    function applyTheme(isDark) {
+        if (isDark) {
+            body.classList.add('dark-theme');
+        } else {
+            body.classList.remove('dark-theme');
+        }
+        updateIcon(isDark);
+        localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
     }
-    
+
+    // Charger le thème au démarrage
+    if (savedTheme === 'dark') {
+        applyTheme(true);
+    } else if (savedTheme === 'light') {
+        applyTheme(false);
+    } else {
+        // Détecter les préférences système
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark);
+    }
+
+    // Écouter le clic sur le bouton
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
-            const isDark = body.classList.toggle('dark-theme');
-            localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
-            updateIcon(isDark);
+            const isDark = !body.classList.contains('dark-theme');
+            applyTheme(isDark);
         });
     }
+
+    // Écouter les changements de thème système
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('bigfloow-theme')) {
+            applyTheme(e.matches);
+        }
+    });
 
     // ---------- STATS COUNTER ----------
     const stats = document.querySelectorAll('.stat-number');
