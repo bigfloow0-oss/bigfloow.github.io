@@ -11,9 +11,267 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- AMÉLIORATIONS BiG FlooW - CSS supplémentaires -->
+<style>
+/* =========================================
+   PRELOADER
+   ========================================= */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+body.dark-theme .preloader { background: #121212; }
+.preloader.hide { opacity: 0; visibility: hidden; }
+.loader {
+    width: 80px;
+    height: 80px;
+    border: 4px solid #f0f0f0;
+    border-top: 4px solid #007FFF;
+    border-right: 4px solid #ED7F10;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loader-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #ED7F10;
+    margin-top: 100px;
+}
+
+/* =========================================
+   SCROLL PROGRESS BAR
+   ========================================= */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(to right, #007FFF, #ED7F10);
+    z-index: 10001;
+    transition: width 0.1s ease;
+}
+
+/* =========================================
+   BACK TO TOP BUTTON
+   ========================================= */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #007FFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,127,255,0.3);
+    border: none;
+    font-size: 1.2rem;
+}
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    background: #ED7F10;
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   MOBILE MENU HAMBURGER
+   ========================================= */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--dark-grey);
+    transition: var(--transition);
+}
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        transition: left 0.4s ease;
+        z-index: 998;
+        gap: 20px;
+    }
+    body.dark-theme .nav-links {
+        background: rgba(18,18,18,0.98);
+    }
+    .nav-links.active { left: 0; }
+    .nav-links li { margin: 15px 0; }
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 997;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* =========================================
+   REVEAL ANIMATIONS
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   RIPPLE EFFECT
+   ========================================= */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+.ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* =========================================
+   TOOLTIP CUSTOM
+   ========================================= */
+.tooltip {
+    position: relative;
+}
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+    z-index: 1000;
+}
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+body.dark-theme .tooltip::before {
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+/* =========================================
+   TOAST NOTIFICATION
+   ========================================= */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #007FFF;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.toast-notification.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+</style>
 </head>
 <body>
 
+    <!-- PRELOADER - À METTRE ICI TOUT DE SUITE APRÈS <body> -->
+<div class="preloader" id="preloader">
+    <div class="loader"></div>
+    <div class="loader-text">BiG FlooW</div>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- BACK TO TOP BUTTON -->
+<button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast-notification" id="toastNotification">
+    <i class="fas fa-check-circle"></i> Message envoyé avec succès !
+</div>
+
+<!-- Le reste de votre contenu... -->
+    
 <!-- STICKERS DESIGN EN ARRIÈRE-PLAN -->
 <div class="bg-stickers" aria-hidden="true">
     <i class="fas fa-pen-nib sticker s1"></i>
@@ -34,14 +292,17 @@
 
 <nav class="navbar">
     <div class="brand">BiG <span class="floo">Floo</span><span class="w">W</span></div>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
         <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="portfolio.html">Graphisme</a></li>
         <li><a href="portfolio-3d.html">3D</a></li>
         <li><a href="portfolio-branding.html">Branding</a></li>
         <li><a href="portfolio-web.html">Web</a></li>
-        <li><a href="#contact" class="btn-contact">Contact</a></li>
+        <li><a href="#contact" class="btn-contact ripple">Contact</a></li>
     </ul>
 </nav>
 
@@ -63,7 +324,7 @@
 <main>
 
 <!-- ==================== EXPERTISES ==================== -->
-<section id="expertises" class="section-padding">
+<section id="expertises" class="section-padding reveal">
     <div class="container">
         <h2 class="section-title">Nos <span class="blue-text">Expertises</span></h2>
 
@@ -119,7 +380,7 @@
          </section>
 
 <!-- ==================== STATS ==================== -->
-<section class="stats-section">
+<section class="stats-section reveal">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
@@ -149,81 +410,8 @@
 <div class="custom-cursor"></div>
 <div class="cursor-dot"></div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    function updateIcon(isDark) {
-        if (!themeToggle) return;
-        const icon = themeToggle.querySelector('i');
-        if (!icon) return;
-
-        if (isDark) icon.classList.replace('fa-moon', 'fa-sun');
-        else icon.classList.replace('fa-sun', 'fa-moon');
-    }
-
-    const currentTheme = localStorage.getItem('bigfloow-theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-theme');
-        updateIcon(true);
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.classList.toggle('dark-theme');
-            localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
-            updateIcon(isDark);
-        });
-    }
-
-    const cursor = document.querySelector('.custom-cursor');
-    const dot = document.querySelector('.cursor-dot');
-
-    document.addEventListener('mousemove', (e) => {
-        if (cursor && dot) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            dot.style.left = e.clientX + 'px';
-            dot.style.top = e.clientY + 'px';
-        }
-    });
-
-    const stats = document.querySelectorAll('.stat-number');
-
-    if (stats.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = +entry.target.getAttribute('data-target');
-                    let count = 0;
-
-                    const updateCount = () => {
-                        const speed = target / 50;
-                        if (count < target) {
-                            count += speed;
-                            entry.target.innerText = Math.ceil(count) + "+";
-                            requestAnimationFrame(updateCount);
-                        } else {
-                            entry.target.innerText = target + "+";
-                        }
-                    };
-
-                    updateCount();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        stats.forEach(s => observer.observe(s));
-    }
-
-});
-</script>
-
 <!-- ==================== STORY PARTIE 1 : ORIGINE & MISSION ==================== -->
-<section id="story-part1" class="section-padding story-part">
+<section id="story-part1" class="section-padding story-part reveal">
     <div class="container">
         <div class="story-header">
             <span class="story-label">Notre Histoire</span>
@@ -249,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- ==================== STORY PARTIE 2 : PARCOURS & FONDATEUR ==================== -->
-<section id="story-part2" class="section-padding story-part story-part--dark">
+<section id="story-part2" class="section-padding story-part story-part--dark reveal">
     <div class="container">
         <div class="story-header">
             <span class="story-label story-label--light">Notre ADN</span>
@@ -322,12 +510,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="brand" style="color:white; margin-bottom: 20px;">BiG <span class="floo">Floo</span><span class="w">W</span></div>
                 <p>Nous transformons vos visions en réalités visuelles percutantes depuis Lomé.</p>
                 <div class="social-links" style="margin-top: 20px;">
-                    <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
-                    <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                   <a href="https://www.facebook.com/profile.php?id=61553550453900" target="_blank" class="social-icon facebook tooltip" data-tooltip="Facebook"><i class="fab fa-facebook-f"></i></a>
+                   <a href="https://www.instagram.com/bigfloow0/" target="_blank" class="social-icon instagram tooltip" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
+                   <a href="https://www.tiktok.com/@big.floow" target="_blank" class="social-icon tiktok tooltip" data-tooltip="TikTok"><i class="fab fa-tiktok"></i></a>
+                   <a href="http://www.youtube.com/@BiGFlooWlyrics" target="_blank" class="social-icon youtube tooltip" data-tooltip="YouTube"><i class="fab fa-youtube"></i></a>
+                   <a href="https://www.linkedin.com/company/big-floow/" target="_blank" class="social-icon linkedin tooltip" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
                 <div class="footer-quality-badge">
                     <i class="fas fa-medal"></i>
                     <span>Design Certifié · Togo · 2022</span>
@@ -412,32 +600,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <button id="accept-cookie" class="cookie-btn">Accepter</button>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const banner = document.getElementById('cookie-banner');
-    const btn = document.getElementById('accept-cookie');
-    if (!localStorage.getItem('bigfloow_cookies')) { banner.style.display = 'block'; }
-    btn.addEventListener('click', function() { localStorage.setItem('bigfloow_cookies', 'true'); banner.style.display = 'none'; });
-});
-function sendFooterDevis(e) {
-    e.preventDefault();
-    const name = document.getElementById('devis-name').value.trim();
-    const service = document.getElementById('devis-service').value;
-    const budget = document.getElementById('devis-budget').value.trim();
-    if (!name || !service) return;
-    const msg = `Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ${name}\n- Service : ${service}${budget ? '\n- Budget estimé : ' + budget + ' FCFA' : ''}\n\nMerci !`;
-    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
-}
-function subscribeNewsletter() {
-    const email = document.getElementById('newsletter-email').value.trim();
-    if (!email || !email.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
-    const msg = `Bonjour BiG FlooW,\nJe souhaite m'inscrire à la newsletter avec l'email : ${email}`;
-    window.open(`https://wa.me/22890498680?text=${encodeURIComponent(msg)}`, '_blank');
-    document.getElementById('newsletter-email').value = '';
-}
-</script>
-
+    
 <script>
 function toggleChatbot() {
     // Strategy: use chatbase API if available, otherwise inject and open
@@ -520,6 +683,245 @@ document.addEventListener('DOMContentLoaded', () => {
 <style>
 .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001; }
 </style>
+
+    <script>
+// =========================================
+// AMÉLIORATIONS BiG FlooW - JavaScript
+// =========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ---------- PRELOADER ----------
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                preloader.classList.add('hide');
+            }, 800);
+        });
+    }
+
+    // ---------- SCROLL PROGRESS BAR ----------
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+    }
+
+    // ---------- BACK TO TOP ----------
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ---------- MOBILE MENU ----------
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+        if (navLinks && navOverlay) {
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+    if (navOverlay) {
+        navOverlay.addEventListener('click', toggleMenu);
+    }
+    
+    const menuLinks = document.querySelectorAll('.nav-links a');
+    menuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (navLinks && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // ---------- REVEAL ANIMATIONS ----------
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(function(el) {
+            revealObserver.observe(el);
+        });
+    }
+
+    // ---------- NAVBAR SCROLL EFFECT ----------
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // ---------- TOAST NOTIFICATION ----------
+    function showToast(message, isSuccess = true) {
+        const toast = document.getElementById('toastNotification');
+        if (toast) {
+            toast.innerHTML = '<i class="fas ' + (isSuccess ? 'fa-check-circle' : 'fa-exclamation-circle') + '"></i> ' + message;
+            toast.classList.add('show');
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    }
+
+    window.showToast = showToast;
+
+    // ---------- NEWSLETTER AMÉLIORÉE ----------
+    window.subscribeNewsletter = function() {
+        const email = document.getElementById('newsletter-email');
+        if (email) {
+            const emailValue = email.value.trim();
+            if (!emailValue || !emailValue.includes('@')) {
+                showToast('Veuillez entrer une adresse email valide.', false);
+                return;
+            }
+            const msg = 'Bonjour BiG FlooW,\nJe souhaite m\'inscrire à la newsletter avec l\'email : ' + emailValue;
+            window.open('https://wa.me/22890498680?text=' + encodeURIComponent(msg), '_blank');
+            email.value = '';
+            showToast('Demande d\'inscription envoyée !');
+        }
+    };
+
+    // ---------- DEVIS FORM AMÉLIORÉ ----------
+    window.sendFooterDevis = function(e) {
+        if (e) e.preventDefault();
+        const name = document.getElementById('devis-name');
+        const service = document.getElementById('devis-service');
+        const budget = document.getElementById('devis-budget');
+        
+        if (name && service) {
+            const nameValue = name.value.trim();
+            const serviceValue = service.value;
+            const budgetValue = budget ? budget.value.trim() : '';
+            
+            if (!nameValue || !serviceValue) {
+                showToast('Veuillez remplir votre nom et le type de service.', false);
+                return;
+            }
+            
+            let msg = 'Bonjour BiG FlooW 👋\n\nJe souhaite un devis pour :\n- Nom : ' + nameValue + '\n- Service : ' + serviceValue;
+            if (budgetValue) msg += '\n- Budget estimé : ' + budgetValue + ' FCFA';
+            msg += '\n\nMerci !';
+            
+            window.open('https://wa.me/22890498680?text=' + encodeURIComponent(msg), '_blank');
+            showToast('Demande de devis envoyée !');
+            
+            name.value = '';
+            if (service) service.value = '';
+            if (budget) budget.value = '';
+        }
+    };
+
+    // ---------- THEME TOGGLE ----------
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    function updateIcon(isDark) {
+        if (!themeToggle) return;
+        const icon = themeToggle.querySelector('i');
+        if (!icon) return;
+        if (isDark) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    }
+    
+    const currentTheme = localStorage.getItem('bigfloow-theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-theme');
+        updateIcon(true);
+    }
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const isDark = body.classList.toggle('dark-theme');
+            localStorage.setItem('bigfloow-theme', isDark ? 'dark' : 'light');
+            updateIcon(isDark);
+        });
+    }
+
+    // ---------- STATS COUNTER ----------
+    const stats = document.querySelectorAll('.stat-number');
+    if (stats.length > 0) {
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    let count = 0;
+                    function updateCount() {
+                        const speed = target / 50;
+                        if (count < target) {
+                            count += speed;
+                            entry.target.innerText = Math.ceil(count) + '+';
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            entry.target.innerText = target + '+';
+                        }
+                    }
+                    updateCount();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        stats.forEach(function(s) {
+            statsObserver.observe(s);
+        });
+    }
+
+    // ---------- COOKIE BANNER ----------
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookie = document.getElementById('accept-cookie');
+    if (cookieBanner && !localStorage.getItem('bigfloow_cookies')) {
+        cookieBanner.style.display = 'block';
+    }
+    if (acceptCookie) {
+        acceptCookie.addEventListener('click', function() {
+            localStorage.setItem('bigfloow_cookies', 'true');
+            if (cookieBanner) cookieBanner.style.display = 'none';
+            showToast('Cookies acceptés !', true);
+        });
+    }
+
+});
+</script>
+
+    <!-- Vos autres scripts -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
